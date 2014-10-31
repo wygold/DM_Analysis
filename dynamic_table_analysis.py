@@ -61,7 +61,7 @@ if __name__ == "__main__":
     output_directory=('D:\Dropbox\Project\DM_Analysis\Output\\')
     connectionString = ConnectDB.loadMXDBSourcefile('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
 
-    sqlfile = open('D:\Dropbox\Project\DM_Analysis\SQLs\qurey_dm_config.txt', 'r')
+    sqlfile = open('D:\Dropbox\Project\DM_Analysis\SQLs\qurey_dm_config.txt', 'r+')
 
     generate_raw_file(connectionString,sqlfile,input_directory)
 
