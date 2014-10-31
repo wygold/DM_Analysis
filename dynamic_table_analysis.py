@@ -6,7 +6,7 @@ import ConnectDB
 import string
 import xlrd
 from xlwt import *
-
+import ConfigParser
 
 def generate_raw_file(connectionString,sqlfile, input_directory):
     sqlString = []
@@ -39,15 +39,15 @@ def read_raw_file(input_directory) :
         print fields[26]+'   '+fields[27]+'   '+fields[28]+'   '
 
 # Total number of dynamic tables fields for each dynamic table. If more than 100, list out as red, if it is more than 50
-def check_total_dynamic_table_field_number(input_directory) :
+def check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fields) :
     raw_file= open(input_directory+'\source.csv', 'r')
-    result=[['Number of Dynamic table fields that exceeds 100']]
+    result=[['Number of Dynamic table fields that exceeds '+str(max_dynamic_number_fields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
 
-        if fields[29].strip()<>'' and int(fields[29])>100 :
+        if fields[29].strip()<>'' and int(fields[29])> max_dynamic_number_fields :
         #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
@@ -56,15 +56,15 @@ def check_total_dynamic_table_field_number(input_directory) :
     return result
 
 #	2. Number of horizontal fields. List more than 10 horizontal fields
-def check_total_dynamic_table_horizontal_field_number(input_directory) :
+def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_hnumber_fields) :
     raw_file= open(input_directory+'\source.csv', 'r')
-    result=[['Number of Dynamic table horizontal fields that exceeds 10']]
+    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_hnumber_fields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
 
-        if fields[30].strip()<>'' and int(fields[30])>10 :
+        if fields[30].strip()<>'' and int(fields[30])>max_dynamic_hnumber_fields :
         #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[30].strip()])
@@ -130,6 +130,11 @@ def write_to_output_file(result, output_directory, work_book, work_sheet_name):
 
 if __name__ == "__main__":
 
+    config = ConfigParser.RawConfigParser()
+    config.read('D:\Dropbox\Project\DM_Analysis\Properties\\parameters.txt')
+    max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
+    max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
+
     mxDbsourcefile=('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
     input_directory=('D:\Dropbox\Project\DM_Analysis\Input\\')
     output_directory=('D:\Dropbox\Project\DM_Analysis\Output\\')
@@ -141,11 +146,11 @@ if __name__ == "__main__":
 
     work_book = Workbook()
 
-    result=check_total_dynamic_table_field_number(input_directory)
+    result=check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fields)
     work_sheet_name='Field_Check'
     work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
 
-    result=check_total_dynamic_table_horizontal_field_number(input_directory)
+    result=check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
     work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
 
