@@ -38,6 +38,7 @@ def read_raw_file(input_directory) :
         fields = line.split(' | ')
         print fields[26]+'   '+fields[27]+'   '+fields[28]+'   '
 
+# Total number of dynamic tables fields for each dynamic table. If more than 100, list out as red, if it is more than 50
 def check_total_dynamic_table_field_number(input_directory) :
     raw_file= open(input_directory+'\source.csv', 'r')
     result=[['Number of Dynamic table fields that exceeds 100']]
@@ -53,6 +54,24 @@ def check_total_dynamic_table_field_number(input_directory) :
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
 
     return result
+
+#	2. Number of horizontal fields. List more than 10 horizontal fields
+def check_total_dynamic_table_horizontal_field_number(input_directory) :
+    raw_file= open(input_directory+'\source.csv', 'r')
+    result=[['Number of Dynamic table horizontal fields that exceeds 10']]
+    result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
+    previous_dynamic_tables = []
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        if fields[30].strip()<>'' and int(fields[30])>10 :
+        #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
+            if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
+                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[30].strip()])
+                previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
+
+    return result
+
 
 def format_excel():
     fnt2 = Font()
@@ -99,7 +118,7 @@ def write_to_output_file(result, output_directory, work_book, work_sheet_name):
             if j < 12 and ws.col(j).width < len(cell)*300 :
                 ws.col(j).width = len(cell)*320
             if i == 0 :
-                ws.write(i, j, str(cell),TITLE_FORMAT)
+                ws.write_merge(i, j,i,j+3, str(cell),TITLE_FORMAT)
             elif i == 1 :
                 ws.write(i, j, str(cell),TABLE_HEADER_FORMAT)
             else :
@@ -126,6 +145,9 @@ if __name__ == "__main__":
     work_sheet_name='Field_Check'
     work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
 
+    result=check_total_dynamic_table_horizontal_field_number(input_directory)
+    work_sheet_name='H_Field_Check'
+    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
 
     work_book.save(output_directory+'\\analyze_output.xls')
 

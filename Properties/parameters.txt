@@ -1,0 +1,3 @@
+<dynamic table>
+max_nubmer_fields = 100
+max_number_h_fields = 10
