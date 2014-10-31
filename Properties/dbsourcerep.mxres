@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbSource>
+  <MxAnchors>
+    <MxAnchor Code="DBSOURCE">
+      <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
+      <DbIsDistributed/>
+      <DbServerType>oracle</DbServerType>
+      <DbHostName>hp405srv</DbHostName>
+      <DbServerPortNumber>1521</DbServerPortNumber>
+      <DbServerOrServiceName>HP40511</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>HLB_MX3_BUILD_DM</DbDatabaseOrSchemaName>
+      <DbCharacterSet/>
+      <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
+      <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
+      <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
+      <DbMxClientAccess>NATIVE_OCI</DbMxClientAccess>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
+      <DbDefaultCredential>
+        <DbUser>HLB_MX3_BUILD_DM</DbUser>
+        <DbPassword>004000b1004000e60047001600a00031005100310087005700d70066008000a1</DbPassword>
+      </DbDefaultCredential>
+      <DbDefaultPool>
+        <DbPoolMaxSize>50</DbPoolMaxSize>
+        <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
+        <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
+      </DbDefaultPool>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+    </MxAnchor>
+  </MxAnchors>
+</DbSource>
