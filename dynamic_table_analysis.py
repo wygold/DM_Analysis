@@ -56,21 +56,39 @@ def check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fi
     return result
 
 #	2. Number of horizontal fields. List more than 10 horizontal fields
-def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_hnumber_fields) :
+def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_number_hfields) :
     raw_file= open(input_directory+'\source.csv', 'r')
-    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_hnumber_fields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
+    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
+    result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count'])
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
 
-        if fields[30].strip()<>'' and int(fields[30])>max_dynamic_hnumber_fields :
+        if fields[30].strip()<>'' and int(fields[30])>max_dynamic_number_hfields :
         #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[30].strip()])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
 
     return result
+
+#	3. Check if any *TBLFIELD, *TABLE is used
+def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields) :
+    raw_file= open(input_directory+'\source.csv', 'r')
+    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
+    result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count for direct DB access'])
+    previous_dynamic_tables = []
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        if fields[31].strip()<>'' and int(fields[31])>max_dynamic_number_db_access_hfields :
+        #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
+            if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
+                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[31].strip()])
+                previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
+
+    return result
+
 
 
 def format_excel():
@@ -134,6 +152,7 @@ if __name__ == "__main__":
     config.read('D:\Dropbox\Project\DM_Analysis\Properties\\parameters.txt')
     max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
     max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
+    max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
 
     mxDbsourcefile=('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
     input_directory=('D:\Dropbox\Project\DM_Analysis\Input\\')
@@ -152,6 +171,10 @@ if __name__ == "__main__":
 
     result=check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
+    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+
+    result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields)
+    work_sheet_name='H_DB_Field_Check'
     work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
 
     work_book.save(output_directory+'\\analyze_output.xls')
