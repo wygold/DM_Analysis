@@ -8,7 +8,7 @@ import xlrd
 from xlwt import *
 import ConfigParser
 
-def generate_raw_file(connectionString,sqlfile, input_directory):
+def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
     sqlString = []
 
     for line in sqlfile:
@@ -20,7 +20,7 @@ def generate_raw_file(connectionString,sqlfile, input_directory):
     cur.execute("".join(sqlString))
 
     res = cur.fetchone()
-    raw_file = open(input_directory+'\source.csv', 'w+')
+    raw_file = open(input_directory+'\\'+input_file, 'w+')
     while res is not None:
         for field in res :
             raw_file.write(str(field))
@@ -76,7 +76,7 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynami
 def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields) :
     raw_file= open(input_directory+'\source.csv', 'r')
     result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count for direct DB access'])
+    result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser function used times'])
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -89,6 +89,17 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
 
     return result
 
+
+#	4. Check if sensitivy flag is disabled for dynamic table that not select any S_* fields
+def check_compute_sensitivity_flag(input_directory) :
+    raw_file= open(input_directory+'\computer_sensitivity_check.csv', 'r')
+    result=[['Dynamic tables which sensitivity compute flag can be disabled']]
+    result.append(['Dynamic table name','Category'])
+    previous_dynamic_tables = []
+    for line in raw_file:
+        fields = line.split(' | ')
+        result.append([fields[0].strip(),fields[1].strip()])
+    return result
 
 
 def format_excel():
@@ -159,9 +170,11 @@ if __name__ == "__main__":
     output_directory=('D:\Dropbox\Project\DM_Analysis\Output\\')
     connectionString = ConnectDB.loadMXDBSourcefile('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
 
-    sqlfile = open('D:\Dropbox\Project\DM_Analysis\SQLs\qurey_dm_config.txt', 'r+')
+    #sqlfile1 = open('D:\Dropbox\Project\DM_Analysis\SQLs\query_dm_config.sql', 'r+')
+    #generate_raw_file(connectionString,sqlfile1,input_directory,'source.csv')
 
-    #generate_raw_file(connectionString,sqlfile,input_directory)
+    #sqlfile2 = open('D:\Dropbox\Project\DM_Analysis\SQLs\query_sensitivity_flag.sql', 'r+')
+    #generate_raw_file(connectionString,sqlfile2,input_directory,'computer_sensitivity_check.csv')
 
     work_book = Workbook()
 
@@ -176,6 +189,11 @@ if __name__ == "__main__":
     result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields)
     work_sheet_name='H_DB_Field_Check'
     work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+
+    result=check_compute_sensitivity_flag(input_directory)
+    work_sheet_name='Sensi_flag_Check'
+    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+
 
     work_book.save(output_directory+'\\analyze_output.xls')
 
