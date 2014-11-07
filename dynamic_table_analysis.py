@@ -7,6 +7,7 @@ import string
 import xlrd
 from xlwt import *
 import ConfigParser
+import os
 
 def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
     sqlString = []
@@ -32,15 +33,9 @@ def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
     cur.close()
     con.close()
 
-def read_raw_file(input_directory) :
-    raw_file= open(input_directory+'\source.csv', 'r')
-    for line in raw_file:
-        fields = line.split(' | ')
-        print fields[26]+'   '+fields[27]+'   '+fields[28]+'   '
-
 # Total number of dynamic tables fields for each dynamic table. If more than 100, list out as red, if it is more than 50
-def check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fields) :
-    raw_file= open(input_directory+'\source.csv', 'r')
+def check_total_dynamic_table_field_number(input_directory,input_file, max_dynamic_number_fields) :
+    raw_file= open(input_directory+input_file, 'r')
     result=[['Number of Dynamic table fields that exceeds '+str(max_dynamic_number_fields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
     previous_dynamic_tables = []
@@ -56,8 +51,8 @@ def check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fi
     return result
 
 #	2. Number of horizontal fields. List more than 10 horizontal fields
-def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_number_hfields) :
-    raw_file= open(input_directory+'\source.csv', 'r')
+def check_total_dynamic_table_horizontal_field_number(input_directory,input_file,max_dynamic_number_hfields) :
+    raw_file= open(input_directory+input_file, 'r')
     result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count'])
     previous_dynamic_tables = []
@@ -73,8 +68,8 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,max_dynami
     return result
 
 #	3. Check if any *TBLFIELD, *TABLE is used
-def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields) :
-    raw_file= open(input_directory+'\source.csv', 'r')
+def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,input_file,max_dynamic_number_db_access_hfields) :
+    raw_file= open(input_directory+input_file, 'r')
     result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser function used times'])
     previous_dynamic_tables = []
@@ -91,11 +86,11 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
 
 
 #	4. Check if sensitivy flag is disabled for dynamic table that not select any S_* fields
-def check_compute_sensitivity_flag(input_directory) :
-    raw_file= open(input_directory+'\computer_sensitivity_check.csv', 'r')
+def check_compute_sensitivity_flag(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
     result=[['Dynamic tables which sensitivity compute flag can be disabled']]
     result.append(['Dynamic table name','Category'])
-    previous_dynamic_tables = []
+
     for line in raw_file:
         fields = line.split(' | ')
         result.append([fields[0].strip(),fields[1].strip()])
@@ -116,7 +111,7 @@ def format_excel():
 
     return fnt2,borders
 
-def write_to_output_file(result, output_directory, work_book, work_sheet_name):
+def write_to_output_file(result, work_book, work_sheet_name):
 
     ws = work_book.add_sheet(work_sheet_name)
 
@@ -158,44 +153,69 @@ def write_to_output_file(result, output_directory, work_book, work_sheet_name):
     return work_book
 
 if __name__ == "__main__":
+    #define directories
+    input_directory=os.getcwd()+'\Input\\'
+    output_directory=os.getcwd()+'\Output\\'
+    sql_directory=os.getcwd()+'\SQLs\\'
+    property_directory=os.getcwd()+'\\properties\\'
 
+    #define sql files
+    query_dm_sql='query_dm_config.sql'
+    query_sensi_sql='query_sensitivity_flag.sql'
+
+    #define input files
+    dm_config_file = 'source.csv'
+    sensi_file='computer_sensitivity_check.csv'
+
+    #define property files
+    parameter_file='parameters.txt'
+    mxDbsource_file='dbsource.mxres'
+
+    #define output file
+    final_result_file = 'analyze_dynamic_table.xls'
+
+    #read in property file
     config = ConfigParser.RawConfigParser()
-    config.read('D:\Dropbox\Project\DM_Analysis\Properties\\parameters.txt')
+    config.read(property_directory + parameter_file)
     max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
     max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
     max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
 
-    mxDbsourcefile=('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
-    input_directory=('D:\Dropbox\Project\DM_Analysis\Input\\')
-    output_directory=('D:\Dropbox\Project\DM_Analysis\Output\\')
-    connectionString = ConnectDB.loadMXDBSourcefile('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
+    #prepare conncection string
+    connectionString = ConnectDB.loadMXDBSourcefile(property_directory + mxDbsource_file)
 
-    #sqlfile1 = open('D:\Dropbox\Project\DM_Analysis\SQLs\query_dm_config.sql', 'r+')
-    #generate_raw_file(connectionString,sqlfile1,input_directory,'source.csv')
+    #Generate input files
+    sqlfile1 = open(sql_directory+query_dm_sql, 'r+')
+    generate_raw_file(connectionString,sqlfile1,input_directory,dm_config_file)
 
-    #sqlfile2 = open('D:\Dropbox\Project\DM_Analysis\SQLs\query_sensitivity_flag.sql', 'r+')
-    #generate_raw_file(connectionString,sqlfile2,input_directory,'computer_sensitivity_check.csv')
+    sqlfile2 = open(sql_directory+query_sensi_sql, 'r+')
+    generate_raw_file(connectionString,sqlfile2,input_directory,sensi_file)
 
+    #workbook for output result
     work_book = Workbook()
 
-    result=check_total_dynamic_table_field_number(input_directory,max_dynamic_number_fields)
+    #check Total number of dynamic tables fields for each dynamic table.
+    result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
     work_sheet_name='Field_Check'
-    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+    work_book=write_to_output_file(result,work_book, work_sheet_name)
 
-    result=check_total_dynamic_table_horizontal_field_number(input_directory,max_dynamic_number_hfields)
+    #check Number of horizontal fields
+    result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
-    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+    work_book=write_to_output_file(result,work_book, work_sheet_name)
 
-    result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,max_dynamic_number_db_access_hfields)
+    #Check horizontal fields with *TBLFIELD and *TABLE
+    result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
     work_sheet_name='H_DB_Field_Check'
-    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+    work_book=write_to_output_file(result,work_book, work_sheet_name)
 
-    result=check_compute_sensitivity_flag(input_directory)
+    #check sensitivity flag can be disabled
+    result=check_compute_sensitivity_flag(input_directory,sensi_file)
     work_sheet_name='Sensi_flag_Check'
-    work_book=write_to_output_file(result, output_directory, work_book, work_sheet_name)
+    work_book=write_to_output_file(result,work_book, work_sheet_name)
 
-
-    work_book.save(output_directory+'\\analyze_output.xls')
+    #output the work_book
+    work_book.save(output_directory+final_result_file)
 
 
 
