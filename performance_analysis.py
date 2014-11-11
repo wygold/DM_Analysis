@@ -29,12 +29,7 @@ def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
     res = cur.fetchone()
     raw_file = open(input_directory+'\\'+input_file, 'w+')
     while res is not None:
-        first_field = True
         for field in res :
-            if first_field is not True:
-                raw_file.write(' | ')
-            else:
-                first_field = False
             raw_file.write(str(field))
         raw_file.write('\n')
         res = cur.fetchone()
@@ -99,8 +94,8 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
     sorted_result = sorted(result,key=itemgetter(0,1,10),reverse=True)
 
     for one_result in sorted_result:
-        if (one_result[11] =='REP_BATCHES_FEED' and one_result[10] > time_alert_batch_feeder) \
-                or (one_result[11] =='REP_BATCHES_EXT' and one_result[10] > time_alert_batch_extraction) :
+        if (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_FEED' and one_result[10] > time_alert_batch_feeder) \
+                or (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_EXT' and one_result[10] > time_alert_batch_extraction) :
             one_result.append('True')
         else:
             one_result.append('False')
@@ -224,7 +219,7 @@ if __name__ == "__main__":
 
 
     sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
-    generate_raw_file(connectionString,sqlfile,input_directory,ps_exuection_time_file)
+    #generate_raw_file(connectionString,sqlfile,input_directory,ps_exuection_time_file)
 
     #workbook for output result
     work_book = Workbook()

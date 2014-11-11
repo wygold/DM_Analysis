@@ -1,15 +1,15 @@
 SELECT
-	M_DATE_SYS,
-	M_DATE_CMP,
-	M_SCRPT_NAME,
-	T2.M_OBJECT_NAME,
-	T2.M_STEP,
-	M_USER,
-	M_GROUP,
-	M_DESK,
-	M_TIME_CPU,
-	M_TIME_SYB,
-	M_TIME_ELAP,
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
     M_UNIT_NAME as OBJECT_TYPE
 FROM
 	(	SELECT

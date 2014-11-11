@@ -25,7 +25,6 @@ def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
     while res is not None:
         for field in res :
             raw_file.write(str(field))
-            raw_file.write(' | ')
         raw_file.write('\n')
         res = cur.fetchone()
 
