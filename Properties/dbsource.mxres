@@ -5,10 +5,10 @@
       <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
       <DbIsDistributed/>
       <DbServerType>oracle</DbServerType>
-      <DbHostName>hp405srv</DbHostName>
+      <DbHostName>ming</DbHostName>
       <DbServerPortNumber>1521</DbServerPortNumber>
-      <DbServerOrServiceName>HP40511</DbServerOrServiceName>
-      <DbDatabaseOrSchemaName>HLB_TEST_CYCLE1_MX</DbDatabaseOrSchemaName>
+      <DbServerOrServiceName>ming</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>BOC_TEST1_MX</DbDatabaseOrSchemaName>
       <DbCharacterSet/>
       <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
       <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
@@ -19,7 +19,7 @@
       <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
       <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
       <DbDefaultCredential>
-        <DbUser>HLB_TEST_CYCLE1_MX</DbUser>
+        <DbUser>BOC_TEST1_MX</DbUser>
         <DbPassword>004000b1004000e600d600c700a6008100800050008600a7005700c700d7008000b00096</DbPassword>
       </DbDefaultCredential>
       <DbDefaultPool>
