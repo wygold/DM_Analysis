@@ -75,58 +75,6 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     return result
 
 
-
-def write_to_output_file(result, work_book, work_sheet_name):
-
-    ws = work_book.add_sheet(work_sheet_name)
-
-    TABLE_HEADER_FORMAT = easyxf(
-                 'font: bold 1, name Tahoma, height 160;'
-                 'align: vertical center, horizontal center, wrap on;'
-                 'borders: left thin, right thin, top thin, bottom thin;'
-                 'pattern: pattern solid, pattern_fore_colour yellow, pattern_back_colour yellow'
-                 )
-
-    TITLE_FORMAT = easyxf(
-                 'font: bold 1, name Tahoma, height 220;'
-                 'align: vertical center, horizontal center, wrap on;'
-                 'borders: left thin, right thin, top thin, bottom thin;'
-                 'pattern: pattern solid, pattern_fore_colour gray25, pattern_back_colour gray25'
-                 )
-
-    TEXT_FORMAT = easyxf(
-                 'font: bold 1, name Roma, height 160;'
-                 'align: vertical center, horizontal center, wrap on;'
-                 'borders: left thin, right thin, top thin, bottom thin;'
-                 'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
-                 )
-
-    HIGHLIGHTED_TEXT_FORMAT = easyxf(
-                 'font: bold 1, name Roma, height 160;'
-                 'align: vertical center, horizontal center, wrap on;'
-                 'borders: left thin, right thin, top thin, bottom thin;'
-                 'pattern: pattern solid, pattern_fore_colour red, pattern_back_colour gray25'
-                 )
-    i = 0
-    j = 0
-
-    for row in result:
-        for cell in row:
-            if i>=1 and j < 12 and ws.col(j).width < len(cell)*300 :
-                ws.col(j).width = len(cell)*320
-            if i == 0 :
-                title = str(cell)
-            elif i == 1 :
-                if j == 0:
-                    ws.write_merge(0,0,0,len(row)-1, title,TITLE_FORMAT)
-                ws.write(i, j, str(cell),TABLE_HEADER_FORMAT)
-            else :
-                ws.write(i, j, str(cell),TEXT_FORMAT)
-            j = j + 1
-        j = 0
-        i = i + 1
-    return work_book
-
 if __name__ == "__main__":
     #define directories
     input_directory=os.getcwd()+'\Input\\'
