@@ -31,15 +31,3 @@ if __name__ == "__main__":
     connectionString = loadMXDBSourcefile('D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres')
     testConnection(connectionString)
 
-    # cur = con.cursor()
-    # cur.execute('select M_LABEL,M_REQUEST from ACT_REQXTR_DBF')
-    #
-    # # res = cur.fetchone()
-    # res = cur.fetchone()
-    # print res[1]
-    #
-    # res = cur.fetchone()
-    # print res[1]
-    #
-    # cur.close()
-    # con.close()

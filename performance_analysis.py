@@ -1,42 +1,17 @@
 __author__ = 'ywang'
 
 import cx_Oracle
-import ConnectDB
+
 import string
 import xlwt
 from xlwt import *
 import ConfigParser
 import os
-import time
-from time import gmtime, strftime
 import datetime
 import math
 from operator import itemgetter, attrgetter, methodcaller
-
-
-def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
-    sqlString = []
-
-    for line in sqlfile:
-        sqlString.append(line)
-    #print "".join(sqlString)
-
-    con = cx_Oracle.connect(connectionString)
-    cur = con.cursor()
-    cur.arraysize = 2000
-    cur.execute("".join(sqlString))
-
-    res = cur.fetchone()
-    raw_file = open(input_directory+'\\'+input_file, 'w+')
-    while res is not None:
-        for field in res :
-            raw_file.write(str(field))
-        raw_file.write('\n')
-        res = cur.fetchone()
-
-    raw_file.close()
-    cur.close()
-    con.close()
+from db_utility import db_utility
+import io_utility
 
 def analyze_processing_script_total_time(input_directory, input_file,time_alert_processing_script,period_days):
     raw_file= open(input_directory+input_file, 'r')
@@ -210,16 +185,29 @@ if __name__ == "__main__":
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
     period_days = config.getint('performance', 'period_days')
+    start_date = config.get('performance', 'start_date')
+    end_date = config.get('performance', 'end_date')
     time_alert_processing_script = config.get('performance', 'time_alert_processing_script')
     time_alert_batch_feeder = config.get('performance', 'time_alert_batch_feeder')
     time_alert_batch_extraction =config.get('performance', 'time_alert_batch_extraction')
 
     #prepare connection string
-    connectionString = ConnectDB.loadMXDBSourcefile(property_directory + mxDbsource_file)
+    db_util = db_utility()
+    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
-
+    #prepare SQLs to be run
     sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
-    #generate_raw_file(connectionString,sqlfile,input_directory,ps_exuection_time_file)
+    sqlString= ''
+    for line in sqlfile:
+        sqlString = sqlString + line
+
+    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+    sql_paramters = dict()
+    sql_paramters['START_DATE'] = start_date
+    sql_paramters['END_DATE'] = end_date
+
+    #dump file
+    db_util.dump_output(sqlString, sql_paramters, connectionString, input_directory + ps_exuection_time_file)
 
     #workbook for output result
     work_book = Workbook()
@@ -228,15 +216,15 @@ if __name__ == "__main__":
     result=analyze_processing_script_total_time(input_directory,ps_exuection_time_file
                                                 ,time_alert_processing_script, period_days)
     work_sheet_name='Processing script performance'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name, True)
 
     #Get processing script detailed performance
     result=analyze_processing_script_breakdown(input_directory, ps_exuection_time_file,
                                                time_alert_batch_feeder,time_alert_batch_extraction,period_days)
     work_sheet_name='Processing script detailed'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name, True)
 
     #output the work_book
-    work_book.save(output_directory+final_result_file)
+    io_utility.save_workbook(work_book,output_directory+final_result_file)
 
 

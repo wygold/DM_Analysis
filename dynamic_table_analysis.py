@@ -8,29 +8,8 @@ import xlrd
 from xlwt import *
 import ConfigParser
 import os
-
-def generate_raw_file(connectionString,sqlfile, input_directory, input_file):
-    sqlString = []
-
-    for line in sqlfile:
-        sqlString.append(line)
-    #print "".join(sqlString)
-
-    con = cx_Oracle.connect(connectionString)
-    cur = con.cursor()
-    cur.execute("".join(sqlString))
-
-    res = cur.fetchone()
-    raw_file = open(input_directory+'\\'+input_file, 'w+')
-    while res is not None:
-        for field in res :
-            raw_file.write(str(field))
-        raw_file.write('\n')
-        res = cur.fetchone()
-
-    raw_file.close()
-    cur.close()
-    con.close()
+from db_utility import db_utility
+import io_utility
 
 # Total number of dynamic tables fields for each dynamic table. If more than 100, list out as red, if it is more than 50
 def check_total_dynamic_table_field_number(input_directory,input_file, max_dynamic_number_fields) :
@@ -69,7 +48,7 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,input_file
 #	3. Check if any *TBLFIELD, *TABLE is used
 def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,input_file,max_dynamic_number_db_access_hfields) :
     raw_file= open(input_directory+input_file, 'r')
-    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
+    result=[['Number of Dynamic table horizontal fields that access database which exceeds '+str(max_dynamic_number_db_access_hfields)]]
     result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser function used times'])
     previous_dynamic_tables = []
     for line in raw_file:
@@ -96,26 +75,10 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     return result
 
 
-def format_excel():
-    fnt2 = Font()
-    fnt2.name = 'Arial'
-    fnt2.colour_index = 20
-    fnt2.bold = False
-
-    borders = Borders()
-    borders.left = 1
-    borders.right = 1
-    borders.top = 1
-    borders.bottom = 1
-
-    return fnt2,borders
 
 def write_to_output_file(result, work_book, work_sheet_name):
 
     ws = work_book.add_sheet(work_sheet_name)
-
-    contentstyle = XFStyle()
-    contentstyle.font,contentstyle.borders = format_excel()
 
     TABLE_HEADER_FORMAT = easyxf(
                  'font: bold 1, name Tahoma, height 160;'
@@ -125,27 +88,40 @@ def write_to_output_file(result, work_book, work_sheet_name):
                  )
 
     TITLE_FORMAT = easyxf(
-                 'font: bold 1, name Tahoma, height 300;'
+                 'font: bold 1, name Tahoma, height 220;'
                  'align: vertical center, horizontal center, wrap on;'
                  'borders: left thin, right thin, top thin, bottom thin;'
                  'pattern: pattern solid, pattern_fore_colour gray25, pattern_back_colour gray25'
                  )
 
+    TEXT_FORMAT = easyxf(
+                 'font: bold 1, name Roma, height 160;'
+                 'align: vertical center, horizontal center, wrap on;'
+                 'borders: left thin, right thin, top thin, bottom thin;'
+                 'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
+                 )
+
+    HIGHLIGHTED_TEXT_FORMAT = easyxf(
+                 'font: bold 1, name Roma, height 160;'
+                 'align: vertical center, horizontal center, wrap on;'
+                 'borders: left thin, right thin, top thin, bottom thin;'
+                 'pattern: pattern solid, pattern_fore_colour red, pattern_back_colour gray25'
+                 )
     i = 0
     j = 0
 
-    ws.col(i).width = 0x0d00 + i
-
     for row in result:
         for cell in row:
-            if j < 12 and ws.col(j).width < len(cell)*300 :
+            if i>=1 and j < 12 and ws.col(j).width < len(cell)*300 :
                 ws.col(j).width = len(cell)*320
             if i == 0 :
-                ws.write_merge(i, j,i,j+3, str(cell),TITLE_FORMAT)
+                title = str(cell)
             elif i == 1 :
+                if j == 0:
+                    ws.write_merge(0,0,0,len(row)-1, title,TITLE_FORMAT)
                 ws.write(i, j, str(cell),TABLE_HEADER_FORMAT)
             else :
-                ws.write(i, j, str(cell),contentstyle)
+                ws.write(i, j, str(cell),TEXT_FORMAT)
             j = j + 1
         j = 0
         i = i + 1
@@ -185,10 +161,39 @@ if __name__ == "__main__":
 
     #Generate input files
     sqlfile1 = open(sql_directory+query_dm_sql, 'r+')
-    generate_raw_file(connectionString,sqlfile1,input_directory,dm_config_file)
+    #generate_raw_file(connectionString,sqlfile1,input_directory,dm_config_file)
 
     sqlfile2 = open(sql_directory+query_sensi_sql, 'r+')
-    generate_raw_file(connectionString,sqlfile2,input_directory,sensi_file)
+    #generate_raw_file(connectionString,sqlfile2,input_directory,sensi_file)
+
+
+    #prepare connection string
+    db_util = db_utility()
+    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+
+    #prepare datamart configuration SQLs to be run
+    sqlfile = open(sql_directory+query_dm_sql, 'r+')
+    sqlString= ''
+    for line in sqlfile:
+        sqlString = sqlString + line
+
+    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+    sql_paramters = dict()
+
+    #dump file
+    db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
+
+    #prepare sensitivities SQLs to be run
+    sqlfile = open(sql_directory+query_sensi_sql, 'r+')
+    sqlString= ''
+    for line in sqlfile:
+        sqlString = sqlString + line
+
+    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+    sql_paramters = dict()
+
+    #dump file
+    db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
 
     #workbook for output result
     work_book = Workbook()
@@ -196,25 +201,25 @@ if __name__ == "__main__":
     #check Total number of dynamic tables fields for each dynamic table.
     result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
     work_sheet_name='Field_Check'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
 
     #check Number of horizontal fields
     result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
 
     #Check horizontal fields with *TBLFIELD and *TABLE
     result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
     work_sheet_name='H_DB_Field_Check'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
 
     #check sensitivity flag can be disabled
     result=check_compute_sensitivity_flag(input_directory,sensi_file)
     work_sheet_name='Sensi_flag_Check'
-    work_book=write_to_output_file(result,work_book, work_sheet_name)
+    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
 
     #output the work_book
-    work_book.save(output_directory+final_result_file)
+    io_utility.save_workbook(work_book,output_directory+final_result_file)
 
 
 

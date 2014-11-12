@@ -5,6 +5,9 @@ max_number_db_access_h_fields = 1
 
 [performance]
 period_days = 10
+start_date = 2014-09-15
+end_date = 2014-09-15
+time_filter_output = True
 time_alert_processing_script = 00:20:00
 time_alert_batch_feeder = 00:10:00
 time_alert_batch_extraction = 00:10:00
