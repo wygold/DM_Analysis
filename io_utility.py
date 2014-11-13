@@ -79,8 +79,6 @@ def add_worksheet(content, workbook, sheetname, highlighted=False):
                     if j ==  0:
                         ws.write_merge(0,0,0,len(row)-1, title,TITLE_FORMAT)
                     ws.write(i, j, str(cell),TABLE_HEADER_FORMAT)
-                elif j == len(row) - 1:
-                    break
                 elif highlighted=='True':
                     ws.write(i, j, str(cell),HIGHLIGHTED_TEXT_FORMAT)
                 else:

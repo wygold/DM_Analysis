@@ -15,7 +15,7 @@ import io_utility
 def analyze_processing_script_total_time(input_directory, input_file,time_alert_processing_script,period_days):
     raw_file= open(input_directory+input_file, 'r')
     final_result=[['DM processing scripts listed according to execution time']]
-    final_result.append(['MX Date','System Date','Script name','Execution time'])
+    final_result.append(['MX Date','System Date','Script name','Execution time', 'Highlight'])
     result = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -57,7 +57,7 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
     raw_file= open(input_directory+input_file, 'r')
     final_result=[['DM processing scripts listed according to execution time']]
     final_result.append(['MX Date','System Date','Script name','DM_OBJECT_NAME','M_STEP','M_USER','M_GROUP'
-        ,'M_DESK','CPU_TIME','IO_TIME','TOTAL_TIME','OBJECT_TYPE'])
+        ,'M_DESK','CPU_TIME','IO_TIME','TOTAL_TIME','OBJECT_TYPE', 'Highlight'])
 
     result = []
     for line in raw_file:
