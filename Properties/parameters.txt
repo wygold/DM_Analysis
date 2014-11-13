@@ -1,3 +1,9 @@
+[general]
+input_folder = Input
+output_folder = Output
+sql_folder = SQLs
+
+
 [dynamic table]
 max_number_fields = 200
 max_number_h_fields = 50
@@ -11,3 +17,8 @@ time_filter_output = True
 time_alert_processing_script = 00:20:00
 time_alert_batch_feeder = 00:10:00
 time_alert_batch_extraction = 00:10:00
+
+[log]
+log_folder = Logs
+#log level can be DEBUG, INFO,WARNING, EXCEPTION, CRITICAL
+log_level = INFO

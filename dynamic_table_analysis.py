@@ -9,7 +9,39 @@ from xlwt import *
 import ConfigParser
 import os
 from db_utility import db_utility
-import io_utility
+from io_utility import io_utility
+import logging
+from logging import handlers
+
+
+log_level = logging.DEBUG
+logger = ''
+
+def initialize_log(self, log_level=None, log_path='Logs\\'):
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+
+    # create a file handler
+    handler = logging.handlers.RotatingFileHandler(log_path + 'dynamic_table_analysis.log', maxBytes=1024)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+
+    if log_level is not None:
+        handler.setLevel(log_level)
+    else:
+        handler.setLevel(self.log_level)
+
+    # add the handlers to the logger
+    self.logger.addHandler(handler)
+
+
+def set_log_level(self, log_level):
+    for handler in self.logger.handlers:
+        if log_level is not None:
+            handler.setLevel(log_level)
+        else:
+            handler.setLevel(self.log_level)
+
 
 # Total number of dynamic tables fields for each dynamic table. If more than 100, list out as red, if it is more than 50
 def check_total_dynamic_table_field_number(input_directory,input_file, max_dynamic_number_fields) :
@@ -143,31 +175,34 @@ if __name__ == "__main__":
     #dump file
     db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
 
+    #create io_class
+    io_util= io_utility()
+
     #workbook for output result
     work_book = Workbook()
 
     #check Total number of dynamic tables fields for each dynamic table.
     result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
     work_sheet_name='Field_Check'
-    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #check Number of horizontal fields
     result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
-    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #Check horizontal fields with *TBLFIELD and *TABLE
     result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
     work_sheet_name='H_DB_Field_Check'
-    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #check sensitivity flag can be disabled
     result=check_compute_sensitivity_flag(input_directory,sensi_file)
     work_sheet_name='Sensi_flag_Check'
-    work_book=io_utility.add_worksheet(result,work_book, work_sheet_name)
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #output the work_book
-    io_utility.save_workbook(work_book,output_directory+final_result_file)
+    io_util.save_workbook(work_book,output_directory+final_result_file)
 
 
 
