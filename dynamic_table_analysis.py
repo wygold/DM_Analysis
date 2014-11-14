@@ -1,8 +1,6 @@
 __author__ = 'ywang'
 
 
-import cx_Oracle
-import ConnectDB
 import string
 import xlrd
 from xlwt import *
@@ -140,10 +138,12 @@ if __name__ == "__main__":
     #define sql files
     query_dm_sql='query_dm_config.sql'
     query_sensi_sql='query_sensitivity_flag.sql'
+    query_simulation_context_sql = 'query_simulation_context.sql'
 
     #define input files
     dm_config_file = 'source.csv'
     sensi_file='computer_sensitivity_check.csv'
+    sim_file='simulation_context.csv'
 
     #define property files
     parameter_file='parameters.txt'
@@ -167,16 +167,6 @@ if __name__ == "__main__":
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run dynamic_table_analysis.py.')
-
-    #prepare conncection string
-    connectionString = ConnectDB.loadMXDBSourcefile(property_directory + mxDbsource_file)
-
-    #Generate input files
-    sqlfile1 = open(sql_directory+query_dm_sql, 'r+')
-    #generate_raw_file(connectionString,sqlfile1,input_directory,dm_config_file)
-
-    sqlfile2 = open(sql_directory+query_sensi_sql, 'r+')
-    #generate_raw_file(connectionString,sqlfile2,input_directory,sensi_file)
 
 
     #prepare connection string
@@ -206,6 +196,18 @@ if __name__ == "__main__":
 
     #dump file
     db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
+
+    #prepare simulation context SQLs to be run
+    sqlfile = open(sql_directory+query_simulation_context_sql, 'r+')
+    sqlString= ''
+    for line in sqlfile:
+        sqlString = sqlString + line
+
+    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+    sql_paramters = dict()
+
+    #dump file
+    db_util.dump_output(sqlString, None, connectionString, input_directory + sim_file)
 
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
