@@ -79,7 +79,7 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
     filtered_result = []
 
     #filtering the data according to the date
-    logger.debug('Filtering the result old than : %s days',period_days)
+    logger.info('Filtering the result old than : %s days',period_days)
     for result in sorted_result:
         result_date =  datetime.datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S').date()
         if result_date > current_day - datetime.timedelta(days=period_days):
@@ -97,11 +97,12 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
     final_result.extend(filtered_result)
 
     logger.info('End to run analyze_processing_script_total_time.')
-
     return final_result
 
 def analyze_processing_script_breakdown(input_directory, input_file,time_alert_batch_feeder
                                         ,time_alert_batch_extraction,period_days ):
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run analyze_processing_script_breakdown.')
     raw_file= open(input_directory+input_file, 'r')
     final_result=[['DM processing scripts listed according to execution time']]
     final_result.append(['MX Date','System Date','Script name','DM_OBJECT_NAME','M_STEP','M_USER','M_GROUP'
@@ -110,11 +111,16 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
     result = []
     for line in raw_file:
         fields = line.split(' | ')
+        logger.debug('line appended: %s',fields)
         result.append(fields)
 
     #sort the result
+    logger.info('Sort the result.')
     sorted_result = sorted(result,key=itemgetter(0,1,10),reverse=True)
 
+    #highlight rows according to time alert
+    logger.info('Highlight the batch of feeder running longer than : %s',time_alert_batch_feeder)
+    logger.info('Highlight the batch of extraction running longer than : %s',time_alert_batch_extraction)
     for one_result in sorted_result:
         if (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_FEED' and one_result[10] > time_alert_batch_feeder) \
                 or (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_EXT' and one_result[10] > time_alert_batch_extraction) :
@@ -123,6 +129,7 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
             one_result.append('False')
 
     #apply period days
+    logger.info('Filtering the result old than : %s days',period_days)
     current_day =  datetime.datetime.strptime(sorted_result[0][0], '%Y-%m-%d %H:%M:%S').date()
     filtered_result = []
 
@@ -133,16 +140,23 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
 
     #append with head and title
     final_result.extend(filtered_result)
+
+    logger.info('End running analyze_processing_script_breakdown.')
     return final_result
 
 #add up time A and time B
 def add_time(ta,tb):
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run add_time.')
+    logger.debug('Add %s and %s.', ta, tb)
     ta_hour,ta_min, ta_sec = string.split(ta,":")
     tb_hour,tb_min, tb_sec = string.split(tb,":")
     sec = int(ta_sec) + int(tb_sec)
     min = int(ta_min) + int(tb_min) + math.floor(sec/60)
     hour =  int(ta_hour) + int(tb_hour) + math.floor(sec/60)
     sum_time = str(int(hour%24)).rjust(2, '0')+':'+str(int(min%60)).rjust(2, '0')+':'+str(int(sec%60)).rjust(2, '0')
+    logger.debug('%s + %s = %s', ta, tb, sum_time)
+    logger.info('End running add_time.')
     return sum_time
 
 
