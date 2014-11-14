@@ -132,7 +132,13 @@ class io_utility:
         self.logger.info('Initialize io_utility class')
 
 if __name__ == "__main__":
-    io=io_utility()
+    #io=io_utility()
+
+    a={'a':[1,2],'b':[3,4],'c':[5,6],'d':[7,8,9]}
+    b='c'
+    for b in a.keys():
+        print b
+
     # io.logger.info('aaa')
     # io.logger.warning('bbb')
     # io.set_log_level(logging.WARNING)

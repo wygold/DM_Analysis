@@ -40,8 +40,8 @@ nvl(DYN_FILTER4,' ') as DYN_PREFILTER1, ' | ',
 nvl(DYN_FILTER1,' ') as DYN_PREFILTER2, ' | ',
 nvl(DYN_FILTER2,' ') as DYN_PREFILTER3, ' | ',
 nvl(TYPOLOGY_FILTER,' ') as DYN_TYPOLOGY, ' | ',
-nvl(DYN_FILTER3,' ') as DYN_POSTFILTER 
-
+nvl(DYN_FILTER3,' ') as DYN_POSTFILTER, ' | ',
+nvl(VIEWER_NAME,' ') as VIEWER_NAME
 from
 /*This Query lists the Datamart tables, underlying Dynamic tables (with types and filters), SQL, Indexes*/
 (
@@ -50,6 +50,7 @@ from
         DYN.M_TYPE, DYN.M_DYN_TABLE as "DYN_TBL_NAME", 
         DYN.M_CLASS_TYPE as "TYPE", 
         DYN.M_CLASS as "CLSTYPE", 
+        DYN.M_VIEW as "VIEWER_NAME",
         B.COLUMNS_COUNT as "FLDSCNT", 
         replace(M_FLDNAME,CHR(10),' ') as "DYN_FILTER4",
         replace(M_FORMULA1,CHR(10),' ') as "DYN_FILTER1",
@@ -111,7 +112,8 @@ from
             DYNFLD.FIELDS_COUNT,
 			M_F_SELPFL,
             M_F_CMPNO,			
-            D1.M_TYPE
+            D1.M_TYPE,
+            M_VIEW
             from RPO_DMSETUP_DYN_TABLE_DBF C1 inner join
             (
                 select 
@@ -127,6 +129,7 @@ from
 				M_DT_SHIFT2,
 				M_F_SELPFL,
                 M_F_CMPNO,
+                M_VIEW,
                 0 as M_TYPE
 				from DYNDBF1#TRN_DYND_DBF 
 				union  
@@ -142,7 +145,8 @@ from
 				M_DT_SHIFT1,
 				M_DT_SHIFT2,
 				M_F_SELPFL,
-                M_F_CMPNO,			
+                M_F_CMPNO,
+                M_VIEW,
                 2 as M_TYPE  
 				from DYNDBF2#TRN_DYND_DBF 
                 union  
@@ -158,7 +162,8 @@ from
 				M_DT_SHIFT1,
 				M_DT_SHIFT2,
 				M_F_SELPFL,
-                M_F_CMPNO,				
+                M_F_CMPNO,
+                M_VIEW,
                 1 as M_TYPE  
 				from DYNDBF3#TRN_DYND_DBF 
                 union 
@@ -174,7 +179,8 @@ from
 				M_DT_SHIFT1,
 				M_DT_SHIFT2,
 				M_F_SELPFL,
-                M_F_CMPNO,				
+                M_F_CMPNO,
+                M_VIEW,
                 3 AS M_TYPE
 				from DYNDBF4#TRN_DYND_DBF
             ) D1 on C1.M_DYN_TABLE = D1.M_CREATION 
@@ -575,6 +581,4 @@ from
             where JOB1.M_IDJOB=JOB2.M_IDJOB 
             and M_CTX in ('F','E','P') 
         ) BAT2 on TBL.FEEDER=BAT2.BATCH_NAME
-
 order by TBL.DM_TABLE_NAME
-

@@ -126,6 +126,49 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     logger.info('End running check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
     return result
 
+#	5. Check if simulation viweer used is correct set to consolidated or detailed mode
+def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_sim_view_mode on file %s%s and %s.',input_directory,source_file,simulation_context_file)
+
+    dynamic_tables = dict()
+    sim_context = dict()
+    result = []
+
+    dm_config_file= open(input_directory+source_file, 'r')
+    sim_context_file = open(input_directory+simulation_context_file, 'r')
+
+    for line in dm_config_file:
+        fields = line.split(' | ')
+        if fields[28].strip() == 'Simulation':
+            dynamic_tables[fields[26].strip() + fields[27].strip()]=[fields[26].strip(), fields[27].strip(), fields[42].strip(), fields[33].strip()]
+
+    #if simulation is only for detailed: mode is 1
+    #if simulation is only for consolidated: mode is 2
+    #if simulation is for both detailed: and consolidated:mode is 3
+
+    for line in sim_context_file:
+        fields = line.split(' | ')
+        if fields[0].strip() == 'Detailed simulation' or fields[0].strip() == 'Consolidated simulation':
+            if fields[1].strip() in sim_context.keys() :
+                sim_context_file[fields[1].strip()]=[fields[0].strip(),3]
+            else :
+                if fields[0].strip() == 'Detailed simulation':
+                    sim_context_file[fields[1].strip()]=[fields[0].strip(),1]
+                if fields[0].strip() == 'Consolidated simulation':
+                    sim_context_file[fields[1].strip()]=[fields[0].strip(),2]
+
+    for dynamic_table_name in dynamic_tables.keys():
+        if sim_context_file[dynamic_tables[dynamic_table_name][2]]==1 and dynamic_tables[dynamic_table_name][3]=='Consolidated DBF'\
+                or sim_context_file[dynamic_tables[dynamic_table_name][2]]==2 and dynamic_tables[dynamic_table_name][3]=='Detailed DBF':
+            result.append(dynamic_tables[dynamic_table_name][2])
+
+    final_result=[['Dynamic table with wrong build on mode']]
+    final_result.append(['Dynamic table name','Category','Simulation name','Build on mode'])
+
+    logger.info('End running check_sim_view_mode on file %s%s and %s.',input_directory,source_file,simulation_context_file)
+    return final_result
 
 if __name__ == "__main__":
     #define directories
@@ -232,7 +275,12 @@ if __name__ == "__main__":
 
     #check sensitivity flag can be disabled
     result=check_compute_sensitivity_flag(input_directory,sensi_file)
-    work_sheet_name='Sensi_flag_Check'
+    work_sheet_name='Sensi_Flag_Check'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    #check build on mode is correctly set
+    result=check_sim_view_mode(input_directory,dm_config_file,sim_file)
+    work_sheet_name='Build_Mode_Check'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #output the work_book

@@ -18,4 +18,4 @@ time_alert_batch_extraction = 00:10:00
 [log]
 log_folder = Logs
 #log level can be DEBUG, INFO,WARNING, EXCEPTION, CRITICAL
-log_level = INFO
+log_level = DEBUG
