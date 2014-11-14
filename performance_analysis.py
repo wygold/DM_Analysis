@@ -14,14 +14,12 @@ from io_utility import io_utility
 import logging
 from logging import handlers
 
-
-
-def initialize_log( log_level=None, log_path='Logs\\'):
+def initialize_log( log_level=None, log_file = None):
     logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(log_level)
 
     # create a file handler
-    handler = logging.handlers.RotatingFileHandler(log_path + 'performance_analysis.log', maxBytes=1024)
+    handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
 
@@ -38,6 +36,9 @@ def set_log_level( log_level):
     logger = logging.getLogger(__name__)
     for handler in logger.handlers:
         if log_level is not None:
+
+
+
             handler.setLevel(log_level)
         else:
             handler.setLevel(log_level)
@@ -45,7 +46,7 @@ def set_log_level( log_level):
 
 def analyze_processing_script_total_time(input_directory, input_file,time_alert_processing_script,period_days):
     logger = logging.getLogger(__name__)
-    logger.info('Start to run analyze_processing_script_total_time.')
+    logger.info('Start to run analyze_processing_script_total_time on file %s%s',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
     final_result=[['DM processing scripts listed according to execution time']]
     final_result.append(['MX Date','System Date','Script name','Execution time', 'Highlight'])
@@ -102,7 +103,7 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
 def analyze_processing_script_breakdown(input_directory, input_file,time_alert_batch_feeder
                                         ,time_alert_batch_extraction,period_days ):
     logger = logging.getLogger(__name__)
-    logger.info('Start to run analyze_processing_script_breakdown.')
+    logger.info('Start to run analyze_processing_script_breakdown on file %s%s.',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
     final_result=[['DM processing scripts listed according to execution time']]
     final_result.append(['MX Date','System Date','Script name','DM_OBJECT_NAME','M_STEP','M_USER','M_GROUP'
@@ -147,7 +148,7 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
 #add up time A and time B
 def add_time(ta,tb):
     logger = logging.getLogger(__name__)
-    logger.info('Start to run add_time.')
+    logger.debug('Start to run add_time.')
     logger.debug('Add %s and %s.', ta, tb)
     ta_hour,ta_min, ta_sec = string.split(ta,":")
     tb_hour,tb_min, tb_sec = string.split(tb,":")
@@ -156,17 +157,17 @@ def add_time(ta,tb):
     hour =  int(ta_hour) + int(tb_hour) + math.floor(sec/60)
     sum_time = str(int(hour%24)).rjust(2, '0')+':'+str(int(min%60)).rjust(2, '0')+':'+str(int(sec%60)).rjust(2, '0')
     logger.debug('%s + %s = %s', ta, tb, sum_time)
-    logger.info('End running add_time.')
+    logger.debug('End running add_time.')
     return sum_time
 
 
 if __name__ == "__main__":
-
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
     sql_directory=os.getcwd()+'\SQLs\\'
     property_directory=os.getcwd()+'\properties\\'
+    log_directory =os.getcwd()+'\Logs\\'
 
     #define sql files
     query_ps_time_sql='query_processing_script_time.sql'
@@ -181,6 +182,11 @@ if __name__ == "__main__":
     #define output file
     final_result_file = 'analyze_performance.xls'
 
+    #define log file
+    log_file = 'performance_analysis.log'
+
+
+
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
@@ -191,14 +197,14 @@ if __name__ == "__main__":
     time_alert_batch_feeder = config.get('performance', 'time_alert_batch_feeder')
     time_alert_batch_extraction =config.get('performance', 'time_alert_batch_extraction')
 
-
-
     log_level = config.get('log', 'log_level')
-    initialize_log(log_level)
+    initialize_log(log_level,log_directory+log_file)
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run performance_analysis.py.')
 
     #prepare connection string
-    db_util = db_utility()
-    db_util.set_log_level(logging.INFO)
+    db_util = db_utility(log_level,log_directory+log_file)
     connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
     #prepare SQLs to be run
@@ -216,8 +222,7 @@ if __name__ == "__main__":
     db_util.dump_output(sqlString, sql_paramters, connectionString, input_directory + ps_exuection_time_file)
 
     #create io_class
-    io_util= io_utility()
-    io_util.set_log_level(logging.INFO)
+    io_util= io_utility(log_level,log_directory+log_file)
 
     #workbook for output result
     work_book = Workbook()
@@ -236,5 +241,5 @@ if __name__ == "__main__":
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)
-
+    logger.info('end running performance_analysis.py.')
 

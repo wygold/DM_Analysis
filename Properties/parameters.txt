@@ -1,7 +1,4 @@
 [general]
-input_folder = Input
-output_folder = Output
-sql_folder = SQLs
 
 
 [dynamic table]
