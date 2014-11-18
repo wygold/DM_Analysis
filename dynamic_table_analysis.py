@@ -56,10 +56,12 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
         fields = line.split(' | ')
 
         if fields[29].strip()<>'' and int(fields[29])> max_dynamic_number_fields :
-        #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
+            logger.debug('Checking Dynamic table %s@%s has total field %s',fields[26].strip(),fields[27].strip(),fields[29].strip())
+            #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
+                logger.debug('Dynamic table %s@%s has total field %s',fields[26].strip(),fields[27].strip(),fields[29].strip())
 
     logger.info('End running check_total_dynamic_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_fields)
     return result
@@ -142,6 +144,7 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
     for line in dm_config_file:
         fields = line.split(' | ')
         if fields[28].strip() == 'Simulation':
+            logger.debug('Found dynamic table %s under %s with viewer %s as %s',fields[26].strip(), fields[27].strip(), fields[42].strip(), fields[33].strip())
             dynamic_tables[fields[26].strip() + fields[27].strip()]=[fields[26].strip(), fields[27].strip(), fields[42].strip(), fields[33].strip()]
 
     #if simulation is only for detailed: mode is 1
@@ -152,18 +155,22 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
         fields = line.split(' | ')
         if fields[0].strip() == 'Detailed simulation' or fields[0].strip() == 'Consolidated simulation':
             if fields[1].strip() in sim_context.keys() :
-                sim_context_file[fields[1].strip()]=[fields[0].strip(),3]
+                sim_context[fields[1].strip()]=[fields[0].strip(),3]
             else :
                 if fields[0].strip() == 'Detailed simulation':
-                    sim_context_file[fields[1].strip()]=[fields[0].strip(),1]
+                    sim_context[fields[1].strip()]=[fields[0].strip(),1]
                 if fields[0].strip() == 'Consolidated simulation':
-                    sim_context_file[fields[1].strip()]=[fields[0].strip(),2]
+                    sim_context[fields[1].strip()]=[fields[0].strip(),2]
 
     for dynamic_table_name in dynamic_tables.keys():
-        if sim_context_file[dynamic_tables[dynamic_table_name][2]]==1 and dynamic_tables[dynamic_table_name][3]=='Consolidated DBF'\
-                or sim_context_file[dynamic_tables[dynamic_table_name][2]]==2 and dynamic_tables[dynamic_table_name][3]=='Detailed DBF':
-            result.append(dynamic_tables[dynamic_table_name][2])
-
+        logger.debug('Dynamic table key is %s',dynamic_table_name)
+        logger.debug('Dynamic table viewer is %s',dynamic_tables[dynamic_table_name][2])
+        if dynamic_tables[dynamic_table_name][2] in sim_context.keys() :
+            if sim_context[dynamic_tables[dynamic_table_name][2]]==1 and dynamic_tables[dynamic_table_name][3]=='Consolidated DBF'\
+                or sim_context[dynamic_tables[dynamic_table_name][2]]==2 and dynamic_tables[dynamic_table_name][3]=='Detailed DBF':
+                result.append(dynamic_tables[dynamic_table_name][2])
+        else :
+            logger.warning('sim_context_file does not have simulation viewer %s',dynamic_tables[dynamic_table_name][2])
     final_result=[['Dynamic table with wrong build on mode']]
     final_result.append(['Dynamic table name','Category','Simulation name','Build on mode'])
 
@@ -204,6 +211,7 @@ if __name__ == "__main__":
     max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
     max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
     max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
+    reload_data = config.getboolean('general', 'reload_data')
 
     log_level = config.get('log', 'log_level')
     initialize_log(log_level,log_directory+log_file)
@@ -211,46 +219,49 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logger.info('Start to run dynamic_table_analysis.py.')
 
+    if reload_data is True:
+        logger.info('Start to execute SQL to load data from DB')
+        #prepare connection string
+        db_util = db_utility(log_level,log_directory+log_file)
+        connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
-    #prepare connection string
-    db_util = db_utility(log_level,log_directory+log_file)
-    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+        #prepare datamart configuration SQLs to be run
+        sqlfile = open(sql_directory+query_dm_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
 
-    #prepare datamart configuration SQLs to be run
-    sqlfile = open(sql_directory+query_dm_sql, 'r+')
-    sqlString= ''
-    for line in sqlfile:
-        sqlString = sqlString + line
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
 
-    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
-    sql_paramters = dict()
+        #dump file
+        db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
 
-    #dump file
-    db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
+        #prepare sensitivities SQLs to be run
+        sqlfile = open(sql_directory+query_sensi_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
 
-    #prepare sensitivities SQLs to be run
-    sqlfile = open(sql_directory+query_sensi_sql, 'r+')
-    sqlString= ''
-    for line in sqlfile:
-        sqlString = sqlString + line
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
 
-    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
-    sql_paramters = dict()
+        #dump file
+        db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
 
-    #dump file
-    db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
+        #prepare simulation context SQLs to be run
+        sqlfile = open(sql_directory+query_simulation_context_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
 
-    #prepare simulation context SQLs to be run
-    sqlfile = open(sql_directory+query_simulation_context_sql, 'r+')
-    sqlString= ''
-    for line in sqlfile:
-        sqlString = sqlString + line
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
 
-    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
-    sql_paramters = dict()
+        #dump file
+        db_util.dump_output(sqlString, None, connectionString, input_directory + sim_file)
 
-    #dump file
-    db_util.dump_output(sqlString, None, connectionString, input_directory + sim_file)
+        logger.info('End executing SQL to load data from DB')
 
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
