@@ -56,13 +56,11 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
         fields = line.split(' | ')
 
         if fields[29].strip()<>'' and int(fields[29])> max_dynamic_number_fields :
-            logger.debug('Checking Dynamic table %s@%s has total field %s',fields[26].strip(),fields[27].strip(),fields[29].strip())
             #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
-                logger.debug('Dynamic table %s@%s has total field %s',fields[26].strip(),fields[27].strip(),fields[29].strip())
-
+                logger.debug('Dynamic table %s@%s has total field %s. It will be recorded',fields[26].strip(),fields[27].strip(),fields[29].strip())
     logger.info('End running check_total_dynamic_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_fields)
     return result
 
@@ -123,6 +121,7 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
 
     for line in raw_file:
         fields = line.split(' | ')
+        logger.debug('Dynamic table %s under category %s is setting sensitivy flag incorreclty.',fields[0].strip(),fields[1].strip())
         result.append([fields[0].strip(),fields[1].strip()])
 
     logger.info('End running check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)

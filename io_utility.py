@@ -82,7 +82,7 @@ class io_utility:
         if highlighted==False:
             for row in content:
                 for cell in row:
-                    if i >= 1 and j < 12 and ws.col(j).width < len(cell) * 300:
+                    if i >= 1 and ws.col(j).width < len(cell) * 300:
                         ws.col(j).width = len(cell) * 320
                     if i == 0:
                         title = str(cell)
@@ -96,8 +96,8 @@ class io_utility:
                         ws.write(i, j, str(cell), self.TEXT_FORMAT)
                         self.logger.debug('Write field [%s,%s] content: %s ',str(i), str(j), str(cell))
                     j = j + 1
-            j = 0
-            i = i + 1
+                j = 0
+                i = i + 1
         else:
             for row in content:
                 highlighted = row[-1]
@@ -122,6 +122,7 @@ class io_utility:
                 j = 0
                 i = i + 1
         self.logger.info('End creating worksheet %s',sheetname)
+
         return workbook
 
     def save_workbook(self,workbook,output_file):
