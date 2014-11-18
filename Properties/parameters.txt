@@ -1,10 +1,13 @@
 [general]
-reload_data = True
+reload_data = False
 
 [dynamic table]
 max_number_fields = 200
 max_number_h_fields = 50
 max_number_db_access_h_fields = 1
+
+[datamart table]
+max_number_fields = 200
 
 [performance]
 period_days = 10

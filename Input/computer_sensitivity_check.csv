@@ -1,112 +1,112 @@
-G_OPDL.1 /TRNRP_PL   | 
-G_AUTR.7      /RPMK  | 
-DYN_TPCR             | 
-G_PLCG3.4e /TRNRP_PL | 
-G_OPNT.1      /RPPL  | 
-G_PLVA.6 /TRNRP_SV   | 
-G_FX.5     /TRNRP_DT | 
-DYN_SV               | 
-G_AUTR.3       /RPMK | 
-G_FX.4     /TRNRP_DT | 
-G_PLCG2.4     /RPPL  | 
-G_PLCG3.4a /TRNRP_PL | 
-G_PLAA.2   /TRNRP_CS | 
-G_PL02.3     /RPPL   | 
-C_MRSV.2   /TRNRP_PL | 
-G_PLCG1.3  /TRNRP_PL | 
-G_PLCG1.4  /TRNRP_PL | 
-G_PLCG3.4b /TRNRP_PL | 
-DYN_TPSI             | 
-G_PLCG1.3  /TRNRP_PL | 
-G_PLCG3.4b /TRNRP_PL | 
-TEST_SPTCV           | 
-HLMY_LAON_DEPOSIT    | 
-HL_MM_FUTURES        | 
-test-for-Nan         | 
-HLMY_REPO            | 
-HL_MM_SFUT           | 
-HL_PAYFLOW_ALL       | 
-HLMY_PaymentFlow     | 
-OPTION               | 
-Outstanding_LNBR     | 
-DYN_TPCR             | 
-G_AUTR.3       /RPMK | 
-G_OPNT.1      /RPPL  | 
-HLMY_LOANDEPOSIT     | 
-HL_MM_CS_BACKUPV2    | 
-HLMY_XDIC            | 
-HLMY_SFUT_ALM        | 
-HLSG_OPTION_RECON    | 
-HLSG_OPTION          | 
-HL_MM_SEC_SG         | 
-ISSUER_SG            | 
-HLSG_IRS             | 
-DYN_XG               | 
-G_PLCG3.4e /TRNRP_PL | 
-HL_RISKFX            | 
-HL_RISKOPT           | 
-HLMY_BOND_FI         | 
-HL_MLCRISK4(TEST)    | 
-HL_MLCRISK_MV        | 
-HL_MLCRISK4          | 
-1.REPO               | 
-HLMY_BOND_BCKUP      | 
-HL_MLCRISK_PL        | 
-HL_MLCRISK3          | 
-HLMY_IRS_ALM_Hedging | 
-HL_OPT_SMP           | 
-HL_OPT_RBT           | 
-HLSG_SWAP_FIN        | 
-KF_test              | 
-HLMY_IRS_ALM         | 
-HLSG_TRNRP_PLIRS     | 
-G_PLCG2.4     /RPPL  | 
-HLSG_PAYMENT_FLOW    | 
-C_MRSV.2   /TRNRP_PL | 
-DYN_SV               | 
-G_FX.5     /TRNRP_DT | 
-G_PL02.3     /RPPL   | 
-G_FX.4     /TRNRP_DT | 
-G_PLCG3.4a /TRNRP_PL | 
-HL_HLM_FO_OPTION     | 
-HL_MM_SEC_CouponRate | 
-TESTING030308        | 
-HL_MM_FUTURES_BCKUP  | 
-HLMY_SFUT_ALM3       | 
-GLC_FX_Income        | 
-FIXING_DEALS         | 
-DYN_TPSI             | 
-G_OPDL.1 /TRNRP_PL   | 
-G_PLCG1.4  /TRNRP_PL | 
-G_PLAA.2   /TRNRP_CS | 
-HL_MLCRISK           | 
-HLMY_SHAREPOINT_OPT  | 
-CSA                  | 
-HL_OPT_RBTSMP        | 
-HL_MM_CS             | 
-HLSG_BOND_NEW        | 
-HLSG_FXSPOTFWD_RECON | 
-HLSG_SWAP            | 
-HLMY_BOND_ALM        | 
-HLMY_PAYFLOW_IRS     | 
-HLMY_MM_CONFO        | 
-HLMY_OPT_ORG         | 
-G_PLVA.6 /TRNRP_SV   | 
-HL_RISKIRD           | 
-HLMY_UBER_LNDEP      | 
-HL_MM_LFUT           | 
-HL_OPT_BAR           | 
-HLSG_SWAP_RECON      | 
-HLMY_PayFlow_confo   | 
-HLMY_BOND_CONFO      | 
-HLMY_LNBR_RYAN       | 
-DYN_DT               | 
-G_AUTR.7      /RPMK  | 
-TEST                 | 
-HL_MM_IRS_V3         | 
-HLSG_PAYFLOW         | 
-HLSG_FXSPOTFWD_FIN   | 
-HLSG_FXSPOTFWD       | 
-HLSG_BOND            | 
-HLSG_FUTURES         | 
-HLMY_LNBR_RYAN       | 
+G_OPDL.1 /TRNRP_PL   | 0
+G_AUTR.7      /RPMK  | 0
+DYN_TPCR             | 0
+G_PLCG3.4e /TRNRP_PL | 0
+G_OPNT.1      /RPPL  | 0
+G_PLVA.6 /TRNRP_SV   | 0
+G_FX.5     /TRNRP_DT | 0
+DYN_SV               | 0
+G_AUTR.3       /RPMK | 0
+G_FX.4     /TRNRP_DT | 0
+G_PLCG2.4     /RPPL  | 0
+G_PLCG3.4a /TRNRP_PL | 0
+G_PLAA.2   /TRNRP_CS | 0
+G_PL02.3     /RPPL   | 0
+C_MRSV.2   /TRNRP_PL | 0
+G_PLCG1.3  /TRNRP_PL | 0
+G_PLCG1.4  /TRNRP_PL | 0
+G_PLCG3.4b /TRNRP_PL | 0
+DYN_TPSI             | 0
+G_PLCG1.3  /TRNRP_PL | 2
+G_PLCG3.4b /TRNRP_PL | 2
+TEST_SPTCV           | 2
+HLMY_LAON_DEPOSIT    | 2
+HL_MM_FUTURES        | 2
+test-for-Nan         | 2
+HLMY_REPO            | 2
+HL_MM_SFUT           | 2
+HL_PAYFLOW_ALL       | 2
+HLMY_PaymentFlow     | 2
+OPTION               | 2
+Outstanding_LNBR     | 2
+DYN_TPCR             | 2
+G_AUTR.3       /RPMK | 2
+G_OPNT.1      /RPPL  | 2
+HLMY_LOANDEPOSIT     | 2
+HL_MM_CS_BACKUPV2    | 2
+HLMY_XDIC            | 2
+HLMY_SFUT_ALM        | 2
+HLSG_OPTION_RECON    | 2
+HLSG_OPTION          | 2
+HL_MM_SEC_SG         | 2
+ISSUER_SG            | 2
+HLSG_IRS             | 2
+DYN_XG               | 2
+G_PLCG3.4e /TRNRP_PL | 2
+HL_RISKFX            | 2
+HL_RISKOPT           | 2
+HLMY_BOND_FI         | 2
+HL_MLCRISK4(TEST)    | 2
+HL_MLCRISK_MV        | 2
+HL_MLCRISK4          | 2
+1.REPO               | 2
+HLMY_BOND_BCKUP      | 2
+HL_MLCRISK_PL        | 2
+HL_MLCRISK3          | 2
+HLMY_IRS_ALM_Hedging | 2
+HL_OPT_SMP           | 2
+HL_OPT_RBT           | 2
+HLSG_SWAP_FIN        | 2
+KF_test              | 2
+HLMY_IRS_ALM         | 2
+HLSG_TRNRP_PLIRS     | 2
+G_PLCG2.4     /RPPL  | 2
+HLSG_PAYMENT_FLOW    | 2
+C_MRSV.2   /TRNRP_PL | 2
+DYN_SV               | 2
+G_FX.5     /TRNRP_DT | 2
+G_PL02.3     /RPPL   | 2
+G_FX.4     /TRNRP_DT | 2
+G_PLCG3.4a /TRNRP_PL | 2
+HL_HLM_FO_OPTION     | 2
+HL_MM_SEC_CouponRate | 2
+TESTING030308        | 2
+HL_MM_FUTURES_BCKUP  | 2
+HLMY_SFUT_ALM3       | 2
+GLC_FX_Income        | 2
+FIXING_DEALS         | 2
+DYN_TPSI             | 2
+G_OPDL.1 /TRNRP_PL   | 2
+G_PLCG1.4  /TRNRP_PL | 2
+G_PLAA.2   /TRNRP_CS | 2
+HL_MLCRISK           | 2
+HLMY_SHAREPOINT_OPT  | 2
+CSA                  | 2
+HL_OPT_RBTSMP        | 2
+HL_MM_CS             | 2
+HLSG_BOND_NEW        | 2
+HLSG_FXSPOTFWD_RECON | 2
+HLSG_SWAP            | 2
+HLMY_BOND_ALM        | 2
+HLMY_PAYFLOW_IRS     | 2
+HLMY_MM_CONFO        | 2
+HLMY_OPT_ORG         | 2
+G_PLVA.6 /TRNRP_SV   | 2
+HL_RISKIRD           | 2
+HLMY_UBER_LNDEP      | 2
+HL_MM_LFUT           | 2
+HL_OPT_BAR           | 2
+HLSG_SWAP_RECON      | 2
+HLMY_PayFlow_confo   | 2
+HLMY_BOND_CONFO      | 2
+HLMY_LNBR_RYAN       | 2
+DYN_DT               | 2
+G_AUTR.7      /RPMK  | 2
+TEST                 | 2
+HL_MM_IRS_V3         | 2
+HLSG_PAYFLOW         | 2
+HLSG_FXSPOTFWD_FIN   | 2
+HLSG_FXSPOTFWD       | 2
+HLSG_BOND            | 2
+HLSG_FUTURES         | 2
+HLMY_LNBR_RYAN       | 3

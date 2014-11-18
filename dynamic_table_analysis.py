@@ -1,8 +1,6 @@
 __author__ = 'ywang'
 
 
-import string
-import xlrd
 from xlwt import *
 import ConfigParser
 import os
@@ -127,7 +125,7 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     logger.info('End running check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
     return result
 
-#	5. Check if simulation viweer used is correct set to consolidated or detailed mode
+#	5. Check if simulation viewer used is correct set to consolidated or detailed mode with dynamic table build on
 def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
 
     logger = logging.getLogger(__name__)
@@ -165,13 +163,17 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
         logger.debug('Dynamic table key is %s',dynamic_table_name)
         logger.debug('Dynamic table viewer is %s',dynamic_tables[dynamic_table_name][2])
         if dynamic_tables[dynamic_table_name][2] in sim_context.keys() :
-            if sim_context[dynamic_tables[dynamic_table_name][2]]==1 and dynamic_tables[dynamic_table_name][3]=='Consolidated DBF'\
-                or sim_context[dynamic_tables[dynamic_table_name][2]]==2 and dynamic_tables[dynamic_table_name][3]=='Detailed DBF':
-                result.append(dynamic_tables[dynamic_table_name][2])
+            logger.debug('Simulation viewer context for viewer %s is %s, its build on is %s',
+                         dynamic_tables[dynamic_table_name][2],sim_context[dynamic_tables[dynamic_table_name][2]][1],dynamic_tables[dynamic_table_name][3] )
+            if (sim_context[dynamic_tables[dynamic_table_name][2]][1]==1 and dynamic_tables[dynamic_table_name][3]=='Consolidated DBF')\
+                or (sim_context[dynamic_tables[dynamic_table_name][2]][1]==2 and dynamic_tables[dynamic_table_name][3]=='Detailed DBF'):
+                logger.debug('Problem dynamic_tables is %s ',dynamic_tables[dynamic_table_name][2])
+                result.append(dynamic_tables[dynamic_table_name])
         else :
             logger.warning('sim_context_file does not have simulation viewer %s',dynamic_tables[dynamic_table_name][2])
     final_result=[['Dynamic table with wrong build on mode']]
     final_result.append(['Dynamic table name','Category','Simulation name','Build on mode'])
+    final_result.extend(result)
 
     logger.info('End running check_sim_view_mode on file %s%s and %s.',input_directory,source_file,simulation_context_file)
     return final_result
