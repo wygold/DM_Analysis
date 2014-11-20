@@ -448,7 +448,7 @@ from
                 where T1. M_REFERENCE = T2. M_RPO_DMSETUP_COLUMN_REF 
                 group by T1.M_RPO_DMSETUP_TABLE_REF,T2.M_LABEL
             ) group by M_RPO_DMSETUP_TABLE_REF
-        ) DM_IND on DYN.M_REFERENCE= DM_IND.M_RPO_DMSETUP_TABLE_REF
+        ) DM_IND on A.M_REFERENCE= DM_IND.M_RPO_DMSETUP_TABLE_REF
 
         where A.M_TYPE in (0,4) 
        -- and A.M_MUREX=0 

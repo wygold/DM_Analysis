@@ -1,5 +1,5 @@
 [general]
-reload_data = False
+reload_data = True
 
 [dynamic table]
 max_number_fields = 200

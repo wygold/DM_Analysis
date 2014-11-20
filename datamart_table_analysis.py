@@ -66,6 +66,65 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
     return result
 
 
+#2 inconsistence field selection between dynamic table and datamart table, datamart has less fields
+def check_inconsistent_datamart_table_field(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_inconsistent_datamart_table_field on file %s%s.',input_directory,input_file)
+
+    result=[['Datamart table has less fields than dynamic table fields']]
+    result.append(['Datamart table name','Field count', 'Dynamic table name','Category','Dynamic table field'])
+    datamart_tables = dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+        datamart_table_name = fields[24].strip()
+        dynamic_table_name = fields[26].strip()
+
+        if datamart_table_name.strip()<>'' and dynamic_table_name<>'':
+            datamart_table_field_count = int(fields[25])
+            dynamic_table_category = fields[27].strip()
+            dynamic_table_field_count = int(fields[29])
+            if datamart_table_field_count < dynamic_table_field_count :
+                datamart_tables[datamart_table_name]=[datamart_table_name,str(datamart_table_field_count),dynamic_table_name,dynamic_table_category,str(dynamic_table_field_count)]
+                logger.debug('Datamart table %s (with %i) has less field than dynamic table %s (with %i). It will be recorded',
+                             datamart_table_name,datamart_table_field_count, dynamic_table_name,dynamic_table_field_count)
+
+    for key, value in datamart_tables.iteritems():
+        temp = value
+        result.append(temp)
+
+    logger.info('End running check_inconsistent_datamart_table_field on file %s%s.',input_directory,input_file)
+    return result
+
+
+#3 If any index defined, otherwise need to add indeices to it
+def check_index(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_index on file %s%s.',input_directory,input_file)
+
+    result=[['Following Datamart table dose not have index']]
+    result.append(['Datamart table name','Index count'])
+    datamart_tables = dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+        datamart_table_name = fields[24].strip()
+        if datamart_table_name<>'':
+            datamart_index = fields[19].strip()
+            if datamart_index == '' :
+                datamart_tables[datamart_table_name]= '0'
+            logger.debug('Datamart table %s do not have any index.',datamart_table_name)
+
+    for key, value in datamart_tables.iteritems():
+        temp = [key,value]
+        result.append(temp)
+
+    logger.info('End running check_index on file %s%s.',input_directory,input_file)
+    return result
 
 if __name__ == "__main__":
     #define directories
@@ -131,6 +190,17 @@ if __name__ == "__main__":
     result=check_total_datamart_table_field_number(input_directory,dm_config_file,max_datamart_fields)
     work_sheet_name='Field_Check'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    #2 inconsistence field selection between dynamic table and datamart table
+    result=check_inconsistent_datamart_table_field(input_directory,dm_config_file)
+    work_sheet_name='Field_Inconsistent'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    #3 datamart table shall have at least 1 index
+    result=check_index(input_directory,dm_config_file)
+    work_sheet_name='No_Index_Table'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)
