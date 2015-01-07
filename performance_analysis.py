@@ -160,8 +160,7 @@ def add_time(ta,tb):
     logger.debug('End running add_time.')
     return sum_time
 
-
-if __name__ == "__main__":
+def run(reload_check_button_status=None):
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
@@ -185,8 +184,6 @@ if __name__ == "__main__":
     #define log file
     log_file = 'performance_analysis.log'
 
-
-
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
@@ -203,23 +200,29 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logger.info('Start to run performance_analysis.py.')
 
-    #prepare connection string
-    db_util = db_utility(log_level,log_directory+log_file)
-    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+    #read in property file
+    config = ConfigParser.RawConfigParser()
+    config.read(property_directory + parameter_file)
+    reload_data = config.getboolean('general', 'reload_data')
 
-    #prepare SQLs to be run
-    sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
-    sqlString= ''
-    for line in sqlfile:
-        sqlString = sqlString + line
+    if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
+        #prepare connection string
+        db_util = db_utility(log_level,log_directory+log_file)
+        connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
-    #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
-    sql_paramters = dict()
-    sql_paramters['START_DATE'] = start_date
-    sql_paramters['END_DATE'] = end_date
+        #prepare SQLs to be run
+        sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
 
-    #dump file
-    db_util.dump_output(sqlString, sql_paramters, connectionString, input_directory + ps_exuection_time_file)
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
+        sql_paramters['START_DATE'] = start_date
+        sql_paramters['END_DATE'] = end_date
+
+        #dump file
+        db_util.dump_output(sqlString, sql_paramters, connectionString, input_directory + ps_exuection_time_file)
 
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
@@ -243,3 +246,5 @@ if __name__ == "__main__":
     io_util.save_workbook(work_book,output_directory+final_result_file)
     logger.info('end running performance_analysis.py.')
 
+if __name__ == "__main__":
+    run()

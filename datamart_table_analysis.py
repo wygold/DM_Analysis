@@ -17,6 +17,8 @@ def initialize_log( log_level=None, log_file = None):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
 
+
+
     # create a file handler
     handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -47,7 +49,7 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_datamart_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_datamart_fields)
 
-    result=[['Number of Datamart table fields that exceeds '+str(max_datamart_fields)]]
+    result=[['Datamart table fields exceeds '+str(max_datamart_fields)]]
     result.append(['Datamart table name','Field count'])
     datamart_tables = dict()
 
@@ -126,7 +128,7 @@ def check_index(input_directory,input_file) :
     logger.info('End running check_index on file %s%s.',input_directory,input_file)
     return result
 
-if __name__ == "__main__":
+def run():
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
@@ -206,3 +208,5 @@ if __name__ == "__main__":
     io_util.save_workbook(work_book,output_directory+final_result_file)
     logger.info('End running datamart_table_analysis.py.')
 
+if __name__ == "__main__":
+    run()

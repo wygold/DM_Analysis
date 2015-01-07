@@ -56,7 +56,7 @@ class io_utility:
         'font: bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
         'borders: left thin, right thin, top thin, bottom thin;'
-        'pattern: pattern solid, pattern_fore_colour red, pattern_back_colour gray25'
+        'pattern: pattern solid, pattern_fore_colour green, pattern_back_colour gray25'
     )
 
     def read_txt(self,filename):

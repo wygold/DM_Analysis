@@ -178,7 +178,7 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
     logger.info('End running check_sim_view_mode on file %s%s and %s.',input_directory,source_file,simulation_context_file)
     return final_result
 
-if __name__ == "__main__":
+def run():
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
@@ -299,4 +299,5 @@ if __name__ == "__main__":
     io_util.save_workbook(work_book,output_directory+final_result_file)
     logger.info('End running dynamic_table_analysis.py.')
 
-
+if __name__ == "__main__":
+    run()
