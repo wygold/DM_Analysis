@@ -78,12 +78,22 @@ class io_utility:
         i = 0
         j = 0
         title = ''
+        cell = ''
 
         if highlighted==False:
             for row in content:
-                for cell in row:
+                for rawcell in row:
+                    if type(rawcell) is str:
+                        cell=rawcell
+                    else:
+                        cell=str(rawcell)
+
                     if i >= 1 and ws.col(j).width < len(cell) * 300:
-                        ws.col(j).width = len(cell) * 320
+                        width= len(cell) * 320
+                        if width > 15000 :
+                            ws.col(j).width = 15000
+                        else :
+                            ws.col(j).width = width
                     if i == 0:
                         title = str(cell)
                     elif i == 1:
@@ -101,9 +111,17 @@ class io_utility:
         else:
             for row in content:
                 highlighted = row[-1]
-                for cell in row:
+                for rawcell in row:
+                    if type(rawcell) is str:
+                        cell=rawcell
+                    else:
+                        cell=str(rawcell)
                     if i>=1 and j < 12 and ws.col(j).width < len(cell)*300 :
-                        ws.col(j).width = len(cell)*320
+                        width= len(cell) * 320
+                        if width > 15000 :
+                            ws.col(j).width = 15000
+                        else :
+                            ws.col(j).width = width
                     if i == 0 :
                         title = str(cell)
                     elif i == 1 :

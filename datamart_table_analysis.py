@@ -128,7 +128,7 @@ def check_index(input_directory,input_file) :
     logger.info('End running check_index on file %s%s.',input_directory,input_file)
     return result
 
-def run():
+def run(reload_check_button_status=None):
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
@@ -164,7 +164,7 @@ def run():
     logger = logging.getLogger(__name__)
     logger.info('Start to run datamart_table_analysis.py.')
 
-    if reload_data is True:
+    if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
         logger.info('Start to execute SQL to load data from DB')
         #prepare connection string
         db_util = db_utility(log_level,log_directory+log_file)

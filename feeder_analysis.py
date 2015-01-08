@@ -133,12 +133,13 @@ def check_duplicate_of_feeders(input_directory,input_file) :
             if not feeders.has_key(feeder_name) :
                 feeders[feeder_name]=[batch_feeder_name]
             else :
-                if batch_feeder_name not in feeders[feeder_name]:
+                if batch_feeder_name not in feeders[feeder_name] and batch_feeder_name<>'':
                     feeders[feeder_name].append(batch_feeder_name)
             batch_execution_time[batch_feeder_name]=batch_last_execution_date
 
 
     for feeder_name, feeder_content in feeders.iteritems():
+        logger.debug('Number of batch feeders is %i that has same feeder %s.',len(feeder_content),feeder_name)
         if len(feeder_content) > 1 :
             for batch_feeder_name in feeder_content :
                 if batch_feeder_name <> '':
@@ -156,7 +157,7 @@ def check_duplicate_of_dm_table(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_dm_table in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Feeder that definded in multiple batches']]
+    result=[['Datamart tables that definded in multiple single feeders']]
     result.append(['DM Table Name','Feeder name','Last Execution Date'])
 
     dm_tables = dict()
@@ -175,11 +176,12 @@ def check_duplicate_of_dm_table(input_directory,input_file) :
             if not dm_tables.has_key(dm_tables_name) :
                 dm_tables[dm_tables_name]=[feeder_name]
             else :
-                if feeder_name not in dm_tables[dm_tables_name]:
+                if feeder_name not in dm_tables[dm_tables_name] and feeder_name<>'':
                     dm_tables[dm_tables_name].append(feeder_name)
             feeder_execution_time[feeder_name]=feeder_last_execution_date
 
     for dm_tables_name, dm_tables_content in dm_tables.iteritems():
+        logger.debug('Number of feeders is %i that has same datamart table %s.',len(dm_tables_content),dm_tables_name)
         if len(dm_tables_content) > 1 :
             for feeder_name in dm_tables_content :
                 if feeder_name <> '':
@@ -196,7 +198,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_batch_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Feeder that definded in multiple batches']]
+    result=[['Batch of Feeder that definded in multiple processing scripts']]
     result.append(['Batch of Feeder','Processing Script'])
 
     batch_feeders = dict()
@@ -213,7 +215,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file) :
             if not batch_feeders.has_key(batch_feeder_name) :
                 batch_feeders[batch_feeder_name]=[processing_script_name]
             else :
-                if processing_script_name not in batch_feeders[batch_feeder_name]:
+                if processing_script_name not in batch_feeders[batch_feeder_name] and processing_script_name<>'':
                     batch_feeders[batch_feeder_name].append(processing_script_name)
 
 
@@ -225,6 +227,70 @@ def check_duplicate_of_batch_feeder(input_directory,input_file) :
                     result.append(temp)
 
     logger.info('End running check_duplicate_of_batch_feeder on file %s%s.',input_directory,input_file)
+    return result
+
+#2.0 Give summary of duplicate checking
+def check_duplicate_summary(input_directory,input_file) :
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_duplicate_summary in different batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['A summary of multi-referenced dm objects.']]
+
+    logger.info('Process how datamart tables are refernced by feeders')
+    result.append(['Name of Datamart table','# of Referenced feeders'])
+
+    dm_tables_result=check_duplicate_of_dm_table(input_directory,input_file)
+
+    dm_tables=dict()
+    for i in range(2,len(dm_tables_result)):
+        dm_table_name=dm_tables_result[i][0]
+        if not dm_tables.has_key(dm_table_name):
+            dm_tables[dm_table_name]=1
+        else:
+            dm_tables[dm_table_name] = dm_tables[dm_table_name]+1
+
+    for dm_table_name, feeder_counter in dm_tables.iteritems():
+        temp = [dm_table_name, str(feeder_counter)]
+        result.append(temp)
+    result.append(['    ','     '])
+
+    logger.info('Process how feeders are refernced by batch feeders')
+    result.append(['Name of feeders','# of Referenced Batch feeders'])
+
+    feeders_result=check_duplicate_of_feeders(input_directory,input_file)
+
+    feeders=dict()
+    for i in range(2,len(feeders_result)):
+        feeder_name=feeders_result[i][0]
+        if not feeders.has_key(feeder_name):
+            feeders[feeder_name]=1
+        else:
+            feeders[feeder_name] = feeders[feeder_name]+1
+
+    for feeder_name, batch_feeder_counter in feeders.iteritems():
+        temp = [feeder_name, str(batch_feeder_counter)]
+        result.append(temp)
+    result.append(['    ','    '])
+
+    logger.info('Process how batch feeders are refernced by processing scripts')
+    result.append(['Name of batch feeders','# of Referenced Batch feeders'])
+
+    batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file)
+
+    batch_feeders=dict()
+    for i in range(2,len(batch_feeders_result)):
+        batch_feeder_name = batch_feeders_result[i][0]
+        if not batch_feeders.has_key(batch_feeder_name):
+            batch_feeders[batch_feeder_name]=1
+        else:
+            batch_feeders[batch_feeder_name] = batch_feeders[batch_feeder_name]+1
+
+    for batch_feeder_name, processing_script_counter in batch_feeders.iteritems():
+        temp = [batch_feeder_name, str(processing_script_counter)]
+        result.append(temp)
+
+
+    logger.info('End running check_duplicate_summary on file %s%s.',input_directory,input_file)
     return result
 
 #3 Check scanner engine usage
@@ -308,7 +374,36 @@ def check_number_of_feeder_in_batch(input_directory,input_file) :
     logger.info('End running check_number_of_feeder_in_batch on file %s%s.',input_directory,input_file)
     return result
 
+#5 check_filter_conflict between dynamic table default settings and global filter
+def check_filter_conflict(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
 
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_filter_conflict for batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['Filter confilict between default filter and global filter']]
+    result.append(['Dynamic table','Default filter 1', 'Default filter 2', 'Default filter 3','Default filter 4','Batch feeder','Global filter 1','Global filter 2','Global filter 3'])
+
+    for line in raw_file:
+        fields = line.split(' | ')
+        dynamic_table_name = fields[26].strip()
+        #default_filter_1=fields[37].strip()
+        default_filter_2=fields[38].strip()
+        default_filter_3=fields[39].strip()
+        default_filter_4=fields[40].strip()
+        default_filter_5=fields[41].strip()
+
+        batch_feeder_name=fields[2].strip()
+        global_filter1=fields[7].strip()
+        global_filter2=fields[8].strip()
+        global_filter3=fields[9].strip()
+
+        logger.debug('Checking batch feeder %s, dynamic table mame %s',batch_feeder_name, dynamic_table_name)
+        if batch_feeder_name <>'' and dynamic_table_name<>'' and ( default_filter_2<>'' or default_filter_3<>'' or default_filter_4<>'' or default_filter_5<>'') and (global_filter1<>'' or global_filter2<>'' or global_filter3<>'') :
+           result.append([dynamic_table_name,default_filter_2,default_filter_3,default_filter_4,default_filter_5,batch_feeder_name,global_filter1,global_filter2,global_filter3])
+
+    logger.info('End running check_filter_conflict on file %s%s.',input_directory,input_file)
+    return result
 
 def run(reload_check_button_status=None):
     #define directories
@@ -345,7 +440,7 @@ def run(reload_check_button_status=None):
     logger = logging.getLogger(__name__)
     logger.info('Start to run datamart_table_analysis.py.')
 
-    if reload_data is True:
+    if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
         logger.info('Start to execute SQL to load data from DB')
         #prepare connection string
         db_util = db_utility(log_level,log_directory+log_file)
@@ -374,9 +469,9 @@ def run(reload_check_button_status=None):
     work_sheet_name='Dataset_consistency'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
-    #2. Check if same feeder is defined in 2 batches.
-    result=check_duplicate_of_feeders(input_directory,dm_config_file)
-    work_sheet_name='Feeder_Duplication'
+    #2.0 Give summary of duplicate checking
+    result=check_duplicate_summary(input_directory,dm_config_file)
+    work_sheet_name='Object_referred_Summary'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #2.1. Check if same table is defined in 2 feeder.
@@ -384,11 +479,15 @@ def run(reload_check_button_status=None):
     work_sheet_name='DM_Table_Duplication'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
+    #2. Check if same feeder is defined in 2 batches.
+    result=check_duplicate_of_feeders(input_directory,dm_config_file)
+    work_sheet_name='Feeder_Duplication'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
     result=check_duplicate_of_batch_feeder(input_directory,dm_config_file)
     work_sheet_name='Batch_Feeder_Duplication'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
-
 
     #3 Check scanner engine usage
     result=check_scanner_engine_usage(input_directory,dm_config_file)
@@ -397,7 +496,13 @@ def run(reload_check_button_status=None):
 
     #4. check number of feeders in a batch, shall not be too many!
     result=check_number_of_feeder_in_batch(input_directory,dm_config_file)
-    work_sheet_name='Feeder number'
+    work_sheet_name='Feeder_number'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+
+    #5 check_filter_conflict between dynamic table default settings and global filter
+    result=check_filter_conflict(input_directory,dm_config_file)
+    work_sheet_name='Filter_conflict'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
 

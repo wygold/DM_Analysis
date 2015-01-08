@@ -26,7 +26,12 @@ nvl(TBL.M_UNIT,' ') as "OBJECT_TYPES",' | ',
 DN.DM_TABLE_NAME,' | ',
 DN.FLDSCNT,' | ',
 nvl(DN.DYN_TBL_NAME,' ') as "DYNAMIC_TABLE",' | ',
-nvl(M_TYPE, 0) AS "DYNAMIC_TABLE_CATEGORY",' | ',
+case when NVL(M_TYPE,4)=0 then 'Murex'
+when NVL(M_TYPE,4)=1 then 'Murex Additional'
+when NVL(M_TYPE,4)=2 then 'User'
+when NVL(M_TYPE,4)=3 then 'User Additional'
+else ''
+end as "DYNAMIC_TABLE_CATEGORY",' | ',
 decode(DN.TYPE,NULL,'SQL',0,DN.CLSTYPE,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',nvl(to_char(DN.TYPE), ' ')) as "DYN_TYPE", ' | ',
 nvl(to_char(DN.FIELDS_COUNT),' ') as DYN_FIELDS_COUNT,' | ',
 nvl(to_char(DN.TOTAL_HFIELDS_COUNT),' ') as TOTAL_HORIZONTAL_FIELDS,' | ',

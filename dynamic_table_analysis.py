@@ -8,6 +8,7 @@ from db_utility import db_utility
 from io_utility import io_utility
 import logging
 from logging import handlers
+from operator import itemgetter, attrgetter, methodcaller
 
 log_level = logging.DEBUG
 logger = ''
@@ -178,7 +179,95 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
     logger.info('End running check_sim_view_mode on file %s%s and %s.',input_directory,source_file,simulation_context_file)
     return final_result
 
-def run():
+#summary of how dynamic table fields are referenced by datamart tables
+def check_dynamic_table_field_reference_summary(input_directory,source_file) :
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
+
+    dm_definition_file= open(input_directory+source_file, 'r')
+
+    table_fields = dict()
+
+    final_result=[['Summary of dynamic table field reference']]
+    final_result.append(['Dynamic table field','# of reference'])
+
+    result=[]
+
+    for line in dm_definition_file:
+        fields = line.split(' | ')
+
+        field_name= fields[0].strip()
+        max_length= fields[1].strip()
+        precision= fields[2].strip()
+        data_type= fields[3].strip()
+        table_name= fields[4].strip()
+
+        if not table_fields.has_key(field_name):
+            #table_fields[field_name]=[table_name]
+            table_fields[field_name] = 1
+        else:
+            #table_fields[field_name].append(table_name)
+            table_fields[field_name] = table_fields[field_name] + 1
+
+
+    for field_name, table_count in table_fields.iteritems():
+        temp = [field_name,table_count]
+        result.append(temp)
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+
+    final_result.extend(sorted_result)
+
+    logger.info('End running check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
+    return final_result
+
+#detail of how dynamic table fields are referenced by datamart tables
+def check_dynamic_table_field_reference_detail(input_directory,source_file) :
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
+
+    dm_definition_file= open(input_directory+source_file, 'r')
+
+    table_fields = dict()
+
+    final_result=[['Summary of dynamic table field reference']]
+    final_result.append(['Dynamic table field','# of reference'])
+
+    result=[]
+
+    for line in dm_definition_file:
+        fields = line.split(' | ')
+
+        field_name= fields[0].strip()
+        max_length= fields[1].strip()
+        precision= fields[2].strip()
+        data_type= fields[3].strip()
+        table_name= fields[4].strip()
+
+        if not table_fields.has_key(field_name):
+            table_fields[field_name]=[table_name]
+        else:
+            table_fields[field_name].append(table_name)
+
+    for field_name, table_names in table_fields.iteritems():
+        for table_name in table_names:
+            temp = [field_name,table_name]
+            result.append(temp)
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0,1),reverse=False)
+
+    final_result.extend(sorted_result)
+
+    logger.info('End running check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
+    return final_result
+
+def run(reload_check_button_status=None):
     #define directories
     input_directory=os.getcwd()+'\Input\\'
     output_directory=os.getcwd()+'\Output\\'
@@ -190,11 +279,13 @@ def run():
     query_dm_sql='query_dm_config.sql'
     query_sensi_sql='query_sensitivity_flag.sql'
     query_simulation_context_sql = 'query_simulation_context.sql'
+    query_dm_defintion_sql = 'query_dm_definition.sql'
 
     #define input files
     dm_config_file = 'source.csv'
     sensi_file='computer_sensitivity_check.csv'
     sim_file='simulation_context.csv'
+    dm_defintion_file = 'dm_definition.csv'
 
     #define property files
     parameter_file='parameters.txt'
@@ -220,7 +311,7 @@ def run():
     logger = logging.getLogger(__name__)
     logger.info('Start to run dynamic_table_analysis.py.')
 
-    if reload_data is True:
+    if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
         logger.info('Start to execute SQL to load data from DB')
         #prepare connection string
         db_util = db_utility(log_level,log_directory+log_file)
@@ -262,6 +353,19 @@ def run():
         #dump file
         db_util.dump_output(sqlString, None, connectionString, input_directory + sim_file)
 
+
+        #prepare dm defintion SQLs to be run
+        sqlfile = open(sql_directory+query_dm_defintion_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
+
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
+
+        #dump file
+        db_util.dump_output(sqlString, None, connectionString, input_directory + dm_defintion_file)
+
         logger.info('End executing SQL to load data from DB')
 
     #create io_class
@@ -294,6 +398,18 @@ def run():
     result=check_sim_view_mode(input_directory,dm_config_file,sim_file)
     work_sheet_name='Build_Mode_Check'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    #summary of how dynamic table fields are referenced by datamart tables
+    result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file)
+    work_sheet_name='Field_Reference_Summary'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+
+    #detail of how dynamic table fields are referenced by datamart tables
+    result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file)
+    work_sheet_name='Field_Reference_Detail'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)
