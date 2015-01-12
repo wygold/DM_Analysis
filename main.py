@@ -82,14 +82,25 @@ class Datamart_analysis_tool(Frame):
 
         #Load reload_data
         general_config=self.load_config('general')
-        reload_check_button_status = ''
-        reload_check_button = Checkbutton(root, text="Reload Data?", variable=reload_check_button_status, onvalue="True", offvalue="False")
+        reload_check_button_status = BooleanVar()
+        reload_check_button = Checkbutton(root, text="Reload Data?", variable=reload_check_button_status)
         if general_config['reload_data'] is True:
             reload_check_button.select()
         else:
             reload_check_button.deselect()
 
-        reload_check_button.grid(columnspan=3,row=current_row,sticky=E)
+        reload_check_button.grid(column=2,row=current_row,sticky=E)
+
+        #Create log level
+        log_config=self.load_config('log')
+        log_level = log_config['log_level']
+        Label(root, text="Log: ").grid(column=0,row=current_row,sticky=W)
+        log_dropdown_status = StringVar()
+        log_dropdown_status.set(log_level)
+        log_dropdown_values = ['INFO', 'DEBUG', 'WARNING', 'ERROR','CRITICAL']
+        log_dropdown = OptionMenu(root, log_dropdown_status, *log_dropdown_values)
+        log_dropdown.grid(column=0,row=current_row)
+
         current_row = current_row + 1
 
         run_all_check_button_status = IntVar()
@@ -146,7 +157,7 @@ class Datamart_analysis_tool(Frame):
         Label(root,text='').grid(row=current_row)
         current_row = current_row + 1
 
-        run_analysis_button=Button(root, text="Run Analysis",command=lambda: self.run_anslysis(check_buttons_status,reload_check_button_status))
+        run_analysis_button=Button(root, text="Run Analysis",command=lambda: self.run_anslysis(check_buttons_status,reload_check_button_status, log_dropdown_status))
         run_analysis_button.grid(row=current_row,columnspan=3)
         current_row = current_row + 1
 
@@ -201,32 +212,32 @@ class Datamart_analysis_tool(Frame):
             for check_button in check_buttons:
                 check_button.deselect()
 
-    def run_anslysis(self,check_buttons_status,reload_check_button_status):
+    def run_anslysis(self,check_buttons_status,reload_check_button_status,log_dropdown_status):
         any_button_checked = False
 
         for analysis_type, button_status in check_buttons_status.iteritems():
 
             if analysis_type == 'Dynamic table analysis' and button_status.get() :
                 try:
-                    thread.start_new_thread( self.load_dynamic_table_analysis, (reload_check_button_status,) )
+                    thread.start_new_thread( self.load_dynamic_table_analysis, (reload_check_button_status.get(),log_dropdown_status.get(),) )
                 except:
                     print "Error: unable to start thread"
                 any_button_checked = True
             if analysis_type == 'Datamart table analysis' and button_status.get() :
                 try:
-                    thread.start_new_thread(self.load_datamart_table_analysis, (reload_check_button_status,) )
+                    thread.start_new_thread(self.load_datamart_table_analysis, (reload_check_button_status.get(),log_dropdown_status.get(),) )
                 except:
                     print "Error: unable to start thread"
                 any_button_checked = True
             if analysis_type == 'Feeder analysis' and button_status.get() :
                 try:
-                    thread.start_new_thread(self.load_feeder_analysis, (reload_check_button_status,) )
+                    thread.start_new_thread(self.load_feeder_analysis, (reload_check_button_status.get(),log_dropdown_status.get(),) )
                 except:
                     print "Error: unable to start thread"
                 any_button_checked = True
             if analysis_type == 'Performance analysis' and button_status.get() :
                 try:
-                    thread.start_new_thread(self.load_performance_analysis, (reload_check_button_status,))
+                    thread.start_new_thread(self.load_performance_analysis, (reload_check_button_status.get(),log_dropdown_status.get(),))
                 except:
                     print "Error: unable to start thread"
                 any_button_checked = True
@@ -235,25 +246,25 @@ class Datamart_analysis_tool(Frame):
             self.create_error_frame('Error','Nothing is picked!')
 
 
-    def load_dynamic_table_analysis(self,reload_check_button_status):
+    def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
         logger.info('Run dynamic_table_analysis')
-        dynamic_table_analysis.run(reload_check_button_status)
+        dynamic_table_analysis.run(reload_check_button_status,log_dropdown_status)
 
-    def load_datamart_table_analysis(self,reload_check_button_status):
+    def load_datamart_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
         logger.info('Run datamart_table_analysis')
-        datamart_table_analysis.run(reload_check_button_status)
+        datamart_table_analysis.run(reload_check_button_status,log_dropdown_status)
 
-    def load_performance_analysis(self,reload_check_button_status):
+    def load_performance_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
         logger.info('Run performance_analysis')
-        performance_analysis.run(reload_check_button_status)
+        performance_analysis.run(reload_check_button_status,log_dropdown_status)
 
-    def load_feeder_analysis(self,reload_check_button_status):
+    def load_feeder_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
         logger.info('Run feeder_analysis')
-        feeder_analysis.run(reload_check_button_status)
+        feeder_analysis.run(reload_check_button_status,log_dropdown_status)
 
     def load_config(self, analysis_type=None):
         logger = logging.getLogger(__name__)
@@ -319,6 +330,11 @@ class Datamart_analysis_tool(Frame):
             configs['output_directory']=output_directory
             configs['sql_directory']=sql_directory
             configs['log_directory']=log_directory
+
+        elif analysis_type == 'log' :
+            #general settings
+            log_level = config.get('log', 'log_level')
+            configs['log_level']=log_level
 
         return configs
 

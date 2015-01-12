@@ -32,7 +32,7 @@ when NVL(M_TYPE,4)=2 then 'User'
 when NVL(M_TYPE,4)=3 then 'User Additional'
 else ''
 end as "DYNAMIC_TABLE_CATEGORY",' | ',
-decode(DN.TYPE,NULL,'SQL',0,DN.CLSTYPE,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',nvl(to_char(DN.TYPE), ' ')) as "DYN_TYPE", ' | ',
+decode(DN.TYPE,NULL,'SQL',0,DN.CLSTYPE,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(DN.TYPE), ' ')) as "DYN_TYPE", ' | ',
 nvl(to_char(DN.FIELDS_COUNT),' ') as DYN_FIELDS_COUNT,' | ',
 nvl(to_char(DN.TOTAL_HFIELDS_COUNT),' ') as TOTAL_HORIZONTAL_FIELDS,' | ',
 nvl(to_char(DN.HFIELDS_DBFCOUNT),' ') as DB_HORIZONTAL_FIELDS,' | ',

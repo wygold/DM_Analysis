@@ -1,9 +1,9 @@
 [general]
-reload_data = False
+reload_data = 0
 input_directory = Input
 log_directory = Logs
 output_directory = Output
-sql_directory= SQLs
+sql_directory = SQLs
 
 [dynamic table]
 max_number_fields = 201
@@ -15,8 +15,7 @@ output_file_name = analyze_dynamic_table
 max_number_fields = 203
 output_file_name = analyze_datamart_table
 
-
-[performance]MU
+[performance]
 period_days = 11
 start_date = 2014-09-15
 end_date = 2014-09-15
@@ -30,5 +29,5 @@ output_file_name = analyze_performance
 output_file_name = analyze_feeder
 
 [log]
-log_level = DEBUG
+log_level = INFO
 

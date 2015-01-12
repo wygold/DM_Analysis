@@ -9,25 +9,18 @@ from io_utility import io_utility
 import logging
 from logging import handlers
 
-log_level = logging.DEBUG
 logger = ''
 
 
-def initialize_log( log_level=None, log_file = None):
+def initialize_log( log_level = 'INFO', log_file = None):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
-
-
 
     # create a file handler
     handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
-
-    if log_level is not None:
-        handler.setLevel(log_level)
-    else:
-        handler.setLevel(log_level)
+    handler.setLevel(log_level)
 
     # add the handlers to the logger
     logger.addHandler(handler)
@@ -128,13 +121,9 @@ def check_index(input_directory,input_file) :
     logger.info('End running check_index on file %s%s.',input_directory,input_file)
     return result
 
-def run(reload_check_button_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None):
     #define directories
-    input_directory=os.getcwd()+'\Input\\'
-    output_directory=os.getcwd()+'\Output\\'
-    sql_directory=os.getcwd()+'\SQLs\\'
     property_directory=os.getcwd()+'\\properties\\'
-    log_directory =os.getcwd()+'\Logs\\'
 
     #define sql files
     query_dm_sql='query_dm_config.sql'
@@ -158,7 +147,17 @@ def run(reload_check_button_status=None):
     max_datamart_fields = config.getint('datamart table', 'max_number_fields')
     reload_data = config.getboolean('general', 'reload_data')
 
-    log_level = config.get('log', 'log_level')
+    #define directories
+    input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
+    output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
+    sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('general', 'log_directory')+'\\'
+
+
+    if log_dropdown_status is None :
+        log_level = config.get('log', 'log_level')
+    else:
+        log_level = log_dropdown_status
     initialize_log(log_level,log_directory+log_file)
 
     logger = logging.getLogger(__name__)

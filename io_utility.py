@@ -10,7 +10,6 @@ class io_utility:
 
     def initialize_log(self,log_level = logging.DEBUG, log_file = None):
         self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(logging.DEBUG)
 
         # create a file handler
         if log_file is None:

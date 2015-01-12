@@ -10,11 +10,10 @@ import logging
 from logging import handlers
 from operator import itemgetter, attrgetter, methodcaller
 
-log_level = logging.DEBUG
 logger = ''
 
 
-def initialize_log( log_level=None, log_file = None):
+def initialize_log( log_level = 'INFO', log_file =None ):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
 
@@ -22,11 +21,7 @@ def initialize_log( log_level=None, log_file = None):
     handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
-
-    if log_level is not None:
-        handler.setLevel(log_level)
-    else:
-        handler.setLevel(log_level)
+    handler.setLevel(log_level)
 
     # add the handlers to the logger
     logger.addHandler(handler)
@@ -185,16 +180,12 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
 
-    dm_definition_file= open(input_directory+source_file, 'r')
-
     table_fields = dict()
 
-    final_result=[['Summary of dynamic table field reference']]
-    final_result.append(['Dynamic table field','# of reference'])
+    dm_definition_file_point= open(input_directory+source_file, 'r')
 
-    result=[]
-
-    for line in dm_definition_file:
+    #retrieve table field name and its total number referenced
+    for line in dm_definition_file_point:
         fields = line.split(' | ')
 
         field_name= fields[0].strip()
@@ -202,22 +193,32 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
         precision= fields[2].strip()
         data_type= fields[3].strip()
         table_name= fields[4].strip()
+        dyn_table= fields[5].strip()
+        dyn_table_category= fields[6].strip()
+        dyn_table_type= fields[7].strip()
 
-        if not table_fields.has_key(field_name):
+        key = field_name + ' | ' + dyn_table_type
+
+        if not table_fields.has_key(key):
             #table_fields[field_name]=[table_name]
-            table_fields[field_name] = 1
+            table_fields[key] = 1
         else:
             #table_fields[field_name].append(table_name)
-            table_fields[field_name] = table_fields[field_name] + 1
+            table_fields[key] = table_fields[key] + 1
 
+    final_result=[['Summary of dynamic table field reference']]
+    final_result.append(['Dynamic table field','Dynamic table type', '# of reference'])
 
-    for field_name, table_count in table_fields.iteritems():
-        temp = [field_name,table_count]
+    result=[]
+
+    for field_key, table_count in table_fields.iteritems():
+        field_name, dyn_table_type=field_key.split(' | ')
+        temp = [field_name,dyn_table_type,table_count]
         result.append(temp)
 
     #sort the result
     logger.debug('Sort the result')
-    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    sorted_result = sorted(result,key=itemgetter(2),reverse=True)
 
     final_result.extend(sorted_result)
 
@@ -235,7 +236,7 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
     table_fields = dict()
 
     final_result=[['Summary of dynamic table field reference']]
-    final_result.append(['Dynamic table field','# of reference'])
+    final_result.append(['Dynamic table field','Dynamic table category','Dynamic table','Dynamic table type','Datamart table'])
 
     result=[]
 
@@ -247,15 +248,20 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
         precision= fields[2].strip()
         data_type= fields[3].strip()
         table_name= fields[4].strip()
+        dyn_table= fields[5].strip()
+        dyn_table_category= fields[6].strip()
+        dyn_table_type= fields[7].strip()
+
 
         if not table_fields.has_key(field_name):
-            table_fields[field_name]=[table_name]
+            table_fields[field_name]=[[dyn_table_category,dyn_table,dyn_table_type,table_name]]
         else:
-            table_fields[field_name].append(table_name)
+            table_fields[field_name].append([dyn_table_category,dyn_table,dyn_table_type,table_name])
 
-    for field_name, table_names in table_fields.iteritems():
-        for table_name in table_names:
-            temp = [field_name,table_name]
+    for field_name, table_definition in table_fields.iteritems():
+        for table in table_definition:
+            dyn_table_category,dyn_table,dyn_table_type,table_name= table
+            temp = [field_name,dyn_table_category,dyn_table,dyn_table_type,table_name]
             result.append(temp)
 
     #sort the result
@@ -267,13 +273,10 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
     logger.info('End running check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
     return final_result
 
-def run(reload_check_button_status=None):
-    #define directories
-    input_directory=os.getcwd()+'\Input\\'
-    output_directory=os.getcwd()+'\Output\\'
-    sql_directory=os.getcwd()+'\SQLs\\'
+def run(reload_check_button_status=None,log_dropdown_status=None):
+
+    #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
-    log_directory =os.getcwd()+'\Logs\\'
 
     #define sql files
     query_dm_sql='query_dm_config.sql'
@@ -305,7 +308,17 @@ def run(reload_check_button_status=None):
     max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
     reload_data = config.getboolean('general', 'reload_data')
 
-    log_level = config.get('log', 'log_level')
+
+    #define directories
+    input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
+    output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
+    sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('general', 'log_directory')+'\\'
+
+    if log_dropdown_status is None :
+        log_level = config.get('log', 'log_level')
+    else:
+        log_level = log_dropdown_status
     initialize_log(log_level,log_directory+log_file)
 
     logger = logging.getLogger(__name__)

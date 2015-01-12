@@ -14,7 +14,9 @@ from io_utility import io_utility
 import logging
 from logging import handlers
 
-def initialize_log( log_level=None, log_file = None):
+logger = ''
+
+def initialize_log( log_level = 'INFO', log_file = None):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
 
@@ -22,23 +24,15 @@ def initialize_log( log_level=None, log_file = None):
     handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
-
-    if log_level is not None:
-        handler.setLevel(log_level)
-    else:
-        handler.setLevel(log_level)
+    handler.setLevel(log_level)
 
     # add the handlers to the logger
     logger.addHandler(handler)
-
 
 def set_log_level( log_level):
     logger = logging.getLogger(__name__)
     for handler in logger.handlers:
         if log_level is not None:
-
-
-
             handler.setLevel(log_level)
         else:
             handler.setLevel(log_level)
@@ -160,13 +154,10 @@ def add_time(ta,tb):
     logger.debug('End running add_time.')
     return sum_time
 
-def run(reload_check_button_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None):
     #define directories
-    input_directory=os.getcwd()+'\Input\\'
-    output_directory=os.getcwd()+'\Output\\'
-    sql_directory=os.getcwd()+'\SQLs\\'
     property_directory=os.getcwd()+'\properties\\'
-    log_directory =os.getcwd()+'\Logs\\'
+
 
     #define sql files
     query_ps_time_sql='query_processing_script_time.sql'
@@ -194,7 +185,16 @@ def run(reload_check_button_status=None):
     time_alert_batch_feeder = config.get('performance', 'time_alert_batch_feeder')
     time_alert_batch_extraction =config.get('performance', 'time_alert_batch_extraction')
 
-    log_level = config.get('log', 'log_level')
+    #define directories
+    input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
+    output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
+    sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('general', 'log_directory')+'\\'
+
+    if log_dropdown_status is None :
+        log_level = config.get('log', 'log_level')
+    else:
+        log_level = log_dropdown_status
     initialize_log(log_level,log_directory+log_file)
 
     logger = logging.getLogger(__name__)
