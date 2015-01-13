@@ -9,6 +9,8 @@ import dynamic_table_analysis
 import datamart_table_analysis
 import performance_analysis
 import feeder_analysis
+from property_utility import property_utility
+
 import ConfigParser
 import logging
 import os
@@ -19,30 +21,32 @@ import time
 
 class Datamart_analysis_tool(Frame):
 
-    log_level = logging.DEBUG
     logger = ''
 
-
-    def initialize_log( log_level=None, log_file = None):
+    def initialize_log(self,log_level=None, log_file = None):
         global logger
         logger = logging.getLogger(__name__)
 
-        log_level = logging.INFO
-
-        logger.setLevel(log_level)
+        if log_level is None:
+            logger.setLevel(logging.INFO)
+        else :
+            logger.setLevel(log_level)
 
         #define log file
-        log_directory =os.getcwd()+'\Logs\\'
-        log_file = log_directory+'main_screen.log'
+        if log_file is None:
+            log_directory =os.getcwd()+'\Logs\\'
+            local_log_file = log_directory+'main_screen.log'
+        else:
+            local_log_file = log_file
 
         # create a file handler
-        handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
+        handler = logging.handlers.RotatingFileHandler(local_log_file, maxBytes=1024)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
 
-        if log_level is not None:
-            handler.setLevel(log_level)
-        else:
+        if log_level is None:
+            handler.setLevel(logging.INFO)
+        else :
             handler.setLevel(log_level)
 
         # add the handlers to the logger
@@ -51,11 +55,18 @@ class Datamart_analysis_tool(Frame):
         logger.info('Log initialized')
 
     def __init__(self, master=None):
-        self.initialize_log()
 
-        logger = logging.getLogger(__name__)
+        global  parameters
+        property_util = property_utility()
+        parameters = property_util.parse_property_file()
+
+        log_level = parameters['log']['log_level']
+        log_file = parameters['log']['log_directory']+'\\main_screen.log'
+
+        self.initialize_log(log_level,log_file)
 
         global root
+
         root = master
 
         Frame.__init__(self, master)
@@ -69,10 +80,6 @@ class Datamart_analysis_tool(Frame):
 
         logger.info('Create master frame')
 
-        frame= Frame(root)
-
-        leftframe = Frame(root)
-
         check_buttons=[]
         view_output_buttons=dict()
         check_buttons_status=dict()
@@ -80,7 +87,7 @@ class Datamart_analysis_tool(Frame):
         current_row = 0
 
         title = Label(root, text="Datamart Analysis Tool", font=("Helvetica", 20))
-        title.grid(columnspan=3,row=current_row)
+        title.grid(columnspan=6,row=current_row)
         current_row = current_row + 1
 
         #Create empty line
@@ -88,10 +95,9 @@ class Datamart_analysis_tool(Frame):
         current_row = current_row + 1
 
         #Load reload_data
-        general_config=self.load_config('general')
         reload_check_button_status = BooleanVar()
         reload_check_button = Checkbutton(root, text="Reload Data?", variable=reload_check_button_status)
-        if general_config['reload_data'] is True:
+        if parameters['general']['reload_data'] is True:
             reload_check_button.select()
         else:
             reload_check_button.deselect()
@@ -99,8 +105,7 @@ class Datamart_analysis_tool(Frame):
         reload_check_button.grid(column=3,row=current_row,sticky=E)
 
         #Create log level
-        log_config=self.load_config('log')
-        log_level = log_config['log_level']
+        log_level = parameters['log']['log_level']
         Label(root, text="Log: ").grid(column=0,row=current_row,sticky=W)
         log_dropdown_status = StringVar()
         log_dropdown_status.set(log_level)
@@ -125,7 +130,7 @@ class Datamart_analysis_tool(Frame):
         dynamic_table_analysis_check_button_status = IntVar()
         dynamic_table_analysis_check_button = Checkbutton(root, text="Dynamic table analysis",variable=dynamic_table_analysis_check_button_status)
         check_buttons.append(dynamic_table_analysis_check_button)
-        check_buttons_status["Dynamic table analysis"] = dynamic_table_analysis_check_button_status
+        check_buttons_status["dynamic table"] = dynamic_table_analysis_check_button_status
         dynamic_table_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('dynamic table'))
         view_output_buttons['dynamic table'] = Button(root, text='View Output',command=lambda: self.view_result_frame('dynamic table'),state='disabled')
         dynamic_table_analysis_check_button.grid(row=current_row,sticky=W)
@@ -136,7 +141,7 @@ class Datamart_analysis_tool(Frame):
         datamart_table_analysis_check_button_status = IntVar()
         datamart_table_analysis_check_button = Checkbutton(root, text="Datamart table analysis",variable=datamart_table_analysis_check_button_status)
         check_buttons.append(datamart_table_analysis_check_button)
-        check_buttons_status["Datamart table analysis"] = datamart_table_analysis_check_button_status
+        check_buttons_status["datamart table"] = datamart_table_analysis_check_button_status
         datamart_table_analysis_config_button = Button(root, text='Config', command=lambda: self.create_config_frame('datamart table') )
         view_output_buttons['datamart table'] = Button(root, text='View Output',command=lambda: self.view_result_frame('datamart table'),state='disabled')
         datamart_table_analysis_check_button.grid(row=current_row,sticky=W)
@@ -147,7 +152,7 @@ class Datamart_analysis_tool(Frame):
         feeder_analysis_check_button_status = IntVar()
         feeder_analysis_check_button = Checkbutton(root, text="Feeder analysis",variable=feeder_analysis_check_button_status)
         check_buttons.append(feeder_analysis_check_button)
-        check_buttons_status["Feeder analysis"] = feeder_analysis_check_button_status
+        check_buttons_status["feeder"] = feeder_analysis_check_button_status
         feeder_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('feeder'))
         view_output_buttons['feeder'] = Button(root, text='View Output',command=lambda: self.view_result_frame('feeder'),state='disabled')
         feeder_analysis_check_button.grid(row=current_row,sticky=W)
@@ -158,7 +163,7 @@ class Datamart_analysis_tool(Frame):
         performance_analysis_check_button_status = IntVar()
         performance_analysis_check_button = Checkbutton(root, text="Performance analysis",variable=performance_analysis_check_button_status)
         check_buttons.append(performance_analysis_check_button)
-        check_buttons_status["Performance analysis"] = performance_analysis_check_button_status
+        check_buttons_status["performance"] = performance_analysis_check_button_status
         #performance_analysis_run_button = Button(master, text='Run', command=self.load_performance_analysis)
         performance_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('performance'))
         view_output_buttons['performance'] = Button(root, text='View Output',command=lambda: self.view_result_frame('performance'),state='disabled')
@@ -176,17 +181,29 @@ class Datamart_analysis_tool(Frame):
         execution_progress_bar = ttk.Progressbar(root, orient='horizontal', mode='indeterminate',length=180)
         execution_progress_bar.grid(row=current_row,column=1, columnspan=3,sticky=W)
 
+        #create a empty
+        Label(root, width=1, text='').grid(row=2, rowspan=current_row-1,column=4)
+
+        #Create empty verticle line
+        Label(root,text='',height=1).grid(row=current_row)
+        #create a log text box
+        log_text=Text(root, width=40,height=18)
+        log_text.grid(row=2, rowspan=current_row-1,column=5)
+        log_text.insert(END,'Welcome to Datamart analysis tools')
+
+        #Create empty verticle line
+        Label(root, width=1, text='').grid(row=2, rowspan=current_row-1,column=6)
+
         #create running button
-        run_analysis_button=Button(root, text="Run Analysis",command=lambda: self.run_anslysis(run_analysis_button,view_output_buttons, check_buttons_status,reload_check_button_status, log_dropdown_status,execution_progress_bar))
+        run_analysis_button=Button(root, text="Run Analysis",command=lambda: self.run_analysis(run_analysis_button,view_output_buttons, check_buttons_status,reload_check_button_status, log_dropdown_status,execution_progress_bar,log_text))
         run_analysis_button.grid(row=current_row,column=0)
-
-
 
         current_row = current_row + 1
 
         #Create empty line
-        Label(root,text='',height=1).grid(row=current_row)
+        Label(root,text='').grid(row=current_row)
         current_row = current_row + 1
+
 
     def create_menu(self):
         menubar = Menu(root)
@@ -235,70 +252,58 @@ class Datamart_analysis_tool(Frame):
             for check_button in check_buttons:
                 check_button.deselect()
 
-    def run_anslysis(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar):
-        any_button_checked = False
-
-        global execution_threads
-        execution_threads = dict()
-
-        for analysis_type, button_status in check_buttons_status.iteritems():
-            if analysis_type == 'Dynamic table analysis' and button_status.get() :
-                try:
-                    execution_threads['dynamic table']=threading.Thread( target=self.load_dynamic_table_analysis, args=(reload_check_button_status.get(),log_dropdown_status.get(),) )
-                    execution_threads['dynamic table'].start()
-                except:
-                    self.create_error_frame('Error','Unable to start thread')
-                any_button_checked = True
-            if analysis_type == 'Datamart table analysis' and button_status.get() :
-                try:
-                    execution_threads['datamart table']=threading.Thread(target=self.load_datamart_table_analysis,  args=(reload_check_button_status.get(),log_dropdown_status.get(),) )
-                    execution_threads['datamart table'].start()
-                except:
-                    self.create_error_frame('Error','Unable to start thread')
-                any_button_checked = True
-            if analysis_type == 'Feeder analysis' and button_status.get() :
-                try:
-                    execution_threads['feeder']=threading.Thread(target=self.load_feeder_analysis,  args=(reload_check_button_status.get(),log_dropdown_status.get(),) )
-                    execution_threads['feeder'].start()
-                except:
-                    self.create_error_frame('Error','Unable to start thread')
-                any_button_checked = True
-            if analysis_type == 'Performance analysis' and button_status.get() :
-                try:
-                    execution_threads['performance']=threading.Thread(target=self.load_performance_analysis,  args=(reload_check_button_status.get(),log_dropdown_status.get(),))
-                    execution_threads['performance'].start()
-                except:
-                    self.create_error_frame('Error','Unable to start thread')
-                any_button_checked = True
-
-        if any_button_checked is False:
-            self.create_error_frame('Error','Nothing is selected!')
-        else:
-            run_analysis_button.config(state='disable')
-            execution_progress_bar.start(30)
-            observe_thread = threading.Thread(target=self.checking_execution_thread,  args=(execution_threads,execution_progress_bar,run_analysis_button,view_output_buttons,))
+    def run_analysis(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
+        try:
+            log_monitor_thread = threading.Thread( target=self.monitor_log_file, args=(run_analysis_button, check_buttons_status,) )
+            log_monitor_thread.start()
+            work_thread=threading.Thread( target=self.analysis_worker_thread, args=(run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text,) )
+            work_thread.start()
+            observe_thread = threading.Thread(target=self.checking_execution_thread,  args=(work_thread,execution_progress_bar,check_buttons_status,run_analysis_button,view_output_buttons,))
             observe_thread.start()
+        except:
+            self.create_error_frame('Error','Unable to start thread')
 
-    def checking_execution_thread(self,execution_threads,execution_progress_bar,run_analysis_button,view_output_buttons):
+    def analysis_worker_thread(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
+        for analysis_type, button_status in check_buttons_status.iteritems():
+            if analysis_type == 'dynamic table' and button_status.get() :
+                self.load_dynamic_table_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+            if analysis_type == 'datamart table' and button_status.get() :
+                self.load_datamart_table_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+            if analysis_type == 'feeder' and button_status.get() :
+                self.load_feeder_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+            if analysis_type == 'performance' and button_status.get() :
+                self.load_performance_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+
+    def checking_execution_thread(self,work_thread,execution_progress_bar,check_buttons_status,run_analysis_button,view_output_buttons):
         logging.info('Monitoring thread starting')
 
-        thread_to_kill=[]
+        for analysis_type, button_status in check_buttons_status.iteritems():
+            if analysis_type == 'dynamic table' and button_status.get() :
+                view_output_buttons[analysis_type].config(state='disabled')
+            if analysis_type == 'datamart table' and button_status.get() :
+                view_output_buttons[analysis_type].config(state='disabled')
+            if analysis_type == 'feeder' and button_status.get() :
+                view_output_buttons[analysis_type].config(state='disabled')
+            if analysis_type == 'performance' and button_status.get() :
+                view_output_buttons[analysis_type].config(state='disabled')
+
+        run_analysis_button.config(state='disable')
+        execution_progress_bar.start(30)
 
         while True:
-            if len(execution_threads) == 0:
+            if not work_thread.isAlive() :
                 execution_progress_bar.stop()
                 run_analysis_button.config(state='active')
+                for analysis_type, button_status in check_buttons_status.iteritems():
+                    if analysis_type == 'dynamic table' and button_status.get() :
+                        view_output_buttons[analysis_type].config(state='active')
+                    if analysis_type == 'datamart table' and button_status.get() :
+                        view_output_buttons[analysis_type].config(state='active')
+                    if analysis_type == 'feeder' and button_status.get() :
+                        view_output_buttons[analysis_type].config(state='active')
+                    if analysis_type == 'performance' and button_status.get() :
+                        view_output_buttons[analysis_type].config(state='active')
                 return
-            for thread_name, thread in execution_threads.iteritems():
-                if not thread.isAlive():
-                    view_output_buttons[thread_name].config(state='active')
-                    thread_to_kill.append(thread_name)
-                else:
-                    view_output_buttons[thread_name].config(state='disabled')
-
-            for thread_name in thread_to_kill:
-                execution_threads.pop(thread_name,None)
-
             time.sleep(2)
 
     def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
@@ -421,7 +426,9 @@ class Datamart_analysis_tool(Frame):
 
         logger.info('Create config frame')
 
-        configs=self.load_config(analysis_type)
+        for parameter_type, parameter in parameters.iteritems():
+            if parameter_type == analysis_type:
+                configs = parameter
 
         config_gui_items = dict()
 
@@ -509,6 +516,24 @@ class Datamart_analysis_tool(Frame):
 
         config.write(raw_file)
 
+
+    def monitor_log_file(self,run_analysis_button, check_buttons_status):
+        filename=log_file
+        file = open(filename,'r')
+
+        #Find the size of the file and move to the end
+        st_results = os.stat(filename)
+        st_size = st_results[6]
+        file.seek(st_size)
+
+        while 1:
+            where = file.tell()
+            line = file.readline()
+            if not line:
+                time.sleep(1)
+                file.seek(where)
+            else:
+                print line, # already has newline
 
 if __name__ == "__main__":
     root = Tk()

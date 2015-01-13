@@ -6,6 +6,7 @@ import ConfigParser
 import os
 from db_utility import db_utility
 from io_utility import io_utility
+from property_utility import property_utility
 import logging
 from logging import handlers
 from operator import itemgetter, attrgetter, methodcaller
@@ -277,6 +278,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
+    parameter_file='parameters.txt'
+
+    property_util = property_utility()
+    parameters = property_util.parse_property_file(property_directory,parameter_file)
 
     #define sql files
     query_dm_sql='query_dm_config.sql'
@@ -291,14 +296,13 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     dm_defintion_file = 'dm_definition.csv'
 
     #define property files
-    parameter_file='parameters.txt'
-    mxDbsource_file='dbsource.mxres'
+    mxDbsource_file=parameters['database']['mx_db_config_file']
 
     #define output file
-    final_result_file = 'analyze_dynamic_table.xls'
+    final_result_file = parameters['dynamic table']['output_file_name']
 
     #define log file
-    log_file = 'dynamic_table_analysis.log'
+    log_file = parameters['dynamic table']['log_file_name']
 
     #read in property file
     config = ConfigParser.RawConfigParser()
@@ -313,7 +317,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
     output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
     sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
-    log_directory =os.getcwd()+'\\'+config.get('general', 'log_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('log', 'log_directory')+'\\'
 
     if log_dropdown_status is None :
         log_level = config.get('log', 'log_level')

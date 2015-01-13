@@ -7,6 +7,7 @@ from db_utility import db_utility
 from io_utility import io_utility
 import logging
 from logging import handlers
+from property_utility import property_utility
 
 logger = ''
 
@@ -401,8 +402,12 @@ def check_filter_conflict(input_directory,input_file) :
     return result
 
 def run(reload_check_button_status=None,log_dropdown_status=None):
-    #define directories
+    #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
+    parameter_file='parameters.txt'
+
+    property_util = property_utility()
+    parameters = property_util.parse_property_file(property_directory,parameter_file)
 
 
     #define sql files
@@ -412,14 +417,13 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     dm_config_file = 'source.csv'
 
     #define property files
-    parameter_file='parameters.txt'
-    mxDbsource_file='dbsource.mxres'
+    mxDbsource_file=parameters['database']['mx_db_config_file']
 
     #define output file
-    final_result_file = 'analyze_feeder.xls'
+    final_result_file = parameters['feeder']['output_file_name']
 
     #define log file
-    log_file = 'analyze_feeder.log'
+    log_file = parameters['feeder']['log_file_name']
 
     #read in property file
     config = ConfigParser.RawConfigParser()
@@ -430,7 +434,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
     output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
     sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
-    log_directory =os.getcwd()+'\\'+config.get('general', 'log_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('log', 'log_directory')+'\\'
 
     if log_dropdown_status is None :
         log_level = config.get('log', 'log_level')

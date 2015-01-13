@@ -164,6 +164,9 @@ if __name__ == "__main__":
     sql_directory = os.getcwd() + '\SQLs\\'
     property_directory = os.getcwd() + '\properties\\'
 
+
+
+
     #define sql files
     query_ps_time_sql = 'query_processing_script_time.sql'
 
