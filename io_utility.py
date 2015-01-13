@@ -147,18 +147,7 @@ class io_utility:
 
     def __init__(self, log_level=logging.DEBUG, log_file=None):
         self.initialize_log(log_level,log_file)
-        self.logger.info('Initialize io_utility class')
+        self.logger.debug('Initialize io_utility class')
 
 if __name__ == "__main__":
-    #io=io_utility()
-
-    a={'a':[1,2],'b':[3,4],'c':[5,6],'d':[7,8,9]}
-    b='c'
-    for b in a.keys():
-        print b
-
-    # io.logger.info('aaa')
-    # io.logger.warning('bbb')
-    # io.set_log_level(logging.WARNING)
-    # io.logger.info('ccc')
-    # io.logger.warning('dddd')
+    pass

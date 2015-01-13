@@ -38,11 +38,11 @@ class db_utility:
 
 
     def set_dbsourcefile(self,sourcefile):
-        self.logger.info('Set db source file')
+        self.logger.debug('Set db source file '+sourcefile)
         self.dbsource = sourcefile
 
     def load_dbsourcefile(self, sourcefile) :
-        self.logger.info('Parse dbsource file for connection string. ')
+        self.logger.debug('Parse dbsource file %s for connection string. ',sourcefile)
 
         if sourcefile is not None:
             self.logger.info('Using passed in dbsource file: %s', sourcefile)
@@ -65,12 +65,12 @@ class db_utility:
         self.connectionString=dbUser.text+'/'+dbPassword.text+'@'+dbHostName.text+':'+dbServerPortNumber.text\
                          +'/'+dbServerOrServiceName.text
 
-        self.logger.info('connectionString parsed is : %s', self.connectionString)
+        self.logger.debug('connectionString parsed is : %s', self.connectionString)
 
         return self.connectionString
 
     def prepare_sql(self,sql, sql_paramters):
-        self.logger.info('Start to prepare SQL to be executed.')
+        self.logger.debug('Start to prepare SQL to be executed.')
         self.logger.debug('SQL to prepare \n %s', sql)
         if sql_paramters is None:
             return sql
@@ -85,7 +85,7 @@ class db_utility:
                 sql = sql.replace('@'+parameter_name+':C',formatted_value )
             if sql.find('@'+parameter_name+':N'):
                 sql = sql.replace('@'+parameter_name+':D',formatted_value )
-        self.logger.info('End SQL prepartion.')
+        self.logger.debug('End SQL prepartion.')
         return sql
 
     def execute_sql(self, sql, sql_paramters, connectionString, batch_mode = True):
@@ -118,7 +118,7 @@ class db_utility:
 
 
     def dump_output(self, sql, sql_paramters, connectionString, dump_file_name, batch_mode = True):
-        self.logger.info('Start to dump file with SQL.')
+        self.logger.info('Start to write result to file %s.',dump_file_name)
         sql = self.prepare_sql(sql, sql_paramters)
 
         con = cx_Oracle.connect(connectionString)
@@ -150,11 +150,11 @@ class db_utility:
 
         cur.close()
         con.close()
-        self.logger.info('End dump file.')
+        self.logger.info('End write file.')
 
     def __init__(self, log_level=logging.DEBUG, log_file=None):
         self.initialize_log(log_level,log_file)
-        self.logger.info('Initialize db_utility class')
+        self.logger.debug('Initialize db_utility class')
 
 
 if __name__ == "__main__":
@@ -163,8 +163,6 @@ if __name__ == "__main__":
     output_directory = os.getcwd() + '\Output\\'
     sql_directory = os.getcwd() + '\SQLs\\'
     property_directory = os.getcwd() + '\properties\\'
-
-
 
 
     #define sql files

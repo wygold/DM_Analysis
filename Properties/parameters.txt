@@ -4,9 +4,8 @@ input_directory = Input
 output_directory = Output
 sql_directory = SQLs
 
-
 [dynamic table]
-max_number_fields = 201
+max_number_fields = 200
 max_number_h_fields = 54
 max_number_db_access_h_fields = 1
 output_file_name = dynamic_table_analysis.xls

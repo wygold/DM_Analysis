@@ -66,26 +66,29 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
 
     #sort the result
     logger.debug('Sort the result')
-    sorted_result = sorted(result,key=itemgetter(0,1,3),reverse=True)
 
-    #apply period days
-    current_day =  datetime.datetime.strptime(sorted_result[0][0], '%Y-%m-%d %H:%M:%S').date()
     filtered_result = []
+    if len(result) > 0:
+        sorted_result = sorted(result,key=itemgetter(0,1,3),reverse=True)
 
-    #filtering the data according to the date
-    logger.info('Filtering the result old than : %s days',period_days)
-    for result in sorted_result:
-        result_date =  datetime.datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S').date()
-        if result_date > current_day - datetime.timedelta(days=period_days):
-            filtered_result.append(result)
+        #apply period days
+        current_day =  datetime.datetime.strptime(sorted_result[0][0], '%Y-%m-%d %H:%M:%S').date()
 
-    #highlight the data according to time alert
-    logger.debug('Highlight the result running longer than : %s',time_alert_processing_script)
-    for one_result in filtered_result:
-        if one_result[3] > time_alert_processing_script:
-            one_result.append('True')
-        else:
-            one_result.append('False')
+
+        #filtering the data according to the date
+        logger.info('Filtering the result old than : %s days',period_days)
+        for result in sorted_result:
+            result_date =  datetime.datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S').date()
+            if result_date > current_day - datetime.timedelta(days=period_days):
+                filtered_result.append(result)
+
+        #highlight the data according to time alert
+        logger.debug('Highlight the result running longer than : %s',time_alert_processing_script)
+        for one_result in filtered_result:
+            if one_result[3] > time_alert_processing_script:
+                one_result.append('True')
+            else:
+                one_result.append('False')
 
     #append with head and title
     final_result.extend(filtered_result)
@@ -108,31 +111,34 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
         logger.debug('line appended: %s',fields)
         result.append(fields)
 
-    #sort the result
-    logger.info('Sort the result.')
-    sorted_result = sorted(result,key=itemgetter(0,1,10),reverse=True)
-
-    #highlight rows according to time alert
-    logger.info('Highlight the batch of feeder running longer than : %s',time_alert_batch_feeder)
-    logger.info('Highlight the batch of extraction running longer than : %s',time_alert_batch_extraction)
-    for one_result in sorted_result:
-        if (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_FEED' and one_result[10] > time_alert_batch_feeder) \
-                or (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_EXT' and one_result[10] > time_alert_batch_extraction) :
-            one_result.append('True')
-        else:
-            one_result.append('False')
-
-    #apply period days
-    logger.info('Filtering the result old than : %s days',period_days)
-    current_day =  datetime.datetime.strptime(sorted_result[0][0], '%Y-%m-%d %H:%M:%S').date()
     filtered_result = []
 
-    for result in sorted_result:
-        result_date =  datetime.datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S').date()
-        if result_date > current_day - datetime.timedelta(days=period_days):
-            filtered_result.append(result)
+    if len(result) > 0 :
+        #sort the result
+        logger.info('Sort the result.')
+        sorted_result = sorted(result,key=itemgetter(0,1,10),reverse=True)
 
-    #append with head and title
+        #highlight rows according to time alert
+        logger.info('Highlight the batch of feeder running longer than : %s',time_alert_batch_feeder)
+        logger.info('Highlight the batch of extraction running longer than : %s',time_alert_batch_extraction)
+        for one_result in sorted_result:
+            if (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_FEED' and one_result[10] > time_alert_batch_feeder) \
+                    or (one_result[11].rstrip('\n').rstrip() =='REP_BATCHES_EXT' and one_result[10] > time_alert_batch_extraction) :
+                one_result.append('True')
+            else:
+                one_result.append('False')
+
+        #apply period days
+        logger.info('Filtering the result old than : %s days',period_days)
+        current_day =  datetime.datetime.strptime(sorted_result[0][0], '%Y-%m-%d %H:%M:%S').date()
+
+
+        for result in sorted_result:
+            result_date =  datetime.datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S').date()
+            if result_date > current_day - datetime.timedelta(days=period_days):
+                filtered_result.append(result)
+
+        #append with head and title
     final_result.extend(filtered_result)
 
     logger.info('End running analyze_processing_script_breakdown.')

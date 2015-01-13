@@ -109,7 +109,7 @@ class Datamart_analysis_tool(Frame):
         Label(root, text="Log: ").grid(column=0,row=current_row,sticky=W)
         log_dropdown_status = StringVar()
         log_dropdown_status.set(log_level)
-        log_dropdown_values = ['INFO', 'DEBUG', 'WARNING', 'ERROR','CRITICAL']
+        log_dropdown_values = [ 'DEBUG','INFO', 'WARNING', 'ERROR','CRITICAL']
         log_dropdown = OptionMenu(root, log_dropdown_status, *log_dropdown_values)
         log_dropdown.grid(column=0,row=current_row)
         current_row = current_row + 1
@@ -187,9 +187,9 @@ class Datamart_analysis_tool(Frame):
         #Create empty verticle line
         Label(root,text='',height=1).grid(row=current_row)
         #create a log text box
-        log_text=Text(root, width=40,height=18)
+        log_text=Text(root, width=50,height=18,font=("Helvetica",8))
         log_text.grid(row=2, rowspan=current_row-1,column=5)
-        log_text.insert(END,'Welcome to Datamart analysis tools')
+        log_text.insert(END,'Welcome to Datamart analysis tools\n')
 
         #Create empty verticle line
         Label(root, width=1, text='').grid(row=2, rowspan=current_row-1,column=6)
@@ -254,8 +254,6 @@ class Datamart_analysis_tool(Frame):
 
     def run_analysis(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
         try:
-            log_monitor_thread = threading.Thread( target=self.monitor_log_file, args=(run_analysis_button, check_buttons_status,) )
-            log_monitor_thread.start()
             work_thread=threading.Thread( target=self.analysis_worker_thread, args=(run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text,) )
             work_thread.start()
             observe_thread = threading.Thread(target=self.checking_execution_thread,  args=(work_thread,execution_progress_bar,check_buttons_status,run_analysis_button,view_output_buttons,))
@@ -266,13 +264,29 @@ class Datamart_analysis_tool(Frame):
     def analysis_worker_thread(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
         for analysis_type, button_status in check_buttons_status.iteritems():
             if analysis_type == 'dynamic table' and button_status.get() :
+                monitor_log_file_stop= threading.Event()
+                self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
                 self.load_dynamic_table_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+                time.sleep(1)
+                monitor_log_file_stop.set()
             if analysis_type == 'datamart table' and button_status.get() :
+                monitor_log_file_stop= threading.Event()
+                self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
                 self.load_datamart_table_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+                time.sleep(1)
+                monitor_log_file_stop.set()
             if analysis_type == 'feeder' and button_status.get() :
+                monitor_log_file_stop= threading.Event()
+                self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
                 self.load_feeder_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+                time.sleep(1)
+                monitor_log_file_stop.set()
             if analysis_type == 'performance' and button_status.get() :
+                monitor_log_file_stop= threading.Event()
+                self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
                 self.load_performance_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+                time.sleep(1)
+                monitor_log_file_stop.set()
 
     def checking_execution_thread(self,work_thread,execution_progress_bar,check_buttons_status,run_analysis_button,view_output_buttons):
         logging.info('Monitoring thread starting')
@@ -305,6 +319,41 @@ class Datamart_analysis_tool(Frame):
                         view_output_buttons[analysis_type].config(state='active')
                 return
             time.sleep(2)
+
+    def monitor_log_file(self, analysis_type,log_text,monitor_log_file_stop):
+
+        log_monitor_thread = ''
+
+        try:
+            log_file_name= parameters[analysis_type]['log_file_name']
+            log_monitor_thread=threading.Thread(target=self.monitor_log_file_thread, args=(log_file_name,log_text,monitor_log_file_stop,) )
+            log_monitor_thread.start()
+        except:
+            self.create_error_frame('Error','Unable to start thread')
+
+        return log_monitor_thread
+
+    def monitor_log_file_thread(self, log_file,log_text,monitor_log_file_stop):
+        log_file=os.getcwd()+'\\'+parameters['log']['log_directory']+'\\'+log_file
+        file = open(log_file,'r')
+
+        #Find the size of the file and move to the end
+        st_results = os.stat(log_file)
+        st_size = st_results[6]
+        file.seek(st_size)
+
+        while (not monitor_log_file_stop.is_set()):
+            where = file.tell()
+            line = file.readline()
+            if not line:
+                time.sleep(0.1)
+                file.seek(where)
+            else:
+                log_text.insert(END,line)
+                log_text.yview(END)
+                #print line, # already has newline
+
+
 
     def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
@@ -517,23 +566,6 @@ class Datamart_analysis_tool(Frame):
         config.write(raw_file)
 
 
-    def monitor_log_file(self,run_analysis_button, check_buttons_status):
-        filename=log_file
-        file = open(filename,'r')
-
-        #Find the size of the file and move to the end
-        st_results = os.stat(filename)
-        st_size = st_results[6]
-        file.seek(st_size)
-
-        while 1:
-            where = file.tell()
-            line = file.readline()
-            if not line:
-                time.sleep(1)
-                file.seek(where)
-            else:
-                print line, # already has newline
 
 if __name__ == "__main__":
     root = Tk()
