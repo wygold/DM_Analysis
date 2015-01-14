@@ -11,19 +11,21 @@ class io_utility:
     def initialize_log(self,log_level = logging.DEBUG, log_file = None):
         self.logger = logging.getLogger(__name__)
 
-        # create a file handler
-        if log_file is None:
-            handler = logging.handlers.RotatingFileHandler('io_utlity.log',maxBytes=1024)
-        else:
-            handler = logging.handlers.RotatingFileHandler(log_file,maxBytes=1024)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
 
-        self.logger.setLevel(log_level)
-        handler.setLevel(log_level)
+        if self.logger.handlers == []:
+            # create a file handler
+            if log_file is None:
+                handler = logging.handlers.RotatingFileHandler('io_utlity.log',maxBytes=1024)
+            else:
+                handler = logging.handlers.RotatingFileHandler(log_file,maxBytes=1024)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            handler.setFormatter(formatter)
 
-        # add the handlers to the logger
-        self.logger.addHandler(handler)
+            self.logger.setLevel(log_level)
+            handler.setLevel(log_level)
+
+            # add the handlers to the logger
+            self.logger.addHandler(handler)
 
     def set_log_level(self, log_level= logging.DEBUG):
         for handler in self.logger.handlers:

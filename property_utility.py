@@ -17,17 +17,18 @@ class property_utility:
         else :
             logger.setLevel(log_level)
 
-        # create a file handler
-        handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        if log_level is None:
-            handler.setLevel(logging.INFO)
-        else:
-            handler.setLevel(log_level)
+        if logger.handlers == []:
+            # create a file handler
+            handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            handler.setFormatter(formatter)
+            if log_level is None:
+                handler.setLevel(logging.INFO)
+            else:
+                handler.setLevel(log_level)
 
-        # add the handlers to the logger
-        logger.addHandler(handler)
+            # add the handlers to the logger
+            logger.addHandler(handler)
 
     def set_log_level(self, log_level):
         logger = logging.getLogger(__name__)

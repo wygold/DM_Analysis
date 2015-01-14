@@ -39,20 +39,20 @@ class Datamart_analysis_tool(Frame):
         else:
             local_log_file = log_file
 
-        # create a file handler
-        handler = logging.handlers.RotatingFileHandler(local_log_file, maxBytes=1024)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
+        if logger.handlers == []:
+            # create a file handler
+            handler = logging.handlers.RotatingFileHandler(local_log_file, maxBytes=1024)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            handler.setFormatter(formatter)
 
-        if log_level is None:
-            handler.setLevel(logging.INFO)
-        else :
-            handler.setLevel(log_level)
+            if log_level is None:
+                handler.setLevel(logging.INFO)
+            else :
+                handler.setLevel(log_level)
 
-        # add the handlers to the logger
-        logger.addHandler(handler)
+            # add the handlers to the logger
+            logger.addHandler(handler)
 
-        logger.info('Log initialized')
 
     def __init__(self, master=None):
 
@@ -84,10 +84,13 @@ class Datamart_analysis_tool(Frame):
         view_output_buttons=dict()
         check_buttons_status=dict()
 
+        main_frame_objects = dict()
+
         current_row = 0
 
         title = Label(root, text="Datamart Analysis Tool", font=("Helvetica", 20))
         title.grid(columnspan=6,row=current_row)
+        main_frame_objects['title']=title
         current_row = current_row + 1
 
         #Create empty line
@@ -124,7 +127,13 @@ class Datamart_analysis_tool(Frame):
         #Create labels and buttons
         run_all_check_button_status = IntVar()
         run_all_check_button = Checkbutton(root, text="Select all", height=1, variable=run_all_check_button_status, command=lambda: self.switch_buttons(check_buttons,run_all_check_button_status.get()))
-        run_all_check_button.grid(row=current_row,sticky=W)
+        run_all_check_button.grid(row=current_row,column=0,sticky=W)
+
+        expand_log_button = Button(root, text="Show log >", height=1, command=lambda: self.show_log(main_frame_objects))
+        expand_log_button.grid(row=current_row,column=3)
+
+        main_frame_objects['expand_log_button']=expand_log_button
+
         current_row = current_row + 1
 
         dynamic_table_analysis_check_button_status = IntVar()
@@ -182,14 +191,22 @@ class Datamart_analysis_tool(Frame):
         execution_progress_bar.grid(row=current_row,column=1, columnspan=3,sticky=W)
 
         #create a empty
-        Label(root, width=1, text='').grid(row=2, rowspan=current_row-1,column=4)
+        Label(root, width=1, text='',height=18).grid(row=2, rowspan=current_row-2,column=4)
 
         #Create empty verticle line
         Label(root,text='',height=1).grid(row=current_row)
         #create a log text box
         log_text=Text(root, width=50,height=18,font=("Helvetica",8))
-        log_text.grid(row=2, rowspan=current_row-1,column=5)
+        log_text.grid(row=2, rowspan=current_row-2,column=5)
         log_text.insert(END,'Welcome to Datamart analysis tools\n')
+        log_text.grid_remove()
+        main_frame_objects['log_text']=log_text
+
+        #Create clear log_text button
+        clear_log_text_button = Button(root, text='Clear Log',command=lambda: log_text.delete(1.0,END))
+        clear_log_text_button.grid(row=current_row,column=5, sticky=E)
+        clear_log_text_button.grid_remove()
+        main_frame_objects['clear_log_text_button']=clear_log_text_button
 
         #Create empty verticle line
         Label(root, width=1, text='').grid(row=2, rowspan=current_row-1,column=6)
@@ -252,7 +269,35 @@ class Datamart_analysis_tool(Frame):
             for check_button in check_buttons:
                 check_button.deselect()
 
+    #show log text window
+    def show_log(self,main_frame_objects):
+        log_text = main_frame_objects['log_text']
+        log_text.grid()
+        clear_log_text_button=main_frame_objects['clear_log_text_button']
+        clear_log_text_button.grid()
+
+        expand_log_button=main_frame_objects['expand_log_button']
+        expand_log_button.grid_remove()
+
+        unexpand_log_button = Button(root, text="Hide log <", height=1, command=lambda: self.hide_log(main_frame_objects))
+        unexpand_log_button.grid(row=4,column=3)
+        main_frame_objects['unexpand_log_button']=unexpand_log_button
+
+    #hide log text window
+    def hide_log(self,main_frame_objects):
+        log_text = main_frame_objects['log_text']
+        log_text.grid_remove()
+        clear_log_text_button=main_frame_objects['clear_log_text_button']
+        clear_log_text_button.grid_remove()
+
+        expand_log_button=main_frame_objects['expand_log_button']
+        expand_log_button.grid()
+
+        unexpand_log_button=main_frame_objects['unexpand_log_button']
+        unexpand_log_button.grid_remove()
+
     def run_analysis(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
+        log_text.delete(1.0,END)
         try:
             work_thread=threading.Thread( target=self.analysis_worker_thread, args=(run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text,) )
             work_thread.start()
@@ -291,6 +336,7 @@ class Datamart_analysis_tool(Frame):
     def checking_execution_thread(self,work_thread,execution_progress_bar,check_buttons_status,run_analysis_button,view_output_buttons):
         logging.info('Monitoring thread starting')
 
+        #disable view result buttons
         for analysis_type, button_status in check_buttons_status.iteritems():
             if analysis_type == 'dynamic table' and button_status.get() :
                 view_output_buttons[analysis_type].config(state='disabled')
@@ -301,7 +347,10 @@ class Datamart_analysis_tool(Frame):
             if analysis_type == 'performance' and button_status.get() :
                 view_output_buttons[analysis_type].config(state='disabled')
 
+        #disable run result button
         run_analysis_button.config(state='disable')
+
+        #start progress bar
         execution_progress_bar.start(30)
 
         while True:
@@ -352,8 +401,6 @@ class Datamart_analysis_tool(Frame):
                 log_text.insert(END,line)
                 log_text.yview(END)
                 #print line, # already has newline
-
-
 
     def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)

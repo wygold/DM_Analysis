@@ -16,14 +16,15 @@ def initialize_log( log_level = 'INFO', log_file = None):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
 
-    # create a file handler
-    handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    handler.setLevel(log_level)
+    if logger.handlers == []:
+        # create a file handler
+        handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        handler.setLevel(log_level)
 
-    # add the handlers to the logger
-    logger.addHandler(handler)
+        # add the handlers to the logger
+        logger.addHandler(handler)
 
 
 def set_log_level( log_level):

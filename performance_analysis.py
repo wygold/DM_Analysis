@@ -19,14 +19,15 @@ def initialize_log( log_level = 'INFO', log_file = None):
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
 
-    # create a file handler
-    handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    handler.setLevel(log_level)
+    if logger.handlers == []:
+        # create a file handler
+        handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        handler.setLevel(log_level)
 
-    # add the handlers to the logger
-    logger.addHandler(handler)
+        # add the handlers to the logger
+        logger.addHandler(handler)
 
 def set_log_level( log_level):
     logger = logging.getLogger(__name__)
@@ -202,6 +203,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         log_level = config.get('log', 'log_level')
     else:
         log_level = log_dropdown_status
+
     initialize_log(log_level,log_directory+log_file)
 
     logger = logging.getLogger(__name__)
