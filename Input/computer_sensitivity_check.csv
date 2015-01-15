@@ -88,6 +88,7 @@ HLSG_BOND            | User
 HLMY_OPT_ORG         | User
 G_PLCG2.4     /RPPL  | User
 HLSG_PAYMENT_FLOW    | User
+C_DYN_SV             | User
 G_AUTR.7      /RPMK  | User
 HL_MLCRISK_PL        | User
 HLMY_SFUT_ALM3       | User
