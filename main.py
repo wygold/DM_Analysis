@@ -378,29 +378,37 @@ class Datamart_analysis_tool(Frame):
             log_monitor_thread=threading.Thread(target=self.monitor_log_file_thread, args=(log_file_name,log_text,monitor_log_file_stop,) )
             log_monitor_thread.start()
         except:
-            self.create_error_frame('Error','Unable to start thread')
+            self.show_error(log_text, 'Error: Unable to start working thread!')
 
         return log_monitor_thread
 
     def monitor_log_file_thread(self, log_file,log_text,monitor_log_file_stop):
-        log_file=os.getcwd()+'\\'+parameters['log']['log_directory']+'\\'+log_file
-        file = open(log_file,'r')
+        try:
+            log_file=os.getcwd()+'\\'+parameters['log']['log_directory']+'\\'+log_file
+            file = open(log_file,'r')
 
-        #Find the size of the file and move to the end
-        st_results = os.stat(log_file)
-        st_size = st_results[6]
-        file.seek(st_size)
+            #Find the size of the file and move to the end
+            st_results = os.stat(log_file)
+            st_size = st_results[6]
+            file.seek(st_size)
 
-        while (not monitor_log_file_stop.is_set()):
-            where = file.tell()
-            line = file.readline()
-            if not line:
-                time.sleep(0.1)
-                file.seek(where)
-            else:
-                log_text.insert(END,line)
-                log_text.yview(END)
-                #print line, # already has newline
+            while (not monitor_log_file_stop.is_set()):
+                where = file.tell()
+                line = file.readline()
+                if not line:
+                    time.sleep(0.1)
+                    file.seek(where)
+                else:
+                    log_text.insert(END,line)
+                    log_text.yview(END)
+                    #print line, # already has newline
+        except:
+            self.show_error(log_text, 'Error: Unable to monitor the log file '+log_file+'!')
+
+        return
+
+    def show_error(self,text_box, error_message):
+        text_box.insert(END,error_message)
 
     def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)
@@ -609,10 +617,9 @@ class Datamart_analysis_tool(Frame):
 
         for config_name, config_entry in config_gui_items.iteritems():
             config.set(analysis_type,config_name,config_entry.get())
+            parameters[analysis_type][config_name]=config_entry.get()
 
         config.write(raw_file)
-
-
 
 if __name__ == "__main__":
     root = Tk()
