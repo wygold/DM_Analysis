@@ -186,12 +186,12 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    period_days = config.getint('performance', 'period_days')
-    start_date = config.get('performance', 'start_date')
-    end_date = config.get('performance', 'end_date')
-    time_alert_processing_script = config.get('performance', 'time_alert_processing_script')
-    time_alert_batch_feeder = config.get('performance', 'time_alert_batch_feeder')
-    time_alert_batch_extraction =config.get('performance', 'time_alert_batch_extraction')
+    period_days = parameters['performance']['period_days']
+    start_date = parameters['performance']['start_date']
+    end_date = parameters['performance']['end_date']
+    time_alert_processing_script = parameters['performance']['time_alert_processing_script']
+    time_alert_batch_feeder = parameters['performance']['time_alert_batch_feeder']
+    time_alert_batch_extraction =parameters['performance']['time_alert_batch_extraction']
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -215,6 +215,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     reload_data = config.getboolean('general', 'reload_data')
 
     if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
+        logger.info('Start to execute SQL to load data from DB')
         #prepare connection string
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)

@@ -112,11 +112,13 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
     logger.info('Start to run check_duplicate_of_feeders in different batch of feeder on file %s%s.',input_directory,input_file)
 
     result=[['Feeder used in multiple batches']]
-    result.append(['Feeder','Batch of feeder','Description','Last Execution Date'])
+    result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
 
     feeders = dict()
     batch_execution_time = dict()
     batch_feeder_desc = dict()
+    global_filter_label=dict()
+    label_of_data = dict()
 
     for line in raw_file:
         fields = line.split(' | ')
@@ -128,12 +130,18 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
             batch_feeder_name=fields[2].strip()
             current_batch_feeder_desc=fields[44].strip()
             batch_last_execution_date = fields[4].strip()
+            current_global_filter_label = fields[45].strip()
+            current_label_of_data= fields[14].strip()
+
             logger.debug('Checking feeder: %s, batch feeder: %s, last excution time: %s.',feeder_name,batch_feeder_name,batch_last_execution_date)
             if not feeders.has_key(feeder_name) :
                 feeders[feeder_name]=[batch_feeder_name]
             else :
                 if batch_feeder_name not in feeders[feeder_name] and batch_feeder_name<>'':
                     feeders[feeder_name].append(batch_feeder_name)
+
+            global_filter_label[batch_feeder_name]=current_global_filter_label
+            label_of_data[batch_feeder_name]=current_label_of_data
             batch_execution_time[batch_feeder_name]=batch_last_execution_date
             batch_feeder_desc[batch_feeder_name] = current_batch_feeder_desc
 
@@ -143,7 +151,7 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
         if len(feeder_content) > min_reference :
             for batch_feeder_name in feeder_content :
                 if batch_feeder_name <> '':
-                    temp = [feeder_name, batch_feeder_name, batch_feeder_desc[batch_feeder_name], batch_execution_time[batch_feeder_name]]
+                    temp = [feeder_name, batch_feeder_name, batch_feeder_desc[batch_feeder_name],global_filter_label[batch_feeder_name], label_of_data[batch_feeder_name],batch_execution_time[batch_feeder_name]]
                     result.append(temp)
 
     logger.info('End running check_duplicate_of_feeders on file %s%s.',input_directory,input_file)
@@ -195,16 +203,18 @@ def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
     return result
 
 #2.2 Check if same batch feeder are defined in different processing script
-def check_duplicate_of_batch_feeder(input_directory,input_file,min_reference=1) :
+def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_batch_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
 
     result=[['Batch of Feeder used in multiple processing scripts']]
-    result.append(['Batch of Feeder','Processing Script'])
+    result.append(['Batch of Feeder','Entity','Processing Script','Last execution date'])
 
     batch_feeders = dict()
+    ps_exeuction_date = dict()
+    batch_entity = dict()
 
     for line in raw_file:
         fields = line.split(' | ')
@@ -214,26 +224,43 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,min_reference=1) 
         if object_type == 'FEEDERS' :
             batch_feeder_name=fields[2].strip()
             processing_script_name=fields[0].strip()
-            logger.debug('Checking dm table: %s, feeder: %s.',batch_feeder_name,processing_script_name)
+            current_batch_entity = fields[46].strip()
+            logger.debug('Checking batch feeder: %s in processing script: %s.',batch_feeder_name,processing_script_name)
             if not batch_feeders.has_key(batch_feeder_name) :
                 batch_feeders[batch_feeder_name]=[processing_script_name]
+                batch_entity[batch_feeder_name]=current_batch_entity
             else :
                 if processing_script_name not in batch_feeders[batch_feeder_name] and processing_script_name<>'':
                     batch_feeders[batch_feeder_name].append(processing_script_name)
 
 
+    #get exucution time
+    ps_exuection_file= open(input_directory+ps_exuection_time_file, 'r')
+    for line in ps_exuection_file:
+        fields = line.split(' | ')
+        script_name = fields[2].strip()
+        computing_date = fields[1].strip()
+
+        if ps_exeuction_date.has_key(script_name):
+            ps_exeuction_date[script_name]=computing_date
+
+
     for batch_feeder_name, batch_feeder_content in batch_feeders.iteritems():
-        if len(batch_feeder_content) > min_reference :
+        if len(batch_feeder_content) > min_reference:
             for processing_script_name in batch_feeder_content :
-                if processing_script_name <> '':
-                    temp = [batch_feeder_name, processing_script_name]
-                    result.append(temp)
+                if processing_script_name <> '' :
+                    if ps_exeuction_date.has_key(processing_script_name):
+                        temp = [batch_feeder_name,batch_entity[batch_feeder_name], processing_script_name,ps_exeuction_date[processing_script_name]]
+                        result.append(temp)
+                    else :
+                        temp = [batch_feeder_name,batch_entity[batch_feeder_name], processing_script_name,'']
+                        result.append(temp)
 
     logger.info('End running check_duplicate_of_batch_feeder on file %s%s.',input_directory,input_file)
     return result
 
 #2.0 Give summary of duplicate checking
-def check_duplicate_summary(input_directory,input_file,min_reference=1) :
+def check_duplicate_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
@@ -278,7 +305,7 @@ def check_duplicate_summary(input_directory,input_file,min_reference=1) :
     logger.info('Process how batch feeders are referenced by processing scripts')
     result.append(['Name of batch feeders','# of Referenced Processing scripts'])
 
-    batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file,min_reference)
+    batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,min_reference)
 
     batch_feeders=dict()
     for i in range(2,len(batch_feeders_result)):
@@ -314,25 +341,28 @@ def check_scanner_engine_usage(input_directory,input_file) :
     logger.info('Start to run check_scanner_engine_usage for batch of feeder on file %s%s.',input_directory,input_file)
 
     result=[['Batch of feeders'' scanner engine usage']]
-    result.append(['Batch of feeder','Dynamic table type','Scanner engine number'])
+    result.append(['Batch of feeder','Dynamic table type','Scanner engine number','Scanner engine type','Scanner engine size'])
 
     engine_usage = dict()
     dynamic_table_types=dict()
+
 
     for line in raw_file:
         fields = line.split(' | ')
         dynamic_table_type=fields[28].strip()
         batch_feeder_name=fields[2].strip()
         engine_number =fields[12].strip()
+        engine_size = fields[47].strip()
+        engine_type = fields[48].strip()
 
         logger.debug('Checking batch feeder %s, dynamic table type %s, engine number %s ',batch_feeder_name,fields[27].strip(), engine_number)
 
         if dynamic_table_type in scanner_engine_enabled_dynamic_table and batch_feeder_name<>'' :
-            engine_usage[batch_feeder_name]=engine_number
+            engine_usage[batch_feeder_name]=[engine_number,engine_size,engine_type]
             dynamic_table_types[batch_feeder_name]=dynamic_table_type
 
-    for batch_feeder_name, engine_number in engine_usage.iteritems():
-        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_number]
+    for batch_feeder_name, engine_details in engine_usage.iteritems():
+        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_details[0],engine_details[1],engine_details[2]]
         result.append(temp)
 
     logger.info('End running check_scanner_engine_usage on file %s%s.',input_directory,input_file)
@@ -423,6 +453,12 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #define input files
     dm_config_file = 'source.csv'
 
+    #define sql files
+    query_ps_time_sql='query_processing_script_time.sql'
+
+    #define input files
+    ps_exuection_time_file = 'ps_execution_time.csv'
+
     #define property files
     mxDbsource_file=parameters['database']['mx_db_config_file']
 
@@ -435,7 +471,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    reload_data = config.getboolean('general', 'reload_data')
+    reload_data = parameters['general']['reload_data']
+    start_date = parameters['performance']['start_date']
+    end_date = parameters['performance']['end_date']
+
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -471,6 +510,26 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         #dump file
         db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
 
+
+    if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
+        #prepare connection string
+        db_util = db_utility(log_level,log_directory+log_file)
+        connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+
+        #prepare SQLs to be run
+        sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
+
+        #prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+        sql_paramters = dict()
+        sql_paramters['START_DATE'] = start_date
+        sql_paramters['END_DATE'] = end_date
+
+        #dump file
+        db_util.dump_output(sqlString, sql_paramters, connectionString, input_directory + ps_exuection_time_file)
+
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
 
@@ -478,7 +537,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_book = Workbook()
 
     #2.0 Give summary of duplicate checking
-    result=check_duplicate_summary(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
@@ -493,7 +552,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
-    result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='BOF_VS_PS'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 

@@ -48,7 +48,11 @@ nvl(TYPOLOGY_FILTER,' ') as DYN_TYPOLOGY, ' | ',
 nvl(DYN_FILTER3,' ') as DYN_POSTFILTER, ' | ',
 nvl(VIEWER_NAME,' ') as VIEWER_NAME, ' | ',
 TBL.FEEDER_DESC as FEEDER_DESC, ' | ',
-TBL.BATCH_DESC as BATCH_DESC
+TBL.BATCH_DESC as BATCH_DESC, ' | ',
+TBL.M_FILTER_LABEL, ' | ',
+PS_BATCH_FDR_ENTITY, ' | ',
+TBL.SCANNER_ENGINE_SIZE AS SCANNER_ENGINE_SIZE, ' | ',
+TBL.SCANNER_ENGINE_TYPE AS SCANNER_ENGINE_TYPE
 from
 /*This Query lists the Datamart tables, underlying Dynamic tables (with types and filters), SQL, Indexes*/
 (
@@ -474,6 +478,8 @@ from
             A.M_SERIALIZED,
             decode( A.M_SCNTMPL,0,'N','Y')as M_SCNTMPL,
             nvl(SCR.M_PROCESS_NB, 0) as SCANNER_ENGINES,
+            nvl(DECODE(M_BATCH_SIZE, 0, M_THRESHOLD, M_BATCH_SIZE),0) as SCANNER_ENGINE_SIZE,
+            DECODE(nvl(M_BATCH_SIZE,-1), -1,'NA', 0, 'BATCH','THRESHOLD') as SCANNER_ENGINE_TYPE,
             decode(A.M_DATAHIS,0,'ONE DATA SET',1,'ONE DATA SET PER DAY',2,'ONE DATA SET PER RUN',A.M_DATAHIS) as "HISTORISATION",
             trim(BT.M_LABEL) as "FEEDER",
             trim(BT.M_DESC) as "FEEDER_DESC",
@@ -482,6 +488,7 @@ from
             EDF1.M_EXP_VAL as "FILTER_EXP1" ,
             EDF2.M_EXP_VAL as "FILTER_EXP2",
             DF.M_FILTER_REF,
+            DF.M_LABEL AS M_FILTER_LABEL,
             GFT_DT.COMPUTING_DATES
             from 
                 ACT_BAT_DBF BT 
@@ -539,7 +546,8 @@ from
                 select T1.M_NAME as "PS_NAME",
                 T2.M_ORDER as PS_STEP,
                 trim(T2.M_PARAM_LAB2) as "BATCH_NAME", 
-                decode(trim(M_UNIT),'REP_BATCHES_FEED','FEEDERS','REP_BATCHES_EXT','EXTRACTIONS','REP_BATCHES_PROC','PROCEDURES') as "M_UNIT" 
+                decode(trim(M_UNIT),'REP_BATCHES_FEED','FEEDERS','REP_BATCHES_EXT','EXTRACTIONS','REP_BATCHES_PROC','PROCEDURES') as "M_UNIT",
+                M_PARAM_LAB3 as "PS_BATCH_FDR_ENTITY"
                 from PROCESS#PS_SCRPT_DBF T1, PROCESS#PS_ITEM_DBF T2 
                 where T1.M_REF=T2.M_REF 
                 and trim(M_UNIT) in ('REP_BATCHES_FEED','REP_BATCHES_EXT','REP_BATCHES_PROC') 
@@ -591,3 +599,4 @@ from
             and M_CTX in ('F','E','P') 
         ) BAT2 on TBL.FEEDER=BAT2.BATCH_NAME
 order by TBL.DM_TABLE_NAME
+
