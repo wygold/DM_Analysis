@@ -72,7 +72,7 @@ class property_utility:
 
         #read in preperties
         #read in general
-        general_parameters['reload_data'] = config.getint('general', 'reload_data')
+        general_parameters['reload_data'] = config.getboolean('general', 'reload_data')
         general_parameters['input_directory'] = config.get('general', 'input_directory')
         general_parameters['output_directory'] = config.get('general', 'output_directory')
         general_parameters['sql_directory'] = config.get('general', 'sql_directory')
@@ -92,6 +92,7 @@ class property_utility:
         #read in feeder
         feeder_parameters['output_file_name']  = config.get('feeder', 'output_file_name')
         feeder_parameters['log_file_name']  = config.get('feeder', 'log_file_name')
+        feeder_parameters['min_reference']  = config.getint('feeder', 'min_reference')
 
         #read in performance
         performance_parameters['period_days'] = config.getint('performance', 'period_days')
@@ -100,7 +101,7 @@ class property_utility:
         performance_parameters['time_alert_processing_script'] = config.get('performance', 'time_alert_processing_script')
         performance_parameters['time_alert_batch_feeder'] = config.get('performance', 'time_alert_batch_feeder')
         performance_parameters['time_alert_batch_extraction'] =config.get('performance', 'time_alert_batch_extraction')
-        performance_parameters['time_filter_output'] =config.getboolean('performance', 'time_filter_output')
+#        performance_parameters['time_filter_output'] =config.getboolean('performance', 'time_filter_output')
         performance_parameters['output_file_name']  = config.get('performance', 'output_file_name')
         performance_parameters['log_file_name']  = config.get('performance', 'log_file_name')
 

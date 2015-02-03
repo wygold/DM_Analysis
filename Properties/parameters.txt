@@ -6,30 +6,30 @@ sql_directory = SQLs
 
 [dynamic table]
 max_number_fields = 200
-max_number_h_fields = 54
+max_number_h_fields = 11
 max_number_db_access_h_fields = 1
 output_file_name = dynamic_table_analysis.xls
 log_file_name = dynamic_table_analysis.log
 
 [datamart table]
-max_number_fields = 203
+max_number_fields = 199
 output_file_name = datamart_table_analysis.xls
 log_file_name = datamart_table_analysis.log
 
 [performance]
 period_days = 11
-start_date = 2014-09-15
-end_date = 2014-09-15
-time_filter_output = True
-time_alert_processing_script = 00:20:00
-time_alert_batch_feeder = 00:10:00
-time_alert_batch_extraction = 00:10:00
+start_date = 2012-09-10
+end_date = 2012-09-15
+time_alert_processing_script = 00:05:00
 output_file_name = performance_analysis.xls
 log_file_name = performance_analysis.log
+time_alert_batch_feeder = 00:20:00
+time_alert_batch_extraction = 00:20:00
 
 [feeder]
 output_file_name = feeder_analysis.xls
 log_file_name = feeder_analysis.log
+min_reference = 0
 
 [log]
 log_level = INFO

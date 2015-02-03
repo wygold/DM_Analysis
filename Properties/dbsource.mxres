@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DbSource>
+<?xml version="1.0" encoding="UTF-8"?><DbSource>
   <MxAnchors>
     <MxAnchor Code="DBSOURCE">
       <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
       <DbIsDistributed/>
       <DbServerType>oracle</DbServerType>
-      <DbHostName>hp405srv</DbHostName>
+      <DbHostName>balsam</DbHostName>
       <DbServerPortNumber>1521</DbServerPortNumber>
-      <DbServerOrServiceName>HP40511</DbServerOrServiceName>
-      <DbDatabaseOrSchemaName>HLB_TEST_CYCL2_MX</DbDatabaseOrSchemaName>
+      <DbServerOrServiceName>BALSAM</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>INT_REP_PG_MX</DbDatabaseOrSchemaName>
       <DbCharacterSet/>
       <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
       <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
       <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
-      <DbMxClientAccess/>
+      <DbMxClientAccess>NATIVE_OCI</DbMxClientAccess>
       <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
       <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
       <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
       <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
       <DbDefaultCredential>
-        <DbUser>HLB_TEST_CYCL2_MX</DbUser>
-        <DbPassword>004000b1004000e600b700c600070000003100910027000600a7005700900066009100c70016</DbPassword>
+        <DbUser>INT_REP_PG_MX</DbUser>
+        <DbPassword>00500091002100e600b600c7009600310070001000e600470016</DbPassword>
       </DbDefaultCredential>
       <DbDefaultPool>
         <DbPoolMaxSize>50</DbPoolMaxSize>

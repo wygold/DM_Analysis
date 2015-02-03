@@ -195,12 +195,23 @@ class Datamart_analysis_tool(Frame):
 
         #Create empty verticle line
         Label(root,text='',height=1).grid(row=current_row)
+
+
+        #Create the scroll bar for the log text box
+        log_scrollbar = Scrollbar(root)
+        log_scrollbar.grid(row=2, rowspan=current_row-2,column=6, sticky='ens')
+        log_scrollbar.grid_remove()
+
         #create a log text box
-        log_text=Text(root, width=50,height=18,font=("Helvetica",8))
-        log_text.grid(row=2, rowspan=current_row-2,column=5)
+        log_text=Text(root, width=50,height=18,font=("Helvetica",8), yscrollcommand=log_scrollbar.set)
+        log_text.grid(row=2, rowspan=current_row-2,column=5,sticky='ns')
         log_text.insert(END,'Welcome to Datamart analysis tools\n')
         log_text.grid_remove()
         main_frame_objects['log_text']=log_text
+
+
+        log_scrollbar.config(command=log_text.yview)
+        main_frame_objects['log_scrollbar']=log_scrollbar
 
         #Create clear log_text button
         clear_log_text_button = Button(root, text='Clear Log',command=lambda: log_text.delete(1.0,END))
@@ -232,7 +243,7 @@ class Datamart_analysis_tool(Frame):
         menubar.add_cascade(label="File", menu=filemenu)
 
         optionmenu = Menu(menubar, tearoff=0)
-        optionmenu.add_command(label="General Setting", command=lambda: self.create_config_frame('general'))
+        optionmenu.add_command(label="General Setting", command=lambda: self.create_config_frame('general', window_title = 'General Settings'))
         menubar.add_cascade(label="Option", menu=optionmenu)
 
         helpmenu = Menu(menubar, tearoff=0)
@@ -279,6 +290,9 @@ class Datamart_analysis_tool(Frame):
         expand_log_button=main_frame_objects['expand_log_button']
         expand_log_button.grid_remove()
 
+        log_scrollbar=main_frame_objects['log_scrollbar']
+        log_scrollbar.grid()
+
         unexpand_log_button = Button(root, text="Hide log <", height=1, command=lambda: self.hide_log(main_frame_objects))
         unexpand_log_button.grid(row=4,column=3)
         main_frame_objects['unexpand_log_button']=unexpand_log_button
@@ -289,6 +303,9 @@ class Datamart_analysis_tool(Frame):
         log_text.grid_remove()
         clear_log_text_button=main_frame_objects['clear_log_text_button']
         clear_log_text_button.grid_remove()
+
+        log_scrollbar=main_frame_objects['log_scrollbar']
+        log_scrollbar.grid_remove()
 
         expand_log_button=main_frame_objects['expand_log_button']
         expand_log_button.grid()
@@ -520,14 +537,18 @@ class Datamart_analysis_tool(Frame):
 
         os.system("start excel "+output_file);
 
-    def create_config_frame(self,analysis_type):
+    def create_config_frame(self,analysis_type,  window_title = None):
 
         logger = logging.getLogger(__name__)
 
         config_root = Toplevel()
 
-        config_root.wm_title("Config")
 
+
+        if window_title is None :
+            config_root.wm_title("Config")
+        else :
+            config_root.wm_title(window_title)
         logger.info('Create config frame')
 
         for parameter_type, parameter in parameters.iteritems():
@@ -536,16 +557,17 @@ class Datamart_analysis_tool(Frame):
 
         config_gui_items = dict()
 
-        title = Label(config_root, text="Config Settings for "+analysis_type, font=("Helvetica", 20))
-        title.grid(columnspan=3,row=0)
+        current_row=1
 
-        current_row=2
+        #Create empty line
+        Label(config_root,text='').grid(row=current_row)
+        current_row = current_row + 1
 
         for config_name, config_content in configs.iteritems():
-            config_text = Label(config_root, text=config_name)
-            config_text.grid(row=current_row,sticky=W)
+            config_text = Label(config_root, text=config_name+' ')
+            config_text.grid(row=current_row,sticky=E)
 
-            config_entry = Entry(config_root)
+            config_entry = Entry(config_root,width=30)
             config_entry.grid(row=current_row,column=1,sticky=W)
             config_entry.insert(0,config_content)
 
@@ -562,6 +584,10 @@ class Datamart_analysis_tool(Frame):
 
         exit_button =Button(config_root, text='Exit', command=config_root.destroy)
         exit_button.grid(column=1,row=current_row)
+
+        #Create empty column
+        Label(config_root,text=' ').grid(column=2,rowspan=4,sticky=NS)
+        current_row = current_row + 1
 
     def create_error_frame(self,title, content):
         logger = logging.getLogger(__name__)

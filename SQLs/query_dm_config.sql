@@ -46,7 +46,9 @@ nvl(DYN_FILTER1,' ') as DYN_PREFILTER2, ' | ',
 nvl(DYN_FILTER2,' ') as DYN_PREFILTER3, ' | ',
 nvl(TYPOLOGY_FILTER,' ') as DYN_TYPOLOGY, ' | ',
 nvl(DYN_FILTER3,' ') as DYN_POSTFILTER, ' | ',
-nvl(VIEWER_NAME,' ') as VIEWER_NAME
+nvl(VIEWER_NAME,' ') as VIEWER_NAME, ' | ',
+TBL.FEEDER_DESC as FEEDER_DESC, ' | ',
+TBL.BATCH_DESC as BATCH_DESC
 from
 /*This Query lists the Datamart tables, underlying Dynamic tables (with types and filters), SQL, Indexes*/
 (
@@ -465,6 +467,7 @@ from
         (
             select
             trim(A.M_LABEL) as "BATCH_NAME",
+            TRIM(A.M_DESC) as "BATCH_DESC",
             decode(trim(BT.M_EXECTX),'5','FEEDERS','7','EXTRACTIONS','8','PROCEDURES') as "M_UNIT", A.M_TAGDATA as "LABEL_OF_DATA",
             A.M_DATACOMP,
             decode(A.M_DATASHARED,'Y','DATA PUBLISHED','N','PRIVATE',A.M_DATASHARED) as "DATA_TYPE",
@@ -473,6 +476,7 @@ from
             nvl(SCR.M_PROCESS_NB, 0) as SCANNER_ENGINES,
             decode(A.M_DATAHIS,0,'ONE DATA SET',1,'ONE DATA SET PER DAY',2,'ONE DATA SET PER RUN',A.M_DATAHIS) as "HISTORISATION",
             trim(BT.M_LABEL) as "FEEDER",
+            trim(BT.M_DESC) as "FEEDER_DESC",
             trim(TBL.M_OUTPUT) as "DM_TABLE_NAME",
             ECF.M_CH_VALUE as "FILTER",
             EDF1.M_EXP_VAL as "FILTER_EXP1" ,
