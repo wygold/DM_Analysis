@@ -47,14 +47,14 @@ class io_utility:
     )
 
     TEXT_FORMAT = easyxf(
-        'font: bold 1, name Roma, height 160;'
+        'font:  bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
         'borders: left thin, right thin, top thin, bottom thin;'
         'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
     )
 
     HIGHLIGHTED_TEXT_FORMAT = easyxf(
-        'font: bold 1, name Roma, height 160;'
+        'font: colour white, bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
         'borders: left thin, right thin, top thin, bottom thin;'
         'pattern: pattern solid, pattern_fore_colour green, pattern_back_colour gray25'
@@ -79,6 +79,8 @@ class io_utility:
         i = 0
         j = 0
         title = ''
+        title_length = 0
+        total_length = 0
         cell = ''
 
         if highlighted==False:
@@ -100,6 +102,7 @@ class io_utility:
                     elif i == 1:
                         if j == 0:
                             ws.write_merge(0, 0, 0, len(row) - 1, title, self.TITLE_FORMAT)
+                            ws.col(j).width = len(cell) * 320
                             self.logger.debug('Create sheet title: %s',title)
                         ws.write(i, j, str(cell), self.TABLE_HEADER_FORMAT)
                         self.logger.debug('Write field title: %s ',str(cell))
@@ -128,6 +131,7 @@ class io_utility:
                     elif i == 1 :
                         if j ==  0:
                             ws.write_merge(0,0,0,len(row)-1, title,self.TITLE_FORMAT)
+                            ws.col(j).width = len(cell) * 320
                             self.logger.debug('Create sheet title: %s',title)
                         ws.write(i, j, str(cell),self.TABLE_HEADER_FORMAT)
                         self.logger.debug('Write field title: %s',str(cell))

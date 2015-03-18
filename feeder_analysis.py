@@ -43,8 +43,8 @@ def check_dataset_consistency(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dataset_consistency on file %s%s.',input_directory,input_file)
 
-    result=[['Batch of feeder has possible wrong dataset settings were marked as inconsistent in last column']]
-    result.append(['Batch of feeder','Label of Data','Historisation','Private','Data Computed by Several Batch','Setting is correct'])
+    result=[['Batch of feeders have possible wrong dataset settings marked as inconsistent in last column']]
+    result.append(['Batch of feeders','Label of Data','Historisation','Private','Data Computed by Several Batches','Setting is correct'])
     batch_feeders_label = dict()
 
 
@@ -148,7 +148,7 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
 
     for feeder_name, feeder_content in feeders.iteritems():
         logger.debug('Number of batch feeders is %i that has same feeder %s.',len(feeder_content),feeder_name)
-        if len(feeder_content) > min_reference :
+        if len(feeder_content) >= min_reference :
             for batch_feeder_name in feeder_content :
                 if batch_feeder_name <> '':
                     temp = [feeder_name, batch_feeder_name, batch_feeder_desc[batch_feeder_name],global_filter_label[batch_feeder_name], label_of_data[batch_feeder_name],batch_execution_time[batch_feeder_name]]
@@ -193,7 +193,7 @@ def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
 
     for dm_tables_name, dm_tables_content in dm_tables.iteritems():
         logger.debug('Number of feeders is %i that has same datamart table %s.',len(dm_tables_content),dm_tables_name)
-        if len(dm_tables_content) > min_reference :
+        if len(dm_tables_content) >= min_reference :
             for feeder_name in dm_tables_content :
                 if feeder_name <> '':
                     temp = [dm_tables_name, feeder_name,feeder_desc[feeder_name], feeder_execution_time[feeder_name]]
@@ -246,7 +246,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time
 
 
     for batch_feeder_name, batch_feeder_content in batch_feeders.iteritems():
-        if len(batch_feeder_content) > min_reference:
+        if len(batch_feeder_content) >= min_reference:
             for processing_script_name in batch_feeder_content :
                 if processing_script_name <> '' :
                     if ps_exeuction_date.has_key(processing_script_name):
@@ -341,7 +341,7 @@ def check_scanner_engine_usage(input_directory,input_file) :
     logger.info('Start to run check_scanner_engine_usage for batch of feeder on file %s%s.',input_directory,input_file)
 
     result=[['Batch of feeders'' scanner engine usage']]
-    result.append(['Batch of feeder','Dynamic table type','Scanner engine number','Scanner engine type','Scanner engine size'])
+    result.append(['Batch of feeder','Dynamic table type','Process number','Batch size','Batch type'])
 
     engine_usage = dict()
     dynamic_table_types=dict()
@@ -414,7 +414,7 @@ def check_filter_conflict(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_filter_conflict for batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Filter confilict between default filter and global filter']]
+    result=[['Dynamic Tables with Multiple Filters (Table Level and Batch of Feeder Level)']]
     result.append(['Dynamic table','Default filter 1', 'Default filter 2', 'Default filter 3','Default filter 4','Batch feeder','Global filter 1','Global filter 2','Global filter 3'])
 
     for line in raw_file:

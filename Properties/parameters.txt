@@ -20,16 +20,16 @@ log_file_name = datamart_table_analysis.log
 period_days = 11
 start_date = 2012-09-10
 end_date = 2012-09-15
-time_alert_processing_script = 00:05:00
+time_alert_processing_script = 00:01:00
 output_file_name = performance_analysis.xls
 log_file_name = performance_analysis.log
 time_alert_batch_feeder = 00:20:00
-time_alert_batch_extraction = 00:20:00
+time_alert_batch_extraction = 00:01:00
 
 [feeder]
 output_file_name = feeder_analysis.xls
 log_file_name = feeder_analysis.log
-min_reference = 0
+min_reference = 2
 
 [log]
 log_level = INFO

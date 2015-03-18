@@ -90,7 +90,7 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
     logger.info('Start to run check_total_dynamic_table_db_access_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_db_access_hfields)
 
     result=[['Number of Dynamic table horizontal fields that access database which exceeds '+str(max_dynamic_number_db_access_hfields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser function used times'])
+    result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser functions (*TBLFIELD, *TABLE) used times'])
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -112,8 +112,8 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     logger.info('Start to run check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
 
     raw_file= open(input_directory+input_file, 'r')
-    result=[['Dynamic tables which sensitivity compute flag can be disabled']]
-    result.append(['Dynamic table name','Category'])
+    result=[['Dynamic tables''s sensitivity flag can be disabled']]
+    result.append(['    Dynamic table name     ','Category'])
 
     for line in raw_file:
         fields = line.split(' | ')
@@ -198,6 +198,8 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
         dyn_table= fields[5].strip()
         dyn_table_category= fields[6].strip()
         dyn_table_type= fields[7].strip()
+
+        print dyn_table_type
 
         key = field_name + ' | ' + dyn_table_type
 

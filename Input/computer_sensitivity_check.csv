@@ -1,7 +1,11 @@
+DYN_HDG_TRD_DETAILS  | Murex
+DYN_FIXING           | Murex
 DYN_MV_A1_KYC        | User
+ABC2                 | User
 DYN_TPPL_D3_KYC      | User
-DYN_CS_B1            | User
+DYN_CLT_TPPL_TVO     | User
 DYN_TPPL_A-1_KYC     | User
+DYN_CS_B1            | User
 DYN_TPPL_A-2_KYC     | User
 Z_TP_FIELDS          | User
 DYN_MK_A1_KYC        | User
@@ -10,12 +14,15 @@ DYN_XG_B1_KYC        | User
 DYN_CLT_CS_A1_KYC    | User
 DYN_TPPL_C3-1_KYC    | User
 DYN_MK_B1_KYC        | User
+DYN_TPPL_C2_KYC      | User
 DYN_XG_A1_KYC        | User
 DYN_TPPL_C1_KYC      | User
-DYN_TPPL_C2_KYC      | User
+DYN_CLT_CS_Sandy     | User
 DYN_MV_A2_KYC        | User
+DYN_TPPL_C3_KYC      | User
 IBT_PL_FXSWAP        | User
 DYN_TPPL_A1_KYC      | User
-DYN_TPPL_D1_KYC      | User
 DYN_TPPL_D2_KYC      | User
-DYN_TPPL_C3_KYC      | User
+TEST_BOND_BY_KYC_02  | User additional
+FXD_Trade_Query      | User additional
+TEST_BOND_BY_KYC_03  | User additional
