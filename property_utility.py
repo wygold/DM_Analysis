@@ -4,6 +4,7 @@ import ConfigParser
 import os
 import logging
 from logging import handlers
+from collections import OrderedDict
 
 class property_utility:
 
@@ -39,14 +40,14 @@ class property_utility:
                 handler.setLevel(log_level)
 
     def parse_property_file(self,property_file_dictory=None, property_file=None):
-        parameters=dict()
-        dynamic_table_parameters = dict()
-        general_parameters = dict()
-        datamart_table_parameters = dict()
-        performance_parameters = dict()
-        feeder_parameters = dict()
-        log_parameters = dict()
-        database_parameters = dict()
+        parameters=OrderedDict()
+        dynamic_table_parameters = OrderedDict()
+        general_parameters = OrderedDict()
+        datamart_table_parameters = OrderedDict()
+        performance_parameters = OrderedDict()
+        feeder_parameters = OrderedDict()
+        log_parameters = OrderedDict()
+        database_parameters = OrderedDict()
 
         #read in property file
         config = ConfigParser.RawConfigParser()
@@ -81,8 +82,10 @@ class property_utility:
         dynamic_table_parameters['max_number_fields'] = config.getint('dynamic table', 'max_number_fields')
         dynamic_table_parameters['max_number_h_fields']  = config.getint('dynamic table', 'max_number_h_fields')
         dynamic_table_parameters['max_number_db_access_h_fields']  = config.getint('dynamic table', 'max_number_db_access_h_fields')
+        dynamic_table_parameters['max_dynamic_table_referenced']  = config.getint('dynamic table', 'max_dynamic_table_referenced')
         dynamic_table_parameters['output_file_name']  = config.get('dynamic table', 'output_file_name')
         dynamic_table_parameters['log_file_name']  = config.get('dynamic table', 'log_file_name')
+
 
         #read in datamart table
         datamart_table_parameters['max_number_fields'] = config.getint('datamart table', 'max_number_fields')

@@ -199,8 +199,6 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
         dyn_table_category= fields[6].strip()
         dyn_table_type= fields[7].strip()
 
-        print dyn_table_type
-
         key = field_name + ' | ' + dyn_table_type
 
         if not table_fields.has_key(key):
@@ -256,7 +254,6 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
         dyn_table_category= fields[6].strip()
         dyn_table_type= fields[7].strip()
 
-
         if not table_fields.has_key(field_name):
             table_fields[field_name]=[[dyn_table_category,dyn_table,dyn_table_type,table_name]]
         else:
@@ -276,6 +273,85 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
 
     logger.info('End running check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
     return final_result
+
+#check dynamic table reference number
+def check_dynamic_table_reference_number(input_directory,input_file,max_dynamic_table_referenced) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
+
+    result=[['Dynamic table reference status summary ']]
+    result.append(['Dynamic table name','Category','Dynamic table type','# of  Datamart table referenced'])
+
+    dynamic_tables = dict()
+    dynamic_tables_details =  dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        datamart_table = fields[24].strip()
+        dynamic_table = fields[26].strip()
+        dynamic_table_category = fields[27].strip()
+        dynamic_table_type = fields[28].strip()
+
+        if datamart_table<>'' and dynamic_table<>'':
+            if not dynamic_tables.has_key(dynamic_table):
+                dynamic_tables[dynamic_table]=[datamart_table]
+                dynamic_tables_details[dynamic_table]=[dynamic_table_category,dynamic_table_type]
+            else :
+                dynamic_tables[dynamic_table].append(datamart_table)
+
+    for dynamic_table, datamart_tables in dynamic_tables.iteritems():
+        unique_datamart_tables=set(datamart_tables)
+        dynamic_table_category,dynamic_table_type = dynamic_tables_details[dynamic_table]
+        if len(unique_datamart_tables)>max_dynamic_table_referenced:
+            result.append([dynamic_table,dynamic_table_category,dynamic_table_type,len(unique_datamart_tables)])
+
+
+    logger.info('End running check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
+    return result
+
+
+#check dynamic table reference number
+def check_dynamic_table_reference_detail(input_directory,input_file,max_dynamic_table_referenced) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_dynamic_table_reference_detail on file %s%s.',input_directory,input_file)
+
+    result=[['Dynamic table reference status details ']]
+    result.append(['Dynamic table name','Category','Dynamic table type','Datamart Table Name'])
+
+    dynamic_tables = dict()
+    dynamic_tables_details =  dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        datamart_table = fields[24].strip()
+        dynamic_table = fields[26].strip()
+        dynamic_table_category = fields[27].strip()
+        dynamic_table_type = fields[28].strip()
+
+        if datamart_table<>'' and dynamic_table<>'':
+            if not dynamic_tables.has_key(dynamic_table):
+                dynamic_tables[dynamic_table]=[datamart_table]
+                dynamic_tables_details[dynamic_table]=[dynamic_table_category,dynamic_table_type]
+            else :
+                dynamic_tables[dynamic_table].append(datamart_table)
+
+    for dynamic_table, datamart_tables in dynamic_tables.iteritems():
+        dynamic_table_category,dynamic_table_type = dynamic_tables_details[dynamic_table]
+        unique_datamart_tables=set(datamart_tables)
+        if len(unique_datamart_tables)>max_dynamic_table_referenced:
+            for datamart_table in unique_datamart_tables:
+                result.append([dynamic_table,dynamic_table_category,dynamic_table_type,datamart_table])
+
+
+    logger.info('End running check_dynamic_table_reference_detail on file %s%s.',input_directory,input_file)
+    return result
+
 
 def run(reload_check_button_status=None,log_dropdown_status=None):
 
@@ -313,6 +389,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
     max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
     max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
+    max_dynamic_table_referenced = config.getint('dynamic table', 'max_dynamic_table_referenced')
     reload_data = config.getboolean('general', 'reload_data')
 
 
@@ -428,6 +505,15 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #detail of how dynamic table fields are referenced by datamart tables
     result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file)
     work_sheet_name='Field_Reference_Detail'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+
+    result=check_dynamic_table_reference_number(input_directory,dm_config_file,max_dynamic_table_referenced)
+    work_sheet_name='DM_TBL_Reference_Summary'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    result=check_dynamic_table_reference_detail(input_directory,dm_config_file,max_dynamic_table_referenced)
+    work_sheet_name='DM_TBL_Reference_Detail'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
 

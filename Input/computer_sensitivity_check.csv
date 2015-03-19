@@ -1,28 +1,93 @@
+G_PL02.3     /RPPL   | Murex
+G_PLAA.2   /TRNRP_CS | Murex
+G_FX.4     /TRNRP_DT | Murex
 DYN_HDG_TRD_DETAILS  | Murex
+DYN_TPSI             | Murex
+G_OPDL.1 /TRNRP_PL   | Murex
+G_AUTR.3       /RPMK | Murex
+G_FX.5     /TRNRP_DT | Murex
 DYN_FIXING           | Murex
-DYN_MV_A1_KYC        | User
-ABC2                 | User
-DYN_TPPL_D3_KYC      | User
-DYN_CLT_TPPL_TVO     | User
-DYN_TPPL_A-1_KYC     | User
-DYN_CS_B1            | User
-DYN_TPPL_A-2_KYC     | User
-Z_TP_FIELDS          | User
-DYN_MK_A1_KYC        | User
-DYN_TPPL_C4_KYC      | User
-DYN_XG_B1_KYC        | User
-DYN_CLT_CS_A1_KYC    | User
-DYN_TPPL_C3-1_KYC    | User
-DYN_MK_B1_KYC        | User
-DYN_TPPL_C2_KYC      | User
-DYN_XG_A1_KYC        | User
-DYN_TPPL_C1_KYC      | User
-DYN_CLT_CS_Sandy     | User
-DYN_MV_A2_KYC        | User
-DYN_TPPL_C3_KYC      | User
-IBT_PL_FXSWAP        | User
-DYN_TPPL_A1_KYC      | User
-DYN_TPPL_D2_KYC      | User
-TEST_BOND_BY_KYC_02  | User additional
-FXD_Trade_Query      | User additional
-TEST_BOND_BY_KYC_03  | User additional
+G_AUTR.7      /RPMK  | Murex
+DYN_TPCR             | Murex
+DYN_XG               | User
+HL_MM_IRS_V3         | User
+HL_MM_CS_BACKUPV2    | User
+HLMY_LNBR_RYAN       | User
+HLMY_LAON_DEPOSIT    | User
+HLMY_MM_CONFO        | User
+DYN_TPCR             | User
+HLSG_BOND_NEW        | User
+HLMY_LOANDEPOSIT     | User
+HL_OPT_RBT           | User
+HLMY_REPO            | User
+HLMY_PayFlow_confo   | User
+HLMY_XDIC            | User
+HLSG_FXSPOTFWD       | User
+G_OPDL.1 /TRNRP_PL   | User
+HL_MM_LFUT           | User
+HLMY_UBER_LNDEP      | User
+HLSG_SWAP_RECON      | User
+HLSG_TRNRP_PLIRS     | User
+HLSG_IRS             | User
+DYN_DT               | User
+ISSUER_SG            | User
+HLMY_PAYFLOW_IRS     | User
+HLSG_PAYFLOW         | User
+G_FX.5     /TRNRP_DT | User
+HL_MM_FUTURES_BCKUP  | User
+GLC_FX_Income        | User
+G_AUTR.3       /RPMK | User
+HLSG_OPTION          | User
+HLSG_OPTION_RECON    | User
+HL_MLCRISK_MV        | User
+OPTION               | User
+HLSG_SWAP_FIN        | User
+CSA                  | User
+KF_test              | User
+HL_MM_SFUT           | User
+HL_MM_FUTURES        | User
+Outstanding_LNBR     | User
+HLMY_BOND_BCKUP      | User
+HL_MM_CS             | User
+TEST_SPTCV           | User
+HLMY_SFUT_ALM        | User
+G_FX.4     /TRNRP_DT | User
+HLSG_BOND            | User
+HL_OPT_RBTSMP        | User
+HLMY_IRS_ALM_Hedging | User
+HLMY_OPT_ORG         | User
+HL_MM_SEC_SG         | User
+HL_PAYFLOW_ALL       | User
+HLSG_FXSPOTFWD_RECON | User
+HLSG_PAYMENT_FLOW    | User
+DYN_TPSI             | User
+HLMY_BOND_FI         | User
+G_PL02.3     /RPPL   | User
+HLMY_BOND_ALM        | User
+HL_OPT_BAR           | User
+HLMY_SFUT_ALM3       | User
+G_AUTR.7      /RPMK  | User
+HLMY_IRS_ALM         | User
+HLMY_BOND_CONFO      | User
+FIXING_DEALS         | User
+HLMY_PaymentFlow     | User
+HL_HLM_FO_OPTION     | User
+HLSG_FXSPOTFWD_FIN   | User
+1.REPO               | User
+HL_MM_SEC_CouponRate | User
+HLSG_FUTURES         | User
+HL_OPT_SMP           | User
+G_PLAA.2   /TRNRP_CS | User
+HLMY_SHAREPOINT_OPT  | User
+HLSG_SWAP            | User
+ABC                  | User additional
+test4-mkt_price      | User additional
+IRD_VarRteAdhoc      | User additional
+test_root Number     | User additional
+MM PRiceOvSprd       | User additional
+IRD_VarRteToday      | User additional
+HL_OPTION_DEAL_VIEW  | User additional
+HLMY_LNBR_RYAN       | User additional
+Delta_Past_Cash      | User additional
+FX PriceToday-TEST   | User additional
+PL                   | User additional

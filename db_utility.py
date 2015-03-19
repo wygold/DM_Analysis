@@ -136,7 +136,10 @@ class db_utility:
             rows = cur.fetchall()
             for row in rows:
                 for cell in row:
-                    raw_file.write(str(cell))
+                    if cell is None:
+                        raw_file.write('')
+                    else:
+                        raw_file.write(str(cell))
                 raw_file.write('\n')
         else :
             self.logger.info('Execute sql in line by line')

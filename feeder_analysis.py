@@ -259,12 +259,12 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time
     logger.info('End running check_duplicate_of_batch_feeder on file %s%s.',input_directory,input_file)
     return result
 
-#2.0 Give summary of duplicate checking
-def check_duplicate_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+#2.0 Give summary of duplicate checking for dm table
+def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
     logger = logging.getLogger(__name__)
-    logger.info('Start to run check_duplicate_summary in different batch of feeder on file %s%s.',input_directory,input_file)
+    logger.info('Start to run check_duplicate_dm_table_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['A summary of multi-referenced dm objects.']]
+    result=[['A summary of referenced dm tables.']]
 
     logger.info('Process how datamart tables are refernced by feeders')
     result.append(['Name of Datamart table','# of Referenced feeders'])
@@ -284,6 +284,19 @@ def check_duplicate_summary(input_directory,input_file,ps_exuection_time_file,mi
         result.append(temp)
     result.append(['    ','     '])
 
+    result.append(['Name of feeders','# of Referenced Batch feeders'])
+
+    logger.info('End running check_duplicate_dm_table_summary on file %s%s.',input_directory,input_file)
+    return result
+
+
+#2.01 Give summary of duplicate checking for feeder
+def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_duplicate_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['A summary of referenced feeders.']]
+
     logger.info('Process how feeders are refernced by batch feeders')
     result.append(['Name of feeders','# of Referenced Batch feeders'])
 
@@ -300,7 +313,16 @@ def check_duplicate_summary(input_directory,input_file,ps_exuection_time_file,mi
     for feeder_name, batch_feeder_counter in feeders.iteritems():
         temp = [feeder_name, str(batch_feeder_counter)]
         result.append(temp)
-    result.append(['    ','    '])
+
+    logger.info('End running check_duplicate_feeder_summary on file %s%s.',input_directory,input_file)
+    return result
+
+#2.02 Give summary of duplicate checking for batch feeder
+def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['A summary of referenced batch of feeder.']]
 
     logger.info('Process how batch feeders are referenced by processing scripts')
     result.append(['Name of batch feeders','# of Referenced Processing scripts'])
@@ -319,8 +341,7 @@ def check_duplicate_summary(input_directory,input_file,ps_exuection_time_file,mi
         temp = [batch_feeder_name, str(processing_script_counter)]
         result.append(temp)
 
-
-    logger.info('End running check_duplicate_summary on file %s%s.',input_directory,input_file)
+    logger.info('End running check_duplicate_batch_feeder_summary on file %s%s.',input_directory,input_file)
     return result
 
 #3 Check scanner engine usage
@@ -537,8 +558,8 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_book = Workbook()
 
     #2.0 Give summary of duplicate checking
-    result=check_duplicate_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
-    work_sheet_name='Summary'
+    result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    work_sheet_name='Summary_REP_TAB'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #2.1. Check if same table is defined in 2 feeder.
@@ -546,9 +567,19 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_name='REP_TAB_VS_T_FEED'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
+    #2.01 Give summary of duplicate checking
+    result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    work_sheet_name='Summary_T_FEED'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
     #2. Check if same feeder is defined in 2 batches.
     result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['min_reference'])
     work_sheet_name='T_FEED_VS_BOF'
+    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+
+    #2.01 Give summary of duplicate checking
+    result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    work_sheet_name='Summary_BOF'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
