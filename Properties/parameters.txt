@@ -41,3 +41,14 @@ db_config_folder = Properties
 mx_db_config_file = dbsource.mxres
 dm_db_config_file = dbsourcerep.mxres
 
+[scanner engine]
+eligible_dynamic_tables = DYN_TRNRP_CS,
+        DYN_TRNRP_DT,
+        DYN_TRNRP_MK,
+        DYN_TRNRP_MV,
+        DYN_TRNRP_PL,
+        DYN_TRNRP_SV,
+        DYN_TRNRP_XG,
+        Simulation,
+        PL VAR,
+        Add_More_Type

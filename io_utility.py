@@ -1,5 +1,6 @@
 __author__ = 'ywang'
 
+import xlwt
 from xlwt import *
 import logging
 from logging import handlers
@@ -60,6 +61,14 @@ class io_utility:
         'pattern: pattern solid, pattern_fore_colour green, pattern_back_colour gray25'
     )
 
+    TEXT_FORMAT_ALIGN_LEFT = easyxf(
+        'font:  bold 1, name Roma, height 160;'
+        'align: vertical center, horizontal left, wrap on;'
+        'borders: left thin, right thin, top thin, bottom thin;'
+        'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
+    )
+
+
     def read_txt(self,filename):
         pass
 
@@ -101,7 +110,8 @@ class io_utility:
                         title = str(cell)
                     elif i == 1:
                         if j == 0:
-                            ws.write_merge(0, 0, 0, len(row) - 1, title, self.TITLE_FORMAT)
+                            link ='HYPERLINK("#\''+ 'content' + '\'!A1", "'+title+'")'
+                            ws.write_merge(0, 0, 0, len(row) - 1, xlwt.Formula(link), self.TITLE_FORMAT)
                             ws.col(j).width = len(cell) * 320
                             self.logger.debug('Create sheet title: %s',title)
                         ws.write(i, j, str(cell), self.TABLE_HEADER_FORMAT)
@@ -130,7 +140,9 @@ class io_utility:
                         title = str(cell)
                     elif i == 1 :
                         if j ==  0:
-                            ws.write_merge(0,0,0,len(row)-1, title,self.TITLE_FORMAT)
+                            link ='HYPERLINK("#\''+ 'content' + '\'!A1", "'+title+'")'
+                            ws.write_merge(0, 0, 0, len(row) - 1, xlwt.Formula(link), self.TITLE_FORMAT)
+
                             ws.col(j).width = len(cell) * 320
                             self.logger.debug('Create sheet title: %s',title)
                         ws.write(i, j, str(cell),self.TABLE_HEADER_FORMAT)
@@ -144,6 +156,53 @@ class io_utility:
                     j = j + 1
                 j = 0
                 i = i + 1
+        self.logger.info('End creating worksheet %s',sheetname)
+
+        return workbook
+
+
+
+    def add_content_worksheet(self,content, workbook, sheetname, highlighted=False):
+        self.logger.info('Start to create worksheet %s',sheetname)
+        ws = workbook.add_sheet(sheetname)
+
+        i = 0
+        j = 0
+        title = ''
+        title_length = 0
+        total_length = 0
+        cell = ''
+
+        for row in content:
+            for rawcell in row:
+                if type(rawcell) is str:
+                    cell = rawcell
+                else:
+                    cell = str(rawcell)
+
+                if i >= 1 and ws.col(j).width < len(cell) * 300:
+                    width = len(cell) * 320
+                    if width > 15000:
+                        ws.col(j).width = 15000
+                    else:
+                        ws.col(j).width = width
+                if i == 0:
+                    title = str(cell)
+                elif i == 1:
+                    if j == 0:
+                        ws.write_merge(0, 0, 0, len(row) - 1, title, self.TITLE_FORMAT)
+                        ws.col(j).width = len(cell) * 320
+                        self.logger.debug('Create sheet title: %s', title)
+                    link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
+                    ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                else:
+                    link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
+                    ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                    self.logger.debug('Write field [%s,%s] content: %s ', str(i), str(j), str(cell))
+                j = j + 1
+            j = 0
+            i = i + 1
+
         self.logger.info('End creating worksheet %s',sheetname)
 
         return workbook

@@ -267,7 +267,7 @@ class Datamart_analysis_tool(Frame):
         about_root.wm_minsize(260,130)
         Label(about_root, text="Datamart analysis tool",padx=5, pady=10,font=("Helvetica", 18)).grid(row=current_row)
         current_row = current_row+1
-        Label(about_root, text="v1.0 by Wang Yong",pady=10).grid(row=current_row)
+        Label(about_root, text="v1.0",pady=10).grid(row=current_row)
         current_row = current_row+1
 
         Button(about_root, text="OK", command=about_root.destroy).grid(row=current_row)

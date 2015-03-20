@@ -122,6 +122,27 @@ def check_index(input_directory,input_file) :
     logger.info('End running check_index on file %s%s.',input_directory,input_file)
     return result
 
+
+#create the content page
+def create_content_page(sheet_names):
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
+
+    result = [['Jump to sheet:']]
+
+    i = 1
+
+    for sheet_name in sheet_names:
+        sheet_name =  sheet_name
+        result.append([sheet_name])
+        i = i + 1
+
+    logger.info('End running create_content_page for %s sheets.',len(sheet_names))
+
+    return result
+
+
 def run(reload_check_button_status=None,log_dropdown_status=None):
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
@@ -191,22 +212,31 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
+    work_sheet_names = []
 
     #check Total number of dynamic tables fields for each dynamic table.
     result=check_total_datamart_table_field_number(input_directory,dm_config_file,max_datamart_fields)
     work_sheet_name='Fields_Check'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #2 inconsistence field selection between dynamic table and datamart table
     result=check_inconsistent_datamart_table_field(input_directory,dm_config_file)
     work_sheet_name='#_Fields_REP_Vs_Dyn'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #3 datamart table shall have at least 1 index
     result=check_index(input_directory,dm_config_file)
     work_sheet_name='No_Indexed_Tables'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
+    #create content sheet
+    result=create_content_page(work_sheet_names)
+    work_sheet_name='Content'
+    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    work_book.active_sheet = len(work_sheet_names)
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)

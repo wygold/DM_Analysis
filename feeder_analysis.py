@@ -44,7 +44,7 @@ def check_dataset_consistency(input_directory,input_file) :
     logger.info('Start to run check_dataset_consistency on file %s%s.',input_directory,input_file)
 
     result=[['Batch of feeders have possible wrong dataset settings marked as inconsistent in last column']]
-    result.append(['Batch of feeders','Label of Data','Historisation','Private','Data Computed by Several Batches','Setting is correct'])
+    result.append(['Label of Data','Batch of feeders','Historisation','Private','Data Computed by Several Batches','Setting is correct'])
     batch_feeders_label = dict()
 
 
@@ -98,7 +98,7 @@ def check_dataset_consistency(input_directory,input_file) :
 
     for data_label, batch_feeders in batch_feeders_label.iteritems():
         for batch_name, batch_contents in batch_feeders.iteritems():
-            temp = [batch_name]+batch_contents
+            temp = [batch_contents[0],batch_name,batch_contents[1],batch_contents[2],batch_contents[3],batch_contents[4]]
             result.append(temp)
 
     logger.info('End running check_total_datamart_table_field_number on file %s%s.',input_directory,input_file)
@@ -345,16 +345,7 @@ def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection
     return result
 
 #3 Check scanner engine usage
-def check_scanner_engine_usage(input_directory,input_file) :
-    scanner_engine_enabled_dynamic_table = ['DYN_TRNRP_CS',
-        'DYN_TRNRP_DT',
-        'DYN_TRNRP_MK',
-        'DYN_TRNRP_MV',
-        'DYN_TRNRP_PL',
-        'DYN_TRNRP_SV',
-        'DYN_TRNRP_XG',
-        'Simulation',
-        'PL VAR']
+def check_scanner_engine_usage(input_directory,input_file,scanner_engine_enabled_dynamic_table) :
 
     raw_file= open(input_directory+input_file, 'r')
 
@@ -362,7 +353,7 @@ def check_scanner_engine_usage(input_directory,input_file) :
     logger.info('Start to run check_scanner_engine_usage for batch of feeder on file %s%s.',input_directory,input_file)
 
     result=[['Batch of feeders'' scanner engine usage']]
-    result.append(['Batch of feeder','Dynamic table type','Process number','Batch size','Batch type'])
+    result.append(['Batch of feeder','Dynamic table type','Template','Process number','Batch type','Batch size' ,'Retries','Retries batch size'])
 
     engine_usage = dict()
     dynamic_table_types=dict()
@@ -375,15 +366,18 @@ def check_scanner_engine_usage(input_directory,input_file) :
         engine_number =fields[12].strip()
         engine_size = fields[47].strip()
         engine_type = fields[48].strip()
+        engine_name = fields[49].strip()
+        engine_retry_time =  fields[50].strip()
+        engine_retry_threshold = fields[51].strip()
 
         logger.debug('Checking batch feeder %s, dynamic table type %s, engine number %s ',batch_feeder_name,fields[27].strip(), engine_number)
 
         if dynamic_table_type in scanner_engine_enabled_dynamic_table and batch_feeder_name<>'' :
-            engine_usage[batch_feeder_name]=[engine_number,engine_size,engine_type]
+            engine_usage[batch_feeder_name]=[engine_name,engine_number,engine_type,engine_size,engine_retry_time,engine_retry_threshold]
             dynamic_table_types[batch_feeder_name]=dynamic_table_type
 
     for batch_feeder_name, engine_details in engine_usage.iteritems():
-        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_details[0],engine_details[1],engine_details[2]]
+        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_details[0],engine_details[1],engine_details[2],engine_details[3],engine_details[4],engine_details[5]]
         result.append(temp)
 
     logger.info('End running check_scanner_engine_usage on file %s%s.',input_directory,input_file)
@@ -457,6 +451,25 @@ def check_filter_conflict(input_directory,input_file) :
            result.append([dynamic_table_name,default_filter_2,default_filter_3,default_filter_4,default_filter_5,batch_feeder_name,global_filter1,global_filter2,global_filter3])
 
     logger.info('End running check_filter_conflict on file %s%s.',input_directory,input_file)
+    return result
+
+#create the content page
+def create_content_page(sheet_names):
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
+
+    result = [['Jump to sheet:']]
+
+    i = 1
+
+    for sheet_name in sheet_names:
+        sheet_name =  sheet_name
+        result.append([sheet_name])
+        i = i + 1
+
+    logger.info('End running create_content_page for %s sheets.',len(sheet_names))
+
     return result
 
 def run(reload_check_button_status=None,log_dropdown_status=None):
@@ -556,57 +569,74 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
+    work_sheet_names = []
 
     #2.0 Give summary of duplicate checking
     result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_REP_TAB'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
+
 
     #2.1. Check if same table is defined in 2 feeder.
     result=check_duplicate_of_dm_table(input_directory,dm_config_file,parameters['feeder']['min_reference'])
     work_sheet_name='REP_TAB_VS_T_FEED'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
     result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_T_FEED'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #2. Check if same feeder is defined in 2 batches.
     result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['min_reference'])
     work_sheet_name='T_FEED_VS_BOF'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
     result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_BOF'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
     result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='BOF_VS_PS'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #3 Check scanner engine usage
-    result=check_scanner_engine_usage(input_directory,dm_config_file)
+    result=check_scanner_engine_usage(input_directory,dm_config_file, parameters['scanner engine']['eligible_dynamic_tables'])
     work_sheet_name='Scanner_Engine'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #4. check number of feeders in a batch, shall not be too many!
     result=check_number_of_feeder_in_batch(input_directory,dm_config_file)
     work_sheet_name='BOF_SIZE'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
-
+    work_sheet_names.append(work_sheet_name)
 
     #5 check_filter_conflict between dynamic table default settings and global filter
     result=check_filter_conflict(input_directory,dm_config_file)
     work_sheet_name='Filter_conflict'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
 
     #1. check dataset_consistency.
     result=check_dataset_consistency(input_directory,dm_config_file)
     work_sheet_name='Dataset_consistency'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_sheet_names.append(work_sheet_name)
+
+    #create content sheet
+    result=create_content_page(work_sheet_names)
+    work_sheet_name='Content'
+    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    work_book.active_sheet = len(work_sheet_names)
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)

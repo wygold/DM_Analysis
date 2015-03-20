@@ -160,6 +160,25 @@ def add_time(ta,tb):
     logger.debug('End running add_time.')
     return sum_time
 
+#create the content page
+def create_content_page(sheet_names):
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
+
+    result = [['Jump to sheet:']]
+
+    i = 1
+
+    for sheet_name in sheet_names:
+        sheet_name =  sheet_name
+        result.append([sheet_name])
+        i = i + 1
+
+    logger.info('End running create_content_page for %s sheets.',len(sheet_names))
+
+    return result
+
 def run(reload_check_button_status=None,log_dropdown_status=None):
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
@@ -239,18 +258,28 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
+    work_sheet_names = []
 
     #Get processing script overall performance
     result=analyze_processing_script_total_time(input_directory,ps_exuection_time_file
                                                 ,time_alert_processing_script, period_days)
     work_sheet_name='Processing script performance'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name, True)
+    work_sheet_names.append(work_sheet_name)
 
     #Get processing script detailed performance
     result=analyze_processing_script_breakdown(input_directory, ps_exuection_time_file,
                                                time_alert_batch_feeder,time_alert_batch_extraction,period_days)
     work_sheet_name='Processing script detailed'
     work_book=io_util.add_worksheet(result,work_book, work_sheet_name, True)
+    work_sheet_names.append(work_sheet_name)
+
+    #create content sheet
+    result=create_content_page(work_sheet_names)
+    work_sheet_name='Content'
+    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    work_book.active_sheet = len(work_sheet_names)
+
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)

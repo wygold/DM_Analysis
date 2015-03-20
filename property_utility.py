@@ -48,6 +48,7 @@ class property_utility:
         feeder_parameters = OrderedDict()
         log_parameters = OrderedDict()
         database_parameters = OrderedDict()
+        scanner_engine_paramters = OrderedDict()
 
         #read in property file
         config = ConfigParser.RawConfigParser()
@@ -70,6 +71,7 @@ class property_utility:
         parameters['feeder'] = feeder_parameters
         parameters['log'] = log_parameters
         parameters['database'] = database_parameters
+        parameters['scanner engine'] = scanner_engine_paramters
 
         #read in preperties
         #read in general
@@ -112,6 +114,9 @@ class property_utility:
         database_parameters['db_config_folder']= config.get('database', 'db_config_folder')
         database_parameters['mx_db_config_file']= config.get('database', 'mx_db_config_file')
         database_parameters['dm_db_config_file']= config.get('database', 'dm_db_config_file')
+
+        #read in dynamic table type that can be enabled for scanner engine
+        scanner_engine_paramters['eligible_dynamic_tables']= config.get('scanner engine', 'eligible_dynamic_tables').replace('\n','').split(',')
 
         return parameters
 
