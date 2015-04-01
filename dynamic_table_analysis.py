@@ -10,6 +10,7 @@ from property_utility import property_utility
 import logging
 from logging import handlers
 from operator import itemgetter, attrgetter, methodcaller
+from collections import OrderedDict
 
 logger = ''
 
@@ -489,67 +490,88 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
+    work_books_content = OrderedDict()
     work_sheet_names = []
 
     #check Total number of dynamic tables fields for each dynamic table.
     result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
     work_sheet_name='Field_Check'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #check Number of horizontal fields
     result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
     work_sheet_name='H_Field_Check'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #Check horizontal fields with *TBLFIELD and *TABLE
     result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
     work_sheet_name='H_DB_Field_Check'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #check sensitivity flag can be disabled
     result=check_compute_sensitivity_flag(input_directory,sensi_file)
     work_sheet_name='Sensi_Flag_Check'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #check build on mode is correctly set
     result=check_sim_view_mode(input_directory,dm_config_file,sim_file)
     work_sheet_name='Build_Mode_Check'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #summary of how dynamic table fields are referenced by datamart tables
     result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file)
     work_sheet_name='Field_Reference_Summary'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
 
     #detail of how dynamic table fields are referenced by datamart tables
     result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file)
     work_sheet_name='Field_Reference_Detail'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
 
     result=check_dynamic_table_reference_number(input_directory,dm_config_file,max_dynamic_table_referenced)
     work_sheet_name='DM_TBL_Reference_Summary'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     result=check_dynamic_table_reference_detail(input_directory,dm_config_file,max_dynamic_table_referenced)
     work_sheet_name='DM_TBL_Reference_Detail'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #create content sheet
     result=create_content_page(work_sheet_names)
     work_sheet_name='Content'
     work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
-    work_book.active_sheet = len(work_sheet_names)
+
+
+    sheet_sequence = 0
+    for work_sheet_name, result in work_books_content.iteritems():
+        preview_sheet= ''
+        next_sheet = ''
+        if sheet_sequence == 0 :
+            preview_sheet='Content'
+        else:
+            preview_sheet = work_sheet_names[sheet_sequence-1]
+
+        if sheet_sequence == len(work_sheet_names) - 1:
+            next_sheet = None
+        else:
+            next_sheet = work_sheet_names[sheet_sequence + 1]
+
+        work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
+
+        sheet_sequence = sheet_sequence + 1
+
+
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)

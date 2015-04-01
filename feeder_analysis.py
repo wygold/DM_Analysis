@@ -9,6 +9,9 @@ import logging
 from logging import handlers
 from property_utility import property_utility
 
+from collections import OrderedDict
+
+
 logger = ''
 
 
@@ -283,8 +286,6 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
         temp = [dm_table_name, str(feeder_counter)]
         result.append(temp)
     result.append(['    ','     '])
-
-    result.append(['Name of feeders','# of Referenced Batch feeders'])
 
     logger.info('End running check_duplicate_dm_table_summary on file %s%s.',input_directory,input_file)
     return result
@@ -569,74 +570,92 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
+    work_books_content = OrderedDict()
     work_sheet_names = []
 
     #2.0 Give summary of duplicate checking
     result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_REP_TAB'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
 
     #2.1. Check if same table is defined in 2 feeder.
     result=check_duplicate_of_dm_table(input_directory,dm_config_file,parameters['feeder']['min_reference'])
     work_sheet_name='REP_TAB_VS_T_FEED'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
     result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_T_FEED'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2. Check if same feeder is defined in 2 batches.
     result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['min_reference'])
     work_sheet_name='T_FEED_VS_BOF'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
     result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_BOF'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
     result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='BOF_VS_PS'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #3 Check scanner engine usage
     result=check_scanner_engine_usage(input_directory,dm_config_file, parameters['scanner engine']['eligible_dynamic_tables'])
     work_sheet_name='Scanner_Engine'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #4. check number of feeders in a batch, shall not be too many!
     result=check_number_of_feeder_in_batch(input_directory,dm_config_file)
     work_sheet_name='BOF_SIZE'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #5 check_filter_conflict between dynamic table default settings and global filter
     result=check_filter_conflict(input_directory,dm_config_file)
     work_sheet_name='Filter_conflict'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #1. check dataset_consistency.
     result=check_dataset_consistency(input_directory,dm_config_file)
     work_sheet_name='Dataset_consistency'
-    work_book=io_util.add_worksheet(result,work_book, work_sheet_name)
+    work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #create content sheet
     result=create_content_page(work_sheet_names)
     work_sheet_name='Content'
     work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
-    work_book.active_sheet = len(work_sheet_names)
+
+    sheet_sequence = 0
+    for work_sheet_name, result in work_books_content.iteritems():
+        preview_sheet= ''
+        next_sheet = ''
+        if sheet_sequence == 0 :
+            preview_sheet='Content'
+        else:
+            preview_sheet = work_sheet_names[sheet_sequence-1]
+
+        if sheet_sequence == len(work_sheet_names) - 1:
+            next_sheet = None
+        else:
+            next_sheet = work_sheet_names[sheet_sequence + 1]
+
+        work_book=io_util.add_worksheet(result,work_book, work_sheet_name,False, preview_sheet,next_sheet)
+
+        sheet_sequence = sheet_sequence + 1
 
     #output the work_book
     io_util.save_workbook(work_book,output_directory+final_result_file)
