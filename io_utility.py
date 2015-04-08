@@ -72,7 +72,7 @@ class io_utility:
         'font:  colour white, bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
         'borders: left thin, right thin, top thin, bottom thin;'
-        'pattern: pattern solid, pattern_fore_colour pale_blue, pattern_back_colour yellow'
+        'pattern: pattern solid, pattern_fore_colour dark_blue_ega, pattern_back_colour yellow'
     )
 
 
@@ -168,7 +168,7 @@ class io_utility:
         if previous_sheet is not None or next_sheet is not None :
             #create previous sheet short cut at the top
             if previous_sheet is not None :
-                link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- Previous '+'")'
+                link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
                 ws.write(0, 0, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
 
@@ -183,7 +183,7 @@ class io_utility:
 
             #create next sheet shortcut at the top
             if next_sheet is not None :
-                link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + 'Next --> '+'")'
+                link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + next_sheet +' --> '+'")'
                 if len(row) > 2:
                     ws.write(0, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 elif len(row) == 2:
@@ -191,13 +191,13 @@ class io_utility:
                 else:
                     ws.write(0,2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
             else:
-                ws.write(0, len(row) - 1, 'Last Sheet', self.TEXT_FORMAT_SHORTCUT)
+                ws.write(0, len(row) - 1, '', self.TEXT_FORMAT_SHORTCUT)
 
             self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
 
             #create previous sheet short cut at the bottem
             if previous_sheet is not None :
-                link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- Previous '+'")'
+                link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
                 ws.write(i, 0, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
 
@@ -211,7 +211,7 @@ class io_utility:
 
             #create next sheet shortcut at the top
             if next_sheet is not None :
-                link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + 'Next --> '+'")'
+                link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + next_sheet + ' --> '+'")'
                 if len(row) > 2:
                     ws.write(i, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 elif len(row) == 2:
@@ -220,7 +220,7 @@ class io_utility:
                     ws.write(i,2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
             else:
-                ws.write(i, len(row) - 1, 'Last Sheet', self.TEXT_FORMAT_SHORTCUT)
+                ws.write(i, len(row) - 1, '', self.TEXT_FORMAT_SHORTCUT)
 
         self.logger.info('End creating worksheet %s',sheetname)
 

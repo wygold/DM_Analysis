@@ -588,7 +588,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #2.01 Give summary of duplicate checking
     result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
-    work_sheet_name='Summary_T_FEED'
+    work_sheet_name='Summary_T_FEED_2'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
