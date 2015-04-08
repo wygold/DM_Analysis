@@ -171,11 +171,16 @@ class io_utility:
                 link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
                 ws.write(0, 0, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
+                width= len(previous_sheet) * 320
+                if width > ws.col(0).width :
+                    ws.col(0).width = width
+
 
             #create content sheet shortcut at the top
             link ='HYPERLINK("#\''+ 'Content' + '\'!A1", "' + ' ^ Content '+'")'
             if len(row) > 2:
                 ws.write_merge(0, 0, 1, len(row) - 2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+
 
             # else:
             #     ws.write(0, 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
@@ -184,14 +189,22 @@ class io_utility:
             #create next sheet shortcut at the top
             if next_sheet is not None :
                 link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + next_sheet +' --> '+'")'
+                column = 0
                 if len(row) > 2:
                     ws.write(0, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    column = len(row) - 1
                 elif len(row) == 2:
                     ws.write(0,1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    column = 1
                 else:
                     ws.write(0,2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    column = 2
+                width= len(next_sheet) * 320
+                if width > ws.col(column).width :
+                    ws.col(column).width = width
             else:
                 ws.write(0, len(row) - 1, '', self.TEXT_FORMAT_SHORTCUT)
+
 
             self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
 
