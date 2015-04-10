@@ -291,6 +291,78 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
     return result
 
 
+
+
+#2.009 Give summary of how many tables referenced in a feeder
+def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['A summary of referenced feeders.']]
+
+    logger.info('Process how many datamart tables are used in a single feeder')
+    result.append(['Name of feeders','# of underlying dm tables'])
+
+    feeders_result=check_number_of_tables_in_feeder(input_directory,input_file,min_reference)
+
+    feeders=dict()
+
+    for i in range(2,len(feeders_result)):
+        feeder_name=feeders_result[i][0]
+        if not feeders.has_key(feeder_name):
+            feeders[feeder_name]=1
+        else:
+            feeders[feeder_name] = feeders[feeder_name]+1
+
+    for feeder_name, dm_table_contents in feeders.iteritems():
+        temp = [feeder_name, str(dm_table_contents)]
+        result.append(temp)
+
+    logger.info('End running check_duplicate_feeder_summary on file %s%s.',input_directory,input_file)
+    return result
+
+def check_number_of_tables_in_feeder(input_directory,input_file,min_reference=1) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_number_of_tables_in_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
+
+    result=[['DM Tables in Feeder']]
+    result.append(['Feeder','DM Table','Last Execution Date'])
+
+    feeders = dict()
+    feeder_execution_times = dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        object_type=fields[23].strip()
+
+        if object_type == 'FEEDERS' :
+            dm_table = fields[24].strip()
+            feeder_name=fields[15].strip()
+            feeder_execution_time = fields[16].strip()
+
+            logger.debug('Checking feeder: %s, dm table : %s, last excution time: %s.',feeder_name,dm_table,feeder_execution_time)
+            if not feeders.has_key(feeder_name) :
+                feeders[feeder_name]=[dm_table]
+            else :
+                if dm_table not in feeders[feeder_name] and dm_table<>'':
+                    feeders[feeder_name].append(dm_table)
+
+            feeder_execution_times[feeder_name]=feeder_execution_time
+
+    for feeder_name, feeder_content in feeders.iteritems():
+        logger.debug('Number of dm table is %i that has same feeder %s.',len(feeder_content),feeder_name)
+        if len(feeder_content) >= min_reference :
+            for dm_table_name in feeder_content :
+                if dm_table_name <> '':
+                    temp = [feeder_name, dm_table_name, feeder_execution_times[feeder_name]]
+                    result.append(temp)
+
+    logger.info('End running check_number_of_tables_in_feeder on file %s%s.',input_directory,input_file)
+    return result
+
 #2.01 Give summary of duplicate checking for feeder
 def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
     logger = logging.getLogger(__name__)
@@ -455,18 +527,19 @@ def check_filter_conflict(input_directory,input_file) :
     return result
 
 #create the content page
-def create_content_page(sheet_names):
+def create_content_page(sheet_names,work_books_content):
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
 
-    result = [['Jump to sheet:']]
+    result = [['Sheets:']]
 
     i = 1
 
     for sheet_name in sheet_names:
-        sheet_name =  sheet_name
-        result.append([sheet_name])
+        work_sheet_content=work_books_content[sheet_name]
+        work_sheet_description = work_sheet_content[0][0]
+        result.append([sheet_name,work_sheet_description])
         i = i + 1
 
     logger.info('End running create_content_page for %s sheets.',len(sheet_names))
@@ -586,6 +659,20 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
+    #2.009 Give summary of how many tables referenced in a feeder
+    result=check_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    work_sheet_name='Summary_T_FEED_1'
+    work_books_content[work_sheet_name]=result
+    work_sheet_names.append(work_sheet_name)
+
+
+
+    #2.0091 Check if same feeder is defined in 2 batches.
+    result=check_number_of_tables_in_feeder(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    work_sheet_name='T_FEED_VS_DM'
+    work_books_content[work_sheet_name]=result
+    work_sheet_names.append(work_sheet_name)
+
     #2.01 Give summary of duplicate checking
     result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
     work_sheet_name='Summary_T_FEED_2'
@@ -635,11 +722,12 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names.append(work_sheet_name)
 
     #create content sheet
-    result=create_content_page(work_sheet_names)
+    result=create_content_page(work_sheet_names,work_books_content)
     work_sheet_name='Content'
     work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
     sheet_sequence = 0
+
     for work_sheet_name, result in work_books_content.iteritems():
         preview_sheet= ''
         next_sheet = ''

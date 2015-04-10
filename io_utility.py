@@ -272,12 +272,17 @@ class io_utility:
                         ws.write_merge(0, 0, 0, len(row) - 1, title, self.TITLE_FORMAT)
                         ws.col(j).width = len(cell) * 320
                         self.logger.debug('Create sheet title: %s', title)
-                    link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
-                    ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                        link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
+                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                    else :
+                        ws.write(i, j, cell, self.TEXT_FORMAT_ALIGN_LEFT)
                 else:
-                    link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
-                    ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
-                    self.logger.debug('Write field [%s,%s] content: %s ', str(i), str(j), str(cell))
+                    if j == 0 :
+                        link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
+                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                    else:
+                        ws.write(i, j, cell, self.TEXT_FORMAT_ALIGN_LEFT)
+                self.logger.debug('Write field [%s,%s] content: %s ', str(i), str(j), str(cell))
                 j = j + 1
             j = 0
             i = i + 1

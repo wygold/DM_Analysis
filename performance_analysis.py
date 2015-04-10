@@ -162,22 +162,22 @@ def add_time(ta,tb):
     return sum_time
 
 #create the content page
-def create_content_page(sheet_names):
+def create_content_page(sheet_names,work_books_content):
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
 
-    result = [['Jump to sheet:']]
+    result = [['Sheets:']]
 
     i = 1
 
     for sheet_name in sheet_names:
-        sheet_name =  sheet_name
-        result.append([sheet_name])
+        work_sheet_content=work_books_content[sheet_name]
+        work_sheet_description = work_sheet_content[0][0]
+        result.append([sheet_name,work_sheet_description])
         i = i + 1
 
     logger.info('End running create_content_page for %s sheets.',len(sheet_names))
-
     return result
 
 def run(reload_check_button_status=None,log_dropdown_status=None):
@@ -277,7 +277,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names.append(work_sheet_name)
 
     #create content sheet
-    result=create_content_page(work_sheet_names)
+    result=create_content_page(work_sheet_names,work_books_content)
     work_sheet_name='Content'
     work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
