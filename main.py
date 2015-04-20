@@ -138,7 +138,7 @@ class Datamart_analysis_tool(Frame):
         current_row = current_row + 1
 
         dynamic_table_analysis_check_button_status = IntVar()
-        dynamic_table_analysis_check_button = Checkbutton(root, text="Dynamic table analysis",variable=dynamic_table_analysis_check_button_status)
+        dynamic_table_analysis_check_button = Checkbutton(root, text="Dynamic tables analysis",variable=dynamic_table_analysis_check_button_status)
         check_buttons.append(dynamic_table_analysis_check_button)
         check_buttons_status["dynamic table"] = dynamic_table_analysis_check_button_status
         dynamic_table_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('dynamic table'))
@@ -149,7 +149,7 @@ class Datamart_analysis_tool(Frame):
         current_row = current_row + 1
 
         datamart_table_analysis_check_button_status = IntVar()
-        datamart_table_analysis_check_button = Checkbutton(root, text="Datamart table analysis",variable=datamart_table_analysis_check_button_status)
+        datamart_table_analysis_check_button = Checkbutton(root, text="Datamart tables analysis",variable=datamart_table_analysis_check_button_status)
         check_buttons.append(datamart_table_analysis_check_button)
         check_buttons_status["datamart table"] = datamart_table_analysis_check_button_status
         datamart_table_analysis_config_button = Button(root, text='Config', command=lambda: self.create_config_frame('datamart table') )
@@ -160,7 +160,7 @@ class Datamart_analysis_tool(Frame):
         current_row = current_row + 1
 
         feeder_analysis_check_button_status = IntVar()
-        feeder_analysis_check_button = Checkbutton(root, text="Feeder analysis",variable=feeder_analysis_check_button_status)
+        feeder_analysis_check_button = Checkbutton(root, text="TFs and BoFs analysis",variable=feeder_analysis_check_button_status)
         check_buttons.append(feeder_analysis_check_button)
         check_buttons_status["feeder"] = feeder_analysis_check_button_status
         feeder_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('feeder'))

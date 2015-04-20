@@ -114,7 +114,7 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_feeders in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Feeder used in multiple batches']]
+    result=[['Feeder referenced in more than '+str(min_reference)+' batches']]
     result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
 
     feeders = dict()
@@ -168,7 +168,7 @@ def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_dm_table in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Datamart tables used in multiple single feeders']]
+    result=[['DM table referenced in more than ' + str(min_reference) + ' single feeders']]
     result.append(['DM Table Name','Feeder name','Description','Last Execution Date'])
 
     dm_tables = dict()
@@ -212,7 +212,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_batch_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Batch of Feeder used in multiple processing scripts']]
+    result=[['Batch of Feeder referenced in more than ' + str(min_reference) + ' processing scripts']]
     result.append(['Batch of Feeder','Entity','Processing Script','Last execution date'])
 
     batch_feeders = dict()
@@ -267,7 +267,7 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_dm_table_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['A summary of referenced dm tables.']]
+    result=[['Summary of referenced DM tables.']]
 
     logger.info('Process how datamart tables are refernced by feeders')
     result.append(['Name of Datamart table','# of Referenced feeders'])
@@ -298,7 +298,7 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_r
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['A summary of referenced feeders.']]
+    result=[['Summary of referenced feeders.']]
 
     logger.info('Process how many datamart tables are used in a single feeder')
     result.append(['Name of feeders','# of underlying dm tables'])
@@ -368,7 +368,7 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['A summary of referenced feeders.']]
+    result=[['Summary of referenced feeders.']]
 
     logger.info('Process how feeders are refernced by batch feeders')
     result.append(['Name of feeders','# of Referenced Batch feeders'])
@@ -395,7 +395,7 @@ def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['A summary of referenced batch of feeder.']]
+    result=[['Summary of referenced batch of feeder.']]
 
     logger.info('Process how batch feeders are referenced by processing scripts')
     result.append(['Name of batch feeders','# of Referenced Processing scripts'])

@@ -113,7 +113,7 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     logger.info('Start to run check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
 
     raw_file= open(input_directory+input_file, 'r')
-    result=[['Dynamic tables''s sensitivity flag can be disabled']]
+    result=[['Dynamic tables sensitivity flag can be disabled']]
     result.append(['    Dynamic table name     ','Category'])
 
     for line in raw_file:
@@ -178,7 +178,7 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
     return final_result
 
 #summary of how dynamic table fields are referenced by datamart tables
-def check_dynamic_table_field_reference_summary(input_directory,source_file) :
+def check_dynamic_table_field_reference_summary(input_directory,source_file,max_dynamic_table_referenced) :
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
@@ -203,21 +203,20 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
         key = field_name + ' | ' + dyn_table_type
 
         if not table_fields.has_key(key):
-            #table_fields[field_name]=[table_name]
             table_fields[key] = 1
         else:
-            #table_fields[field_name].append(table_name)
             table_fields[key] = table_fields[key] + 1
 
-    final_result=[['Summary of dynamic table field reference']]
+    final_result=[['Summary of dynamic table fields reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
     final_result.append(['Dynamic table field','Dynamic table type', '# of reference'])
 
     result=[]
 
     for field_key, table_count in table_fields.iteritems():
-        field_name, dyn_table_type=field_key.split(' | ')
-        temp = [field_name,dyn_table_type,table_count]
-        result.append(temp)
+        if table_count > max_dynamic_table_referenced:
+            field_name, dyn_table_type=field_key.split(' | ')
+            temp = [field_name,dyn_table_type,table_count]
+            result.append(temp)
 
     #sort the result
     logger.debug('Sort the result')
@@ -229,7 +228,7 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file) :
     return final_result
 
 #detail of how dynamic table fields are referenced by datamart tables
-def check_dynamic_table_field_reference_detail(input_directory,source_file) :
+def check_dynamic_table_field_reference_detail(input_directory,source_file,max_dynamic_table_referenced) :
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_field_reference_summary on file %s%s.',input_directory,source_file)
@@ -238,7 +237,7 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
 
     table_fields = dict()
 
-    final_result=[['Summary of dynamic table field reference']]
+    final_result=[['Details of dynamic table fields reference']]
     final_result.append(['Dynamic table field','Dynamic table category','Dynamic table','Dynamic table type','Datamart table'])
 
     result=[]
@@ -261,10 +260,11 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file) :
             table_fields[field_name].append([dyn_table_category,dyn_table,dyn_table_type,table_name])
 
     for field_name, table_definition in table_fields.iteritems():
-        for table in table_definition:
-            dyn_table_category,dyn_table,dyn_table_type,table_name= table
-            temp = [field_name,dyn_table_category,dyn_table,dyn_table_type,table_name]
-            result.append(temp)
+        if(len(table_fields[field_name])> max_dynamic_table_referenced):
+            for table in table_definition:
+                dyn_table_category,dyn_table,dyn_table_type,table_name= table
+                temp = [field_name,dyn_table_category,dyn_table,dyn_table_type,table_name]
+                result.append(temp)
 
     #sort the result
     logger.debug('Sort the result')
@@ -282,7 +282,7 @@ def check_dynamic_table_reference_number(input_directory,input_file,max_dynamic_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
 
-    result=[['Dynamic table reference status summary ']]
+    result=[['Summary of dynamic table reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
     result.append(['Dynamic table name','Category','Dynamic table type','# of  Datamart table referenced'])
 
     dynamic_tables = dict()
@@ -321,7 +321,7 @@ def check_dynamic_table_reference_detail(input_directory,input_file,max_dynamic_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_reference_detail on file %s%s.',input_directory,input_file)
 
-    result=[['Dynamic table reference status details ']]
+    result=[['Details of dynamic table reference  ']]
     result.append(['Dynamic table name','Category','Dynamic table type','Datamart Table Name'])
 
     dynamic_tables = dict()
@@ -354,24 +354,23 @@ def check_dynamic_table_reference_detail(input_directory,input_file,max_dynamic_
     return result
 
 #create the content page
-def create_content_page(sheet_names):
+def create_content_page(sheet_names,work_books_content):
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run create_content_page for %s sheets.',len(sheet_names))
 
-    result = [['Jump to sheet:']]
+    result = [['Sheets:']]
 
     i = 1
 
     for sheet_name in sheet_names:
-        sheet_name =  sheet_name
-        result.append([sheet_name])
+        work_sheet_content=work_books_content[sheet_name]
+        work_sheet_description = work_sheet_content[0][0]
+        result.append([sheet_name,work_sheet_description])
         i = i + 1
 
     logger.info('End running create_content_page for %s sheets.',len(sheet_names))
-
     return result
-
 
 def run(reload_check_button_status=None,log_dropdown_status=None):
 
@@ -524,14 +523,14 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names.append(work_sheet_name)
 
     #summary of how dynamic table fields are referenced by datamart tables
-    result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file)
+    result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file,max_dynamic_table_referenced)
     work_sheet_name='Field_Reference_Summary'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
 
     #detail of how dynamic table fields are referenced by datamart tables
-    result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file)
+    result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file,max_dynamic_table_referenced)
     work_sheet_name='Field_Reference_Detail'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
@@ -548,7 +547,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names.append(work_sheet_name)
 
     #create content sheet
-    result=create_content_page(work_sheet_names)
+    result=create_content_page(work_sheet_names,work_books_content)
     work_sheet_name='Content'
     work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 

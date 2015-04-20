@@ -6,9 +6,9 @@ sql_directory = SQLs
 
 [dynamic table]
 max_number_fields = 200
-max_number_h_fields = 11
+max_number_h_fields = 10
 max_number_db_access_h_fields = 1
-max_dynamic_table_referenced = 1
+max_dynamic_table_referenced = 4
 output_file_name = dynamic_table_analysis.xls
 log_file_name = dynamic_table_analysis.log
 
@@ -18,7 +18,6 @@ output_file_name = datamart_table_analysis.xls
 log_file_name = datamart_table_analysis.log
 
 [performance]
-period_days = 11
 start_date = 2012-09-10
 end_date = 2012-09-15
 time_alert_processing_script = 00:01:00
@@ -28,9 +27,9 @@ time_alert_batch_feeder = 00:20:00
 time_alert_batch_extraction = 00:01:00
 
 [feeder]
+min_reference = 2
 output_file_name = feeder_analysis.xls
 log_file_name = feeder_analysis.log
-min_reference = 2
 
 [log]
 log_level = INFO
@@ -43,12 +42,13 @@ dm_db_config_file = dbsourcerep.mxres
 
 [scanner engine]
 eligible_dynamic_tables = DYN_TRNRP_CS,
-        DYN_TRNRP_DT,
-        DYN_TRNRP_MK,
-        DYN_TRNRP_MV,
-        DYN_TRNRP_PL,
-        DYN_TRNRP_SV,
-        DYN_TRNRP_XG,
-        Simulation,
-        PL VAR,
-        Add_More_Type
+	DYN_TRNRP_DT,
+	DYN_TRNRP_MK,
+	DYN_TRNRP_MV,
+	DYN_TRNRP_PL,
+	DYN_TRNRP_SV,
+	DYN_TRNRP_XG,
+	Simulation,
+	PL VAR,
+	Add_More_Type
+

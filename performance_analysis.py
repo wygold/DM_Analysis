@@ -43,7 +43,7 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
     logger = logging.getLogger(__name__)
     logger.info('Start to run analyze_processing_script_total_time on file %s%s',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
-    final_result=[['DM processing scripts listed according to execution time']]
+    final_result=[['DM processing scripts execution time']]
     final_result.append([' MX Date ','System Date','Script name','Execution time', 'Highlight'])
     result = []
 
@@ -103,7 +103,7 @@ def analyze_processing_script_breakdown(input_directory, input_file,time_alert_b
     logger = logging.getLogger(__name__)
     logger.info('Start to run analyze_processing_script_breakdown on file %s%s.',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
-    final_result=[['DM processing scripts listed according to execution time']]
+    final_result=[['Breakdown of DM processing scripts execution time by objects']]
     final_result.append(['     MX Date     ','System Date','Script name','DM_OBJECT_NAME','M_STEP','M_USER','M_GROUP'
         ,'M_DESK','CPU_TIME','IO_TIME','TOTAL_TIME','OBJECT_TYPE', 'Highlight'])
 
@@ -206,9 +206,12 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    period_days = parameters['performance']['period_days']
+
     start_date = parameters['performance']['start_date']
     end_date = parameters['performance']['end_date']
+    period_days = (datetime.datetime.strptime(end_date, '%Y-%m-%d').date() - datetime.datetime.strptime(start_date, '%Y-%m-%d').date()).days
+#                  parameters['performance']['period_days']
+
     time_alert_processing_script = parameters['performance']['time_alert_processing_script']
     time_alert_batch_feeder = parameters['performance']['time_alert_batch_feeder']
     time_alert_batch_extraction =parameters['performance']['time_alert_batch_extraction']

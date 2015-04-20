@@ -100,7 +100,7 @@ class property_utility:
         feeder_parameters['min_reference']  = config.getint('feeder', 'min_reference')
 
         #read in performance
-        performance_parameters['period_days'] = config.getint('performance', 'period_days')
+#        performance_parameters['period_days'] = config.getint('performance', 'period_days')
         performance_parameters['start_date'] = config.get('performance', 'start_date')
         performance_parameters['end_date'] = config.get('performance', 'end_date')
         performance_parameters['time_alert_processing_script'] = config.get('performance', 'time_alert_processing_script')
