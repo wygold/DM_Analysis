@@ -68,13 +68,19 @@ class io_utility:
         'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
     )
 
-    TEXT_FORMAT_SHORTCUT = easyxf(
-        'font:  colour white, bold 1, name Roma, height 160;'
+    TEXT_FORMAT_CONTENT = easyxf(
+        'font: underline on, bold 1, name Roma, height 160;'
+        'align: vertical center, horizontal left, wrap on;'
+        'borders: left thin, right thin, top thin, bottom thin;'
+        'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
+    )
+
+    TEXT_FORMAT_LINK = easyxf(
+        'font:  colour white, underline on, bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
         'borders: left thin, right thin, top thin, bottom thin;'
         'pattern: pattern solid, pattern_fore_colour dark_blue_ega, pattern_back_colour yellow'
     )
-
 
 
     def read_txt(self,filename):
@@ -169,7 +175,7 @@ class io_utility:
             #create previous sheet short cut at the top
             if previous_sheet is not None :
                 link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
-                ws.write(0, 0, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                ws.write(0, 0, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
                 width= len(previous_sheet) * 320
                 if width > ws.col(0).width :
@@ -179,7 +185,7 @@ class io_utility:
             #create content sheet shortcut at the top
             link ='HYPERLINK("#\''+ 'Content' + '\'!A1", "' + ' ^ Content '+'")'
             if len(row) > 2:
-                ws.write_merge(0, 0, 1, len(row) - 2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                ws.write_merge(0, 0, 1, len(row) - 2, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
 
 
             # else:
@@ -191,19 +197,19 @@ class io_utility:
                 link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + next_sheet +' --> '+'")'
                 column = 0
                 if len(row) > 2:
-                    ws.write(0, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(0, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                     column = len(row) - 1
                 elif len(row) == 2:
-                    ws.write(0,1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(0,1, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                     column = 1
                 else:
-                    ws.write(0,2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(0,2, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                     column = 2
                 width= len(next_sheet) * 320
                 if width > ws.col(column).width :
                     ws.col(column).width = width
             else:
-                ws.write(0, len(row) - 1, '', self.TEXT_FORMAT_SHORTCUT)
+                ws.write(0, len(row) - 1, '', self.TEXT_FORMAT_LINK)
 
 
             self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
@@ -211,13 +217,13 @@ class io_utility:
             #create previous sheet short cut at the bottem
             if previous_sheet is not None :
                 link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
-                ws.write(i, 0, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                ws.write(i, 0, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
 
             #create content sheet shortcut at the top
             link ='HYPERLINK("#\''+ sheetname + '\'!A1", "' + ' ^ Top '+'")'
             if len(row) > 2:
-                ws.write_merge(i, i, 1, len(row) - 2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                ws.write_merge(i, i, 1, len(row) - 2, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
             # else:
             #     ws.write(0, 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
             # self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
@@ -226,14 +232,14 @@ class io_utility:
             if next_sheet is not None :
                 link ='HYPERLINK("#\''+ next_sheet + '\'!A1", "' + next_sheet + ' --> '+'")'
                 if len(row) > 2:
-                    ws.write(i, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(i, len(row) - 1, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 elif len(row) == 2:
-                    ws.write(i,1, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(i,1, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 else:
-                    ws.write(i,2, xlwt.Formula(link), self.TEXT_FORMAT_SHORTCUT)
+                    ws.write(i,2, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
             else:
-                ws.write(i, len(row) - 1, '', self.TEXT_FORMAT_SHORTCUT)
+                ws.write(i, len(row) - 1, '', self.TEXT_FORMAT_LINK)
 
         self.logger.info('End creating worksheet %s',sheetname)
 
@@ -273,13 +279,13 @@ class io_utility:
                         ws.col(j).width = len(cell) * 320
                         self.logger.debug('Create sheet title: %s', title)
                         link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
-                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_CONTENT)
                     else :
                         ws.write(i, j, cell, self.TEXT_FORMAT_ALIGN_LEFT)
                 else:
                     if j == 0 :
                         link ='HYPERLINK("#\''+ cell + '\'!A1", "'+str(i)+'. '+cell+'")'
-                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_ALIGN_LEFT)
+                        ws.write(i, j, xlwt.Formula(link), self.TEXT_FORMAT_CONTENT)
                     else:
                         ws.write(i, j, cell, self.TEXT_FORMAT_ALIGN_LEFT)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(i), str(j), str(cell))
