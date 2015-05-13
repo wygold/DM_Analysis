@@ -8,7 +8,7 @@ sql_directory = SQLs
 max_number_fields = 200
 max_number_h_fields = 10
 max_number_db_access_h_fields = 1
-max_dynamic_table_referenced = 4
+max_dynamic_table_referenced = 1
 output_file_name = dynamic_table_analysis.xls
 log_file_name = dynamic_table_analysis.log
 
@@ -27,7 +27,7 @@ time_alert_batch_feeder = 00:20:00
 time_alert_batch_extraction = 00:01:00
 
 [feeder]
-min_reference = 2
+max_reference = 2
 output_file_name = feeder_analysis.xls
 log_file_name = feeder_analysis.log
 

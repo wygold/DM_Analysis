@@ -97,7 +97,7 @@ class property_utility:
         #read in feeder
         feeder_parameters['output_file_name']  = config.get('feeder', 'output_file_name')
         feeder_parameters['log_file_name']  = config.get('feeder', 'log_file_name')
-        feeder_parameters['min_reference']  = config.getint('feeder', 'min_reference')
+        feeder_parameters['max_reference']  = config.getint('feeder', 'max_reference')
 
         #read in performance
 #        performance_parameters['period_days'] = config.getint('performance', 'period_days')

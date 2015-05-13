@@ -5,10 +5,10 @@
       <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
       <DbIsDistributed/>
       <DbServerType>oracle</DbServerType>
-      <DbHostName>BALSAM</DbHostName>
+      <DbHostName>hp405srv</DbHostName>
       <DbServerPortNumber>1521</DbServerPortNumber>
-      <DbServerOrServiceName>balsam</DbServerOrServiceName>
-      <DbDatabaseOrSchemaName>INT_REP_PG_MX</DbDatabaseOrSchemaName>
+      <DbServerOrServiceName>HP40511</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>HLB_MX3_TEST_MX</DbDatabaseOrSchemaName>
       <DbCharacterSet/>
       <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
       <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
@@ -19,7 +19,7 @@
       <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
       <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
       <DbDefaultCredential>
-        <DbUser>INT_REP_PG_MX</DbUser>
+        <DbUser>HLB_MX3_TEST_MX</DbUser>
         <DbPassword>004000b1004000e600b700c600070000003100910027000600a7005700900066009100c70016</DbPassword>
       </DbDefaultCredential>
       <DbDefaultPool>

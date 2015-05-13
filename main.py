@@ -245,6 +245,7 @@ class Datamart_analysis_tool(Frame):
 
         optionmenu = Menu(menubar, tearoff=0)
         optionmenu.add_command(label="General Setting", command=lambda: self.create_config_frame('general', window_title = 'General Settings'))
+        optionmenu.add_command(label="Database Setting", command=lambda: self.create_config_frame('database', window_title = 'Database Settings'))
         menubar.add_cascade(label="Option", menu=optionmenu)
 
         helpmenu = Menu(menubar, tearoff=0)

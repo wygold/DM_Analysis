@@ -108,13 +108,13 @@ def check_dataset_consistency(input_directory,input_file) :
     return result
 
 #2 Check if same feeder are used in different batch feeder
-def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
+def check_duplicate_of_feeders(input_directory,input_file,max_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_feeders in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Feeder referenced in more than '+str(min_reference)+' batches']]
+    result=[['Feeder referenced in more than '+str(max_reference)+' batches']]
     result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
 
     feeders = dict()
@@ -151,7 +151,7 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
 
     for feeder_name, feeder_content in feeders.iteritems():
         logger.debug('Number of batch feeders is %i that has same feeder %s.',len(feeder_content),feeder_name)
-        if len(feeder_content) >= min_reference :
+        if len(feeder_content) >= max_reference :
             for batch_feeder_name in feeder_content :
                 if batch_feeder_name <> '':
                     temp = [feeder_name, batch_feeder_name, batch_feeder_desc[batch_feeder_name],global_filter_label[batch_feeder_name], label_of_data[batch_feeder_name],batch_execution_time[batch_feeder_name]]
@@ -162,13 +162,13 @@ def check_duplicate_of_feeders(input_directory,input_file,min_reference=1) :
 
 
 #2.1 Check if same datamart are used in different single feeder
-def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
+def check_duplicate_of_dm_table(input_directory,input_file,max_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_dm_table in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['DM table referenced in more than ' + str(min_reference) + ' single feeders']]
+    result=[['DM table referenced in more than ' + str(max_reference) + ' single feeders']]
     result.append(['DM Table Name','Feeder name','Description','Last Execution Date'])
 
     dm_tables = dict()
@@ -196,7 +196,7 @@ def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
 
     for dm_tables_name, dm_tables_content in dm_tables.iteritems():
         logger.debug('Number of feeders is %i that has same datamart table %s.',len(dm_tables_content),dm_tables_name)
-        if len(dm_tables_content) >= min_reference :
+        if len(dm_tables_content) >= max_reference :
             for feeder_name in dm_tables_content :
                 if feeder_name <> '':
                     temp = [dm_tables_name, feeder_name,feeder_desc[feeder_name], feeder_execution_time[feeder_name]]
@@ -206,13 +206,13 @@ def check_duplicate_of_dm_table(input_directory,input_file,min_reference=1) :
     return result
 
 #2.2 Check if same batch feeder are defined in different processing script
-def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_batch_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Batch of Feeder referenced in more than ' + str(min_reference) + ' processing scripts']]
+    result=[['Batch of Feeder referenced in more than ' + str(max_reference) + ' processing scripts']]
     result.append(['Batch of Feeder','Entity','Processing Script','Last execution date'])
 
     batch_feeders = dict()
@@ -249,7 +249,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time
 
 
     for batch_feeder_name, batch_feeder_content in batch_feeders.iteritems():
-        if len(batch_feeder_content) >= min_reference:
+        if len(batch_feeder_content) >= max_reference:
             for processing_script_name in batch_feeder_content :
                 if processing_script_name <> '' :
                     if ps_exeuction_date.has_key(processing_script_name):
@@ -263,7 +263,7 @@ def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time
     return result
 
 #2.0 Give summary of duplicate checking for dm table
-def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_dm_table_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
@@ -272,7 +272,7 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
     logger.info('Process how datamart tables are refernced by feeders')
     result.append(['Name of Datamart table','# of Referenced feeders'])
 
-    dm_tables_result=check_duplicate_of_dm_table(input_directory,input_file,min_reference)
+    dm_tables_result=check_duplicate_of_dm_table(input_directory,input_file,max_reference)
 
     dm_tables=dict()
     for i in range(2,len(dm_tables_result)):
@@ -294,7 +294,7 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
 
 
 #2.009 Give summary of how many tables referenced in a feeder
-def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
@@ -303,7 +303,7 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_r
     logger.info('Process how many datamart tables are used in a single feeder')
     result.append(['Name of feeders','# of underlying dm tables'])
 
-    feeders_result=check_number_of_tables_in_feeder(input_directory,input_file,min_reference)
+    feeders_result=check_number_of_tables_in_feeder(input_directory,input_file,max_reference)
 
     feeders=dict()
 
@@ -321,7 +321,7 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_r
     logger.info('End running check_duplicate_feeder_summary on file %s%s.',input_directory,input_file)
     return result
 
-def check_number_of_tables_in_feeder(input_directory,input_file,min_reference=1) :
+def check_number_of_tables_in_feeder(input_directory,input_file,max_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
 
     logger = logging.getLogger(__name__)
@@ -354,7 +354,7 @@ def check_number_of_tables_in_feeder(input_directory,input_file,min_reference=1)
 
     for feeder_name, feeder_content in feeders.iteritems():
         logger.debug('Number of dm table is %i that has same feeder %s.',len(feeder_content),feeder_name)
-        if len(feeder_content) >= min_reference :
+        if len(feeder_content) >= max_reference :
             for dm_table_name in feeder_content :
                 if dm_table_name <> '':
                     temp = [feeder_name, dm_table_name, feeder_execution_times[feeder_name]]
@@ -364,7 +364,7 @@ def check_number_of_tables_in_feeder(input_directory,input_file,min_reference=1)
     return result
 
 #2.01 Give summary of duplicate checking for feeder
-def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
@@ -373,7 +373,7 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
     logger.info('Process how feeders are refernced by batch feeders')
     result.append(['Name of feeders','# of Referenced Batch feeders'])
 
-    feeders_result=check_duplicate_of_feeders(input_directory,input_file,min_reference)
+    feeders_result=check_duplicate_of_feeders(input_directory,input_file,max_reference)
 
     feeders=dict()
     for i in range(2,len(feeders_result)):
@@ -391,7 +391,7 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
     return result
 
 #2.02 Give summary of duplicate checking for batch feeder
-def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection_time_file,min_reference=1) :
+def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
@@ -400,7 +400,7 @@ def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection
     logger.info('Process how batch feeders are referenced by processing scripts')
     result.append(['Name of batch feeders','# of Referenced Processing scripts'])
 
-    batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,min_reference)
+    batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,max_reference)
 
     batch_feeders=dict()
     for i in range(2,len(batch_feeders_result)):
@@ -647,20 +647,20 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names = []
 
     #2.0 Give summary of duplicate checking
-    result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
     work_sheet_name='Summary_REP_TAB'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
 
     #2.1. Check if same table is defined in 2 feeder.
-    result=check_duplicate_of_dm_table(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_of_dm_table(input_directory,dm_config_file,parameters['feeder']['max_reference'])
     work_sheet_name='REP_TAB_VS_T_FEED'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.009 Give summary of how many tables referenced in a feeder
-    result=check_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    result=check_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
     work_sheet_name='Summary_T_FEED_1'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
@@ -668,31 +668,31 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
 
     #2.0091 Check if same feeder is defined in 2 batches.
-    result=check_number_of_tables_in_feeder(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    result=check_number_of_tables_in_feeder(input_directory,dm_config_file,parameters['feeder']['max_reference'])
     work_sheet_name='T_FEED_VS_DM'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
-    result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
     work_sheet_name='Summary_T_FEED_2'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2. Check if same feeder is defined in 2 batches.
-    result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['max_reference'])
     work_sheet_name='T_FEED_VS_BOF'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
-    result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
     work_sheet_name='Summary_BOF'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
-    result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['min_reference'])
+    result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
     work_sheet_name='BOF_VS_PS'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
