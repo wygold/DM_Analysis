@@ -89,7 +89,7 @@ class Datamart_analysis_tool(Frame):
 
         current_row = 0
 
-        title = Label(root, text="Datamart Analysis Tool", font=("Helvetica", 20))
+        title = Label(root, text="Datamart Analysis Tool (Internal Use Only)", font=("Helvetica", 20))
         title.grid(columnspan=6,row=current_row)
         main_frame_objects['title']=title
         current_row = current_row + 1
@@ -267,7 +267,7 @@ class Datamart_analysis_tool(Frame):
         current_row=0
         about_root.wm_maxsize(260,130)
         about_root.wm_minsize(260,130)
-        Label(about_root, text="Datamart analysis tool",padx=5, pady=10,font=("Helvetica", 18)).grid(row=current_row)
+        Label(about_root, text="Datamart analysis tool (Internal Use Only)",padx=5, pady=10,font=("Helvetica", 18)).grid(row=current_row)
         current_row = current_row+1
         Label(about_root, text="v1.0",pady=10).grid(row=current_row)
         current_row = current_row+1
