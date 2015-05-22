@@ -7,6 +7,7 @@ import os
 from db_utility import db_utility
 from io_utility import io_utility
 import logging
+from operator import itemgetter
 from logging import handlers
 from collections import OrderedDict
 from property_utility import property_utility
@@ -44,8 +45,11 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_datamart_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_datamart_fields)
 
-    result=[['Datamart table fields exceeds '+str(max_datamart_fields)]]
-    result.append(['    Datamart table name    ','Field count'])
+    final_result=[['Datamart table fields exceeds '+str(max_datamart_fields)]]
+    final_result.append(['    Datamart table name    ','Field count'])
+
+    result = []
+
     datamart_tables = dict()
 
     for line in raw_file:
@@ -59,8 +63,13 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
         temp = [key,value]
         result.append(temp)
 
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_total_datamart_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_datamart_fields)
-    return result
+    return final_result
 
 
 #2 inconsistence field selection between dynamic table and datamart table, datamart has less fields
@@ -70,8 +79,10 @@ def check_inconsistent_datamart_table_field(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_inconsistent_datamart_table_field on file %s%s.',input_directory,input_file)
 
-    result=[['Datamart table has less fields than dynamic table fields']]
-    result.append(['Datamart table name','Field count', 'Dynamic table name','Category','Dynamic table field'])
+    final_result=[['Datamart table has less fields than dynamic table fields']]
+    final_result.append(['Datamart table name','Field count', 'Dynamic table name','Category','Field count', 'Difference'])
+    result = []
+
     datamart_tables = dict()
 
     for line in raw_file:
@@ -84,7 +95,7 @@ def check_inconsistent_datamart_table_field(input_directory,input_file) :
             dynamic_table_category = fields[27].strip()
             dynamic_table_field_count = int(fields[29])
             if datamart_table_field_count < dynamic_table_field_count :
-                datamart_tables[datamart_table_name]=[datamart_table_name,str(datamart_table_field_count),dynamic_table_name,dynamic_table_category,str(dynamic_table_field_count)]
+                datamart_tables[datamart_table_name]=[datamart_table_name,str(datamart_table_field_count),dynamic_table_name,dynamic_table_category,str(dynamic_table_field_count), (dynamic_table_field_count-datamart_table_field_count)]
                 logger.debug('Datamart table %s (with %i) has less field than dynamic table %s (with %i). It will be recorded',
                              datamart_table_name,datamart_table_field_count, dynamic_table_name,dynamic_table_field_count)
 
@@ -92,8 +103,13 @@ def check_inconsistent_datamart_table_field(input_directory,input_file) :
         temp = value
         result.append(temp)
 
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(5),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_inconsistent_datamart_table_field on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 #3 If any index defined, otherwise need to add indeices to it

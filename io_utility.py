@@ -106,6 +106,8 @@ class io_utility:
         total_length = 0
         cell = ''
 
+        content = self.add_sequence_column(content)
+
         if highlighted==False:
             for row in content:
                 for rawcell in row:
@@ -296,6 +298,29 @@ class io_utility:
         self.logger.info('End creating worksheet %s',sheetname)
 
         return workbook
+
+    def add_sequence_column(self,content):
+        self.logger.info('Start to add a sequence col to the content ')
+
+        row_num = 0
+        new_row = []
+        new_content = []
+
+        for row in content:
+            #skip first row
+            if row_num == 0 :
+                new_content.append(row)
+            #skip first row
+            elif row_num == 1 :
+                new_row=list(row)
+                new_row.insert(0,'#')
+                new_content.append(new_row)
+            else :
+                new_row=list(row)
+                new_row.insert(0,row_num-1)
+                new_content.append(new_row)
+            row_num = row_num + 1
+        return new_content
 
     def save_workbook(self,workbook,output_file):
         workbook.save(output_file)

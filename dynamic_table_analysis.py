@@ -46,8 +46,11 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_fields)
 
-    result=[['Number of Dynamic table fields that exceeds '+str(max_dynamic_number_fields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
+    final_result=[['Number of Dynamic table fields that exceeds '+str(max_dynamic_number_fields)]]
+    final_result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
+
+    result = []
+
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -58,8 +61,15 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
                 logger.debug('Dynamic table %s@%s has total field %s. It will be recorded',fields[26].strip(),fields[27].strip(),fields[29].strip())
+
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(3),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_total_dynamic_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_fields)
-    return result
+    return final_result
 
 #	2. Number of horizontal fields. List more than 10 horizontal fields
 def check_total_dynamic_table_horizontal_field_number(input_directory,input_file,max_dynamic_number_hfields) :
@@ -68,8 +78,11 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,input_file
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_hfields)
 
-    result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count'])
+    final_result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
+    final_result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count'])
+
+    result=[]
+
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -80,8 +93,14 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,input_file
                 result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[30].strip()])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
 
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(3),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_total_dynamic_table_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_hfields)
-    return result
+    return final_result
 
 #	3. Check if any *TBLFIELD, *TABLE is used
 def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,input_file,max_dynamic_number_db_access_hfields) :
@@ -90,8 +109,11 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_db_access_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_db_access_hfields)
 
-    result=[['Number of Dynamic table horizontal fields that access database which exceeds '+str(max_dynamic_number_db_access_hfields)]]
-    result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser functions (*TBLFIELD, *TABLE) used times'])
+    final_result=[['Number of Dynamic table horizontal fields that access database which exceeds '+str(max_dynamic_number_db_access_hfields)]]
+    final_result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser functions (*TBLFIELD, *TABLE) used times'])
+
+    result = []
+
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
@@ -99,11 +121,18 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
         if fields[31].strip()<>'' and int(fields[31])>max_dynamic_number_db_access_hfields :
         #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
-                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[31].strip()])
+                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),int(fields[31].strip())])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
 
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(3),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_total_dynamic_table_db_access_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_db_access_hfields)
-    return result
+
+    return final_result
 
 
 #	4. Check if sensitivy flag is disabled for dynamic table that not select any S_* fields
@@ -120,6 +149,7 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
         fields = line.split(' | ')
         logger.debug('Dynamic table %s under category %s is setting sensitivy flag incorreclty.',fields[0].strip(),fields[1].strip())
         result.append([fields[0].strip(),fields[1].strip()])
+
 
     logger.info('End running check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
     return result
@@ -282,8 +312,10 @@ def check_dynamic_table_reference_number(input_directory,input_file,max_dynamic_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
 
-    result=[['Summary of dynamic table reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
-    result.append(['Dynamic table name','Category','Dynamic table type','# of  Datamart table referenced'])
+    final_result=[['Summary of dynamic table reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
+    final_result.append(['Dynamic table name','Category','Dynamic table type','# of  Datamart table referenced'])
+
+    result = []
 
     dynamic_tables = dict()
     dynamic_tables_details =  dict()
@@ -309,9 +341,13 @@ def check_dynamic_table_reference_number(input_directory,input_file,max_dynamic_
         if len(unique_datamart_tables)>max_dynamic_table_referenced:
             result.append([dynamic_table,dynamic_table_category,dynamic_table_type,len(unique_datamart_tables)])
 
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(3),reverse=True)
+    final_result.extend(sorted_result)
 
     logger.info('End running check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 #check dynamic table reference number

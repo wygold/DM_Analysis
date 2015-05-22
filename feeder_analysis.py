@@ -8,7 +8,7 @@ from io_utility import io_utility
 import logging
 from logging import handlers
 from property_utility import property_utility
-
+from operator import itemgetter, attrgetter, methodcaller
 from collections import OrderedDict
 
 
@@ -46,8 +46,9 @@ def check_dataset_consistency(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dataset_consistency on file %s%s.',input_directory,input_file)
 
-    result=[['Batch of feeders have possible wrong dataset settings marked as inconsistent in last column']]
-    result.append(['Label of Data','Batch of feeders','Historisation','Private','Data Computed by Several Batches','Setting is correct'])
+    final_result=[['Batch of feeders have possible wrong dataset settings marked as inconsistent in last column']]
+    final_result.append(['Label of Data','Batch of feeders','Historisation','Private','Data Computed by Several Batches','Setting is correct'])
+    result=[]
     batch_feeders_label = dict()
 
 
@@ -104,8 +105,14 @@ def check_dataset_consistency(input_directory,input_file) :
             temp = [batch_contents[0],batch_name,batch_contents[1],batch_contents[2],batch_contents[3],batch_contents[4]]
             result.append(temp)
 
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0),reverse=False)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_total_datamart_table_field_number on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 #2 Check if same feeder are used in different batch feeder
 def check_duplicate_of_feeders(input_directory,input_file,max_reference=1) :
@@ -114,8 +121,9 @@ def check_duplicate_of_feeders(input_directory,input_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_feeders in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Feeder referenced in more than '+str(max_reference)+' batches']]
-    result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
+    final_result=[['Feeder referenced in more than '+str(max_reference)+' batches']]
+    final_result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
+    result=[]
 
     feeders = dict()
     batch_execution_time = dict()
@@ -157,8 +165,13 @@ def check_duplicate_of_feeders(input_directory,input_file,max_reference=1) :
                     temp = [feeder_name, batch_feeder_name, batch_feeder_desc[batch_feeder_name],global_filter_label[batch_feeder_name], label_of_data[batch_feeder_name],batch_execution_time[batch_feeder_name]]
                     result.append(temp)
 
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0),reverse=False)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_duplicate_of_feeders on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 #2.1 Check if same datamart are used in different single feeder
@@ -168,8 +181,9 @@ def check_duplicate_of_dm_table(input_directory,input_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_dm_table in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['DM table referenced in more than ' + str(max_reference) + ' single feeders']]
-    result.append(['DM Table Name','Feeder name','Description','Last Execution Date'])
+    final_result=[['DM table referenced in more than ' + str(max_reference) + ' single feeders']]
+    final_result.append(['DM Table Name','Feeder name','Description','Last Execution Date'])
+    result=[]
 
     dm_tables = dict()
     feeder_execution_time = dict()
@@ -202,8 +216,12 @@ def check_duplicate_of_dm_table(input_directory,input_file,max_reference=1) :
                     temp = [dm_tables_name, feeder_name,feeder_desc[feeder_name], feeder_execution_time[feeder_name]]
                     result.append(temp)
 
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0),reverse=False)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_duplicate_of_dm_table on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 #2.2 Check if same batch feeder are defined in different processing script
 def check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
@@ -267,11 +285,11 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_dm_table_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Summary of referenced DM tables.']]
-
     logger.info('Process how datamart tables are refernced by feeders')
-    result.append(['Name of Datamart table','# of Referenced feeders'])
 
+    final_result=[['Summary of referenced DM tables.']]
+    final_result.append(['Name of Datamart table','# of Referenced feeders'])
+    result=[]
     dm_tables_result=check_duplicate_of_dm_table(input_directory,input_file,max_reference)
 
     dm_tables=dict()
@@ -285,10 +303,14 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
     for dm_table_name, feeder_counter in dm_tables.iteritems():
         temp = [dm_table_name, str(feeder_counter)]
         result.append(temp)
-    result.append(['    ','     '])
+
+
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
 
     logger.info('End running check_duplicate_dm_table_summary on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 
@@ -298,11 +320,11 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_r
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Summary of referenced feeders.']]
+    final_result=[['Summary of referenced feeders.']]
 
     logger.info('Process how many datamart tables are used in a single feeder')
-    result.append(['Name of feeders','# of underlying dm tables'])
-
+    final_result.append(['Name of feeders','# of underlying dm tables'])
+    result=[]
     feeders_result=check_number_of_tables_in_feeder(input_directory,input_file,max_reference)
 
     feeders=dict()
@@ -315,11 +337,15 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_r
             feeders[feeder_name] = feeders[feeder_name]+1
 
     for feeder_name, dm_table_contents in feeders.iteritems():
-        temp = [feeder_name, str(dm_table_contents)]
+        temp = [feeder_name, int(dm_table_contents)]
         result.append(temp)
 
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_duplicate_feeder_summary on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 def check_number_of_tables_in_feeder(input_directory,input_file,max_reference=1) :
     raw_file= open(input_directory+input_file, 'r')
@@ -368,11 +394,11 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Summary of referenced feeders.']]
+    final_result=[['Summary of referenced feeders.']]
 
     logger.info('Process how feeders are refernced by batch feeders')
-    result.append(['Name of feeders','# of Referenced Batch feeders'])
-
+    final_result.append(['Name of feeders','# of Referenced Batch feeders'])
+    result=[]
     feeders_result=check_duplicate_of_feeders(input_directory,input_file,max_reference)
 
     feeders=dict()
@@ -384,21 +410,27 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
             feeders[feeder_name] = feeders[feeder_name]+1
 
     for feeder_name, batch_feeder_counter in feeders.iteritems():
-        temp = [feeder_name, str(batch_feeder_counter)]
+        temp = [feeder_name, int(batch_feeder_counter)]
         result.append(temp)
 
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_duplicate_feeder_summary on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 #2.02 Give summary of duplicate checking for batch feeder
 def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Summary of referenced batch of feeder.']]
+    final_result=[['Summary of referenced batch of feeder.']]
 
     logger.info('Process how batch feeders are referenced by processing scripts')
-    result.append(['Name of batch feeders','# of Referenced Processing scripts'])
+    final_result.append(['Name of batch feeders','# of Referenced Processing scripts'])
+
+    result=[]
 
     batch_feeders_result=check_duplicate_of_batch_feeder(input_directory,input_file,ps_exuection_time_file,max_reference)
 
@@ -411,11 +443,15 @@ def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection
             batch_feeders[batch_feeder_name] = batch_feeders[batch_feeder_name]+1
 
     for batch_feeder_name, processing_script_counter in batch_feeders.iteritems():
-        temp = [batch_feeder_name, str(processing_script_counter)]
+        temp = [batch_feeder_name, int(processing_script_counter)]
         result.append(temp)
 
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_duplicate_batch_feeder_summary on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 #3 Check scanner engine usage
 def check_scanner_engine_usage(input_directory,input_file,scanner_engine_enabled_dynamic_table) :
@@ -425,9 +461,9 @@ def check_scanner_engine_usage(input_directory,input_file,scanner_engine_enabled
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_scanner_engine_usage for batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Batch of feeders'' scanner engine usage']]
-    result.append(['Batch of feeder','Dynamic table type','Template','Process number','Batch type','Batch size' ,'Retries','Retries batch size'])
-
+    final_result=[['Batch of feeders'' scanner engine usage']]
+    final_result.append(['Batch of feeder','Dynamic table type','Template','Process number','Batch type','Batch size' ,'Retries','Retries batch size'])
+    result=[]
     engine_usage = dict()
     dynamic_table_types=dict()
 
@@ -450,11 +486,16 @@ def check_scanner_engine_usage(input_directory,input_file,scanner_engine_enabled
             dynamic_table_types[batch_feeder_name]=dynamic_table_type
 
     for batch_feeder_name, engine_details in engine_usage.iteritems():
-        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_details[0],engine_details[1],engine_details[2],engine_details[3],engine_details[4],engine_details[5]]
+        temp = [batch_feeder_name,dynamic_table_types[batch_feeder_name], engine_details[0],int(engine_details[1]),engine_details[2],engine_details[3],engine_details[4],engine_details[5]]
         result.append(temp)
 
+
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(3,0),reverse=False)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_scanner_engine_usage on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 #4. check number of feeders in a batch, shall not be too many!
@@ -464,8 +505,9 @@ def check_number_of_feeder_in_batch(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_number_of_feeder_in_batch for batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Number of feeders in a batch of feeders']]
-    result.append(['Batch of feeders','Number of Feeders (BoF size)'])
+    final_result=[['Number of feeders in a batch of feeders']]
+    final_result.append(['Batch of feeders','Number of Feeders (BoF size)'])
+    result=[]
 
     batch_feeders=dict()
 
@@ -489,11 +531,15 @@ def check_number_of_feeder_in_batch(input_directory,input_file) :
                 logger.debug('Add feeder %s into batch feeder %s',feeder_name,batch_feeder_name)
 
     for batch_feeder_name, single_feeders in batch_feeders.iteritems():
-        temp = [batch_feeder_name,str(len(single_feeders))]
+        temp = [batch_feeder_name,(len(single_feeders))]
         result.append(temp)
 
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(1),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_number_of_feeder_in_batch on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 #5 check_filter_conflict between dynamic table default settings and global filter
 def check_filter_conflict(input_directory,input_file) :

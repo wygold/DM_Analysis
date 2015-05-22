@@ -5,7 +5,7 @@ output_directory = Output
 sql_directory = SQLs
 
 [dynamic table]
-max_number_fields = 200
+max_number_fields = 100
 max_number_h_fields = 10
 max_number_db_access_h_fields = 1
 max_dynamic_table_referenced = 1
