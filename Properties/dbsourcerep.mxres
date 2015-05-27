@@ -8,7 +8,7 @@
       <DbHostName>hp405srv</DbHostName>
       <DbServerPortNumber>1521</DbServerPortNumber>
       <DbServerOrServiceName>HP40511</DbServerOrServiceName>
-      <DbDatabaseOrSchemaName>HLB_TEST_CYCLE1_DM</DbDatabaseOrSchemaName>
+      <DbDatabaseOrSchemaName>HLB_MX3_TEST_DM</DbDatabaseOrSchemaName>
       <DbCharacterSet/>
       <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
       <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
@@ -19,7 +19,7 @@
       <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
       <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
       <DbDefaultCredential>
-        <DbUser>HLB_TEST_CYCLE1_DM</DbUser>
+        <DbUser>HLB_MX3_TEST_DM</DbUser>
         <DbPassword>004000b1004000e600d600c700a6008100800050008600a7005700c700d70080002000c7</DbPassword>
       </DbDefaultCredential>
       <DbDefaultPool>

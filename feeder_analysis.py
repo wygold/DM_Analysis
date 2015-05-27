@@ -121,7 +121,7 @@ def check_duplicate_of_feeders(input_directory,input_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_feeders in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Feeder referenced in more than '+str(max_reference)+' batches']]
+    final_result=[['Details of table feeders referenced by more than '+str(max_reference)+' batch of feeders']]
     final_result.append(['Feeder','Batch of feeder','Description','Global filter','Label of data','Last Execution Date'])
     result=[]
 
@@ -181,7 +181,7 @@ def check_duplicate_of_dm_table(input_directory,input_file,max_reference=1) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_of_dm_table in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['DM table referenced in more than ' + str(max_reference) + ' single feeders']]
+    final_result=[['Details of datamart tables referenced by more than '+str(max_reference)+' table feeders']]
     final_result.append(['DM Table Name','Feeder name','Description','Last Execution Date'])
     result=[]
 
@@ -287,7 +287,7 @@ def check_duplicate_dm_table_summary(input_directory,input_file,ps_exuection_tim
 
     logger.info('Process how datamart tables are refernced by feeders')
 
-    final_result=[['Summary of referenced DM tables.']]
+    final_result=[['Summary of datamart tables referenced by more than '+str(max_reference)+' table feeders']]
     final_result.append(['Name of Datamart table','# of Referenced feeders'])
     result=[]
     dm_tables_result=check_duplicate_of_dm_table(input_directory,input_file,max_reference)
@@ -320,7 +320,7 @@ def check_feeder_summary(input_directory,input_file,ps_exuection_time_file,max_r
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Summary of referenced feeders.']]
+    final_result=[['Summary of table feeders that are feeding more than '+ str(max_reference) +' datamart table(s)']]
 
     logger.info('Process how many datamart tables are used in a single feeder')
     final_result.append(['Name of feeders','# of underlying dm tables'])
@@ -353,7 +353,7 @@ def check_number_of_tables_in_feeder(input_directory,input_file,max_reference=1)
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_number_of_tables_in_feeder in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['DM Tables in Feeder']]
+    result=[['Details of table feeders that are feeding more than '+str(max_reference)+' datamart table(s)']]
     result.append(['Feeder','DM Table','Last Execution Date'])
 
     feeders = dict()
@@ -394,7 +394,7 @@ def check_duplicate_feeder_summary(input_directory,input_file,ps_exuection_time_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Summary of referenced feeders.']]
+    final_result=[['Summary of table feeders referenced by more than '+str(max_reference)+' batch of feeders']]
 
     logger.info('Process how feeders are refernced by batch feeders')
     final_result.append(['Name of feeders','# of Referenced Batch feeders'])
@@ -425,7 +425,7 @@ def check_duplicate_batch_feeder_summary(input_directory,input_file,ps_exuection
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Summary of referenced batch of feeder.']]
+    final_result=[['Summary of batch of feeders referenced by more than '+str(max_reference)+' processing script(s)']]
 
     logger.info('Process how batch feeders are referenced by processing scripts')
     final_result.append(['Name of batch feeders','# of Referenced Processing scripts'])
@@ -461,7 +461,7 @@ def check_scanner_engine_usage(input_directory,input_file,scanner_engine_enabled
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_scanner_engine_usage for batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Batch of feeders'' scanner engine usage']]
+    final_result=[['Usage of scanner engines in batch of feeders']]
     final_result.append(['Batch of feeder','Dynamic table type','Template','Process number','Batch type','Batch size' ,'Retries','Retries batch size'])
     result=[]
     engine_usage = dict()
@@ -505,7 +505,7 @@ def check_number_of_feeder_in_batch(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_number_of_feeder_in_batch for batch of feeder on file %s%s.',input_directory,input_file)
 
-    final_result=[['Number of feeders in a batch of feeders']]
+    final_result=[['Number of table feeders for each batch of feeders']]
     final_result.append(['Batch of feeders','Number of Feeders (BoF size)'])
     result=[]
 
@@ -548,7 +548,7 @@ def check_filter_conflict(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_filter_conflict for batch of feeder on file %s%s.',input_directory,input_file)
 
-    result=[['Dynamic Tables with Multiple Filters (Table Level and Batch of Feeder Level)']]
+    result=[['Chain of filters from Dynamic table to Batch of feeders']]
     result.append(['Dynamic table','Default filter 1', 'Default filter 2', 'Default filter 3','Default filter 4','Batch feeder','Global filter 1','Global filter 2','Global filter 3'])
 
     for line in raw_file:
@@ -571,6 +571,44 @@ def check_filter_conflict(input_directory,input_file) :
 
     logger.info('End running check_filter_conflict on file %s%s.',input_directory,input_file)
     return result
+
+
+#check dynamic table reference number
+def check_dynamic_table_post_filter(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_dynamic_table_post_filter on file %s%s.',input_directory,input_file)
+
+    final_result=[['Dynamic tables with post-filter defined']]
+    final_result.append(['Batch of feeder name','Dynamic table name','Category','Post-filter'])
+    result = []
+
+    batch_feeders = dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        batch_feeder = fields[2].strip()
+        dynamic_table = fields[26].strip()
+        dynamic_table_category = fields[27].strip()
+        dynamic_table_post_filter = fields[41].strip()
+
+        if batch_feeder<>'' and dynamic_table_post_filter<>'':
+            batch_feeders[batch_feeder]=[dynamic_table,dynamic_table_category,dynamic_table_post_filter ]
+
+    for batch_feeder, post_filter_details in batch_feeders.iteritems():
+         result.append([batch_feeder,post_filter_details[0],post_filter_details[1],post_filter_details[2]])
+
+
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0),reverse=False)
+    final_result.extend(sorted_result)
+
+    logger.info('End running check_dynamic_table_post_filter on file %s%s.',input_directory,input_file)
+    return final_result
+
+
 
 #create the content page
 def create_content_page(sheet_names,work_books_content):
@@ -628,7 +666,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     reload_data = parameters['general']['reload_data']
     start_date = parameters['performance']['start_date']
     end_date = parameters['performance']['end_date']
-
+    raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -767,6 +805,13 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
 
+    #6. check post filter defined in dynamic table
+    result=check_dynamic_table_post_filter(input_directory,dm_config_file)
+    work_sheet_name='Post_filter'
+    work_books_content[work_sheet_name]=result
+    work_sheet_names.append(work_sheet_name)
+
+
     #create content sheet
     result=create_content_page(work_sheet_names,work_books_content)
     work_sheet_name='Content'
@@ -787,7 +832,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         else:
             next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        work_book=io_util.add_worksheet(result,work_book, work_sheet_name,False, preview_sheet,next_sheet)
+        if raw_data_ouput:
+            work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+        else :
+            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
 
         sheet_sequence = sheet_sequence + 1
 

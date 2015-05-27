@@ -206,7 +206,6 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-
     start_date = parameters['performance']['start_date']
     end_date = parameters['performance']['end_date']
     period_days = (datetime.datetime.strptime(end_date, '%Y-%m-%d').date() - datetime.datetime.strptime(start_date, '%Y-%m-%d').date()).days
@@ -215,6 +214,8 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     time_alert_processing_script = parameters['performance']['time_alert_processing_script']
     time_alert_batch_feeder = parameters['performance']['time_alert_batch_feeder']
     time_alert_batch_extraction =parameters['performance']['time_alert_batch_extraction']
+    raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
+
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -298,7 +299,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         else:
             next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        work_book=io_util.add_worksheet(result,work_book, work_sheet_name, True, preview_sheet,next_sheet)
+        if raw_data_ouput:
+            work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+        else :
+            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
 
         sheet_sequence = sheet_sequence + 1
 

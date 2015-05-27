@@ -89,7 +89,7 @@ class Datamart_analysis_tool(Frame):
 
         current_row = 0
 
-        title = Label(root, text="Datamart Analysis Tool \n (Internal Use Only)", font=("Helvetica", 20))
+        title = Label(root, text="Datamart Analysis Tool \n (MUREX Internal Use Only)", font=("Helvetica", 20))
         title.grid(columnspan=6,row=current_row)
         main_frame_objects['title']=title
         current_row = current_row + 1
@@ -271,7 +271,7 @@ class Datamart_analysis_tool(Frame):
         current_row = current_row+1
         Label(about_root, text="Disclamer: The tool is internal use only \n Murex will not provide any support.",pady=10).grid(row=current_row)
         current_row = current_row+1
-        Label(about_root, text="v1.0",pady=10).grid(row=current_row)
+        Label(about_root, text="v1.1 (beta)",pady=10).grid(row=current_row)
         current_row = current_row+1
 
         Button(about_root, text="OK", command=about_root.destroy).grid(row=current_row)

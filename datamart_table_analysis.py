@@ -45,7 +45,7 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_datamart_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_datamart_fields)
 
-    final_result=[['Datamart table fields exceeds '+str(max_datamart_fields)]]
+    final_result=[['Datamart tables defined with more than '+str(max_datamart_fields)+' field(s)']]
     final_result.append(['    Datamart table name    ','Field count'])
 
     result = []
@@ -79,7 +79,7 @@ def check_inconsistent_datamart_table_field(input_directory,input_file) :
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_inconsistent_datamart_table_field on file %s%s.',input_directory,input_file)
 
-    final_result=[['Datamart table has less fields than dynamic table fields']]
+    final_result=[['Datamart table(s) defined with less fields than underlying dynamic table(s)']]
     final_result.append(['Datamart table name','Field count', 'Dynamic table name','Category','Field count', 'Difference'])
     result = []
 
@@ -113,15 +113,20 @@ def check_inconsistent_datamart_table_field(input_directory,input_file) :
 
 
 #3 If any index defined, otherwise need to add indeices to it
-def check_index(input_directory,input_file) :
+def check_index(input_directory,input_file, dm_table_size_file) :
     raw_file= open(input_directory+input_file, 'r')
+    dm_size_file= open(input_directory+dm_table_size_file, 'r')
 
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_index on file %s%s.',input_directory,input_file)
 
-    result=[['Datamart tables with no index']]
-    result.append(['  Datamart table name  ','Index count'])
+    final_result=[['Datamart tables without index']]
+    final_result.append(['  Datamart table name  ','Index count', 'Table Row Count'])
+
+    result=[]
+
     datamart_tables = dict()
+    datamart_tables_size = dict()
 
     for line in raw_file:
         fields = line.split(' | ')
@@ -132,12 +137,27 @@ def check_index(input_directory,input_file) :
                 datamart_tables[datamart_table_name]= '0'
             logger.debug('Datamart table %s do not have any index.',datamart_table_name)
 
+    for line in dm_size_file:
+        fields = line.split(' | ')
+        datamart_table_name = fields[0].strip().replace('_REP','.REP')
+        datamart_table_size = fields[1].strip()
+        datamart_tables_size[datamart_table_name] = datamart_table_size
+
     for key, value in datamart_tables.iteritems():
-        temp = [key,value]
+        if datamart_tables_size.has_key(key) :
+            temp = [key,value, int(datamart_tables_size[key])]
+        else :
+            temp = [key,value, 0]
         result.append(temp)
 
+
+    #sort the result
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(2),reverse=True)
+    final_result.extend(sorted_result)
+
     logger.info('End running check_index on file %s%s.',input_directory,input_file)
-    return result
+    return final_result
 
 
 #create the content page
@@ -170,12 +190,15 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #define sql files
     query_dm_sql='query_dm_config.sql'
+    query_dm_table_size_size = 'query_table_size.sql'
 
     #define input files
     dm_config_file = 'source.csv'
+    dm_table_size_file = 'dm_size.csv'
 
     #define property files
     mxDbsource_file=parameters['database']['mx_db_config_file']
+    dmDbsource_file = parameters['database']['dm_db_config_file']
 
     #define output file
     final_result_file = parameters['datamart table']['output_file_name']
@@ -189,6 +212,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     config.read(property_directory + parameter_file)
     max_datamart_fields = config.getint('datamart table', 'max_number_fields')
     reload_data = config.getboolean('general', 'reload_data')
+    raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -208,7 +232,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     if (reload_check_button_status is None and reload_data) or (reload_check_button_status):
         logger.info('Start to execute SQL to load data from DB')
-        #prepare connection string
+        #prepare connection string for query db sql
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
@@ -223,6 +247,21 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
         #dump file
         db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
+
+        #prepare connection string for query dm table size
+        db_util = db_utility(log_level,log_directory+log_file)
+        connectionString = db_util.load_dbsourcefile(property_directory + dmDbsource_file)
+
+        #prepare datamart configuration SQLs to be run
+        sqlfile = open(sql_directory+query_dm_table_size_size, 'r+')
+        sqlString= ''
+        for line in sqlfile:
+            sqlString = sqlString + line
+
+        #dump file
+        db_util.dump_output(sqlString, None, connectionString, input_directory + dm_table_size_file)
+
+
 
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
@@ -245,7 +284,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     work_sheet_names.append(work_sheet_name)
 
     #3 datamart table shall have at least 1 index
-    result=check_index(input_directory,dm_config_file)
+    result=check_index(input_directory,dm_config_file,dm_table_size_file)
     work_sheet_name='No_Indexed_Tables'
     work_books_content[work_sheet_name]=result
     work_sheet_names.append(work_sheet_name)
@@ -269,7 +308,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         else:
             next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        work_book=io_util.add_worksheet(result,work_book, work_sheet_name,False, preview_sheet,next_sheet)
+        if raw_data_ouput:
+            work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+        else :
+            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
 
         sheet_sequence = sheet_sequence + 1
 

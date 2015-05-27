@@ -49,6 +49,7 @@ class property_utility:
         log_parameters = OrderedDict()
         database_parameters = OrderedDict()
         scanner_engine_paramters = OrderedDict()
+        analyze_report_parameters =  OrderedDict()
 
         #read in property file
         config = ConfigParser.RawConfigParser()
@@ -72,6 +73,7 @@ class property_utility:
         parameters['log'] = log_parameters
         parameters['database'] = database_parameters
         parameters['scanner engine'] = scanner_engine_paramters
+        parameters['analyze report'] = analyze_report_parameters
 
         #read in preperties
         #read in general
@@ -79,6 +81,8 @@ class property_utility:
         general_parameters['input_directory'] = config.get('general', 'input_directory')
         general_parameters['output_directory'] = config.get('general', 'output_directory')
         general_parameters['sql_directory'] = config.get('general', 'sql_directory')
+        general_parameters['raw_data_ouput'] = config.get('general', 'raw_data_ouput')
+
 
         #read in dynamic table
         dynamic_table_parameters['max_number_fields'] = config.getint('dynamic table', 'max_number_fields')
@@ -100,13 +104,13 @@ class property_utility:
         feeder_parameters['max_reference']  = config.getint('feeder', 'max_reference')
 
         #read in performance
-#        performance_parameters['period_days'] = config.getint('performance', 'period_days')
+#       performance_parameters['period_days'] = config.getint('performance', 'period_days')
         performance_parameters['start_date'] = config.get('performance', 'start_date')
         performance_parameters['end_date'] = config.get('performance', 'end_date')
         performance_parameters['time_alert_processing_script'] = config.get('performance', 'time_alert_processing_script')
         performance_parameters['time_alert_batch_feeder'] = config.get('performance', 'time_alert_batch_feeder')
         performance_parameters['time_alert_batch_extraction'] =config.get('performance', 'time_alert_batch_extraction')
-#        performance_parameters['time_filter_output'] =config.getboolean('performance', 'time_filter_output')
+#       performance_parameters['time_filter_output'] =config.getboolean('performance', 'time_filter_output')
         performance_parameters['output_file_name']  = config.get('performance', 'output_file_name')
         performance_parameters['log_file_name']  = config.get('performance', 'log_file_name')
 
@@ -114,6 +118,10 @@ class property_utility:
         database_parameters['db_config_folder']= config.get('database', 'db_config_folder')
         database_parameters['mx_db_config_file']= config.get('database', 'mx_db_config_file')
         database_parameters['dm_db_config_file']= config.get('database', 'dm_db_config_file')
+
+        #read in analyze report
+        analyze_report_parameters['log_file_name']= config.get('analyze report', 'log_file_name')
+
 
         #read in dynamic table type that can be enabled for scanner engine
         scanner_engine_paramters['eligible_dynamic_tables']= config.get('scanner engine', 'eligible_dynamic_tables').replace('\n','').split(',')

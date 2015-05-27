@@ -248,6 +248,79 @@ class io_utility:
         return workbook
 
 
+    def add_raw_worksheet(self,content, workbook, sheetname, highlighted=False):
+        self.logger.info('Start to create worksheet %s',sheetname)
+        ws = workbook.add_sheet(sheetname)
+
+        content = self.add_sequence_column(content)
+
+        i = 0
+        j = 0
+        title = ''
+        cell = ''
+
+        if highlighted==False:
+            for row in content:
+                for rawcell in row:
+                    if type(rawcell) is str:
+                        cell=rawcell
+                    else:
+                        cell=str(rawcell)
+
+                    if i >= 1 and ws.col(j).width < len(cell) * 300:
+                        width= len(cell) * 320
+                        if width > 15000 :
+                            ws.col(j).width = 15000
+                        else :
+                            ws.col(j).width = width
+                    if i == 0:
+                        title = str(cell)
+                    elif i == 1:
+                        if j == 0:
+                            ws.write_merge(0, 0, 0, len(row) - 1, title, self.TITLE_FORMAT)
+                            self.logger.debug('Create sheet title: %s',title)
+                        ws.write(i, j, str(cell), self.TABLE_HEADER_FORMAT)
+                        self.logger.debug('Write field title: %s ',str(cell))
+                    else:
+                        ws.write(i, j, str(cell), self.TEXT_FORMAT)
+                        self.logger.debug('Write field [%s,%s] content: %s ',str(i), str(j), str(cell))
+                    j = j + 1
+                j = 0
+                i = i + 1
+        else:
+            for row in content:
+                highlighted = row[-1]
+                for rawcell in row:
+                    if type(rawcell) is str:
+                        cell=rawcell
+                    else:
+                        cell=str(rawcell)
+                    if i>=1 and j < 12 and ws.col(j).width < len(cell)*300 :
+                        width= len(cell) * 320
+                        if width > 15000 :
+                            ws.col(j).width = 15000
+                        else :
+                            ws.col(j).width = width
+                    if i == 0 :
+                        title = str(cell)
+                    elif i == 1 :
+                        if j ==  0:
+                            ws.write_merge(0,0,0,len(row)-1, title,self.TITLE_FORMAT)
+                            self.logger.debug('Create sheet title: %s',title)
+                        ws.write(i, j, str(cell),self.TABLE_HEADER_FORMAT)
+                        self.logger.debug('Write field title: %s',str(cell))
+                    elif highlighted=='True':
+                        ws.write(i, j, str(cell),self.HIGHLIGHTED_TEXT_FORMAT)
+                        self.logger.debug('Write highlighted field [%s,%s] content: %s',str(i), str(j),str(cell))
+                    else:
+                        ws.write(i, j, str(cell),self.TEXT_FORMAT)
+                        self.logger.debug('Write unhighlighted field [%s,%s]  content: %s',str(i), str(j), str(cell))
+                    j = j + 1
+                j = 0
+                i = i + 1
+        self.logger.info('End creating worksheet %s',sheetname)
+
+        return workbook
 
     def add_content_worksheet(self,content, workbook, sheetname, highlighted=False):
         self.logger.info('Start to create worksheet %s',sheetname)

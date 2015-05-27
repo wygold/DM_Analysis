@@ -46,7 +46,7 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_fields)
 
-    final_result=[['Number of Dynamic table fields that exceeds '+str(max_dynamic_number_fields)]]
+    final_result=[['Dynamic tables defined with more than '+str(max_dynamic_number_fields)+' fields']]
     final_result.append(['Dynamic table name','Category','Dynamic table type','Field count'])
 
     result = []
@@ -78,7 +78,7 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,input_file
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_hfields)
 
-    final_result=[['Number of Dynamic table horizontal fields that exceeds '+str(max_dynamic_number_hfields)]]
+    final_result=[['Dynamic tables defined with more than '+str(max_dynamic_number_hfields)+' horizontal fields']]
     final_result.append(['Dynamic table name','Category','Dynamic table type','Horizontal Field count'])
 
     result=[]
@@ -109,7 +109,7 @@ def check_total_dynamic_table_db_access_horizontal_field_number(input_directory,
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_total_dynamic_table_db_access_horizontal_field_number on file %s%s with max field %i.',input_directory,input_file,max_dynamic_number_db_access_hfields)
 
-    final_result=[['Number of Dynamic table horizontal fields that access database which exceeds '+str(max_dynamic_number_db_access_hfields)]]
+    final_result=[['Dynamic tables defined with more than '+str(max_dynamic_number_db_access_hfields)+' direct access to DB in horizontal fields']]
     final_result.append(['Dynamic table name','Category','Dynamic table type','Direct DB access Parser functions (*TBLFIELD, *TABLE) used times'])
 
     result = []
@@ -142,7 +142,7 @@ def check_compute_sensitivity_flag(input_directory,input_file) :
     logger.info('Start to run check_compute_sensitivity_flag on file %s%s.',input_directory,input_file)
 
     raw_file= open(input_directory+input_file, 'r')
-    result=[['Dynamic tables sensitivity flag can be disabled']]
+    result=[['Dynamic tables with sensitivity flag enabled BUT not using S_* fields']]
     result.append(['    Dynamic table name     ','Category'])
 
     for line in raw_file:
@@ -200,7 +200,7 @@ def check_sim_view_mode(input_directory,source_file, simulation_context_file) :
                 result.append(dynamic_tables[dynamic_table_name])
         else :
             logger.warning('sim_context_file does not have simulation viewer %s',dynamic_tables[dynamic_table_name][2])
-    final_result=[['Dynamic table with wrong build on mode']]
+    final_result=[['Dynamic tables for which "Built on" is not selected in underlying Sim view "Context(s)"']]
     final_result.append(['Dynamic table name','Category','Simulation name','Build on mode'])
     final_result.extend(result)
 
@@ -237,7 +237,7 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file,max_
         else:
             table_fields[key] = table_fields[key] + 1
 
-    final_result=[['Summary of dynamic table fields reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
+    final_result=[['Summary of dynamic table fields that are referenced more than '+str(max_dynamic_table_referenced)+' time(s)']]
     final_result.append(['Dynamic table field','Dynamic table type', '# of reference'])
 
     result=[]
@@ -267,7 +267,7 @@ def check_dynamic_table_field_reference_detail(input_directory,source_file,max_d
 
     table_fields = dict()
 
-    final_result=[['Details of dynamic table fields reference']]
+    final_result=[['Details of dynamic table fields that are referenced more than '+str(max_dynamic_table_referenced)+' time(s)']]
     final_result.append(['Dynamic table field','Dynamic table category','Dynamic table','Dynamic table type','Datamart table'])
 
     result=[]
@@ -312,7 +312,7 @@ def check_dynamic_table_reference_number(input_directory,input_file,max_dynamic_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_reference_number on file %s%s.',input_directory,input_file)
 
-    final_result=[['Summary of dynamic table reference exceeds '+str(max_dynamic_table_referenced)+' time(s)']]
+    final_result=[['Summary of dynamic tables that are referenced by more than '+str(max_dynamic_table_referenced)+' REP table(s)']]
     final_result.append(['Dynamic table name','Category','Dynamic table type','# of  Datamart table referenced'])
 
     result = []
@@ -357,7 +357,7 @@ def check_dynamic_table_reference_detail(input_directory,input_file,max_dynamic_
     logger = logging.getLogger(__name__)
     logger.info('Start to run check_dynamic_table_reference_detail on file %s%s.',input_directory,input_file)
 
-    result=[['Details of dynamic table reference  ']]
+    result=[['Details of dynamic tables that are referenced by more than '+str(max_dynamic_table_referenced)+' REP table(s)']]
     result.append(['Dynamic table name','Category','Dynamic table type','Datamart Table Name'])
 
     dynamic_tables = dict()
@@ -388,6 +388,8 @@ def check_dynamic_table_reference_detail(input_directory,input_file,max_dynamic_
 
     logger.info('End running check_dynamic_table_reference_detail on file %s%s.',input_directory,input_file)
     return result
+
+
 
 #create the content page
 def create_content_page(sheet_names,work_books_content):
@@ -446,7 +448,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
     max_dynamic_table_referenced = config.getint('dynamic table', 'max_dynamic_table_referenced')
     reload_data = config.getboolean('general', 'reload_data')
-
+    raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -602,7 +604,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         else:
             next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
+        if raw_data_ouput:
+            work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+        else :
+            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
 
         sheet_sequence = sheet_sequence + 1
 
