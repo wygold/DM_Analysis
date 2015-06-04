@@ -47,6 +47,13 @@ class io_utility:
         'pattern: pattern solid, pattern_fore_colour gray25, pattern_back_colour gray25'
     )
 
+    REVIEW_FORMAT = easyxf(
+        'font:  name Tahoma, height 200;'
+        'align: wrap on;'
+        'borders: left thin, right thin, top thin, bottom thin;'
+        'pattern: pattern solid, pattern_fore_colour white, pattern_back_colour gray25'
+    )
+
     TEXT_FORMAT = easyxf(
         'font:  bold 1, name Roma, height 160;'
         'align: vertical center, horizontal center, wrap on;'
@@ -95,7 +102,7 @@ class io_utility:
     def write_csv(self,content, filename):
         pass
 
-    def add_worksheet(self,content, workbook, sheetname, highlighted=False, previous_sheet = None, next_sheet = None):
+    def add_worksheet(self,content, workbook, sheetname, highlighted=False, previous_sheet = None, next_sheet = None, analyze_review = None):
         self.logger.info('Start to create worksheet %s',sheetname)
         ws = workbook.add_sheet(sheetname)
 
@@ -107,6 +114,7 @@ class io_utility:
         cell = ''
 
         content = self.add_sequence_column(content)
+        content = self.add_analyze_review(content,analyze_review)
 
         if highlighted==False:
             for row in content:
@@ -117,16 +125,25 @@ class io_utility:
                         cell=str(rawcell)
 
                     if i >= 2 and ws.col(j).width < len(cell) * 300:
-                        width= len(cell) * 320
+                        width= len(cell) * 500
                         if width > 15000 :
-                            ws.col(j).width = 15000
+                            ws.col(30).width = 20000
                         else :
-                            ws.col(j).width = width
+                            ws.col(30).width = width
                     if i == 1:
                         title = str(cell)
                     elif i == 2:
+                        review = str(cell)
+                        width= len(cell) * 500
+                        if width > 15000 :
+                            ws.col(30).width = 20000
+                        else :
+                            ws.col(30).width = width
+                        ws.write(i, 40, str(cell), self.REVIEW_FORMAT)
+                    elif i == 3 :
                         if j == 0:
                             ws.write_merge(1, 1, 0, len(row) - 1, title, self.TITLE_FORMAT)
+                            ws.write_merge(2, 2, 0, len(row) - 1, review, self.REVIEW_FORMAT)
                             ws.col(j).width = len(cell) * 320
                             self.logger.debug('Create sheet title: %s',title)
                         ws.write(i, j, str(cell), self.TABLE_HEADER_FORMAT)
@@ -154,11 +171,24 @@ class io_utility:
                             ws.col(j).width = width
                     if i == 1 :
                         title = str(cell)
-                    elif i == 2 :
+                    elif i == 2:
+                        review = str(cell)
+                        width= len(cell) * 500
+                        if width > 15000 :
+                            ws.col(30).width = 20000
+                        else :
+                            ws.col(30).width = width
+                        ws.write(i, 40, str(cell), self.REVIEW_FORMAT)
+                    elif i == 3 :
                         if j ==  0:
                             self.logger.debug('Create sheet title: %s',title)
                             ws.write_merge(1, 1, 0, len(row) - 1, title, self.TITLE_FORMAT)
-                            ws.col(j).width = len(cell) * 320
+                            ws.write_merge(2, 2, 0, len(row) - 1, review, self.REVIEW_FORMAT)
+                            width= len(cell) * 320
+                            if width > 15000 :
+                                ws.col(j).width = 15000
+                            else :
+                                ws.col(j).width = width
                         ws.write(i, j, str(cell),self.TABLE_HEADER_FORMAT)
                         self.logger.debug('Write field title: %s',str(cell))
                     elif highlighted=='True':
@@ -179,7 +209,7 @@ class io_utility:
                 link ='HYPERLINK("#\''+ previous_sheet + '\'!A1", "' + ' <-- '+previous_sheet+'")'
                 ws.write(0, 0, xlwt.Formula(link), self.TEXT_FORMAT_LINK)
                 self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(0), str(previous_sheet))
-                width= len(previous_sheet) * 320
+                width= len(previous_sheet) * 380
                 if width > ws.col(0).width :
                     ws.col(0).width = width
 
@@ -212,7 +242,6 @@ class io_utility:
                     ws.col(column).width = width
             else:
                 ws.write(0, len(row) - 1, '', self.TEXT_FORMAT_LINK)
-
 
             self.logger.debug('Write field [%s,%s] content: %s ', str(0), str(2), str(next_sheet))
 
@@ -393,7 +422,16 @@ class io_utility:
                 new_row.insert(0,row_num-1)
                 new_content.append(new_row)
             row_num = row_num + 1
+
+        self.logger.info('Finish to add a sequence col to the content ')
+
         return new_content
+
+    def add_analyze_review(self,content,analyze_review):
+        self.logger.info('Start to add review to the content')
+        content.insert(1,[analyze_review])
+        return content
+
 
     def save_workbook(self,workbook,output_file):
         workbook.save(output_file)

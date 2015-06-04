@@ -7,7 +7,8 @@ from logging import handlers
 from collections import OrderedDict
 from property_utility import property_utility
 import re
-
+from docx import Document
+from docx.shared import Inches
 
 class analyze_report:
 
@@ -43,12 +44,12 @@ class analyze_report:
                 handler.setLevel(log_level)
 
 
-    def generate_report_file(self,analyzed_list, analzye_template_directory=None, analyze_template_file=None):
+    def generate_report_content(self,analyzed_list, analzye_template_directory=None, analyze_template_file=None):
 
         logger = logging.getLogger(__name__)
         logger.info('Start to run generate_report_file.')
 
-        reports=OrderedDict()
+        report=OrderedDict()
 
         #read in template file
         config = ConfigParser.RawConfigParser()
@@ -71,9 +72,9 @@ class analyze_report:
             description=self.process_content_with_input_paramaters(type, description)
             review=self.process_content_with_input_paramaters(type, review)
 
-            reports[analyzed_item] = [sheet,description,review]
+            report[analyzed_item] = [sheet,description,review]
 
-
+        return report
 
     def process_content_with_input_paramaters(self, type, content, property_directory=None,parameter_file=None):
 
@@ -96,9 +97,32 @@ class analyze_report:
         #also replace \n to make carriage return work
         content = content.replace('\\n','\n')
 
-        print content
-
         return content
+
+    def generate_report_file(self,report, report_directory=None, report_name=None):
+
+        document = Document()
+
+        head=document.add_heading('DM Analysis Report',0)
+        head.alignment = 1
+
+
+        for report_title, report_content in report.iteritems() :
+            sheet,description,review = report_content
+            document.add_heading('Analyzed sheet: '+sheet, level=1)
+            #desciprtion_word = document.add_paragraph('Desciprtion: ')
+            document.add_heading('Desciprtion: ', level=2)
+            #desciprtion_word.bold = True
+            document.add_paragraph(description)
+            #review_word=document.add_paragraph('Review: ')
+            #review_word.bold = True
+            document.add_heading('Review: ', level=2)
+            document.add_paragraph(review )
+            document.add_paragraph()
+
+        document.save(report_name)
+
+
 
     def __init__(self, log_level=logging.DEBUG, log_file=None):
         #define properties folder
@@ -124,6 +148,7 @@ class analyze_report:
 
         #define log file
         log_file = parameters['dynamic table']['log_file_name']
+        output_file_directory = parameters['general']['output_directory']
 
         analyzed_list = ['Field_Check',
                          'H_Field_Check',
@@ -135,8 +160,8 @@ class analyze_report:
                          'DM_TBL_Reference_Summary',
                          'DM_TBL_Reference_Detail']
 
-        self.generate_report_file(analyzed_list)
-
+        report = self.generate_report_content(analyzed_list)
+        self.generate_report_file(report,output_file_directory,'report.docx')
 
 if __name__ == "__main__":
     analyze_rep = analyze_report()

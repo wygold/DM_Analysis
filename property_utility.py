@@ -121,7 +121,7 @@ class property_utility:
 
         #read in analyze report
         analyze_report_parameters['log_file_name']= config.get('analyze report', 'log_file_name')
-
+        analyze_report_parameters['analyze_template_file_name']= config.get('analyze report', 'analyze_template_file_name')
 
         #read in dynamic table type that can be enabled for scanner engine
         scanner_engine_paramters['eligible_dynamic_tables']= config.get('scanner engine', 'eligible_dynamic_tables').replace('\n','').split(',')

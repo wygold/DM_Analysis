@@ -3,7 +3,7 @@ reload_data = 0
 input_directory = Input
 output_directory = Output
 sql_directory = SQLs
-raw_data_ouput = 1
+raw_data_ouput = 0
 
 [dynamic table]
 max_number_fields = 100
@@ -54,4 +54,6 @@ eligible_dynamic_tables = DYN_TRNRP_CS,
 	Add_More_Type
 
 [analyze report]
+analyze_template_file_name = analyze_template.txt
 log_file_name = analyze_report.log
+
