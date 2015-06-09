@@ -136,9 +136,9 @@ class io_utility:
                         review = str(cell)
                         width= len(cell) * 500
                         if width > 15000 :
-                            ws.col(30).width = 20000
+                            ws.col(40).width = 20000
                         else :
-                            ws.col(30).width = width
+                            ws.col(40).width = width
                         ws.write(i, 40, str(cell), self.REVIEW_FORMAT)
                     elif i == 3 :
                         if j == 0:
@@ -175,9 +175,9 @@ class io_utility:
                         review = str(cell)
                         width= len(cell) * 500
                         if width > 15000 :
-                            ws.col(30).width = 20000
+                            ws.col(40).width = 20000
                         else :
-                            ws.col(30).width = width
+                            ws.col(40).width = width
                         ws.write(i, 40, str(cell), self.REVIEW_FORMAT)
                     elif i == 3 :
                         if j ==  0:

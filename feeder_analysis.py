@@ -10,7 +10,7 @@ from logging import handlers
 from property_utility import property_utility
 from operator import itemgetter, attrgetter, methodcaller
 from collections import OrderedDict
-
+from analyze_report import analyze_report
 
 logger = ''
 
@@ -667,6 +667,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     start_date = parameters['performance']['start_date']
     end_date = parameters['performance']['end_date']
     raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
+    analyze_template_file = parameters['analyze report']['analyze_template_file_name']
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -835,7 +836,9 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         if raw_data_ouput:
             work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
         else :
-            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet)
+            analyze_rep = analyze_report()
+            analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
+            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
 
         sheet_sequence = sheet_sequence + 1
 
