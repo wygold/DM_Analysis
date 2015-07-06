@@ -182,7 +182,8 @@ def create_content_page(sheet_names,work_books_content):
     return result
 
 
-def run(reload_check_button_status=None,log_dropdown_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis = None, work_books_content = None ):
+
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
     parameter_file='parameters.txt'
@@ -265,65 +266,78 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
         db_util.dump_output(sqlString, None, connectionString, input_directory + dm_table_size_file)
 
 
-
     #create io_class
     io_util= io_utility(log_level,log_directory+log_file)
 
     #workbook for output result
     work_book = Workbook()
-    work_books_content = OrderedDict()
+    if work_books_content == None:
+        work_books_content = OrderedDict()
     work_sheet_names = []
 
-    #check Total number of dynamic tables fields for each dynamic table.
-    result=check_total_datamart_table_field_number(input_directory,dm_config_file,max_datamart_fields)
-    work_sheet_name='Fields_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if  core_analysis== None or 'Fields_Check' in core_analysis :
+        #check Total number of dynamic tables fields for each dynamic table.
+        result=check_total_datamart_table_field_number(input_directory,dm_config_file,max_datamart_fields)
+        work_sheet_name='Fields_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #2 inconsistence field selection between dynamic table and datamart table
-    result=check_inconsistent_datamart_table_field(input_directory,dm_config_file)
-    work_sheet_name='#_Fields_REP_Vs_Dyn'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if  core_analysis== None or '#_Fields_REP_Vs_Dyn' in core_analysis :
+        #2 inconsistence field selection between dynamic table and datamart table
+        result=check_inconsistent_datamart_table_field(input_directory,dm_config_file)
+        work_sheet_name='#_Fields_REP_Vs_Dyn'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #3 datamart table shall have at least 1 index
-    result=check_index(input_directory,dm_config_file,dm_table_size_file)
-    work_sheet_name='No_Indexed_Tables'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'No_Indexed_Tables' in core_analysis :
+        #3 datamart table shall have at least 1 index
+        result=check_index(input_directory,dm_config_file,dm_table_size_file)
+        work_sheet_name='No_Indexed_Tables'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #create content sheet
-    result=create_content_page(work_sheet_names,work_books_content)
-    work_sheet_name='Content'
-    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    if core_analysis == None :
+        result=create_content_page(work_sheet_names,work_books_content)
+        work_sheet_name='Content'
+        work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
-    sheet_sequence = 0
-    for work_sheet_name, result in work_books_content.iteritems():
-        preview_sheet= ''
-        next_sheet = ''
-        if sheet_sequence == 0 :
-            preview_sheet='Content'
-        else:
-            preview_sheet = work_sheet_names[sheet_sequence-1]
 
-        if sheet_sequence == len(work_sheet_names) - 1:
-            next_sheet = None
-        else:
-            next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        if raw_data_ouput:
+    if core_analysis == None :
+        sheet_sequence = 0
+        for work_sheet_name, result in work_books_content.iteritems():
+            preview_sheet= ''
+            next_sheet = ''
+            if sheet_sequence == 0 :
+                preview_sheet='Content'
+            else:
+                preview_sheet = work_sheet_names[sheet_sequence-1]
+
+            if sheet_sequence == len(work_sheet_names) - 1:
+                next_sheet = None
+            else:
+                next_sheet = work_sheet_names[sheet_sequence + 1]
+
+            if raw_data_ouput:
+                work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+            else :
+                analyze_rep = analyze_report()
+                analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
+                work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
+
+            sheet_sequence = sheet_sequence + 1
+    else :
+        for work_sheet_name, result in work_books_content.iteritems():
             work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
-        else :
-            analyze_rep = analyze_report()
-            analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
-            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
-
-        sheet_sequence = sheet_sequence + 1
 
 
-    #output the work_book
-    io_util.save_workbook(work_book,output_directory+final_result_file)
-    logger.info('End running datamart_table_analysis.py.')
+    if core_analysis == None :
+        #output the work_book
+        io_util.save_workbook(work_book,output_directory+final_result_file)
+        logger.info('End running datamart_table_analysis.py.')
+    else :
+        return work_books_content
 
 if __name__ == "__main__":
     run()

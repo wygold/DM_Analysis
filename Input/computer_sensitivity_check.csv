@@ -83,7 +83,6 @@ HLSG_SWAP            | User
 ABC                  | User additional
 test4-mkt_price      | User additional
 IRD_VarRteAdhoc      | User additional
-Test_SC              | User additional
 MM PRiceOvSprd       | User additional
 IRD_VarRteToday      | User additional
 cashflow             | User additional
@@ -91,4 +90,3 @@ HL_OPTION_DEAL_VIEW  | User additional
 HLMY_LNBR_RYAN       | User additional
 Delta_Past_Cash      | User additional
 FX PriceToday-TEST   | User additional
-ABCD                 | User additional

@@ -40,11 +40,11 @@ def set_log_level( log_level):
             handler.setLevel(log_level)
 
 
-def analyze_processing_script_total_time(input_directory, input_file,time_alert_processing_script,period_days):
+def analyze_processing_script_total_time(input_directory, input_file,time_alert_processing_script,period_days,start_day, end_day):
     logger = logging.getLogger(__name__)
     logger.info('Start to run analyze_processing_script_total_time on file %s%s',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
-    final_result=[['DM processing scripts execution time']]
+    final_result=[['DM processing scripts execution time (Threshold is '+str(time_alert_processing_script) + ') from '+str(start_day) + ' to ' + str(end_day)]]
     final_result.append([' MX Date ','System Date','Script name','Execution time', 'Highlight'])
     result = []
 
@@ -100,11 +100,11 @@ def analyze_processing_script_total_time(input_directory, input_file,time_alert_
     return final_result
 
 def analyze_processing_script_breakdown(input_directory, input_file,time_alert_batch_feeder
-                                        ,time_alert_batch_extraction,period_days ):
+                                        ,time_alert_batch_extraction,period_days ,start_day, end_day ):
     logger = logging.getLogger(__name__)
     logger.info('Start to run analyze_processing_script_breakdown on file %s%s.',input_directory, input_file)
     raw_file= open(input_directory+input_file, 'r')
-    final_result=[['Breakdown of DM processing scripts execution time by objects']]
+    final_result=[['Breakdown of DM processing scripts execution time by objects from '+str(start_day) +' to ' + str(end_day)]]
     final_result.append(['     MX Date     ','System Date','Script name','DM_OBJECT_NAME','M_STEP','M_USER','M_GROUP'
         ,'M_DESK','CPU_TIME','IO_TIME','TOTAL_TIME','OBJECT_TYPE', 'Highlight'])
 
@@ -181,7 +181,7 @@ def create_content_page(sheet_names,work_books_content):
     logger.info('End running create_content_page for %s sheets.',len(sheet_names))
     return result
 
-def run(reload_check_button_status=None,log_dropdown_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None,core_analysis = None, work_books_content = None):
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
     parameter_file='parameters.txt'
@@ -207,16 +207,22 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    start_date = parameters['performance']['start_date']
-    end_date = parameters['performance']['end_date']
-    period_days = (datetime.datetime.strptime(end_date, '%Y-%m-%d').date() - datetime.datetime.strptime(start_date, '%Y-%m-%d').date()).days
-#                  parameters['performance']['period_days']
+    if core_analysis == None :
+        start_date = parameters['performance']['start_date']
+        end_date = parameters['performance']['end_date']
+        time_alert_processing_script = parameters['performance']['time_alert_processing_script']
+        time_alert_batch_feeder = parameters['performance']['time_alert_batch_feeder']
+        time_alert_batch_extraction =parameters['performance']['time_alert_batch_extraction']
+    else:
+        start_date = parameters['core']['start_date']
+        end_date = parameters['core']['end_date']
+        time_alert_processing_script = parameters['core']['time_alert_processing_script']
+        time_alert_batch_feeder = parameters['core']['time_alert_batch_feeder']
+        time_alert_batch_extraction =parameters['core']['time_alert_batch_extraction']
 
-    time_alert_processing_script = parameters['performance']['time_alert_processing_script']
-    time_alert_batch_feeder = parameters['performance']['time_alert_batch_feeder']
-    time_alert_batch_extraction =parameters['performance']['time_alert_batch_extraction']
     raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
     analyze_template_file = parameters['analyze report']['analyze_template_file_name']
+    period_days = (datetime.datetime.strptime(end_date, '%Y-%m-%d').date() - datetime.datetime.strptime(start_date, '%Y-%m-%d').date()).days
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -264,56 +270,66 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
-    work_books_content = OrderedDict()
+    if work_books_content == None:
+        work_books_content = OrderedDict()
     work_sheet_names = []
 
     #Get processing script overall performance
-    result=analyze_processing_script_total_time(input_directory,ps_exuection_time_file
-                                                ,time_alert_processing_script, period_days)
-    work_sheet_name='Processing script performance'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Processing script performance' in core_analysis :
+        result=analyze_processing_script_total_time(input_directory,ps_exuection_time_file
+                                                    ,time_alert_processing_script, period_days,start_date, end_date)
+        work_sheet_name='Processing script performance'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #Get processing script detailed performance
-    result=analyze_processing_script_breakdown(input_directory, ps_exuection_time_file,
-                                               time_alert_batch_feeder,time_alert_batch_extraction,period_days)
-    work_sheet_name='Processing script detailed'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Processing script detailed' in core_analysis :
+        result=analyze_processing_script_breakdown(input_directory, ps_exuection_time_file,
+                                                   time_alert_batch_feeder,time_alert_batch_extraction,period_days,start_date, end_date)
+        work_sheet_name='Processing script detailed'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #create content sheet
-    result=create_content_page(work_sheet_names,work_books_content)
-    work_sheet_name='Content'
-    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    if core_analysis == None :
+        result=create_content_page(work_sheet_names,work_books_content)
+        work_sheet_name='Content'
+        work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
     sheet_sequence = 0
-    for work_sheet_name, result in work_books_content.iteritems():
-        preview_sheet= ''
-        next_sheet = ''
-        if sheet_sequence == 0 :
-            preview_sheet='Content'
-        else:
-            preview_sheet = work_sheet_names[sheet_sequence-1]
+    if core_analysis == None :
+        for work_sheet_name, result in work_books_content.iteritems():
+            preview_sheet= ''
+            next_sheet = ''
+            if sheet_sequence == 0 :
+                preview_sheet='Content'
+            else:
+                preview_sheet = work_sheet_names[sheet_sequence-1]
 
-        if sheet_sequence == len(work_sheet_names) - 1:
-            next_sheet = None
-        else:
-            next_sheet = work_sheet_names[sheet_sequence + 1]
+            if sheet_sequence == len(work_sheet_names) - 1:
+                next_sheet = None
+            else:
+                next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        if raw_data_ouput:
+            if raw_data_ouput:
+                work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+            else :
+                analyze_rep = analyze_report()
+                analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
+                work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
+
+            sheet_sequence = sheet_sequence + 1
+    else :
+        for work_sheet_name, result in work_books_content.iteritems():
             work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
-        else :
-            analyze_rep = analyze_report()
-            analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
-            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
-
-        sheet_sequence = sheet_sequence + 1
-
 
 
     #output the work_book
-    io_util.save_workbook(work_book,output_directory+final_result_file)
-    logger.info('end running performance_analysis.py.')
+    if core_analysis == None :
+        io_util.save_workbook(work_book,output_directory+final_result_file)
+        logger.info('end running performance_analysis.py.')
+    else :
+        return work_books_content
 
 if __name__ == "__main__":
     run()

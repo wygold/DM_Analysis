@@ -1,161 +1,188 @@
 [Field_Check]
 type = dynamic table
 sheet = Field_Check
+core = True
 description = Dynamic tables defined with more than @max_number_fields fields
 review = Keep note that we should not have dynamic table with more than @max_number_fields fields selected. Please review the design of those dynamic tables as follow: \n   1. Uncheck the fields that are not in use. \n   2. Then if the dynamic table still have too many fields, please split the dynamic table into 2 or more.
 
 [H_Field_Check]
 type = dynamic table
 sheet = H_Field_Check
+core = True
 description = Dynamic tables defined with more than @max_number_h_fields horizontal fields
 review = Keep note that we do not recommend to have dynamic table with more than @max_number_h_fields horizontal fields. Please review the design of those dynamic tables as follow: \n   1. Remove the horizontal fields that are not in use. \n  2. Move all the horizontal fields not using parser functions into SQL requests of datamart extractions. \n
 
 [H_DB_Field_Check]
 type = dynamic table
 sheet = H_DB_Field_Check
+core = True
 description = Dynamic tables defined with more than @max_number_db_access_h_fields direct access to DB in horizontal fields
 review = For performance reason, we do not recommend to have dynamic table with horizontal fields accessing the DB directly. Please review the design of those dynamic tables as follow: \n   1. Remove all horizontal fields that are using the parser functions *TBLFIELD and *TABLE. \n   2. Then create SQL based datamart tables to retrieve such fields from financial database(DBF) and join them in SQL request of datamart extractions.
 
 [Sensi_Flag_Check]
 type = dynamic table
 sheet = Sensi_Flag_Check
+core = False
 description = Dynamic tables with sensitivity flag enabled BUT not using S_* fields
 review = We do not recommend to have sensitivity flag checked when S_* fields are not selected in the dynamic table. However, parser functions RT_* require the flag to be checked. If such parser functions are used in horizontal fields, do check the flag.
 
 [Build_Mode_Check]
 type = dynamic table
 sheet = Build_Mode_Check
+core = False
 description = Dynamic tables for which "Built on" is not selected in underlying Sim view "Context(s)"
 review = Dynamic tables' "build on" shall be consistent with its underlying Simulation view "Context(s)". For example, if underlying simulation viewer's context is "consolidate", then the dynamic table's "build on" shall be set to "consolidate" as well.
 
 [Field_Reference_Summary]
 type = dynamic table
 sheet = Field_Reference_Summary
+core = False
 description = Summary of dynamic table fields that are referenced more than @max_dynamic_table_referenced time(s)
 review = Recommendation is to minimize the duplication of fields that are not key across datamart tables. Please review the design of those dynamic tables to uncheck fields that are already available in another datamart table if possible. The fields can be retrieved by table join in SQL request of datamart extraction.
 
 [Field_Reference_Detail]
 type = dynamic table
 sheet = Field_Reference_Detail
+core = False
 description = Details of dynamic table fields that are referenced more than @max_dynamic_table_referenced time(s)
 review = Recommendation is to minimize the duplication of fields that are not key across datamart tables. Please review the design of those dynamic tables to uncheck fields that are already available in another datamart table if possible. The fields can be retrieved by table join in SQL request of datamart extraction.
 
 [DM_TBL_Reference_Summary]
 type = dynamic table
 sheet = DM_TBL_Reference_Summary
+core = False
 description = Summary of dynamic tables that are referenced by more than @max_dynamic_table_referenced REP table(s)
 review =
 
 [DM_TBL_Reference_Detail]
 type = dynamic table
 sheet = DM_TBL_Reference_Detail
+core = False
 description = Details of dynamic tables that are referenced by more than @max_dynamic_table_referenced REP table(s)
 review =
 
 [Fields_Check]
 type = datamart table
 sheet = Fields_Check
+core = False
 description = Datamart tables defined with more than @max_number_fields field(s)
 review = Keep note that we should not have datamart table with more than @max_number_fields fields. Please review the design of the underlying dynamic tables as follow: \n   1. Uncheck the fields that are not in use. \n   2. Then if the dynamic table still have too many fields, please split the dynamic table into 2 or more.
 
 [#_Fields_REP_Vs_Dyn]
 type = datamart table
 sheet = #_Fields_REP_Vs_Dyn
+core = True
 description = Datamart table(s) defined with less fields than underlying dynamic table(s)
 review = For performance reason, datamart table shall not have less fields than underlying dynamic table because unused fields are calculated as well and this takes resources(CPU, IO time). Please review the design of underlying dynamic tables assuring that only used fields in datamart tables are selected.
 
 [No_Indexed_Tables]
 type = datamart table
 sheet = No_Indexed_Tables
+core = True
 description = Datamart tables without index
 review = Following tables do not have index defined via Mx GUI. Defintion of index might be to consider. Indecies for datamart tables shall be defined throught datamart GUI.
 
 [Summary_REP_TAB]
 type = feeder
 sheet = Summary_REP_TAB
+core = True
 description = Summary of datamart tables referenced by more than @max_reference table feeders
-review = Recommendation is to have only 1 datamart table in 1 table feeder. Please use the next sheet to review the design of following tables to understand if it is necessary to include them in more than @max_reference feeders.
+review = Recommendation is to have each datamart table fed by 1 table feeder. Please review the design and challenge the need to have datamart table to be fed by more than 1 table feeder. The object shall be to minimize the duplication of data into datamart tables.
 
 [REP_TAB_VS_T_FEED]
 type = feeder
 sheet = REP_TAB_VS_T_FEED
+core = True
 description = Details of datamart tables referenced by more than @max_reference table feeders
-review = Recommendation is to have only 1 datamart table in 1 table feeder. Please review the design of following tables to understand if it is necessary to include them in more than @max_reference feeders.
+review = Recommendation is to have each datamart table fed by 1 table feeder. Please review the design and challenge the need to have datamart table to be fed by more than 1 table feeder. The object shall be to minimize the duplication of data into datamart tables.
 
 [Summary_T_FEED_1]
 type = feeder
 sheet = Summary_T_FEED_1
+core = False
 description = Summary of table feeders that are feeding more than @max_reference datamart table(s)
-review = Recommendation is to have only 1 underlying datamart table in 1 feeder. Please use the next sheet to review the design of following single feeders to seperate the table into different feeders.
+review = In order to provide the greatest degree of flexibility when designing the EOD, especially for the parallelization, granularity should be given that each feeder has ONLY 1 datamart table.  \n Please use the next sheet to review the design of following tables to understand if it is necessary to include them in more than @max_reference feeders.
 
 [T_FEED_VS_DM]
 type = feeder
 sheet = T_FEED_VS_DM
+core = False
 description = Details of table feeders that are feeding more than @max_reference datamart table(s)
-review = Recommendation is to have only 1 underlying datamart table in 1 feeder. Please review the design of following single feeders to seperate the table into different feeders.
+review = In order to provide the greatest degree of flexibility when designing the EOD, especially for the parallelization, granularity should be given that each feeder has ONLY 1 datamart table.  \n Please use the sheet to review the design of following tables to understand if it is necessary to include them in more than @max_reference feeders.
 
 [Summary_T_FEED_2]
 type = feeder
 sheet = Summary_T_FEED_2
+core = True
 description = Summary of table feeders referenced by more than @max_reference batch of feeders
-review = Recommendation is to have only 1 table feeder in 1 batch of feeders. Please use the next sheet to review the design of following feeders to understand if it is necessary to include them in more than @max_reference batch of feeders.
+review = The object shall be to minimize the duplication of data into datamart tables. Please review the design and challenge the need of having table feeders executed by more than 1 batch of feeders, potentially causing duplication of data.
 
 [T_FEED_VS_BOF]
 type = feeder
 sheet = T_FEED_VS_BOF
+core = True
 description = Details of table feeders referenced by more than @max_reference batch of feeders
-review = Recommendation is to have only 1 table feeder in 1 batch of feeders. Please review the design of following feeders to understand if it is necessary to include them in more than @max_reference batch of feeders.
+review = The object shall be to minimize the duplication of data into datamart tables. Please review the design and challenge the need of having table feeders executed by more than 1 batch of feeders, potentially causing duplication of data.
 
 [Summary_BOF]
 type = feeder
 sheet = Summary_BOF
+core = True
 description = Summary of batch of feeders referenced by more than @max_reference processing script(s)
-review = Recommendation is to have only 1 batch of feeders in 1 processing script. Please use the next sheet to review the design of following feeders to understand if it is necessary to include them in more than @max_reference processing script(s).
+review = The object shall be to minimize the duplication of data into datamart tables. Please review the design and challenge the need of having batch of feeders executed by more than 1 processing scripts, potentially causing duplication of data.
 
 [BOF_VS_PS]
 type = feeder
 sheet = BOF_VS_PS
+core = True
 description = Batch of Feeder referenced in more than @max_reference processing scripts
-review = Recommendation is to have only 1 batch of feeders in 1 processing script. Please review the design of following feeders to understand if it is necessary to include them in more than @max_reference processing script(s).
+review = The object shall be to minimize the duplication of data into datamart tables. Please review the design and challenge the need of having batch of feeders executed by more than 1 processing scripts, potentially causing duplication of data.
 
 [Scanner_Engine]
 type = feeder
 sheet = Scanner_Engine
+core = True
 description = Usage of scanner engines in batch of feeders
-review = Recommendation is to have to enable scanner engines for batch of feeders if possible. Please review following batch of feeders that are not enabled with scanner engines.
+review = Please consider to enable scanner engines for batch of feeders if possible. For detail configuration : \n 1. For "Process number" and "Batch size", contact PAC. \n 2. For "Batch type", depends on the underlying dynamic table "build on" mode. If it is detailed mode, then select "By Size" (by trade), otherwise select "By Threshold" (by portfolio/position based on the simulation view). \n 3. For "Retries", set to 0 in production, set to 1 in test env. \n 4. For "Retries batch size", set to 0 in production, set to 1 in test env.
 
 [BOF_SIZE]
 type = feeder
 sheet = BOF_SIZE
+core = False
 description = Number of table feeders for each batch of feeders
-review = Recommendation is to have only 1 feeder in 1 batch of feeders.
+review = In order to provide the greatest degree of flexibility when designing the EOD, especially for the parallelization, granularity should be given that each batch of feeders has ONLY 1 table feeder \n Please use the next sheet to review the design of following tables to understand if it is necessary to include them in more than @max_reference feeders.
 
 [Filter_conflict]
 type = feeder
 sheet = Filter_conflict
+core = False
 description = Chain of filters from Dynamic table to Batch of feeders
-review = Recommendation is not to have default settings in dynamic tables. However as post filter is only available in default settings, it is sometimes ok to have post filter set in default settings. Please review the following default settings and move them to global settings if possible.
+review = Recommendation is not to configure "default configuration" in dynamic tables. The idea to avoid having a filter configured at dynamic table level. However as post filter is only available in "default configuration", it is sometimes ok to have post filter set in "default configuration". Please review the following filters in "default configuration" and move them to global filters.
 
 [Dataset_consistency]
 type = feeder
 sheet = Dataset_consistency
+core = True
 description = Batch of feeders have possible wrong dataset settings marked as inconsistent in last column
-review = If 2 batch of feeders share same Label of Data, they need also share same Historisation, Private and Data Computed by Several Batches settings. Please review following batch of feeders with inconsistent settings.
+review = If 2 batch of feeders share same Label of Data, they need also share same Historisation, Private and Data Computed by Several Batches settings. Please review batch of feeders with inconsistent settings.
 
 [Post_filter]
 type = feeder
 sheet = Post_filter
+core = True
 description = Dynamic tables with post-filter defined
-review = Recommendation is not o set post-filter in dynamic table default settings, please review following dynamic tables' post-filter and try to move them to pre-filter.
+review = Recommendation is not to set post-filter in dynamic table "default configuration", please review following dynamic tables' post-filter and try to move them to pre-filter.
 
 [Processing script performance]
 type = performance
 sheet = Processing script performance
+core = True
 description = DM processing scripts execution time
-review =
+review = Investigation shall target those processing scripts that are taking more than the set threshold @time_alert_processing_script from @start_date to @end_date . Those processing scripts are highlighted by the field "Highlight" equal to True. The worksheet (Processing script detailed) helps to get the breakdown by datamart objects for the processing scripts.
 
 [Processing script detailed]
 type = performance
 sheet = Processing script detailed
+core = True
 description = Breakdown of DM processing scripts execution time by objects
-review =
+review = All the best with your investigation!

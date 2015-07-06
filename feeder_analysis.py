@@ -630,7 +630,7 @@ def create_content_page(sheet_names,work_books_content):
 
     return result
 
-def run(reload_check_button_status=None,log_dropdown_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis = None, work_books_content = None):
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
     parameter_file='parameters.txt'
@@ -668,6 +668,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     end_date = parameters['performance']['end_date']
     raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
     analyze_template_file = parameters['analyze report']['analyze_template_file_name']
+    if core_analysis == None :
+        max_reference = config.getint('feeder', 'max_reference')
+    else :
+        max_reference = config.getint('core', 'max_reference')
 
     #define directories
     input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
@@ -728,123 +732,143 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
-    work_books_content = OrderedDict()
+    if work_books_content == None:
+        work_books_content = OrderedDict()
     work_sheet_names = []
 
     #2.0 Give summary of duplicate checking
-    result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
-    work_sheet_name='Summary_REP_TAB'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Summary_REP_TAB' in core_analysis :
+        result=check_duplicate_dm_table_summary(input_directory,dm_config_file,ps_exuection_time_file,max_reference)
+        work_sheet_name='Summary_REP_TAB'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
 
     #2.1. Check if same table is defined in 2 feeder.
-    result=check_duplicate_of_dm_table(input_directory,dm_config_file,parameters['feeder']['max_reference'])
-    work_sheet_name='REP_TAB_VS_T_FEED'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'REP_TAB_VS_T_FEED' in core_analysis :
+        result=check_duplicate_of_dm_table(input_directory,dm_config_file,max_reference)
+        work_sheet_name='REP_TAB_VS_T_FEED'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #2.009 Give summary of how many tables referenced in a feeder
-    result=check_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
-    work_sheet_name='Summary_T_FEED_1'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Summary_T_FEED_1' in core_analysis :
+        result=check_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,max_reference)
+        work_sheet_name='Summary_T_FEED_1'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
 
 
     #2.0091 Check if same feeder is defined in 2 batches.
-    result=check_number_of_tables_in_feeder(input_directory,dm_config_file,parameters['feeder']['max_reference'])
-    work_sheet_name='T_FEED_VS_DM'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'T_FEED_VS_DM' in core_analysis :
+        result=check_number_of_tables_in_feeder(input_directory,dm_config_file,max_reference)
+        work_sheet_name='T_FEED_VS_DM'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
-    result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
-    work_sheet_name='Summary_T_FEED_2'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Summary_T_FEED_2' in core_analysis :
+        result=check_duplicate_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,max_reference)
+        work_sheet_name='Summary_T_FEED_2'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #2. Check if same feeder is defined in 2 batches.
-    result=check_duplicate_of_feeders(input_directory,dm_config_file,parameters['feeder']['max_reference'])
-    work_sheet_name='T_FEED_VS_BOF'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'T_FEED_VS_BOF' in core_analysis :
+        result=check_duplicate_of_feeders(input_directory,dm_config_file,max_reference)
+        work_sheet_name='T_FEED_VS_BOF'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #2.01 Give summary of duplicate checking
-    result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
-    work_sheet_name='Summary_BOF'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Summary_BOF' in core_analysis :
+        result=check_duplicate_batch_feeder_summary(input_directory,dm_config_file,ps_exuection_time_file,max_reference)
+        work_sheet_name='Summary_BOF'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #2.2. Check if same batch feeder is defined in 2 processing scripts.
-    result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,parameters['feeder']['max_reference'])
-    work_sheet_name='BOF_VS_PS'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'BOF_VS_PS' in core_analysis :
+        result=check_duplicate_of_batch_feeder(input_directory,dm_config_file,ps_exuection_time_file,max_reference)
+        work_sheet_name='BOF_VS_PS'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #3 Check scanner engine usage
-    result=check_scanner_engine_usage(input_directory,dm_config_file, parameters['scanner engine']['eligible_dynamic_tables'])
-    work_sheet_name='Scanner_Engine'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Scanner_Engine' in core_analysis :
+        result=check_scanner_engine_usage(input_directory,dm_config_file, parameters['scanner engine']['eligible_dynamic_tables'])
+        work_sheet_name='Scanner_Engine'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #4. check number of feeders in a batch, shall not be too many!
-    result=check_number_of_feeder_in_batch(input_directory,dm_config_file)
-    work_sheet_name='BOF_SIZE'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'BOF_SIZE' in core_analysis :
+        result=check_number_of_feeder_in_batch(input_directory,dm_config_file)
+        work_sheet_name='BOF_SIZE'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #5 check_filter_conflict between dynamic table default settings and global filter
-    result=check_filter_conflict(input_directory,dm_config_file)
-    work_sheet_name='Filter_conflict'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Filter_conflict' in core_analysis :
+        result=check_filter_conflict(input_directory,dm_config_file)
+        work_sheet_name='Filter_conflict'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #1. check dataset_consistency.
-    result=check_dataset_consistency(input_directory,dm_config_file)
-    work_sheet_name='Dataset_consistency'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Dataset_consistency' in core_analysis :
+        result=check_dataset_consistency(input_directory,dm_config_file)
+        work_sheet_name='Dataset_consistency'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
     #6. check post filter defined in dynamic table
-    result=check_dynamic_table_post_filter(input_directory,dm_config_file)
-    work_sheet_name='Post_filter'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Post_filter' in core_analysis :
+        result=check_dynamic_table_post_filter(input_directory,dm_config_file)
+        work_sheet_name='Post_filter'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
 
     #create content sheet
-    result=create_content_page(work_sheet_names,work_books_content)
-    work_sheet_name='Content'
-    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
+    if core_analysis == None :
+        result=create_content_page(work_sheet_names,work_books_content)
+        work_sheet_name='Content'
+        work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
     sheet_sequence = 0
 
-    for work_sheet_name, result in work_books_content.iteritems():
-        preview_sheet= ''
-        next_sheet = ''
-        if sheet_sequence == 0 :
-            preview_sheet='Content'
-        else:
-            preview_sheet = work_sheet_names[sheet_sequence-1]
+    if core_analysis == None :
+        for work_sheet_name, result in work_books_content.iteritems():
+            preview_sheet= ''
+            next_sheet = ''
+            if sheet_sequence == 0 :
+                preview_sheet='Content'
+            else:
+                preview_sheet = work_sheet_names[sheet_sequence-1]
 
-        if sheet_sequence == len(work_sheet_names) - 1:
-            next_sheet = None
-        else:
-            next_sheet = work_sheet_names[sheet_sequence + 1]
+            if sheet_sequence == len(work_sheet_names) - 1:
+                next_sheet = None
+            else:
+                next_sheet = work_sheet_names[sheet_sequence + 1]
 
-        if raw_data_ouput:
-            work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
-        else :
-            analyze_rep = analyze_report()
-            analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
-            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
+            if raw_data_ouput:
+                work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+            else :
+                analyze_rep = analyze_report()
+                analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
+                work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
 
-        sheet_sequence = sheet_sequence + 1
+            sheet_sequence = sheet_sequence + 1
+
 
     #output the work_book
-    io_util.save_workbook(work_book,output_directory+final_result_file)
-    logger.info('End running datamart_table_analysis.py.')
+    if core_analysis == None :
+        io_util.save_workbook(work_book,output_directory+final_result_file)
+        logger.info('End running datamart_table_analysis.py.')
+    else :
+        return work_books_content
 
 if __name__ == "__main__":
     run()

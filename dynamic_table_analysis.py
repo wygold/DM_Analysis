@@ -411,7 +411,7 @@ def create_content_page(sheet_names,work_books_content):
     logger.info('End running create_content_page for %s sheets.',len(sheet_names))
     return result
 
-def run(reload_check_button_status=None,log_dropdown_status=None):
+def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis = None, work_books_content = None):
 
     #define properties folder
     property_directory=os.getcwd()+'\\properties\\'
@@ -444,9 +444,14 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
-    max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
-    max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
+    if core_analysis == None :
+        max_dynamic_number_fields = config.getint('dynamic table', 'max_number_fields')
+        max_dynamic_number_hfields = config.getint('dynamic table', 'max_number_h_fields')
+        max_dynamic_number_db_access_hfields = config.getint('dynamic table', 'max_number_db_access_h_fields')
+    else :
+        max_dynamic_number_fields = config.getint('core', 'max_number_fields')
+        max_dynamic_number_hfields = config.getint('core', 'max_number_h_fields')
+        max_dynamic_number_db_access_hfields = config.getint('core', 'max_number_db_access_h_fields')
     max_dynamic_table_referenced = config.getint('dynamic table', 'max_dynamic_table_referenced')
     reload_data = config.getboolean('general', 'reload_data')
     raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
@@ -530,96 +535,111 @@ def run(reload_check_button_status=None,log_dropdown_status=None):
 
     #workbook for output result
     work_book = Workbook()
-    work_books_content = OrderedDict()
+    if work_books_content == None:
+        work_books_content = OrderedDict()
     work_sheet_names = []
 
-    #check Total number of dynamic tables fields for each dynamic table.
-    result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
-    work_sheet_name='Field_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Field_Check' in core_analysis :
+        #check Total number of dynamic tables fields for each dynamic table.
+        result=check_total_dynamic_table_field_number(input_directory,dm_config_file,max_dynamic_number_fields)
+        work_sheet_name='Field_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #check Number of horizontal fields
-    result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
-    work_sheet_name='H_Field_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'H_Field_Check' in core_analysis :
+        #check Number of horizontal fields
+        result=check_total_dynamic_table_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_hfields)
+        work_sheet_name='H_Field_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #Check horizontal fields with *TBLFIELD and *TABLE
-    result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
-    work_sheet_name='H_DB_Field_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'H_DB_Field_Check' in core_analysis :
+        #Check horizontal fields with *TBLFIELD and *TABLE
+        result=check_total_dynamic_table_db_access_horizontal_field_number(input_directory,dm_config_file, max_dynamic_number_db_access_hfields)
+        work_sheet_name='H_DB_Field_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #check sensitivity flag can be disabled
-    result=check_compute_sensitivity_flag(input_directory,sensi_file)
-    work_sheet_name='Sensi_Flag_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Sensi_Flag_Check' in core_analysis :
+        #check sensitivity flag can be disabled
+        result=check_compute_sensitivity_flag(input_directory,sensi_file)
+        work_sheet_name='Sensi_Flag_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #check build on mode is correctly set
-    result=check_sim_view_mode(input_directory,dm_config_file,sim_file)
-    work_sheet_name='Build_Mode_Check'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Build_Mode_Check' in core_analysis :
+        #check build on mode is correctly set
+        result=check_sim_view_mode(input_directory,dm_config_file,sim_file)
+        work_sheet_name='Build_Mode_Check'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
 
-    #summary of how dynamic table fields are referenced by datamart tables
-    result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file,max_dynamic_table_referenced)
-    work_sheet_name='Field_Reference_Summary'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+    if core_analysis == None or 'Field_Reference_Summary' in core_analysis :
+        #summary of how dynamic table fields are referenced by datamart tables
+        result=check_dynamic_table_field_reference_summary(input_directory,dm_defintion_file,max_dynamic_table_referenced)
+        work_sheet_name='Field_Reference_Summary'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
+
+    if core_analysis == None or 'Field_Reference_Detail' in core_analysis :
+        #detail of how dynamic table fields are referenced by datamart tables
+        result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file,max_dynamic_table_referenced)
+        work_sheet_name='Field_Reference_Detail'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
+
+    if core_analysis == None or 'DM_TBL_Reference_Summary' in core_analysis :
+        result=check_dynamic_table_reference_number(input_directory,dm_config_file,max_dynamic_table_referenced)
+        work_sheet_name='DM_TBL_Reference_Summary'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
+
+    if core_analysis == None or 'DM_TBL_Reference_Detail' in core_analysis :
+        result=check_dynamic_table_reference_detail(input_directory,dm_config_file,max_dynamic_table_referenced)
+        work_sheet_name='DM_TBL_Reference_Detail'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
+
+    if core_analysis == None :
+        #create content sheet
+        result=create_content_page(work_sheet_names,work_books_content)
+        work_sheet_name='Content'
+        work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
 
 
-    #detail of how dynamic table fields are referenced by datamart tables
-    result=check_dynamic_table_field_reference_detail(input_directory,dm_defintion_file,max_dynamic_table_referenced)
-    work_sheet_name='Field_Reference_Detail'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
 
+    if core_analysis == None :
+        sheet_sequence = 0
+        for work_sheet_name, result in work_books_content.iteritems():
+            preview_sheet= ''
+            next_sheet = ''
+            if sheet_sequence == 0 :
+                preview_sheet='Content'
+            else:
+                preview_sheet = work_sheet_names[sheet_sequence-1]
 
-    result=check_dynamic_table_reference_number(input_directory,dm_config_file,max_dynamic_table_referenced)
-    work_sheet_name='DM_TBL_Reference_Summary'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+            if sheet_sequence == len(work_sheet_names) - 1:
+                next_sheet = None
+            else:
+                next_sheet = work_sheet_names[sheet_sequence + 1]
 
-    result=check_dynamic_table_reference_detail(input_directory,dm_config_file,max_dynamic_table_referenced)
-    work_sheet_name='DM_TBL_Reference_Detail'
-    work_books_content[work_sheet_name]=result
-    work_sheet_names.append(work_sheet_name)
+            if raw_data_ouput:
+                work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
+            else :
+                analyze_rep = analyze_report()
+                analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
+                work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
 
-    #create content sheet
-    result=create_content_page(work_sheet_names,work_books_content)
-    work_sheet_name='Content'
-    work_book=io_util.add_content_worksheet(result,work_book, work_sheet_name)
-
-
-    sheet_sequence = 0
-    for work_sheet_name, result in work_books_content.iteritems():
-        preview_sheet= ''
-        next_sheet = ''
-        if sheet_sequence == 0 :
-            preview_sheet='Content'
-        else:
-            preview_sheet = work_sheet_names[sheet_sequence-1]
-
-        if sheet_sequence == len(work_sheet_names) - 1:
-            next_sheet = None
-        else:
-            next_sheet = work_sheet_names[sheet_sequence + 1]
-
-        if raw_data_ouput:
+            sheet_sequence = sheet_sequence + 1
+    else :
+        for work_sheet_name, result in work_books_content.iteritems():
             work_book=io_util.add_raw_worksheet(result,work_book, work_sheet_name,True)
-        else :
-            analyze_rep = analyze_report()
-            analyze_result = analyze_rep.generate_report_content([work_sheet_name], property_directory, analyze_template_file)
-            work_book=io_util.add_worksheet(result,work_book, work_sheet_name,True, preview_sheet,next_sheet,'Review: '+analyze_result[work_sheet_name][2])
-
-        sheet_sequence = sheet_sequence + 1
-
-
 
     #output the work_book
-    io_util.save_workbook(work_book,output_directory+final_result_file)
+    if core_analysis == None :
+        io_util.save_workbook(work_book,output_directory+final_result_file)
+    else :
+        return work_books_content
     logger.info('End running dynamic_table_analysis.py.')
 
 if __name__ == "__main__":

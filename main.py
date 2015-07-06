@@ -9,6 +9,7 @@ import dynamic_table_analysis
 import datamart_table_analysis
 import performance_analysis
 import feeder_analysis
+import core_analysis
 from property_utility import property_utility
 
 
@@ -137,6 +138,20 @@ class Datamart_analysis_tool(Frame):
 
         current_row = current_row + 1
 
+        core_analysis_check_button_status = IntVar()
+        core_analysis_check_button = Checkbutton(root, text="Core analysis",variable=core_analysis_check_button_status)
+        check_buttons.append(core_analysis_check_button)
+        check_buttons_status["core"] = core_analysis_check_button_status
+        #performance_analysis_run_button = Button(master, text='Run', command=self.load_performance_analysis)
+        core_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('core'))
+        view_output_buttons['core'] = Button(root, text='View Output',command=lambda: self.view_result_frame('core'),state='disabled')
+        core_analysis_check_button.grid(row=current_row,sticky=W)
+        #performance_analysis_run_button.grid(row=current_row,column=1)
+        core_analysis_config_button.grid(row=current_row,column=2)
+        view_output_buttons['core'].grid(row=current_row,column=3)
+        current_row = current_row + 1
+
+     
         dynamic_table_analysis_check_button_status = IntVar()
         dynamic_table_analysis_check_button = Checkbutton(root, text="Dynamic tables analysis",variable=dynamic_table_analysis_check_button_status)
         check_buttons.append(dynamic_table_analysis_check_button)
@@ -187,12 +202,14 @@ class Datamart_analysis_tool(Frame):
         Label(root,text='').grid(row=current_row)
         current_row = current_row + 1
 
+
         #create progress bar
         execution_progress_bar = ttk.Progressbar(root, orient='horizontal', mode='indeterminate',length=180)
         execution_progress_bar.grid(row=current_row,column=1, columnspan=3,sticky=W)
 
         #create a empty
         Label(root, width=1, text='',height=18).grid(row=2, rowspan=current_row-2,column=4)
+
 
         #Create empty verticle line
         Label(root,text='',height=1).grid(row=current_row)
@@ -232,6 +249,12 @@ class Datamart_analysis_tool(Frame):
         #Create empty line
         Label(root,text='').grid(row=current_row)
         current_row = current_row + 1
+
+        #Create a seperate
+        separator = ttk.Separator()
+        separator.grid(row=current_row,columnspan=4,sticky=EW)
+        current_row = current_row + 1
+
 
 
     def create_menu(self):
@@ -329,6 +352,12 @@ class Datamart_analysis_tool(Frame):
 
     def analysis_worker_thread(self,run_analysis_button, view_output_buttons, check_buttons_status,reload_check_button_status,log_dropdown_status,execution_progress_bar,log_text):
         for analysis_type, button_status in check_buttons_status.iteritems():
+            if analysis_type == 'core' and button_status.get() :
+                monitor_log_file_stop= threading.Event()
+                self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
+                self.load_core_analysis(reload_check_button_status.get(),log_dropdown_status.get())
+                time.sleep(1)
+                monitor_log_file_stop.set()
             if analysis_type == 'dynamic table' and button_status.get() :
                 monitor_log_file_stop= threading.Event()
                 self.monitor_log_file(analysis_type,log_text,monitor_log_file_stop)
@@ -359,6 +388,8 @@ class Datamart_analysis_tool(Frame):
 
         #disable view result buttons
         for analysis_type, button_status in check_buttons_status.iteritems():
+            if analysis_type == 'core' and button_status.get() :
+                view_output_buttons[analysis_type].config(state='disabled')
             if analysis_type == 'dynamic table' and button_status.get() :
                 view_output_buttons[analysis_type].config(state='disabled')
             if analysis_type == 'datamart table' and button_status.get() :
@@ -379,6 +410,8 @@ class Datamart_analysis_tool(Frame):
                 execution_progress_bar.stop()
                 run_analysis_button.config(state='active')
                 for analysis_type, button_status in check_buttons_status.iteritems():
+                    if analysis_type == 'core' and button_status.get() :
+                        view_output_buttons[analysis_type].config(state='active')
                     if analysis_type == 'dynamic table' and button_status.get() :
                         view_output_buttons[analysis_type].config(state='active')
                     if analysis_type == 'datamart table' and button_status.get() :
@@ -430,6 +463,11 @@ class Datamart_analysis_tool(Frame):
 
     def show_error(self,text_box, error_message):
         text_box.insert(END,error_message)
+
+    def load_core_analysis(self,reload_check_button_status,log_dropdown_status):
+        logger = logging.getLogger(__name__)
+        logger.info('Run core_analysis')
+        core_analysis.run(reload_check_button_status,log_dropdown_status)
 
     def load_dynamic_table_analysis(self,reload_check_button_status,log_dropdown_status):
         logger = logging.getLogger(__name__)

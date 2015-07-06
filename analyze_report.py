@@ -7,8 +7,7 @@ from logging import handlers
 from collections import OrderedDict
 from property_utility import property_utility
 import re
-from docx import Document
-from docx.shared import Inches
+#from docx import Document
 
 class analyze_report:
 
@@ -98,29 +97,29 @@ class analyze_report:
         content = content.replace('\\n','\n')
 
         return content
-
-    def generate_report_file(self,report, report_directory=None, report_name=None):
-
-        document = Document()
-
-        head=document.add_heading('DM Analysis Report',0)
-        head.alignment = 1
-
-
-        for report_title, report_content in report.iteritems() :
-            sheet,description,review = report_content
-            document.add_heading('Analyzed sheet: '+sheet, level=1)
-            #desciprtion_word = document.add_paragraph('Desciprtion: ')
-            document.add_heading('Desciprtion: ', level=2)
-            #desciprtion_word.bold = True
-            document.add_paragraph(description)
-            #review_word=document.add_paragraph('Review: ')
-            #review_word.bold = True
-            document.add_heading('Review: ', level=2)
-            document.add_paragraph(review )
-            document.add_paragraph()
-
-        document.save(report_name)
+    #
+    # def generate_report_file(self,report, report_directory=None, report_name=None):
+    #
+    #     document = Document()
+    #
+    #     head=document.add_heading('DM Analysis Report',0)
+    #     head.alignment = 1
+    #
+    #
+    #     for report_title, report_content in report.iteritems() :
+    #         sheet,description,review = report_content
+    #         document.add_heading('Analyzed sheet: '+sheet, level=1)
+    #         #desciprtion_word = document.add_paragraph('Desciprtion: ')
+    #         document.add_heading('Desciprtion: ', level=2)
+    #         #desciprtion_word.bold = True
+    #         document.add_paragraph(description)
+    #         #review_word=document.add_paragraph('Review: ')
+    #         #review_word.bold = True
+    #         document.add_heading('Review: ', level=2)
+    #         document.add_paragraph(review )
+    #         document.add_paragraph()
+    #
+    #     document.save(report_name)
 
 
 
@@ -161,7 +160,7 @@ class analyze_report:
                          'DM_TBL_Reference_Detail']
 
         report = self.generate_report_content(analyzed_list)
-        self.generate_report_file(report,output_file_directory,'report.docx')
+      #  self.generate_report_file(report,output_file_directory,'report.docx')
 
 if __name__ == "__main__":
     analyze_rep = analyze_report()

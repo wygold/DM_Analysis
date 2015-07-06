@@ -50,6 +50,7 @@ class property_utility:
         database_parameters = OrderedDict()
         scanner_engine_paramters = OrderedDict()
         analyze_report_parameters =  OrderedDict()
+        core_parameters =  OrderedDict()
 
         #read in property file
         config = ConfigParser.RawConfigParser()
@@ -69,6 +70,7 @@ class property_utility:
         parameters['dynamic table'] = dynamic_table_parameters
         parameters['datamart table'] = datamart_table_parameters
         parameters['performance'] = performance_parameters
+        parameters['core'] = core_parameters
         parameters['feeder'] = feeder_parameters
         parameters['log'] = log_parameters
         parameters['database'] = database_parameters
@@ -81,7 +83,7 @@ class property_utility:
         general_parameters['input_directory'] = config.get('general', 'input_directory')
         general_parameters['output_directory'] = config.get('general', 'output_directory')
         general_parameters['sql_directory'] = config.get('general', 'sql_directory')
-        general_parameters['raw_data_ouput'] = config.get('general', 'raw_data_ouput')
+        general_parameters['raw_data_ouput'] = config.getboolean('general', 'raw_data_ouput')
 
 
         #read in dynamic table
@@ -113,6 +115,21 @@ class property_utility:
 #       performance_parameters['time_filter_output'] =config.getboolean('performance', 'time_filter_output')
         performance_parameters['output_file_name']  = config.get('performance', 'output_file_name')
         performance_parameters['log_file_name']  = config.get('performance', 'log_file_name')
+
+
+
+        #read in core config
+        core_parameters['max_number_fields']  = config.get('core', 'max_number_fields')
+        core_parameters['max_number_h_fields']  = config.get('core', 'max_number_h_fields')
+        core_parameters['max_number_db_access_h_fields']  = config.get('core', 'max_number_db_access_h_fields')
+        core_parameters['max_reference']  = config.get('core', 'max_reference')
+        core_parameters['start_date']  = config.get('core', 'start_date')
+        core_parameters['end_date']  = config.get('core', 'end_date')
+        core_parameters['time_alert_processing_script']  = config.get('core', 'time_alert_processing_script')
+        core_parameters['time_alert_batch_feeder']  = config.get('core', 'time_alert_batch_feeder')
+        core_parameters['time_alert_batch_extraction']  = config.get('core', 'time_alert_batch_extraction')
+        core_parameters['output_file_name']  = config.get('core', 'output_file_name')
+        core_parameters['log_file_name']  = config.get('core', 'log_file_name')
 
         #read in db config
         database_parameters['db_config_folder']= config.get('database', 'db_config_folder')
