@@ -1,33 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DbSource>
+<?xml version="1.0" encoding="UTF-8"?><DbSource>
   <MxAnchors>
     <MxAnchor Code="DBSOURCE">
       <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
       <DbIsDistributed/>
-      <DbServerType>oracle</DbServerType>
-      <DbHostName>hp405srv</DbHostName>
-      <DbServerPortNumber>1521</DbServerPortNumber>
-      <DbServerOrServiceName>HP40511</DbServerOrServiceName>
-      <DbDatabaseOrSchemaName>HLB_MX3_TEST_MX</DbDatabaseOrSchemaName>
+      <DbServerType>sybase</DbServerType>
+      <DbHostName>kaya</DbHostName>
+      <DbServerPortNumber>7000</DbServerPortNumber>
+      <DbServerOrServiceName>KAYA157</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>DBS_GOLD_MX</DbDatabaseOrSchemaName>
       <DbCharacterSet/>
       <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
+      <DbMxNetworkPacketSize>4096</DbMxNetworkPacketSize>
+      <DbMxTCPNoDelay>Y</DbMxTCPNoDelay>
       <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
       <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
-      <DbMxClientAccess/>
-      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
-      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
-      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbMxClientAccess>NATIVE_CTLIB</DbMxClientAccess>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
       <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
       <DbDefaultCredential>
-        <DbUser>HLB_MX3_TEST_MX</DbUser>
-        <DbPassword>004000b1004000e600b700c600070000003100910027000600a7005700900066009100c70016</DbPassword>
+        <DbUser>INSTAL</DbUser>
+        <DbPassword>0050009100510056008700570057</DbPassword>
       </DbDefaultCredential>
       <DbDefaultPool>
         <DbPoolMaxSize>50</DbPoolMaxSize>
         <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
         <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
       </DbDefaultPool>
-      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCProperties" MxAnchorType="Include"/>
     </MxAnchor>
   </MxAnchors>
 </DbSource>

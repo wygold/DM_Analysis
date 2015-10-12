@@ -173,6 +173,13 @@ core = True
 description = Dynamic tables with post-filter defined
 review = Recommendation is not to set post-filter in dynamic table "default configuration", please review following dynamic tables' post-filter and try to move them to pre-filter.
 
+[Computing_dates]
+type = feeder
+sheet = Computing_dates
+core = False
+description = Batch of feeder with more than 1 computing dates
+review = Recommendation is .
+
 [Processing script performance]
 type = performance
 sheet = Processing script performance

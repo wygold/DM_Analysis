@@ -240,8 +240,9 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
+        db_type = db_util.db_type
         #prepare datamart configuration SQLs to be run
-        sqlfile = open(sql_directory+query_dm_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_dm_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -256,8 +257,10 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + dmDbsource_file)
 
+
+
         #prepare datamart configuration SQLs to be run
-        sqlfile = open(sql_directory+query_dm_table_size_size, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_dm_table_size_size, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line

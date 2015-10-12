@@ -2,6 +2,7 @@ __author__ = 'ywang'
 
 
 import cx_Oracle
+import pyodbc
 import ConfigParser
 import os
 import xml.etree.ElementTree as ET
@@ -11,6 +12,7 @@ from logging import handlers
 class db_utility:
     dbsource = ''
     connectionString = ''
+    db_type = '' #oracle/sybase
 
     logger = ''
 
@@ -55,23 +57,35 @@ class db_utility:
             self.logger.warning('dbsource file does not exist!')
             return -1
 
-        root = tree.getroot()
         dbServerType= tree.find('./MxAnchors/MxAnchor/DbServerType')
+        self.db_type=dbServerType.text
         dbHostName= tree.find('./MxAnchors/MxAnchor/DbHostName')
         dbServerPortNumber=tree.find('./MxAnchors/MxAnchor/DbServerPortNumber')
         dbServerOrServiceName=tree.find('./MxAnchors/MxAnchor/DbServerOrServiceName')
+        DbDatabaseOrSchemaName= tree.find('./MxAnchors/MxAnchor/DbDatabaseOrSchemaName')
         dbUser=tree.find('./MxAnchors/MxAnchor/DbDefaultCredential/DbUser')
         dbPassword=tree.find('./MxAnchors/MxAnchor/DbDefaultCredential/DbUser')
-
-        self.connectionString=dbUser.text+'/'+dbPassword.text+'@'+dbHostName.text+':'+dbServerPortNumber.text\
+        if dbServerType == 'oracle' :
+            self.connectionString=dbUser.text+'/'+dbPassword.text+'@'+dbHostName.text+':'+dbServerPortNumber.text\
                          +'/'+dbServerOrServiceName.text
+        else:
+            self.connectionString='DRIVER={Adaptive Server Enterprise};SERVER='+dbHostName.text+ ';Port='+dbServerPortNumber.text\
+                        +';DATABASE='+DbDatabaseOrSchemaName.text+';UID='+dbUser.text+';PWD=INSTALL'
 
         self.logger.debug('connectionString parsed is : %s', self.connectionString)
 
         return self.connectionString
 
     def prepare_sql(self,sql, sql_paramters):
-        self.logger.debug('Start to prepare SQL to be executed.')
+        if self.db_type == 'oracle' :
+            result=self.prepare_oracle_sql( sql, sql_paramters)
+        else:
+            result=self.prepare_sybase_sql( sql, sql_paramters)
+        return result
+
+
+    def prepare_oracle_sql(self,sql, sql_paramters):
+        self.logger.debug('Start to prepare oracle SQL to be executed.')
         self.logger.debug('SQL to prepare \n %s', sql)
         if sql_paramters is None:
             return sql
@@ -89,8 +103,34 @@ class db_utility:
         self.logger.debug('End SQL prepartion.')
         return sql
 
+    def prepare_sybase_sql(self,sql, sql_paramters):
+        self.logger.debug('Start to prepare sybase SQL to be executed.')
+        self.logger.debug('SQL to prepare \n %s', sql)
+        if sql_paramters is None:
+            return sql
+
+        for parameter_name, parameter_value in sql_paramters.iteritems():
+            self.logger.debug('Start to mapping sql_paramter %s with value %s.',parameter_name,parameter_value)
+            if sql.find('@'+parameter_name+':D'):
+                formatted_value='convert(DATE,\''+parameter_value+'\',111)'
+                sql = sql.replace('@'+parameter_name+':D',formatted_value )
+            if sql.find('@'+parameter_name+':C'):
+                formatted_value='\''+parameter_value+'\''
+                sql = sql.replace('@'+parameter_name+':C',formatted_value )
+            if sql.find('@'+parameter_name+':N'):
+                sql = sql.replace('@'+parameter_name+':D',formatted_value )
+        self.logger.debug('End SQL prepartion.')
+        return sql
+
     def execute_sql(self, sql, sql_paramters, connectionString, batch_mode = True):
-        self.logger.info('Start to execute SQL.')
+        if self.db_type == 'oracle' :
+            result=self.execute_oracle_sql( sql, sql_paramters, connectionString, batch_mode = True)
+        else:
+            result=self.execute_sybase_sql( sql, sql_paramters, connectionString, batch_mode = True)
+        return result
+
+    def execute_oracle_sql(self, sql, sql_paramters, connectionString, batch_mode = True):
+        self.logger.info('Start to execute oracle SQL.')
         sql = self.prepare_sql(sql, sql_paramters)
         con = cx_Oracle.connect(connectionString)
         cur = con.cursor()
@@ -117,8 +157,43 @@ class db_utility:
         self.logger.info('End execute SQL.')
         return result
 
+    def execute_sybase_sql(self, sql, sql_paramters, connectionString, batch_mode = True):
+        self.logger.info('Start to execute sybase SQL.')
+        sql = self.prepare_sql(sql, sql_paramters)
+        con = pyodbc.connect(connectionString)
+        cur = con.cursor()
+
+        cur.arraysize = 2000
+        self.logger.debug('SQL to execute: \n %s', sql)
+        cur.execute(sql)
+
+        result = []
+
+        if batch_mode:
+            self.logger.info('Execute sql in batch')
+            rows = cur.fetchall()
+            for row in rows:
+                result.append(row)
+        else :
+            self.logger.info('Execute sql in line by line')
+            row = cur.fetchone()
+            while row is not None:
+                result.append(row)
+                res = cur.fetchone()
+
+        cur.close()
+        con.close()
+        self.logger.info('End execute SQL.')
+        return result
 
     def dump_output(self, sql, sql_paramters, connectionString, dump_file_name, batch_mode = True):
+        if self.db_type == 'oracle' :
+            result=self.dump_output_oracle(sql, sql_paramters, connectionString, dump_file_name, batch_mode = True)
+        else:
+            result=self.dump_output_sybase(sql, sql_paramters, connectionString, dump_file_name, batch_mode = True)
+        return result
+
+    def dump_output_oracle(self, sql, sql_paramters, connectionString, dump_file_name, batch_mode = True):
         self.logger.info('Start to write result to file %s.',dump_file_name)
         sql = self.prepare_sql(sql, sql_paramters)
 
@@ -161,6 +236,63 @@ class db_utility:
         self.logger.debug('Initialize db_utility class')
 
 
+    def dump_output_sybase(self, sql, sql_paramters, connectionString, dump_file_name, batch_mode = True):
+        self.logger.info('Start to write result to file %s.',dump_file_name)
+        sql = self.prepare_sql(sql, sql_paramters)
+
+        con = pyodbc.connect(connectionString)
+        cur = con.cursor()
+#        cur.arraysize = 2000
+        self.logger.debug('SQL for file dump: \n %s', sql)
+        cur.execute(sql)
+        print sql
+        self.logger.info('Open dump file: %s',dump_file_name)
+        raw_file = open(dump_file_name, 'w+')
+
+        if batch_mode:
+            self.logger.info('Execute sql in batch')
+            rows = cur.fetchall()
+            for row in rows:
+                for cell in row:
+                    if cell is None:
+                        raw_file.write('')
+                    else:
+                        raw_file.write(str(cell))
+                raw_file.write('\n')
+        else :
+            self.logger.info('Execute sql in line by line')
+            res = cur.fetchone()
+            while res is not None:
+                for field in res :
+                    raw_file.write(str(field))
+                raw_file.write('\n')
+                res = cur.fetchone()
+
+            raw_file.close()
+
+        cur.close()
+        con.close()
+        self.logger.info('End write file.')
+
+    def __init__(self, log_level=logging.DEBUG, log_file=None):
+        self.initialize_log(log_level,log_file)
+        self.logger.debug('Initialize db_utility class')
+
+if __name__ == "1__main__":
+    property_directory = os.getcwd() + '\properties\\'
+    mxDbsource_file = 'dbsource.mxres'
+    db_util = db_utility()
+    #server = "{0}:{1}".format('kaya', 7000)
+    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+    cnxn = pyodbc.connect(connectionString)
+    print connectionString
+    cursor = cnxn.cursor()
+    cursor.execute("SELECT * FROM MUREXDB.TRN_HDR_DBF WHERE M_NB=73011944")
+
+    for row in cursor.fetchall():
+        print row
+
+
 if __name__ == "__main__":
     #define directories
     input_directory = os.getcwd() + '\Input\\'
@@ -170,7 +302,7 @@ if __name__ == "__main__":
 
 
     #define sql files
-    query_ps_time_sql = 'query_processing_script_time.sql'
+    query_ps_time_sql = 'query_processing_script_time - sybase.sql'
 
     #define input files
     ps_exuection_time_file = 'ps_execution_time.csv'
@@ -186,7 +318,7 @@ if __name__ == "__main__":
     #read in property file
     config = ConfigParser.RawConfigParser()
     config.read(property_directory + parameter_file)
-    period_days = config.getint('performance', 'period_days')
+
     time_alert_processing_script = config.get('performance', 'time_alert_processing_script')
     time_alert_batch_feeder = config.get('performance', 'time_alert_batch_feeder')
     time_alert_batch_extraction =config.get('performance', 'time_alert_batch_extraction')
@@ -208,3 +340,4 @@ if __name__ == "__main__":
     connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
     db_util.dump_output(sqlString,sql_paramters, connectionString, input_directory + 'aaa.csv')
     output=db_util.execute_sql(sqlString,sql_paramters,connectionString)
+    print output

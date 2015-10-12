@@ -251,8 +251,9 @@ def run(reload_check_button_status=None,log_dropdown_status=None,core_analysis =
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
-        #prepare SQLs to be run
-        sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
+        db_type = db_util.db_type
+        #prepare datamart configuration SQLs to be run
+        sqlfile = open(sql_directory+db_type+'\\'+query_ps_time_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line

@@ -479,8 +479,9 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
+        db_type = db_util.db_type
         #prepare datamart configuration SQLs to be run
-        sqlfile = open(sql_directory+query_dm_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_dm_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -492,7 +493,8 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         db_util.dump_output(sqlString, None, connectionString, input_directory + dm_config_file)
 
         #prepare sensitivities SQLs to be run
-        sqlfile = open(sql_directory+query_sensi_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_sensi_sql, 'r+')
+
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -504,7 +506,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         db_util.dump_output(sqlString, None, connectionString, input_directory + sensi_file)
 
         #prepare simulation context SQLs to be run
-        sqlfile = open(sql_directory+query_simulation_context_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_simulation_context_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -517,7 +519,8 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
 
 
         #prepare dm defintion SQLs to be run
-        sqlfile = open(sql_directory+query_dm_defintion_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_dm_defintion_sql, 'r+')
+
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line

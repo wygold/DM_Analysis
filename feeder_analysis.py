@@ -608,6 +608,39 @@ def check_dynamic_table_post_filter(input_directory,input_file) :
     logger.info('End running check_dynamic_table_post_filter on file %s%s.',input_directory,input_file)
     return final_result
 
+#check dynamic table reference number
+def check_batch_feeder_computing_dates(input_directory,input_file) :
+    raw_file= open(input_directory+input_file, 'r')
+
+    logger = logging.getLogger(__name__)
+    logger.info('Start to run check_batch_feeder_computing_dates on file %s%s.',input_directory,input_file)
+
+    final_result=[['Batch of feeder running on more than 1 computing date']]
+    final_result.append(['Batch of feeder name','Computing date 0','Computing date 1','Computing date 2'])
+    result = []
+
+    batch_feeders = dict()
+
+    for line in raw_file:
+        fields = line.split(' | ')
+
+        batch_feeder = fields[2].strip()
+        computing_dates = fields[6].strip().split(' ,')
+
+        if batch_feeder<>'' and len(computing_dates)==3:
+            if computing_dates[1] <>'NS' or computing_dates[0] <>'NS' :
+                batch_feeders[batch_feeder]=[computing_dates[0],computing_dates[1],computing_dates[2]]
+
+    for batch_feeder, computing_dates in batch_feeders.iteritems():
+         result.append([batch_feeder,computing_dates[0],computing_dates[1],computing_dates[2]])
+
+
+    logger.debug('Sort the result')
+    sorted_result = sorted(result,key=itemgetter(0),reverse=False)
+    final_result.extend(sorted_result)
+
+    logger.info('End running check_batch_feeder_computing_dates on file %s%s.',input_directory,input_file)
+    return final_result
 
 
 #create the content page
@@ -694,9 +727,9 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         #prepare connection string
         db_util = db_utility(log_level,log_directory+log_file)
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
-
+        db_type = db_util.db_type
         #prepare datamart configuration SQLs to be run
-        sqlfile = open(sql_directory+query_dm_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_dm_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -714,7 +747,7 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
         connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
 
         #prepare SQLs to be run
-        sqlfile = open(sql_directory+query_ps_time_sql, 'r+')
+        sqlfile = open(sql_directory+db_type+'\\'+query_ps_time_sql, 'r+')
         sqlString= ''
         for line in sqlfile:
             sqlString = sqlString + line
@@ -827,6 +860,13 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
     if core_analysis == None or 'Post_filter' in core_analysis :
         result=check_dynamic_table_post_filter(input_directory,dm_config_file)
         work_sheet_name='Post_filter'
+        work_books_content[work_sheet_name]=result
+        work_sheet_names.append(work_sheet_name)
+
+    #6. check post filter defined in dynamic table
+    if core_analysis == None or 'Computing_dates' in core_analysis :
+        result=check_batch_feeder_computing_dates(input_directory,dm_config_file)
+        work_sheet_name='Computing_dates'
         work_books_content[work_sheet_name]=result
         work_sheet_names.append(work_sheet_name)
 
