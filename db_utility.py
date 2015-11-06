@@ -65,7 +65,8 @@ class db_utility:
         DbDatabaseOrSchemaName= tree.find('./MxAnchors/MxAnchor/DbDatabaseOrSchemaName')
         dbUser=tree.find('./MxAnchors/MxAnchor/DbDefaultCredential/DbUser')
         dbPassword=tree.find('./MxAnchors/MxAnchor/DbDefaultCredential/DbUser')
-        if dbServerType == 'oracle' :
+
+        if dbServerType.text == 'oracle' :
             self.connectionString=dbUser.text+'/'+dbPassword.text+'@'+dbHostName.text+':'+dbServerPortNumber.text\
                          +'/'+dbServerOrServiceName.text
         else:
@@ -241,11 +242,11 @@ class db_utility:
         sql = self.prepare_sql(sql, sql_paramters)
 
         con = pyodbc.connect(connectionString)
+        print sql
         cur = con.cursor()
 #        cur.arraysize = 2000
         self.logger.debug('SQL for file dump: \n %s', sql)
         cur.execute(sql)
-        print sql
         self.logger.info('Open dump file: %s',dump_file_name)
         raw_file = open(dump_file_name, 'w+')
 
@@ -278,7 +279,7 @@ class db_utility:
         self.initialize_log(log_level,log_file)
         self.logger.debug('Initialize db_utility class')
 
-if __name__ == "1__main__":
+if __name__ == "__main__":
     property_directory = os.getcwd() + '\properties\\'
     mxDbsource_file = 'dbsource.mxres'
     db_util = db_utility()
@@ -293,7 +294,7 @@ if __name__ == "1__main__":
         print row
 
 
-if __name__ == "__main__":
+if __name__ == "1__main__":
     #define directories
     input_directory = os.getcwd() + '\Input\\'
     output_directory = os.getcwd() + '\Output\\'
