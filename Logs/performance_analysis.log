@@ -1,0 +1,871 @@
+2015-11-05 18:25:54,996 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:25:54,997 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:25:54,997 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-05 18:25:55,003 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-05 18:26:23,546 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:26:23,549 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:26:23,552 - db_utility - DEBUG - Initialize db_utility class
+2015-11-05 18:26:23,552 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-11-05 18:26:23,552 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-05 18:26:23,562 - db_utility - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=BALSAM;Port=1521;DATABASE=INT_REP_PG_MX;UID=INT_REP_PG_MX;PWD=INSTALL
+2015-11-05 18:26:23,562 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-05 18:26:23,562 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2015-11-05 18:26:23,563 - db_utility - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substr(M_COMMENT, INSTR(M_COMMENT,'step')+5, INSTR(M_COMMENT, '/')- 
+			INSTR(M_COMMENT,'step') - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	T1.M_STEP=T2.M_STEP
+2015-11-05 18:26:23,563 - db_utility - DEBUG - Start to mapping sql_paramter START_DATE with value 2015-05-10.
+2015-11-05 18:26:23,565 - db_utility - DEBUG - Start to mapping sql_paramter END_DATE with value 2015-09-30.
+2015-11-05 18:26:23,565 - db_utility - DEBUG - End SQL prepartion.
+2015-11-05 18:28:39,243 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:28:39,246 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:28:39,246 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-05 18:28:39,253 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-05 18:28:53,717 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:28:53,717 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:28:53,719 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-05 18:28:53,726 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-05 18:29:12,259 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:29:12,259 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:29:12,260 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-05 18:29:12,266 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:15:09,880 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-18 14:15:09,882 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:15:09,884 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-11-18 14:15:09,884 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:15:09,885 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-11-18 14:15:09,887 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2015-11-18 14:15:09,887 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2015-11-18 14:15:09,888 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:15:09,901 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:15:09,914 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:15:09,914 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:09,915 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:09,917 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:09,921 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:15:09,928 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:15:09,930 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:09,930 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:09,931 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:09,934 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:15:09,951 - performance_analysis - INFO - end running performance_analysis.py.
+2015-11-18 14:15:12,186 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:15:12,186 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:12,187 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:12,197 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:15:12,197 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:15:12,198 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:12,198 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:12,210 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:15:12,211 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:15:12,213 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:12,213 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:12,214 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:15:13,078 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:15:13,079 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:13,079 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:13,094 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:15:13,095 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:15:13,095 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:13,095 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:13,108 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:15:13,109 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:15:13,111 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:13,111 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:13,115 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:15:13,118 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:13,119 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:13,121 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:13,128 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:13,130 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:15:13,131 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:13,131 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:13,170 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:15:16,667 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-18 14:15:16,668 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:15:16,668 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-11-18 14:15:16,670 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:15:16,670 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-11-18 14:15:16,671 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:15:16,671 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,673 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,684 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:15:16,686 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:15:16,687 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,687 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,697 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:15:16,697 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:15:16,697 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,698 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,700 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:15:16,700 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:16,701 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,701 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,710 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:16,710 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:15:16,710 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,711 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,743 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:15:16,744 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:15:16,746 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,746 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,749 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:15:16,750 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:16,750 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,750 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,763 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:16,765 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:15:16,766 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,766 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:16,776 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:15:16,778 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:15:16,779 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:16,792 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:17,559 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:15:17,561 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:15:17,562 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:17,562 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:17,563 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:15:17,563 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:15:17,565 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:17,565 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:17,568 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:15:17,569 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:15:17,569 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:17,582 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:18,674 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:15:18,678 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:15:18,680 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:18,693 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,467 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:15:19,470 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:15:19,470 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,473 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,516 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:15:19,517 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:15:19,517 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,519 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,519 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:15:19,520 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:15:19,520 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,522 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,523 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:15:19,523 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:15:19,529 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:15:19,538 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:15:19,538 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,539 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,539 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,552 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:15:19,559 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:15:19,561 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,562 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,562 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,575 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:15:19,584 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:15:19,585 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,585 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,585 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,589 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:15:19,598 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:19,598 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,599 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,599 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,607 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:19,617 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:15:19,618 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,618 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,619 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,647 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:15:19,657 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:15:19,657 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,658 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,660 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,664 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:15:19,677 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:19,678 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,680 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,680 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,697 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:19,707 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:15:19,710 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,710 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,710 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:19,723 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:15:19,733 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:15:19,733 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:19,746 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:19,746 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:20,571 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:15:20,579 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:15:20,581 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:20,582 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:20,582 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:20,585 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:15:20,598 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:15:20,598 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:20,598 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:20,599 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:20,605 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:15:20,618 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:15:20,619 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:20,634 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:20,634 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:21,641 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:15:21,651 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:15:21,653 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:21,664 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:21,665 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:22,503 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:15:22,515 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:15:22,516 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:22,516 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:22,517 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:22,568 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:15:22,579 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:15:22,581 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:22,582 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:22,582 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:22,586 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:15:22,599 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:15:22,601 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:22,601 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:22,602 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:22,605 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:15:27,078 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:15:27,084 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:15:27,092 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:15:27,092 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,092 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,094 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,099 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:15:27,108 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:15:27,108 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,108 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,108 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,121 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:15:27,128 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:15:27,130 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,131 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,131 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,135 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:15:27,147 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-11-18 14:15:27,147 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,148 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,148 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,164 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-11-18 14:15:27,173 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-11-18 14:15:27,174 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,174 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,174 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,178 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-11-18 14:15:27,188 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-11-18 14:15:27,190 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,193 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,194 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:27,367 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-11-18 14:15:27,378 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-11-18 14:15:27,381 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:27,423 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:27,424 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:29,339 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-11-18 14:15:29,355 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Summary
+2015-11-18 14:15:29,355 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:29,357 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:29,357 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:29,361 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Summary
+2015-11-18 14:15:29,371 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Detail
+2015-11-18 14:15:29,371 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:29,371 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:29,371 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:29,382 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Detail
+2015-11-18 14:15:32,026 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:15:32,029 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:15:32,038 - io_utility - INFO - Start to create worksheet Fields_Check
+2015-11-18 14:15:32,039 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:32,039 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:32,039 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:32,042 - io_utility - INFO - End creating worksheet Fields_Check
+2015-11-18 14:15:32,052 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:32,053 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:32,053 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:32,055 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:32,062 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:15:32,071 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:15:32,072 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:32,072 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:32,072 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:32,102 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:15:37,726 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:15:37,732 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:15:37,740 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:15:37,742 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,742 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,742 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:37,746 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:15:37,756 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:37,757 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,759 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,759 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:37,776 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:15:37,782 - io_utility - INFO - Start to create worksheet Summary_T_FEED_1
+2015-11-18 14:15:37,783 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,783 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,785 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:37,790 - io_utility - INFO - End creating worksheet Summary_T_FEED_1
+2015-11-18 14:15:37,801 - io_utility - INFO - Start to create worksheet T_FEED_VS_DM
+2015-11-18 14:15:37,802 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,802 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,802 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:37,875 - io_utility - INFO - End creating worksheet T_FEED_VS_DM
+2015-11-18 14:15:37,884 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:15:37,884 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,885 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,885 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:37,898 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:15:37,907 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:15:37,908 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:37,920 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:37,920 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:38,561 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:15:38,575 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:15:38,576 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:38,578 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:38,578 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:38,582 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:15:38,592 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:15:38,592 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:38,592 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:38,594 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:38,596 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:15:38,611 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:15:38,615 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:38,625 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:38,625 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:39,461 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:15:39,470 - io_utility - INFO - Start to create worksheet BOF_SIZE
+2015-11-18 14:15:39,471 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:39,486 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:39,486 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:39,845 - io_utility - INFO - End creating worksheet BOF_SIZE
+2015-11-18 14:15:39,855 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-11-18 14:15:39,857 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:39,861 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:39,862 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:40,253 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-11-18 14:15:40,263 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:15:40,263 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:40,275 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:40,276 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:40,946 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:15:40,957 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:15:40,957 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:40,960 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:40,960 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:41,000 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:15:41,016 - io_utility - INFO - Start to create worksheet Computing_dates
+2015-11-18 14:15:41,016 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:15:41,019 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:15:41,019 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:15:41,075 - io_utility - INFO - End creating worksheet Computing_dates
+2015-11-18 14:34:36,861 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-18 14:34:36,864 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:34:36,865 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-11-18 14:34:36,865 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:34:36,865 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-11-18 14:34:36,865 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2015-11-18 14:34:36,867 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2015-11-18 14:34:36,867 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:34:36,869 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:34:36,878 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:34:36,878 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:34:36,878 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:34:36,880 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:34:36,881 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:34:36,888 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:34:36,890 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:34:36,890 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:34:36,891 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:34:36,891 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:34:36,895 - performance_analysis - INFO - end running performance_analysis.py.
+2015-11-18 14:35:41,253 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-18 14:35:41,255 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-18 14:35:41,255 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:35:41,273 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:35:44,223 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:35:44,224 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:35:44,927 - db_utility - INFO - End write file.
+2015-11-18 14:35:44,930 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:35:44,956 - performance_analysis - INFO - Filtering the result old than : 2335 days
+2015-11-18 14:35:44,963 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-11-18 14:35:44,964 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:35:44,967 - performance_analysis - INFO - Sort the result.
+2015-11-18 14:35:44,970 - performance_analysis - INFO - Highlight the batch of feeder running longer than : 00:20:00
+2015-11-18 14:35:44,970 - performance_analysis - INFO - Highlight the batch of extraction running longer than : 00:01:00
+2015-11-18 14:35:44,971 - performance_analysis - INFO - Filtering the result old than : 2335 days
+2015-11-18 14:35:44,983 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-11-18 14:35:44,984 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2015-11-18 14:35:44,986 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2015-11-18 14:35:44,986 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:35:44,987 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:35:44,994 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:35:44,994 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:35:44,996 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:35:44,996 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:35:45,032 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:35:45,039 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:35:45,039 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:35:45,040 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:35:45,040 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:35:45,155 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:35:45,206 - performance_analysis - INFO - end running performance_analysis.py.
+2015-11-18 14:35:46,227 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:35:46,240 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:35:50,206 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:35:50,216 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:35:52,015 - db_utility - INFO - End write file.
+2015-11-18 14:35:52,055 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-11-18 14:35:53,911 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv
+2015-11-18 14:35:53,911 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:35:54,655 - db_utility - INFO - End write file.
+2015-11-18 14:35:54,680 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\simulation_context.csv.
+2015-11-18 14:35:56,842 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\simulation_context.csv
+2015-11-18 14:35:56,845 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:35:58,473 - db_utility - INFO - End write file.
+2015-11-18 14:35:58,490 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-11-18 14:36:00,302 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2015-11-18 14:36:00,308 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:01,966 - db_utility - INFO - End write file.
+2015-11-18 14:36:02,010 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:36:02,010 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:02,012 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:02,013 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:36:02,013 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:36:02,013 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:02,013 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:02,015 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:36:02,016 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:36:02,016 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:02,016 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:02,016 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:36:02,020 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:02,026 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:36:05,030 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:36:05,032 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:06,990 - db_utility - INFO - End write file.
+2015-11-18 14:36:06,993 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsourcerep.mxres
+2015-11-18 14:36:07,010 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_size.csv.
+2015-11-18 14:36:16,368 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_size.csv
+2015-11-18 14:36:16,369 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:18,216 - db_utility - INFO - End write file.
+2015-11-18 14:36:18,249 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:36:18,250 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:18,250 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:18,252 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:36:18,252 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:36:18,253 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:18,253 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:18,253 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:36:18,253 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:36:18,255 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:18,255 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:18,256 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:36:18,256 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:18,256 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:18,257 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:18,259 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:18,259 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:36:18,259 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:18,260 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:18,269 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:36:18,273 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:18,276 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:36:20,463 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:36:20,464 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:22,069 - db_utility - INFO - End write file.
+2015-11-18 14:36:22,082 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:22,101 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:36:23,898 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:36:23,901 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:24,591 - db_utility - INFO - End write file.
+2015-11-18 14:36:24,686 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-18 14:36:24,687 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-18 14:36:24,687 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:24,688 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:36:26,509 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:36:26,512 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:27,197 - db_utility - INFO - End write file.
+2015-11-18 14:36:27,197 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:36:27,246 - performance_analysis - INFO - Filtering the result old than : 143 days
+2015-11-18 14:36:27,259 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-11-18 14:36:27,259 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:36:27,262 - performance_analysis - INFO - Sort the result.
+2015-11-18 14:36:27,263 - performance_analysis - INFO - Highlight the batch of feeder running longer than : 00:20:00
+2015-11-18 14:36:27,263 - performance_analysis - INFO - Highlight the batch of extraction running longer than : 00:01:00
+2015-11-18 14:36:27,265 - performance_analysis - INFO - Filtering the result old than : 143 days
+2015-11-18 14:36:27,275 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-11-18 14:36:27,279 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:36:27,279 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,280 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,282 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:36:27,289 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:36:27,289 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,289 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,290 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:36:27,292 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:36:27,292 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,292 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,295 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:36:27,295 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:27,296 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,296 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,298 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:27,299 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:36:27,299 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,301 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,315 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:36:27,318 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:36:27,319 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,319 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,321 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:36:27,322 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:36:27,326 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,328 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,328 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:36:27,329 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:36:27,331 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,331 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,332 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:36:27,334 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:36:27,335 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,335 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,346 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:36:27,349 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:36:27,352 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,354 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,355 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:36:27,355 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:36:27,357 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,357 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,358 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:36:27,361 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:36:27,362 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,364 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,380 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:36:27,381 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:36:27,381 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,381 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,411 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:36:27,411 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:36:27,413 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,414 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,417 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:36:27,417 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:36:27,417 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,420 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,459 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:36:27,460 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:36:27,460 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,463 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,553 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:36:27,555 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:36:27,563 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:36:27,573 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:36:27,575 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,575 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,575 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,578 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:36:27,586 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:36:27,588 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,588 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,588 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,592 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:36:27,599 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:36:27,601 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,601 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,601 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,605 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:36:27,611 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:27,611 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,611 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,612 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,618 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:27,628 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:36:27,628 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,630 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,630 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,641 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:36:27,650 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:36:27,651 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,651 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,651 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,654 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:36:27,661 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:36:27,661 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,661 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,664 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,667 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:36:27,673 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:36:27,674 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,674 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,676 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,678 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:36:27,687 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:36:27,688 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,688 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,690 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,703 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:36:27,711 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:36:27,713 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,713 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,713 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,717 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:36:27,740 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:36:27,740 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,742 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,742 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,744 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:36:27,753 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:36:27,753 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,755 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,755 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,776 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:36:27,785 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:36:27,786 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,786 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,786 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,818 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:36:27,828 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:36:27,828 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,828 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,829 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,836 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:36:27,846 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-11-18 14:36:27,848 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,848 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,849 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:27,898 - io_utility - INFO - End creating worksheet Processing script performance
+2015-11-18 14:36:27,910 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-11-18 14:36:27,911 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:27,911 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:27,914 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:28,049 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-11-18 14:36:29,154 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:29,155 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:36:31,371 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:36:31,372 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:33,053 - db_utility - INFO - End write file.
+2015-11-18 14:36:33,066 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-11-18 14:36:34,855 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv
+2015-11-18 14:36:34,874 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:35,542 - db_utility - INFO - End write file.
+2015-11-18 14:36:35,551 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\simulation_context.csv.
+2015-11-18 14:36:37,371 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\simulation_context.csv
+2015-11-18 14:36:37,372 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:38,986 - db_utility - INFO - End write file.
+2015-11-18 14:36:38,990 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-11-18 14:36:40,760 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2015-11-18 14:36:40,762 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:42,431 - db_utility - INFO - End write file.
+2015-11-18 14:36:42,530 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:36:42,536 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:36:42,543 - io_utility - INFO - Start to create worksheet Field_Check
+2015-11-18 14:36:42,543 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,545 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,545 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,548 - io_utility - INFO - End creating worksheet Field_Check
+2015-11-18 14:36:42,555 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-11-18 14:36:42,556 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,556 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,558 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,561 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-11-18 14:36:42,569 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-11-18 14:36:42,572 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,572 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,573 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,578 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-11-18 14:36:42,585 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-11-18 14:36:42,585 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,585 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,585 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,588 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-11-18 14:36:42,596 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-11-18 14:36:42,598 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,598 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,598 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,602 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-11-18 14:36:42,611 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-11-18 14:36:42,612 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,615 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,615 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:42,683 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-11-18 14:36:42,690 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-11-18 14:36:42,691 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:42,698 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:42,700 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:43,010 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-11-18 14:36:43,020 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Summary
+2015-11-18 14:36:43,022 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:43,022 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:43,023 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:43,028 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Summary
+2015-11-18 14:36:43,039 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Detail
+2015-11-18 14:36:43,042 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:43,042 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:43,043 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:43,049 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Detail
+2015-11-18 14:36:44,214 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:44,217 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:36:46,315 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:36:46,315 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:48,032 - db_utility - INFO - End write file.
+2015-11-18 14:36:48,046 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsourcerep.mxres
+2015-11-18 14:36:48,052 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_size.csv.
+2015-11-18 14:36:56,743 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_size.csv
+2015-11-18 14:36:56,747 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:36:57,424 - db_utility - INFO - End write file.
+2015-11-18 14:36:57,466 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:36:57,467 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:36:57,476 - io_utility - INFO - Start to create worksheet Fields_Check
+2015-11-18 14:36:57,476 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:57,476 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:57,476 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:57,479 - io_utility - INFO - End creating worksheet Fields_Check
+2015-11-18 14:36:57,486 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:57,486 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:57,486 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:57,487 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:57,490 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2015-11-18 14:36:57,497 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2015-11-18 14:36:57,499 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:36:57,499 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:36:57,500 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:36:57,536 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2015-11-18 14:36:58,558 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:36:58,559 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-11-18 14:37:00,532 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\source.csv
+2015-11-18 14:37:00,536 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:37:02,224 - db_utility - INFO - End write file.
+2015-11-18 14:37:02,236 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-11-18 14:37:02,243 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-11-18 14:37:04,040 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-11-18 14:37:04,043 - db_utility - INFO - Execute sql in batch
+2015-11-18 14:37:04,736 - db_utility - INFO - End write file.
+2015-11-18 14:37:04,851 - io_utility - INFO - Start to create worksheet Content
+2015-11-18 14:37:04,858 - io_utility - INFO - End creating worksheet Content
+2015-11-18 14:37:04,868 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2015-11-18 14:37:04,871 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,872 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,872 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,875 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2015-11-18 14:37:04,885 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:37:04,887 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,888 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,888 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,891 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2015-11-18 14:37:04,898 - io_utility - INFO - Start to create worksheet Summary_T_FEED_1
+2015-11-18 14:37:04,900 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,900 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,901 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,904 - io_utility - INFO - End creating worksheet Summary_T_FEED_1
+2015-11-18 14:37:04,911 - io_utility - INFO - Start to create worksheet T_FEED_VS_DM
+2015-11-18 14:37:04,911 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,913 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,913 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,917 - io_utility - INFO - End creating worksheet T_FEED_VS_DM
+2015-11-18 14:37:04,927 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2015-11-18 14:37:04,927 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,927 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,928 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,934 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2015-11-18 14:37:04,947 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2015-11-18 14:37:04,948 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,948 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,950 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,970 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2015-11-18 14:37:04,977 - io_utility - INFO - Start to create worksheet Summary_BOF
+2015-11-18 14:37:04,979 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,980 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,980 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,983 - io_utility - INFO - End creating worksheet Summary_BOF
+2015-11-18 14:37:04,992 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2015-11-18 14:37:04,993 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:04,993 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:04,993 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:04,996 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2015-11-18 14:37:05,005 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-11-18 14:37:05,006 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,006 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,006 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,026 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-11-18 14:37:05,035 - io_utility - INFO - Start to create worksheet BOF_SIZE
+2015-11-18 14:37:05,036 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,036 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,036 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,051 - io_utility - INFO - End creating worksheet BOF_SIZE
+2015-11-18 14:37:05,061 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-11-18 14:37:05,062 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,062 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,063 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,069 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-11-18 14:37:05,078 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-11-18 14:37:05,078 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,079 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,081 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,105 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-11-18 14:37:05,117 - io_utility - INFO - Start to create worksheet Post_filter
+2015-11-18 14:37:05,117 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,118 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,118 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,122 - io_utility - INFO - End creating worksheet Post_filter
+2015-11-18 14:37:05,131 - io_utility - INFO - Start to create worksheet Computing_dates
+2015-11-18 14:37:05,131 - io_utility - INFO - Start to add a sequence col to the content 
+2015-11-18 14:37:05,131 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-11-18 14:37:05,132 - io_utility - INFO - Start to add review to the content
+2015-11-18 14:37:05,137 - io_utility - INFO - End creating worksheet Computing_dates

@@ -1,0 +1,16 @@
+ORCHARD =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = orchard.sg.murex.com)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orchard.sg.murex.com)
+    )
+  )
+
+CENTRAL =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = central.sg.murex.com)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVICE_NAME = central)
+    )
+  )

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><DbSource>
+  <MxAnchors>
+    <MxAnchor Code="DBSOURCE">
+      <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
+      <DbIsDistributed/>
+      <DbServerType>sybase</DbServerType>
+      <DbHostName>MX2679VM</DbHostName>
+      <DbServerPortNumber>4100</DbServerPortNumber>
+      <DbServerOrServiceName>MX2679VM</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>HSBCXFOS_07FEV15_FXCLOSING</DbDatabaseOrSchemaName>
+      <DbDataModificationServerOrServiceName/>
+      <DbCharacterSet/>
+      <DbMxMaxTextSize>15000000</DbMxMaxTextSize>
+      <DbMxNetworkPacketSize>4096</DbMxNetworkPacketSize>
+      <DbMxTCPNoDelay>Y</DbMxTCPNoDelay>
+      <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
+      <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
+      <DbMxClientAccess/>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
+      <DbDefaultCredential>
+        <DbUser>INSTAL</DbUser>
+        <DbPassword>0050009100510056008700570057</DbPassword>
+        <ReportingUser>actuate</ReportingUser>
+        <ReportingPassword>00d2004300230044008500d400c500c0004600470030</ReportingPassword>
+      </DbDefaultCredential>
+      <DbDefaultPool>
+        <DbJDBCPoolSize>2</DbJDBCPoolSize>
+        <DbJDBCPoolMaxSize>200</DbJDBCPoolMaxSize>
+        <DbMxPoolSize>3</DbMxPoolSize>
+        <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
+        <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
+      </DbDefaultPool>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+    </MxAnchor>
+  </MxAnchors>
+  </DbSource>

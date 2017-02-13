@@ -1,0 +1,496 @@
+2015-01-14 14:09:09,869 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:09,871 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,877 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,904 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,904 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:09:09,904 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,911 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,911 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:09:09,913 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,921 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,924 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:09:09,926 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,931 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,937 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,950 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,959 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,970 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,979 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:09,994 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,003 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,019 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,026 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,043 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,055 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,076 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,086 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:10,137 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:28,828 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:28,831 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,839 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,875 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,878 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:09:28,881 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,894 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,897 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:09:28,900 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,907 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,911 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:09:28,914 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,924 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,927 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,941 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,950 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,963 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,973 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,989 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:28,996 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,009 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,019 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,036 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,048 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,072 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,082 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:29,130 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:43,898 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:43,901 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,911 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,938 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,941 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:09:43,946 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,954 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,957 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:09:43,976 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,983 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:43,987 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:09:43,990 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,003 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,006 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,023 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,036 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,049 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,056 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,076 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,085 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,101 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,114 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,134 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,144 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,167 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,177 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:44,219 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:03,714 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:10:03,719 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,727 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,757 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,762 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:10:03,765 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,773 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,778 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:10:03,782 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,790 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,795 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:10:03,799 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,808 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,813 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,832 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,842 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,854 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,865 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,882 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,891 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,904 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,913 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,936 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,946 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,964 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:03,973 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:04,016 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:08,286 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:10:08,289 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,299 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,335 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,338 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:10:08,342 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,352 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,357 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:10:08,359 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,369 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,374 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:10:08,377 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,384 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,388 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,404 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,414 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,427 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,436 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,450 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,460 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,473 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,483 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,513 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,526 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,546 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,558 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:08,598 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:27,868 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:10:27,872 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,882 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,914 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,918 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:10:27,923 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,931 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,936 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:10:27,940 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,947 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,953 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:10:27,957 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,967 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,973 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:27,992 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,000 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,015 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,025 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,045 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,055 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,071 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,079 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,101 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,111 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,137 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,145 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:28,190 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:13:57,157 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:13:57,163 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,173 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,207 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,211 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-01-14 14:13:57,216 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,224 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,230 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-01-14 14:13:57,233 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,244 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,249 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-01-14 14:13:57,253 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,262 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,266 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,282 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,290 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,306 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,316 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,335 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,345 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,361 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,371 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,390 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,401 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,421 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,430 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:57,467 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2015-02-02 14:24:56,502 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-02-02 14:24:56,503 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,513 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,539 - feeder_analysis - INFO - Start to run check_duplicate_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,542 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2015-02-02 14:24:56,542 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,552 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,553 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2015-02-02 14:24:56,555 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,565 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,565 - feeder_analysis - INFO - Process how batch feeders are refernced by processing scripts
+2015-02-02 14:24:56,566 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,578 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,579 - feeder_analysis - INFO - End running check_duplicate_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,586 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,596 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,607 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,621 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,634 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,644 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,653 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,663 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,678 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,688 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,703 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,713 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:56,752 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 16:55:41,661 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:55:41,661 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:55:46,686 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,687 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-06 16:55:46,687 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,688 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,690 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,690 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,691 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,698 - feeder_analysis - INFO - Start to run check_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,698 - feeder_analysis - INFO - Process how many datamart tables are used in a single feeder
+2016-01-06 16:55:46,700 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,701 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,703 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,703 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,706 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,707 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,707 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-06 16:55:46,709 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,710 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,711 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,713 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,714 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,716 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,717 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-06 16:55:46,717 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,720 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,720 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,721 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,723 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,724 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,727 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,727 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,730 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,732 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,750 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,752 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,755 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,756 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,756 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,757 - feeder_analysis - INFO - Start to run check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,759 - feeder_analysis - INFO - End running check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:46,760 - feeder_analysis - INFO - Start to run create_content_page for 14 sheets.
+2016-01-06 16:55:46,762 - feeder_analysis - INFO - End running create_content_page for 14 sheets.
+2016-01-06 16:55:47,007 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 17:29:51,809 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:29:51,811 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:29:56,813 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,815 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-06 17:29:56,835 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,839 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,841 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,842 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,845 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,849 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,851 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-06 17:29:56,851 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,855 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,855 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,857 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,859 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,861 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,861 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-06 17:29:56,862 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,865 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,867 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,868 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,871 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,871 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,875 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,875 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,878 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,880 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:56,882 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:38,516 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:31:38,517 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:31:43,513 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,515 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-06 17:31:43,523 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,588 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,588 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,591 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,654 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,655 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,657 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-06 17:31:43,657 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,717 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,720 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,723 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,786 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,788 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,789 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-06 17:31:43,789 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,826 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,831 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,835 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,901 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:43,904 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:44,000 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:44,000 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:44,101 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:44,104 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:44,108 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:06,704 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:33:06,710 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:33:11,736 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,740 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-06 17:33:11,743 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,799 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,801 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,802 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,852 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,854 - feeder_analysis - INFO - Start to run check_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,855 - feeder_analysis - INFO - Process how many datamart tables are used in a single feeder
+2016-01-06 17:33:11,855 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,924 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,931 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,934 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,983 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,984 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:11,986 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-06 17:33:11,989 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,052 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,053 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,055 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,108 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,108 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,109 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-06 17:33:12,111 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,138 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,138 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,138 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,168 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,171 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,226 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,226 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,303 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,306 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,395 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,397 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,476 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,479 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,483 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,484 - feeder_analysis - INFO - Start to run check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,487 - feeder_analysis - INFO - End running check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:12,489 - feeder_analysis - INFO - Start to run create_content_page for 14 sheets.
+2016-01-06 17:33:12,490 - feeder_analysis - INFO - End running create_content_page for 14 sheets.
+2016-01-06 17:33:12,779 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-13 14:12:09,119 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 14:12:09,121 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 16:45:01,848 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 16:45:01,848 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 16:46:12,431 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,434 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-13 16:46:12,437 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,463 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,466 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,467 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,496 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,497 - feeder_analysis - INFO - Start to run check_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,503 - feeder_analysis - INFO - Process how many datamart tables are used in a single feeder
+2016-01-13 16:46:12,505 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,530 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,532 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,533 - feeder_analysis - INFO - Start to run check_number_of_tables_in_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,558 - feeder_analysis - INFO - End running check_number_of_tables_in_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,559 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,559 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-13 16:46:12,561 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,591 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,592 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,595 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,628 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,628 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,630 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-13 16:46:12,630 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,657 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,658 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,660 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,686 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,687 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,716 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,717 - feeder_analysis - INFO - Start to run check_number_of_feeder_in_batch for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,746 - feeder_analysis - INFO - End running check_number_of_feeder_in_batch on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,747 - feeder_analysis - INFO - Start to run check_filter_conflict for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,776 - feeder_analysis - INFO - End running check_filter_conflict on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,776 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,808 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,809 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,835 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,836 - feeder_analysis - INFO - Start to run check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,864 - feeder_analysis - INFO - End running check_batch_feeder_computing_dates on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:12,865 - feeder_analysis - INFO - Start to run create_content_page for 14 sheets.
+2016-01-13 16:46:12,865 - feeder_analysis - INFO - End running create_content_page for 14 sheets.
+2016-01-13 16:46:13,303 - feeder_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-13 17:37:24,490 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:37:24,490 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,492 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-13 17:37:24,493 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,523 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,526 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,526 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,558 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,561 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,562 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-13 17:37:24,562 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,596 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,601 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,602 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,634 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,635 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,641 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-13 17:37:24,644 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,674 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,674 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,677 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,707 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,709 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,740 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,742 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,776 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,778 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,809 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,023 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:37:37,026 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,028 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-13 17:37:37,032 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,065 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,066 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,069 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,102 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,104 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,105 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-13 17:37:37,105 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,138 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,140 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,141 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,177 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,178 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,180 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-13 17:37:37,181 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,217 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,217 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,220 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,256 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,257 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,292 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,292 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,332 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,335 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:37,365 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:39:29,155 - feeder_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:39:29,157 - feeder_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:40:14,769 - feeder_analysis - INFO - Start to run check_duplicate_dm_table_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,769 - feeder_analysis - INFO - Process how datamart tables are refernced by feeders
+2016-01-13 17:40:14,770 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,799 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,802 - feeder_analysis - INFO - End running check_duplicate_dm_table_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,805 - feeder_analysis - INFO - Start to run check_duplicate_of_dm_table in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,829 - feeder_analysis - INFO - End running check_duplicate_of_dm_table on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,831 - feeder_analysis - INFO - Start to run check_duplicate_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,832 - feeder_analysis - INFO - Process how feeders are refernced by batch feeders
+2016-01-13 17:40:14,832 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,857 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,858 - feeder_analysis - INFO - End running check_duplicate_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,859 - feeder_analysis - INFO - Start to run check_duplicate_of_feeders in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,888 - feeder_analysis - INFO - End running check_duplicate_of_feeders on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,890 - feeder_analysis - INFO - Start to run check_duplicate_batch_feeder_summary in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,891 - feeder_analysis - INFO - Process how batch feeders are referenced by processing scripts
+2016-01-13 17:40:14,891 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,917 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,920 - feeder_analysis - INFO - End running check_duplicate_batch_feeder_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,921 - feeder_analysis - INFO - Start to run check_duplicate_of_batch_feeder in different batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,948 - feeder_analysis - INFO - End running check_duplicate_of_batch_feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,950 - feeder_analysis - INFO - Start to run check_scanner_engine_usage for batch of feeder on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,976 - feeder_analysis - INFO - End running check_scanner_engine_usage on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:14,979 - feeder_analysis - INFO - Start to run check_dataset_consistency on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:15,006 - feeder_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:15,006 - feeder_analysis - INFO - Start to run check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:15,032 - feeder_analysis - INFO - End running check_dynamic_table_post_filter on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.

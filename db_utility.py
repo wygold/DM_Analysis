@@ -110,6 +110,7 @@ class db_utility:
         if sql_paramters is None:
             return sql
 
+        #replace murex parameters with input values
         for parameter_name, parameter_value in sql_paramters.iteritems():
             self.logger.debug('Start to mapping sql_paramter %s with value %s.',parameter_name,parameter_value)
             if sql.find('@'+parameter_name+':D'):
@@ -120,6 +121,20 @@ class db_utility:
                 sql = sql.replace('@'+parameter_name+':C',formatted_value )
             if sql.find('@'+parameter_name+':N'):
                 sql = sql.replace('@'+parameter_name+':D',formatted_value )
+
+        #replace murex parameters with default values
+        for field in sql.split(" "):
+            if field.find('@'):
+                murex_parameter = field[field.count('@'):]
+                self.logger.debug('Start to mapping sql_paramter %s with default value.',murex_parameter)
+
+                if field.find(':D'):
+                    sql = sql.replace(murex_parameter,'20000101' )
+                elif field.find(':C'):
+                    sql = sql.replace(murex_parameter,'\'\'' )
+                elif field.find(':N'):
+                    sql = sql.replace(murex_parameter,'0' )
+
         self.logger.debug('End SQL prepartion.')
         return sql
 
@@ -156,6 +171,39 @@ class db_utility:
         cur.close()
         con.close()
         self.logger.info('End execute SQL.')
+        return result
+
+    def execute_plan_oracle_sql(self, sql, sql_paramters, connectionString, batch_mode = True):
+        self.logger.info('Start to execute explain plan oracle SQL.')
+        sql = self.prepare_sql('EXPLAIN PLAN FOR ' + sql, sql_paramters)
+        con = cx_Oracle.connect(connectionString)
+        cur = con.cursor()
+        cur.arraysize = 2000
+        self.logger.debug('SQL to execute explain plan: \n %s', sql)
+        cur.execute(sql)
+
+
+        fetchResultSQL = ('select * from  PLAN_TABLE where TIMESTAMP = (select max(TIMESTAMP) from PLAN_TABLE)')
+        self.logger.debug('SQL to fetch explain plan: \n %s', sql)
+        cur.execute(fetchResultSQL)
+
+        result = []
+
+        if batch_mode:
+            self.logger.info('Execute explain plan of sql in batch')
+            rows = cur.fetchall()
+            for row in rows:
+                result.append(row)
+        else :
+            self.logger.info('Execute explain plan sql in line by line')
+            row = cur.fetchone()
+            while row is not None:
+                result.append(row)
+                res = cur.fetchone()
+
+        cur.close()
+        con.close()
+        self.logger.info('End execute explain plan SQL.')
         return result
 
     def execute_sybase_sql(self, sql, sql_paramters, connectionString, batch_mode = True):

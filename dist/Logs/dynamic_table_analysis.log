@@ -1,0 +1,767 @@
+2015-01-14 14:08:20,668 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:08:20,684 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:08:20,690 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:08:20,703 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:08:20,710 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:08:20,719 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:08:20,724 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:08:20,739 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:08:20,743 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:08:20,756 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:08:20,809 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:08:20,819 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:20,888 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:21,042 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:21,150 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:22,599 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:08:56,558 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:08:56,561 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:08:56,568 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:08:56,569 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:08:56,572 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:08:56,575 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:08:56,582 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:08:56,585 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:08:56,589 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:08:56,592 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:08:56,599 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:08:56,602 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:08:56,611 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:08:56,614 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:08:56,617 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:08:56,619 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:08:56,627 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:08:56,628 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:08:56,680 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:08:56,684 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:08:56,687 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:08:56,690 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:56,746 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:56,750 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:08:56,881 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:08:56,884 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:57,009 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:08:57,017 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:08:58,132 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:08:58,469 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:09:04,663 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:04,667 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:04,681 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:09:04,690 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:09:04,703 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:09:04,707 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:09:09,877 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:09:09,901 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:09:09,938 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:09:09,946 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:09:09,961 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:09:09,967 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:09:09,980 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:09:09,992 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:09:10,006 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:10,015 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:10,029 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:09:10,040 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:09:10,056 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:09:10,068 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:09:10,089 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:09:10,098 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:09:14,964 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:09:14,969 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:09:14,976 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:09:14,980 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:14,983 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:14,987 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:09:14,996 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:09:15,000 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:09:15,005 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:09:15,006 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:09:15,016 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:09:15,019 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:09:15,029 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:09:15,033 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:09:15,036 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:09:15,040 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:09:15,046 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:09:15,049 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:09:15,104 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:09:15,108 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:09:15,111 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:09:15,115 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:15,174 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:15,178 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:09:15,319 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:09:15,322 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:15,473 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:15,483 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:09:16,645 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:09:16,982 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:09:21,236 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:21,240 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:21,253 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:09:21,259 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:09:21,275 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:09:21,278 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:09:24,190 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:09:24,194 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:09:24,209 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:09:24,213 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:09:28,842 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:09:28,871 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:09:28,931 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:09:28,937 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:09:28,953 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:09:28,960 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:09:28,976 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:09:28,986 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:09:29,000 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:29,006 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:29,022 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:09:29,032 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:09:29,052 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:09:29,065 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:09:29,085 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:09:29,095 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:09:34,585 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:09:34,588 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:09:34,596 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:09:34,602 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:34,607 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:34,611 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:09:34,621 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:09:34,624 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:09:34,628 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:09:34,634 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:09:34,641 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:09:34,647 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:09:34,655 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:09:34,658 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:09:34,664 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:09:34,667 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:09:34,674 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:09:34,677 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:09:34,733 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:09:34,736 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:09:34,740 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:09:34,744 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:34,805 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:34,811 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:09:34,946 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:09:34,950 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:35,094 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:09:35,104 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:09:36,180 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:09:36,516 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:09:39,918 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:39,923 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:39,938 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:09:39,946 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:09:39,963 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:09:39,967 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:09:43,914 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:09:43,934 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:09:44,012 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:09:44,019 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:09:44,039 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:09:44,045 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:09:44,061 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:09:44,072 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:09:44,088 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:44,096 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:09:44,118 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:09:44,131 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:09:44,148 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:09:44,158 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:09:44,180 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:09:44,187 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:09:49,437 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:09:49,440 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:09:49,453 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:09:49,457 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:10:16,684 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:10:16,688 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:10:16,697 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:10:16,710 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:10:16,717 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:10:16,730 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:10:16,740 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:10:16,757 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:10:16,763 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:10:16,779 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:10:16,825 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:10:16,836 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:16,901 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:17,065 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:17,187 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:18,747 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:10:23,687 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:10:23,694 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:10:23,717 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 200.
+2015-01-14 14:10:23,732 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:10:23,743 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 54.
+2015-01-14 14:10:23,757 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:10:23,766 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 1.
+2015-01-14 14:10:23,790 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:10:23,795 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\Input\computer_sensitivity_check.csv.
+2015-01-14 14:10:23,809 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:10:23,855 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\Input\source.csv and simulation_context.csv.
+2015-01-14 14:10:23,865 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:23,924 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:24,055 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:24,210 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2015-01-14 14:10:25,776 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-01-14 14:13:53,232 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-01-14 14:13:53,239 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 200.
+2015-01-14 14:13:53,256 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 200.
+2015-01-14 14:13:53,276 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 54.
+2015-01-14 14:13:53,292 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 54.
+2015-01-14 14:13:53,305 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2015-01-14 14:13:53,315 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2015-01-14 14:13:53,332 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2015-01-14 14:13:53,336 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2015-01-14 14:13:53,355 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2015-01-14 14:13:53,400 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2015-01-14 14:13:53,413 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-01-14 14:13:53,466 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-01-14 14:13:53,585 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-01-14 14:13:53,681 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-01-14 14:13:54,996 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2015-02-02 14:24:52,506 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2015-02-02 14:24:52,507 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 200.
+2015-02-02 14:24:52,513 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 200.
+2015-02-02 14:24:52,516 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 54.
+2015-02-02 14:24:52,523 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 54.
+2015-02-02 14:24:52,528 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2015-02-02 14:24:52,536 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2015-02-02 14:24:52,543 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2015-02-02 14:24:52,545 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2015-02-02 14:24:52,552 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2015-02-02 14:24:52,615 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2015-02-02 14:24:52,618 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-02-02 14:24:52,704 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-02-02 14:24:52,855 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-02-02 14:24:52,957 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2015-02-02 14:24:54,436 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2016-01-06 16:49:03,028 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:49:03,029 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:49:03,029 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:49:03,062 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:51:50,240 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:51:50,243 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:51:50,243 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:51:50,246 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:53:00,937 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:53:00,937 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:53:00,938 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:53:00,944 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:53:05,059 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:53:05,063 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:06,124 - db_utility - INFO - End write file.
+2016-01-06 16:53:06,150 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 16:53:07,980 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 16:53:07,980 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:08,673 - db_utility - INFO - End write file.
+2016-01-06 16:53:08,687 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 16:53:11,017 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 16:53:11,023 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:12,459 - db_utility - INFO - End write file.
+2016-01-06 16:53:12,482 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:53:14,276 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 16:53:14,276 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:14,959 - db_utility - INFO - End write file.
+2016-01-06 16:53:14,963 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 16:53:14,964 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:53:14,973 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:53:14,976 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:53:14,986 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:53:14,990 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:53:15,000 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:53:15,023 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:53:15,026 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:53:17,523 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:53:17,526 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:18,563 - db_utility - INFO - End write file.
+2016-01-06 16:53:18,566 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 16:53:18,582 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 16:53:52,454 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:53:52,457 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:53:52,457 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:53:52,460 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:53:54,515 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:53:54,516 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:55,203 - db_utility - INFO - End write file.
+2016-01-06 16:53:55,206 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 16:53:56,959 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 16:53:56,960 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:53:57,627 - db_utility - INFO - End write file.
+2016-01-06 16:53:57,631 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 16:53:59,444 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 16:53:59,447 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:00,522 - db_utility - INFO - End write file.
+2016-01-06 16:54:00,523 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:54:02,292 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 16:54:02,296 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:02,983 - db_utility - INFO - End write file.
+2016-01-06 16:54:02,987 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 16:54:02,990 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:02,999 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:03,000 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:03,003 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:03,005 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:03,006 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:03,026 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:54:03,029 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:54:05,098 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:54:05,099 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:05,801 - db_utility - INFO - End write file.
+2016-01-06 16:54:05,802 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 16:54:05,809 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 16:54:26,759 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:54:26,759 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:26,762 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:26,763 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:26,767 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:26,769 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:26,773 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:38,111 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:54:38,111 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:54:38,111 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:54:38,115 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:54:40,229 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:54:40,230 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:40,940 - db_utility - INFO - End write file.
+2016-01-06 16:54:40,950 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 16:54:42,717 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 16:54:42,717 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:43,378 - db_utility - INFO - End write file.
+2016-01-06 16:54:43,381 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 16:54:45,180 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 16:54:45,181 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:46,246 - db_utility - INFO - End write file.
+2016-01-06 16:54:46,249 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:54:48,017 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 16:54:48,022 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:48,706 - db_utility - INFO - End write file.
+2016-01-06 16:54:48,707 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 16:54:48,707 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:48,710 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 16:54:48,710 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:48,711 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:54:48,713 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:48,714 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:54:48,727 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:54:48,730 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:54:50,783 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:54:50,786 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:54:51,499 - db_utility - INFO - End write file.
+2016-01-06 16:54:51,502 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 16:54:51,503 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 16:55:04,071 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 16:55:04,076 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-06 16:55:04,079 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-06 16:55:04,081 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:55:04,084 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 16:55:04,085 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:55:04,086 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 16:55:04,088 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 16:55:04,089 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 16:55:04,091 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-06 16:55:04,108 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-06 16:55:04,108 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:55:04,115 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:55:04,117 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:55:04,128 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 16:55:04,128 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:04,132 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:04,134 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:04,137 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:04,137 - dynamic_table_analysis - INFO - Start to run create_content_page for 9 sheets.
+2016-01-06 16:55:04,138 - dynamic_table_analysis - INFO - End running create_content_page for 9 sheets.
+2016-01-06 16:55:04,430 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2016-01-06 16:55:26,832 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:55:26,838 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 16:55:28,723 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 16:55:28,727 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:55:29,200 - db_utility - INFO - End write file.
+2016-01-06 16:55:41,661 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:55:41,664 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:43,730 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:55:43,732 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:55:44,417 - db_utility - INFO - End write file.
+2016-01-06 16:55:44,427 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:55:44,428 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 16:55:46,210 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 16:55:46,213 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:55:46,684 - db_utility - INFO - End write file.
+2016-01-06 16:55:51,638 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:55:51,642 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:55:53,707 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:55:53,710 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:55:54,407 - db_utility - INFO - End write file.
+2016-01-06 16:55:54,408 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 16:55:54,411 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:29:35,694 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 17:29:35,694 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:29:35,694 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:29:35,698 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:37,687 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:29:37,690 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:38,378 - db_utility - INFO - End write file.
+2016-01-06 17:29:38,387 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 17:29:40,150 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 17:29:40,154 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:40,838 - db_utility - INFO - End write file.
+2016-01-06 17:29:40,841 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 17:29:42,661 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 17:29:42,667 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:43,727 - db_utility - INFO - End write file.
+2016-01-06 17:29:43,729 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:29:45,576 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 17:29:45,578 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:46,273 - db_utility - INFO - End write file.
+2016-01-06 17:29:46,276 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 17:29:46,278 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 17:29:46,282 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 17:29:46,283 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:29:46,299 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:29:46,302 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:29:46,305 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:29:46,328 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:29:46,329 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:48,369 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:29:48,375 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:49,062 - db_utility - INFO - End write file.
+2016-01-06 17:29:49,072 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:29:49,094 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:29:51,045 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-06 17:29:51,049 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:51,730 - db_utility - INFO - End write file.
+2016-01-06 17:29:51,815 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:29:51,818 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:53,858 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:29:53,858 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:54,553 - db_utility - INFO - End write file.
+2016-01-06 17:29:54,556 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:29:54,559 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:29:56,323 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:29:56,331 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:56,803 - db_utility - INFO - End write file.
+2016-01-06 17:29:56,891 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:29:56,892 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:29:58,664 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:29:58,667 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:29:59,157 - db_utility - INFO - End write file.
+2016-01-06 17:31:22,325 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 17:31:22,325 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:31:22,325 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:31:22,328 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:24,381 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:31:24,384 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:25,096 - db_utility - INFO - End write file.
+2016-01-06 17:31:25,101 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 17:31:26,891 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 17:31:26,894 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:27,558 - db_utility - INFO - End write file.
+2016-01-06 17:31:27,559 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 17:31:29,378 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 17:31:29,381 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:30,457 - db_utility - INFO - End write file.
+2016-01-06 17:31:30,461 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:31:32,252 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 17:31:32,255 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:32,937 - db_utility - INFO - End write file.
+2016-01-06 17:31:32,940 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 17:31:32,964 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 17:31:32,969 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-06 17:31:32,970 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:31:32,971 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:31:32,973 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:31:32,976 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:31:32,996 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:31:32,999 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:35,045 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:31:35,049 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:35,746 - db_utility - INFO - End write file.
+2016-01-06 17:31:35,752 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:31:35,753 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:31:37,707 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-06 17:31:37,711 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:38,391 - db_utility - INFO - End write file.
+2016-01-06 17:31:38,519 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:31:38,520 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:40,517 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:31:40,519 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:41,253 - db_utility - INFO - End write file.
+2016-01-06 17:31:41,262 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:31:41,272 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:31:43,019 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:31:43,019 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:43,505 - db_utility - INFO - End write file.
+2016-01-06 17:31:44,115 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:31:44,117 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:31:45,857 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:31:45,858 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:31:46,339 - db_utility - INFO - End write file.
+2016-01-06 17:32:44,657 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:32:44,660 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:32:46,407 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:32:46,415 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:32:46,885 - db_utility - INFO - End write file.
+2016-01-06 17:32:47,963 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-06 17:32:47,969 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:32:47,970 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:32:47,973 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:32:50,009 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:32:50,032 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:32:50,729 - db_utility - INFO - End write file.
+2016-01-06 17:32:50,737 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 17:32:52,502 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-06 17:32:52,503 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:32:53,161 - db_utility - INFO - End write file.
+2016-01-06 17:32:53,168 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-06 17:32:54,969 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-06 17:32:54,971 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:32:56,039 - db_utility - INFO - End write file.
+2016-01-06 17:32:56,059 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:32:57,811 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-06 17:32:57,815 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:32:58,499 - db_utility - INFO - End write file.
+2016-01-06 17:32:58,512 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-06 17:32:58,519 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-06 17:32:58,532 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-06 17:32:58,536 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:32:58,539 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-06 17:32:58,540 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:32:58,542 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-06 17:32:58,556 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 17:32:58,569 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-06 17:32:58,572 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-06 17:32:58,660 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-06 17:32:58,661 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:32:58,674 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:32:58,677 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:32:58,687 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-06 17:32:58,690 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:32:58,694 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:32:58,696 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:32:58,697 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:32:58,698 - dynamic_table_analysis - INFO - Start to run create_content_page for 9 sheets.
+2016-01-06 17:32:58,698 - dynamic_table_analysis - INFO - End running create_content_page for 9 sheets.
+2016-01-06 17:32:58,996 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2016-01-06 17:33:00,025 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:33:00,028 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:02,088 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:33:02,091 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:33:02,776 - db_utility - INFO - End write file.
+2016-01-06 17:33:02,786 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:33:02,788 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:33:04,711 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-06 17:33:04,719 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:33:05,394 - db_utility - INFO - End write file.
+2016-01-06 17:33:06,710 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:33:06,713 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:08,782 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:33:08,782 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:33:09,463 - db_utility - INFO - End write file.
+2016-01-06 17:33:09,480 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:33:09,492 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:33:11,256 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:33:11,259 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:33:11,733 - db_utility - INFO - End write file.
+2016-01-07 10:40:05,582 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-07 10:40:05,582 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-07 10:40:05,584 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-07 10:40:05,592 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:56,180 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:30:56,183 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-13 17:30:56,210 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-13 17:30:56,213 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:30:56,236 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:30:56,236 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:30:56,260 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:30:56,263 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:30:56,269 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:30:56,269 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-13 17:30:56,316 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FSG EQUIT Positions_OPEREQ
+2016-01-13 17:30:56,318 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PKMBONDRECON
+2016-01-13 17:30:56,319 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer GPR_SD_POS_DELTA
+2016-01-13 17:30:56,319 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_COM
+2016-01-13 17:30:56,321 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_SEC_UND_PO
+2016-01-13 17:30:56,322 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DM_ERSPL_VWR2
+2016-01-13 17:30:56,325 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PLStore_Generic
+2016-01-13 17:30:56,325 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_Cmdty_view2
+2016-01-13 17:30:56,326 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DM_ERSPL_VWR2
+2016-01-13 17:30:56,328 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer warrant_fixings
+2016-01-13 17:30:56,329 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SD Deposit Bookings
+2016-01-13 17:30:56,332 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SF_POSITION3_OPER
+2016-01-13 17:30:56,332 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer EquityDivYield_Basket
+2016-01-13 17:30:56,335 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DM_FX_WRNTS_VW
+2016-01-13 17:30:56,335 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer warrant_fixings
+2016-01-13 17:30:56,336 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer 
+2016-01-13 17:30:56,336 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_FXD
+2016-01-13 17:30:56,338 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_SEC_UND_NB
+2016-01-13 17:30:56,341 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer warrant_fixings
+2016-01-13 17:30:56,342 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Credit_Exposure_Report_Zero
+2016-01-13 17:30:56,342 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_SEC_UND_NB
+2016-01-13 17:30:56,344 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_EQD
+2016-01-13 17:30:56,345 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_ERSEQS_PL_BREAKDOWN
+2016-01-13 17:30:56,345 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_IRD
+2016-01-13 17:30:56,346 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer GPR_POS_DELTA_TRADES
+2016-01-13 17:30:56,348 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer CDSRECON_CASHFLOWS
+2016-01-13 17:30:56,348 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_CRD
+2016-01-13 17:30:56,348 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FRA_DMR_MX_EQD_RISK
+2016-01-13 17:30:56,349 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DCM NEW Simulation
+2016-01-13 17:30:56,351 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Credit_Risk_RC
+2016-01-13 17:30:56,351 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Warrant Accounting Recon
+2016-01-13 17:30:56,351 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SW FX BASKET General
+2016-01-13 17:30:56,352 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer MX_FIXING
+2016-01-13 17:30:56,354 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FO_REC
+2016-01-13 17:30:56,355 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer MRC
+2016-01-13 17:30:56,355 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PLStore_Generic_bis2
+2016-01-13 17:30:56,357 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer CDSRECON
+2016-01-13 17:30:56,357 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Credit_Exposure_Report
+2016-01-13 17:30:56,358 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer ATCM_DATA_STORAGE
+2016-01-13 17:30:56,358 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_Cmdty_view2
+2016-01-13 17:30:56,359 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DM_ERSPL_VWR2_2
+2016-01-13 17:30:56,359 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer VegaWorkaround for Murex Report
+2016-01-13 17:30:56,361 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SP GRK & POS
+2016-01-13 17:30:56,365 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FSG_delivery_security_1w_OPEREQ
+2016-01-13 17:30:56,367 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer 
+2016-01-13 17:30:56,368 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_opt_bsk_greeks
+2016-01-13 17:30:56,368 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer GPR_POS_DELTA
+2016-01-13 17:30:56,369 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FX delta RC Delivery
+2016-01-13 17:30:56,371 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer EquityDivYield
+2016-01-13 17:30:56,371 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer MRC COMPOSITE RIsk
+2016-01-13 17:30:56,372 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Delta_underlying
+2016-01-13 17:30:56,374 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SD_CRD
+2016-01-13 17:30:56,375 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_Cmdty_view2
+2016-01-13 17:30:56,375 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Delta_underlying_IRS_Flex
+2016-01-13 17:30:56,377 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer 
+2016-01-13 17:30:56,378 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_WARNT_bsk_greeks
+2016-01-13 17:30:56,378 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer GPR_SD_POS_DELTA_AUTO
+2016-01-13 17:30:56,378 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DM_EQ_DIV_YIELD
+2016-01-13 17:30:56,380 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer EquityDivYield_Basket
+2016-01-13 17:30:56,381 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_opt_bsk_greeks
+2016-01-13 17:30:56,381 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer DCM NEW Simulation
+2016-01-13 17:30:56,381 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PLStore_Generic
+2016-01-13 17:30:56,382 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SECFIN_MA_CASH
+2016-01-13 17:30:56,384 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FO_Hedge_rule_FS_report
+2016-01-13 17:30:56,384 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PL_ATCM_STORE_DATA
+2016-01-13 17:30:56,387 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer STOREPL_TEST
+2016-01-13 17:30:56,387 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer UPG_SensiReconc_INFL
+2016-01-13 17:30:56,388 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer RC_greeks
+2016-01-13 17:30:56,390 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_SEC_UND_PO
+2016-01-13 17:30:56,391 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PositionsCA
+2016-01-13 17:30:56,391 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SW FX BASKET Underlying
+2016-01-13 17:30:56,391 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer SM_PLSTORE
+2016-01-13 17:30:56,392 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer Rainbow_fixings
+2016-01-13 17:30:56,394 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer FS_HR_EQ_COM_PL_VARIATION
+2016-01-13 17:30:56,394 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-13 17:30:56,395 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:30:56,415 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:30:56,417 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:30:56,427 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:30:56,427 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:56,454 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:56,457 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:56,480 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:56,482 - dynamic_table_analysis - INFO - Start to run create_content_page for 9 sheets.
+2016-01-13 17:30:56,483 - dynamic_table_analysis - INFO - End running create_content_page for 9 sheets.
+2016-01-13 17:30:56,750 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2016-01-13 17:31:12,092 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:31:12,094 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:32:03,954 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-13 17:32:03,956 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-13 17:32:03,979 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 100.
+2016-01-13 17:32:03,980 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:32:04,006 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:32:04,036 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:32:04,063 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:32:04,065 - dynamic_table_analysis - INFO - Start to run check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:32:04,065 - dynamic_table_analysis - INFO - End running check_compute_sensitivity_flag on file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:32:04,066 - dynamic_table_analysis - INFO - Start to run check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-13 17:32:04,108 - dynamic_table_analysis - WARNING - sim_context_file does not have simulation viewer PL_ATCM_STORE_DATA
+2016-01-13 17:32:04,109 - dynamic_table_analysis - INFO - End running check_sim_view_mode on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv and simulation_context.csv.
+2016-01-13 17:32:04,111 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:32:04,145 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:32:04,148 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:32:04,196 - dynamic_table_analysis - INFO - End running check_dynamic_table_field_reference_summary on file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:32:04,200 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:04,224 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:04,226 - dynamic_table_analysis - INFO - Start to run check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:04,252 - dynamic_table_analysis - INFO - End running check_dynamic_table_reference_detail on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:04,253 - dynamic_table_analysis - INFO - Start to run create_content_page for 9 sheets.
+2016-01-13 17:32:04,253 - dynamic_table_analysis - INFO - End running create_content_page for 9 sheets.
+2016-01-13 17:32:05,766 - dynamic_table_analysis - INFO - End running dynamic_table_analysis.py.
+2016-01-13 17:34:34,635 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:34:34,637 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:34:34,664 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:34:34,667 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:34:34,693 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:34:34,694 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:34:34,723 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:37:24,227 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:37:24,233 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:37:24,259 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:37:24,262 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:37:24,289 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:37:24,290 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:37:24,322 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:37:36,686 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:37:36,687 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:37:36,713 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:37:36,719 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:37:36,756 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:37:36,757 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:37:36,793 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:37:52,651 - dynamic_table_analysis - INFO - Start to run dynamic_table_analysis.py.
+2016-01-13 17:37:52,651 - dynamic_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:37:52,653 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:37:52,657 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:38:34,270 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 17:38:34,273 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:38:34,864 - db_utility - INFO - End write file.
+2016-01-13 17:38:34,871 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:38:36,292 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-13 17:38:36,293 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:38:36,661 - db_utility - INFO - End write file.
+2016-01-13 17:38:36,664 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-13 17:38:39,338 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-13 17:38:39,341 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:38:39,743 - db_utility - INFO - End write file.
+2016-01-13 17:38:39,744 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:38:43,644 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-13 17:38:43,648 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:38:44,378 - db_utility - INFO - End write file.
+2016-01-13 17:38:44,403 - dynamic_table_analysis - INFO - End executing SQL to load data from DB
+2016-01-13 17:38:44,405 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:38:44,434 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 55.
+2016-01-13 17:38:44,436 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:38:44,463 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 10.
+2016-01-13 17:38:44,463 - dynamic_table_analysis - INFO - Start to run check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:38:44,493 - dynamic_table_analysis - INFO - End running check_total_dynamic_table_db_access_horizontal_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 1.
+2016-01-13 17:38:44,513 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:38:44,516 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:39:26,187 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 17:39:26,190 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:39:26,732 - db_utility - INFO - End write file.
+2016-01-13 17:39:26,736 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-13 17:39:26,739 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-13 17:39:28,618 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-13 17:39:28,619 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:39:28,994 - db_utility - INFO - End write file.
+2016-01-13 17:39:29,161 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:39:29,164 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:40:11,358 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 17:40:11,362 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:40:11,907 - db_utility - INFO - End write file.
+2016-01-13 17:40:11,920 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:40:11,924 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 17:40:14,401 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 17:40:14,401 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:40:14,767 - db_utility - INFO - End write file.
+2016-01-13 17:40:15,036 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:40:15,039 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 17:40:17,533 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 17:40:17,536 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:40:17,911 - db_utility - INFO - End write file.

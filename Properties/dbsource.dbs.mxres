@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><DbSource>
+  <MxAnchors>
+    <MxAnchor Code="DBSOURCE">
+      <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
+      <DbIsDistributed/>
+      <DbServerType>sybase</DbServerType>
+      <DbHostName>kaya</DbHostName>
+      <DbServerPortNumber>7000</DbServerPortNumber>
+      <DbServerOrServiceName>KAYA157</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>DBS_GOLD_MX</DbDatabaseOrSchemaName>
+      <DbCharacterSet/>
+      <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
+      <DbMxNetworkPacketSize>4096</DbMxNetworkPacketSize>
+      <DbMxTCPNoDelay>Y</DbMxTCPNoDelay>
+      <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
+      <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
+      <DbMxClientAccess>NATIVE_CTLIB</DbMxClientAccess>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
+      <DbDefaultCredential>
+        <DbUser>INSTAL</DbUser>
+        <DbPassword>0050009100510056008700570057</DbPassword>
+      </DbDefaultCredential>
+      <DbDefaultPool>
+        <DbPoolMaxSize>50</DbPoolMaxSize>
+        <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
+        <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
+      </DbDefaultPool>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+    </MxAnchor>
+  </MxAnchors>
+</DbSource>

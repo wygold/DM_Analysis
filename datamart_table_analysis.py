@@ -12,6 +12,7 @@ from logging import handlers
 from collections import OrderedDict
 from property_utility import property_utility
 from analyze_report import analyze_report
+import csv
 
 logger = ''
 
@@ -62,7 +63,7 @@ def check_total_datamart_table_field_number(input_directory,input_file, max_data
             logger.debug('Datamart table %s has total field %s. It will be recorded',fields[24].strip(),fields[25].strip())
 
     for key, value in datamart_tables.iteritems():
-        temp = [key,value]
+        temp = [key,int(value)]
         result.append(temp)
 
     #sort the result
@@ -147,7 +148,7 @@ def check_index(input_directory,input_file, dm_table_size_file) :
 
     for key, value in datamart_tables.iteritems():
         if datamart_tables_size.has_key(key) :
-            temp = [key,value, int(datamart_tables_size[key])]
+            temp = [key,value, float(datamart_tables_size[key])]
         else :
             temp = [key,value, 0]
         result.append(temp)
@@ -342,5 +343,52 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
     else :
         return work_books_content
 
+def analyze_all_dm_file():
+    input_directory = 'D:\Dropbox\Project\DM_Analysis\Input\\'
+
+    result = []
+    clients = []
+    temp = dict()
+
+    title = ['Dynamic table type','Dynamic table field','field type']
+    for subdir, dirs, files in os.walk(input_directory):
+        for file in files:
+            clients.append(file)
+            title.append(file)
+
+        for client in clients:
+            raw_file= open(input_directory+client, 'r')
+            for line in raw_file:
+                fields = line.split(' | ')
+                field_name = fields[0].strip()
+                field_type = fields[3].strip()
+                dm_table = fields[4].strip()
+                dyn_talbe = fields[5].strip()
+                dyn_type = fields[7].strip()
+
+                key = dyn_type+field_name
+                if temp.has_key(key):
+                    temp[key][clients.index(client)+3]  = temp[key][clients.index(client)+3] + 1
+                else:
+                    data = [dyn_type,field_name, field_type]
+                    for new_client in clients:
+                        if new_client == client:
+                            data.append(1)
+                        else:
+                            data.append(0)
+                    temp[key] = data
+
+
+    result.append(title)
+
+    for key, value in temp.iteritems():
+        result.append(value)
+
+    with open('result.csv', 'wb') as f:
+        writer = csv.writer(f)
+        writer.writerows(result)
+
+
 if __name__ == "__main__":
-    run()
+    #run()
+    analyze_all_dm_file()

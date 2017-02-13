@@ -1,0 +1,52 @@
+SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, 
+			case when (CHARINDEX ('/',M_COMMENT)- CHARINDEX ('step', M_COMMENT) - 5)<0 then 0
+			else (CHARINDEX ('/',M_COMMENT)- CHARINDEX ('step', M_COMMENT) - 5) end)
+			 AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP

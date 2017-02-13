@@ -1,0 +1,752 @@
+2015-01-14 11:55:25,094 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:55:25,095 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:55:25,096 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:55:25,096 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:55:25,101 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:55:25,101 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:55:25,101 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:55:25,101 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:55:25,102 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:55:25,118 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:55:33,016 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:55:33,016 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:55:33,022 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:55:33,022 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:55:33,026 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:55:33,026 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:55:33,030 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:55:33,030 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:55:33,035 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:55:33,035 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:55:33,039 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:55:33,039 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:55:33,045 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:55:33,045 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:55:33,049 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:55:33,049 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:55:33,053 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:55:33,053 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:55:33,062 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:55:33,062 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:08,058 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:08,058 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:08,058 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:08,071 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:08,071 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:08,071 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:08,082 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:08,082 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:08,082 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:08,095 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:08,095 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:08,095 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:08,105 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:08,105 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:08,105 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:08,115 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:08,115 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:08,115 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:08,125 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:08,125 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:08,125 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:08,132 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:08,132 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:08,132 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:08,144 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:08,144 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:08,144 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:08,155 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:08,155 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:08,155 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:28,364 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:28,364 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:28,364 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:28,364 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 11:56:28,380 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:28,380 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:28,380 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:28,380 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 11:56:28,394 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:28,394 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:28,394 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:28,394 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 11:56:28,407 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:28,407 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:28,407 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:28,407 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 11:56:28,418 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:28,418 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:28,418 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:28,418 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 11:56:28,444 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:28,444 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:28,444 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:28,444 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 11:56:28,457 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:28,457 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:28,457 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:28,457 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 11:56:28,470 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:28,470 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:28,470 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:28,470 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 11:56:28,484 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:28,484 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:28,484 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:28,484 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 11:56:28,506 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:28,506 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:28,506 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 11:56:28,506 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:02:44,723 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:02:44,726 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:02:44,730 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:02:44,733 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:02:48,760 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:02:48,760 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:02:48,766 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:02:48,766 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:02:48,775 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:02:48,775 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:02:48,782 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:02:48,782 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:03:21,437 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:03:21,437 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:03:21,437 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:03:21,447 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:03:21,447 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:03:21,447 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:03:21,459 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:03:21,459 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:03:21,459 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:03:21,470 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:03:21,470 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:03:21,470 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:03,257 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:05:03,263 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:05:03,266 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:05:03,270 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:03,276 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:03,279 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:05:03,282 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:05:03,286 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:03,289 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:03,299 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:05:06,233 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:05:06,237 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:05:06,242 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:05:06,244 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:06,244 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:06,253 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:06,253 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:06,259 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:05:06,263 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:05:06,269 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:06,269 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:06,276 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:06,276 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:06,286 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:05:13,331 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:05:13,335 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:05:13,339 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:05:13,345 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:13,345 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:13,345 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:05:13,355 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:13,355 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:13,355 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:05:13,365 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:05:13,368 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:05:13,371 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:13,371 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:13,371 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:05:13,384 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:13,384 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:13,384 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:05:13,410 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:08:07,992 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:08:07,997 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:08:08,002 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:08:08,006 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:08:08,009 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:08:08,013 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:08:08,017 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:08:08,022 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:08:08,025 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:08:08,035 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:08:10,733 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:08:10,737 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:08:10,742 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:08:10,746 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:08:10,750 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:08:10,753 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:08:10,756 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:08:10,760 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:08:10,763 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:08:10,770 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:08:13,868 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:08:13,872 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:08:13,878 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:08:13,881 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:08:13,884 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:08:13,888 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:08:13,891 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:08:13,895 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:08:13,900 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:08:13,905 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:08:20,690 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:08:20,698 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:08:20,710 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:08:20,714 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:08:20,727 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:08:20,736 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:08:20,746 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:08:20,753 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:08:20,812 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:08:20,815 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:08:20,903 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:08:21,039 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:08:21,161 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:08:22,269 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:08:30,170 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:08:30,174 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:08:30,184 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:08:30,194 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:08:30,204 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:08:30,210 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:08:34,388 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:08:34,394 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:08:34,398 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:08:34,401 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:08:34,405 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:08:34,410 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:08:34,414 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:08:34,417 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:08:34,421 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:08:34,430 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:09:24,177 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:09:24,183 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:09:24,187 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:09:24,200 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:09:24,204 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:09:24,221 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:09:49,424 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:09:49,430 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:09:49,434 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:09:49,446 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:09:49,450 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:09:49,463 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:10:12,982 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:10:12,987 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:10:12,990 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:10:13,000 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:10:13,006 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:10:13,019 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:10:22,634 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:10:22,640 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv
+2015-01-14 14:10:22,644 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:10:22,657 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\Input\ps_execution_time.csv.
+2015-01-14 14:10:22,661 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:10:22,677 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:13:28,084 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:13:28,089 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-01-14 14:13:28,094 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:13:28,101 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:13:28,105 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:13:28,109 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-01-14 14:13:28,115 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:13:28,121 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:13:28,127 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:13:28,134 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:13:47,319 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:13:47,335 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-01-14 14:13:47,345 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:13:47,349 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:13:47,354 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:13:47,357 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-01-14 14:13:47,361 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:13:47,365 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:13:47,368 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:13:47,377 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:13:52,168 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-01-14 14:13:52,177 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-01-14 14:13:52,180 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-01-14 14:13:52,184 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:13:52,188 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:13:52,191 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-01-14 14:13:52,197 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-01-14 14:13:52,200 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:13:52,204 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:13:52,213 - performance_analysis - INFO - end running performance_analysis.py.
+2015-01-14 14:13:53,265 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:13:53,270 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:13:53,296 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:13:53,302 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:13:53,319 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:13:53,326 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:13:53,341 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:13:53,351 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:13:53,404 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:13:53,407 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:13:53,470 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:13:53,582 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:13:53,691 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:13:54,717 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:13:56,040 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:13:56,049 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:13:56,068 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:13:56,075 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:13:56,095 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:13:56,101 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:13:57,178 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:13:57,201 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:13:57,269 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:13:57,278 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:13:57,296 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:13:57,302 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:13:57,321 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:13:57,331 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:13:57,348 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:13:57,355 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:13:57,375 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:13:57,385 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:13:57,404 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:13:57,417 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:13:57,434 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:13:57,441 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-02-02 14:24:51,490 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-02-02 14:24:51,496 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-02-02 14:24:51,496 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-02-02 14:24:51,497 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-02-02 14:24:51,499 - io_utility - INFO - End creating worksheet Processing script performance
+2015-02-02 14:24:51,500 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-02-02 14:24:51,500 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-02-02 14:24:51,500 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-02-02 14:24:51,502 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-02-02 14:24:51,503 - performance_analysis - INFO - end running performance_analysis.py.
+2015-02-02 14:24:52,515 - io_utility - INFO - Start to create worksheet Field_Check
+2015-02-02 14:24:52,515 - io_utility - INFO - End creating worksheet Field_Check
+2015-02-02 14:24:52,525 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-02-02 14:24:52,526 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-02-02 14:24:52,536 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-02-02 14:24:52,542 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-02-02 14:24:52,546 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-02-02 14:24:52,552 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-02-02 14:24:52,617 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-02-02 14:24:52,618 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-02-02 14:24:52,706 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-02-02 14:24:52,854 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-02-02 14:24:52,967 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-02-02 14:24:54,128 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-02-02 14:24:55,456 - io_utility - INFO - Start to create worksheet Field_Check
+2015-02-02 14:24:55,460 - io_utility - INFO - End creating worksheet Field_Check
+2015-02-02 14:24:55,471 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-02-02 14:24:55,477 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-02-02 14:24:55,489 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-02-02 14:24:55,490 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-02-02 14:24:56,513 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-02-02 14:24:56,539 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-02-02 14:24:56,579 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-02-02 14:24:56,585 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-02-02 14:24:56,598 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-02-02 14:24:56,605 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-02-02 14:24:56,621 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-02-02 14:24:56,632 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-02-02 14:24:56,644 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-02-02 14:24:56,651 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-02-02 14:24:56,664 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-02-02 14:24:56,677 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-02-02 14:24:56,690 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-02-02 14:24:56,703 - io_utility - INFO - End creating worksheet Feeder_number
+2015-02-02 14:24:56,713 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-02-02 14:24:56,720 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-02-02 17:37:41,436 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-02-02 17:37:41,440 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2015-02-02 17:37:41,451 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-02-02 17:37:48,513 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-02-02 17:37:48,515 - db_utility - INFO - Execute sql in batch
+2015-02-02 17:37:49,285 - db_utility - INFO - End write file.
+2015-02-02 17:37:49,286 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-02-02 17:37:49,295 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-02-02 17:37:49,299 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-02-02 17:37:49,381 - io_utility - INFO - End creating worksheet Processing script performance
+2015-02-02 17:37:49,390 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-02-02 17:37:49,391 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-02-02 17:37:49,392 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-02-02 17:37:49,394 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-02-02 17:37:49,401 - performance_analysis - INFO - end running performance_analysis.py.
+2015-10-13 14:01:30,927 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-10-13 14:01:30,930 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-10-13 14:01:30,930 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2015-10-13 14:01:30,961 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-10-13 14:05:33,486 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-10-13 14:05:33,515 - db_utility - INFO - Execute sql in batch
+2015-10-13 14:05:33,519 - db_utility - INFO - End write file.
+2015-10-13 14:05:33,522 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2015-10-13 14:05:33,530 - performance_analysis - INFO - Filtering the result old than : 143 days
+2015-10-13 14:05:33,532 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2015-10-13 14:05:33,532 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-10-13 14:05:33,532 - performance_analysis - INFO - Sort the result.
+2015-10-13 14:05:33,533 - performance_analysis - INFO - Highlight the batch of feeder running longer than : 00:20:00
+2015-10-13 14:05:33,535 - performance_analysis - INFO - Highlight the batch of extraction running longer than : 00:01:00
+2015-10-13 14:05:33,535 - performance_analysis - INFO - Filtering the result old than : 143 days
+2015-10-13 14:05:33,536 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2015-10-13 14:05:33,538 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2015-10-13 14:05:33,538 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2015-10-13 14:05:33,539 - io_utility - INFO - Start to create worksheet Content
+2015-10-13 14:05:33,542 - io_utility - INFO - End creating worksheet Content
+2015-10-13 14:05:33,555 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-10-13 14:05:33,555 - io_utility - INFO - Start to add a sequence col to the content 
+2015-10-13 14:05:33,556 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-10-13 14:05:33,558 - io_utility - INFO - Start to add review to the content
+2015-10-13 14:05:33,561 - io_utility - INFO - End creating worksheet Processing script performance
+2015-10-13 14:05:33,572 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-10-13 14:05:33,575 - io_utility - INFO - Start to add a sequence col to the content 
+2015-10-13 14:05:33,575 - io_utility - INFO - Finish to add a sequence col to the content 
+2015-10-13 14:05:33,576 - io_utility - INFO - Start to add review to the content
+2015-10-13 14:05:33,582 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-10-13 14:05:33,589 - performance_analysis - INFO - end running performance_analysis.py.
+2015-11-05 18:19:33,298 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:19:33,299 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:19:33,301 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2015-11-05 18:19:33,305 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2015-11-05 18:20:28,252 - performance_analysis - INFO - Start to run performance_analysis.py.
+2015-11-05 18:20:28,256 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2015-11-05 18:20:28,256 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2015-11-05 18:20:28,260 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 16:55:26,826 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-06 16:55:26,828 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:55:29,203 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 16:55:29,210 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-06 16:55:29,213 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 16:55:29,214 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-06 16:55:29,216 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2016-01-06 16:55:29,217 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2016-01-06 16:55:29,269 - performance_analysis - INFO - end running performance_analysis.py.
+2016-01-06 17:29:56,888 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-06 17:29:56,890 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:29:59,157 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:29:59,160 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-06 17:29:59,161 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:29:59,161 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-06 17:31:44,112 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-06 17:31:44,115 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:31:46,341 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:31:46,342 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-06 17:31:46,342 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:31:46,344 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-06 17:32:44,654 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-06 17:32:44,655 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:32:46,888 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-06 17:32:46,892 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-06 17:32:46,895 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-06 17:32:46,904 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-06 17:32:46,907 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2016-01-06 17:32:46,911 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2016-01-06 17:32:46,947 - performance_analysis - INFO - end running performance_analysis.py.
+2016-01-13 11:30:38,678 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 11:30:38,680 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 11:30:38,681 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 11:30:38,716 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 14:11:19,302 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 14:11:19,302 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 14:11:19,308 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 14:11:19,342 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 14:11:56,650 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 14:11:56,653 - db_utility - INFO - Execute sql in batch
+2016-01-13 14:11:57,020 - db_utility - INFO - End write file.
+2016-01-13 14:11:57,028 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 14:11:57,032 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-13 14:11:57,042 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 14:11:57,042 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-13 14:11:57,045 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2016-01-13 14:11:57,046 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2016-01-13 14:11:57,049 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 14:11:57,055 - io_utility - INFO - End creating worksheet Content
+2016-01-13 14:11:57,068 - io_utility - INFO - Start to create worksheet Processing script performance
+2016-01-13 14:11:57,073 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 14:11:57,075 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 14:11:57,078 - io_utility - INFO - Start to add review to the content
+2016-01-13 14:11:57,082 - io_utility - INFO - End creating worksheet Processing script performance
+2016-01-13 14:11:57,094 - io_utility - INFO - Start to create worksheet Processing script detailed
+2016-01-13 14:11:57,094 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 14:11:57,095 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 14:11:57,096 - io_utility - INFO - Start to add review to the content
+2016-01-13 14:11:57,098 - io_utility - INFO - End creating worksheet Processing script detailed
+2016-01-13 14:11:57,102 - performance_analysis - INFO - end running performance_analysis.py.
+2016-01-13 14:12:09,125 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 14:12:09,134 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:36:35,285 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 16:36:35,288 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 16:36:35,292 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 16:36:35,302 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 16:39:18,398 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 16:39:18,404 - db_utility - INFO - Execute sql in batch
+2016-01-13 16:39:18,786 - db_utility - INFO - End write file.
+2016-01-13 16:39:18,790 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 16:39:18,796 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-13 16:39:18,803 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 16:39:18,806 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-13 16:39:18,809 - performance_analysis - INFO - Start to run create_content_page for 2 sheets.
+2016-01-13 16:39:18,815 - performance_analysis - INFO - End running create_content_page for 2 sheets.
+2016-01-13 16:39:18,816 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 16:39:18,823 - io_utility - INFO - End creating worksheet Content
+2016-01-13 16:39:18,838 - io_utility - INFO - Start to create worksheet Processing script performance
+2016-01-13 16:39:18,839 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:39:18,841 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:39:18,841 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:39:18,846 - io_utility - INFO - End creating worksheet Processing script performance
+2016-01-13 16:39:18,855 - io_utility - INFO - Start to create worksheet Processing script detailed
+2016-01-13 16:39:18,855 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:39:18,855 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:39:18,857 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:39:18,859 - io_utility - INFO - End creating worksheet Processing script detailed
+2016-01-13 16:39:18,865 - performance_analysis - INFO - end running performance_analysis.py.
+2016-01-13 16:45:01,848 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 16:45:01,851 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 16:46:09,025 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 16:46:09,029 - db_utility - INFO - Execute sql in batch
+2016-01-13 16:46:09,595 - db_utility - INFO - End write file.
+2016-01-13 16:46:09,601 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 16:46:09,608 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 16:46:12,052 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 16:46:12,055 - db_utility - INFO - Execute sql in batch
+2016-01-13 16:46:12,426 - db_utility - INFO - End write file.
+2016-01-13 16:46:12,865 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 16:46:12,871 - io_utility - INFO - End creating worksheet Content
+2016-01-13 16:46:12,882 - io_utility - INFO - Start to create worksheet Summary_REP_TAB
+2016-01-13 16:46:12,884 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,884 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,884 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:12,888 - io_utility - INFO - End creating worksheet Summary_REP_TAB
+2016-01-13 16:46:12,898 - io_utility - INFO - Start to create worksheet REP_TAB_VS_T_FEED
+2016-01-13 16:46:12,900 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,901 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,901 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:12,907 - io_utility - INFO - End creating worksheet REP_TAB_VS_T_FEED
+2016-01-13 16:46:12,917 - io_utility - INFO - Start to create worksheet Summary_T_FEED_1
+2016-01-13 16:46:12,917 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,918 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,918 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:12,924 - io_utility - INFO - End creating worksheet Summary_T_FEED_1
+2016-01-13 16:46:12,933 - io_utility - INFO - Start to create worksheet T_FEED_VS_DM
+2016-01-13 16:46:12,934 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,934 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,934 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:12,940 - io_utility - INFO - End creating worksheet T_FEED_VS_DM
+2016-01-13 16:46:12,948 - io_utility - INFO - Start to create worksheet Summary_T_FEED_2
+2016-01-13 16:46:12,950 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,950 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,950 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:12,959 - io_utility - INFO - End creating worksheet Summary_T_FEED_2
+2016-01-13 16:46:12,969 - io_utility - INFO - Start to create worksheet T_FEED_VS_BOF
+2016-01-13 16:46:12,969 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:12,970 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:12,971 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,009 - io_utility - INFO - End creating worksheet T_FEED_VS_BOF
+2016-01-13 16:46:13,020 - io_utility - INFO - Start to create worksheet Summary_BOF
+2016-01-13 16:46:13,022 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,023 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,023 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,026 - io_utility - INFO - End creating worksheet Summary_BOF
+2016-01-13 16:46:13,036 - io_utility - INFO - Start to create worksheet BOF_VS_PS
+2016-01-13 16:46:13,036 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,038 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,038 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,045 - io_utility - INFO - End creating worksheet BOF_VS_PS
+2016-01-13 16:46:13,056 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2016-01-13 16:46:13,058 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,059 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,059 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,095 - io_utility - INFO - End creating worksheet Scanner_Engine
+2016-01-13 16:46:13,104 - io_utility - INFO - Start to create worksheet BOF_SIZE
+2016-01-13 16:46:13,105 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,108 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,108 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,130 - io_utility - INFO - End creating worksheet BOF_SIZE
+2016-01-13 16:46:13,137 - io_utility - INFO - Start to create worksheet Filter_conflict
+2016-01-13 16:46:13,138 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,138 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,140 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,157 - io_utility - INFO - End creating worksheet Filter_conflict
+2016-01-13 16:46:13,171 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2016-01-13 16:46:13,173 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,174 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,174 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,216 - io_utility - INFO - End creating worksheet Dataset_consistency
+2016-01-13 16:46:13,224 - io_utility - INFO - Start to create worksheet Post_filter
+2016-01-13 16:46:13,226 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,226 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,227 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,236 - io_utility - INFO - End creating worksheet Post_filter
+2016-01-13 16:46:13,246 - io_utility - INFO - Start to create worksheet Computing_dates
+2016-01-13 16:46:13,246 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 16:46:13,246 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 16:46:13,247 - io_utility - INFO - Start to add review to the content
+2016-01-13 16:46:13,250 - io_utility - INFO - End creating worksheet Computing_dates
+2016-01-13 17:30:56,483 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 17:30:56,487 - io_utility - INFO - End creating worksheet Content
+2016-01-13 17:30:56,497 - io_utility - INFO - Start to create worksheet Field_Check
+2016-01-13 17:30:56,499 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,500 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,500 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,505 - io_utility - INFO - End creating worksheet Field_Check
+2016-01-13 17:30:56,516 - io_utility - INFO - Start to create worksheet H_Field_Check
+2016-01-13 17:30:56,516 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,516 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,517 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,523 - io_utility - INFO - End creating worksheet H_Field_Check
+2016-01-13 17:30:56,532 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2016-01-13 17:30:56,533 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,535 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,536 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,538 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2016-01-13 17:30:56,548 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2016-01-13 17:30:56,549 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,549 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,551 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,552 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2016-01-13 17:30:56,565 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2016-01-13 17:30:56,566 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,568 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,568 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,571 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2016-01-13 17:30:56,578 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2016-01-13 17:30:56,578 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,579 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,582 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,596 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2016-01-13 17:30:56,605 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2016-01-13 17:30:56,605 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,607 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,608 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,676 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2016-01-13 17:30:56,684 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Summary
+2016-01-13 17:30:56,686 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,686 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,687 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,690 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Summary
+2016-01-13 17:30:56,701 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Detail
+2016-01-13 17:30:56,703 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:56,703 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:56,704 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:56,711 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Detail
+2016-01-13 17:30:57,881 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 17:30:57,887 - io_utility - INFO - End creating worksheet Content
+2016-01-13 17:30:57,904 - io_utility - INFO - Start to create worksheet Fields_Check
+2016-01-13 17:30:57,904 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:57,907 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:57,911 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:57,914 - io_utility - INFO - End creating worksheet Fields_Check
+2016-01-13 17:30:57,927 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2016-01-13 17:30:57,928 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:57,928 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:57,930 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:57,938 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2016-01-13 17:30:57,950 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2016-01-13 17:30:57,950 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:30:57,953 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:30:57,953 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:30:57,974 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2016-01-13 17:31:12,095 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:31:12,096 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:31:53,795 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 17:31:53,796 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:31:54,345 - db_utility - INFO - End write file.
+2016-01-13 17:31:54,349 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv.
+2016-01-13 17:31:55,763 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\computer_sensitivity_check.csv
+2016-01-13 17:31:55,765 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:31:56,135 - db_utility - INFO - End write file.
+2016-01-13 17:31:56,150 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv.
+2016-01-13 17:31:59,102 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\simulation_context.csv
+2016-01-13 17:31:59,107 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:31:59,490 - db_utility - INFO - End write file.
+2016-01-13 17:31:59,494 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv.
+2016-01-13 17:32:03,171 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_definition.csv
+2016-01-13 17:32:03,184 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:32:03,947 - db_utility - INFO - End write file.
+2016-01-13 17:32:04,253 - io_utility - INFO - Start to create worksheet Content
+2016-01-13 17:32:04,256 - io_utility - INFO - End creating worksheet Content
+2016-01-13 17:32:04,265 - io_utility - INFO - Start to create worksheet Field_Check
+2016-01-13 17:32:04,266 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,267 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,267 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,272 - io_utility - INFO - End creating worksheet Field_Check
+2016-01-13 17:32:04,283 - io_utility - INFO - Start to create worksheet H_Field_Check
+2016-01-13 17:32:04,286 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,286 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,286 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,292 - io_utility - INFO - End creating worksheet H_Field_Check
+2016-01-13 17:32:04,301 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2016-01-13 17:32:04,301 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,302 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,302 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,305 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2016-01-13 17:32:04,315 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2016-01-13 17:32:04,315 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,315 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,318 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,325 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2016-01-13 17:32:04,336 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2016-01-13 17:32:04,338 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,338 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,339 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,342 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2016-01-13 17:32:04,351 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2016-01-13 17:32:04,351 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,355 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,355 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:04,431 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2016-01-13 17:32:04,440 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2016-01-13 17:32:04,441 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:04,453 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:04,453 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:05,433 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2016-01-13 17:32:05,448 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Summary
+2016-01-13 17:32:05,450 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:05,451 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:05,453 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:05,459 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Summary
+2016-01-13 17:32:05,476 - io_utility - INFO - Start to create worksheet DM_TBL_Reference_Detail
+2016-01-13 17:32:05,477 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:32:05,479 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:32:05,480 - io_utility - INFO - Start to add review to the content
+2016-01-13 17:32:05,486 - io_utility - INFO - End creating worksheet DM_TBL_Reference_Detail
+2016-01-13 17:32:06,786 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 17:32:06,790 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:48,634 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-13 17:32:48,635 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:32:49,177 - db_utility - INFO - End write file.
+2016-01-13 17:32:49,184 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-13 17:32:49,190 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-13 17:32:51,101 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-13 17:32:51,105 - db_utility - INFO - Execute sql in batch
+2016-01-13 17:32:51,482 - db_utility - INFO - End write file.
+2016-01-13 17:34:34,724 - io_utility - INFO - Start to create worksheet Field_Check
+2016-01-13 17:34:34,729 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:34:34,730 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:34:34,733 - io_utility - INFO - End creating worksheet Field_Check
+2016-01-13 17:34:34,733 - io_utility - INFO - Start to create worksheet H_Field_Check
+2016-01-13 17:34:34,734 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:34:34,736 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:34:34,736 - io_utility - INFO - End creating worksheet H_Field_Check
+2016-01-13 17:34:34,737 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2016-01-13 17:34:34,739 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-13 17:34:34,739 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-13 17:34:34,740 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2016-01-13 17:37:24,815 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 17:37:24,818 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 17:37:24,819 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-13 17:37:24,821 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 17:37:24,823 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-13 17:37:37,371 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 17:37:37,374 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 17:37:37,375 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-13 17:37:37,375 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 17:37:37,378 - performance_analysis - INFO - End running analyze_processing_script_breakdown.
+2016-01-13 17:40:15,035 - performance_analysis - INFO - Start to run performance_analysis.py.
+2016-01-13 17:40:15,036 - performance_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:40:17,917 - performance_analysis - INFO - Start to run analyze_processing_script_total_time on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv
+2016-01-13 17:40:17,917 - performance_analysis - INFO - End to run analyze_processing_script_total_time.
+2016-01-13 17:40:17,918 - performance_analysis - INFO - Start to run analyze_processing_script_breakdown on file D:\Dropbox\Project\DM_Analysis\dist\Input\ps_execution_time.csv.
+2016-01-13 17:40:17,920 - performance_analysis - INFO - End running analyze_processing_script_breakdown.

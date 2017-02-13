@@ -55,11 +55,11 @@ def check_total_dynamic_table_field_number(input_directory,input_file, max_dynam
     previous_dynamic_tables = []
     for line in raw_file:
         fields = line.split(' | ')
-
+#        logger.info(fields)
         if fields[29].strip()<>'' and int(fields[29])> max_dynamic_number_fields :
             #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
-                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
+                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),int(fields[29].strip())])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
                 logger.debug('Dynamic table %s@%s has total field %s. It will be recorded',fields[26].strip(),fields[27].strip(),fields[29].strip())
 
@@ -91,7 +91,7 @@ def check_total_dynamic_table_horizontal_field_number(input_directory,input_file
         if fields[30].strip()<>'' and int(fields[30])>max_dynamic_number_hfields :
         #    result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[29].strip()])
             if (fields[26].strip()+fields[27].strip()) not in previous_dynamic_tables :
-                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),fields[30].strip()])
+                result.append([fields[26].strip(),fields[27].strip(),fields[28].strip(),int(fields[30].strip())])
                 previous_dynamic_tables.append(fields[26].strip()+fields[27].strip())
 
 
@@ -246,7 +246,7 @@ def check_dynamic_table_field_reference_summary(input_directory,source_file,max_
     for field_key, table_count in table_fields.iteritems():
         if table_count > max_dynamic_table_referenced:
             field_name, dyn_table_type=field_key.split(' | ')
-            temp = [field_name,dyn_table_type,table_count]
+            temp = [field_name,dyn_table_type,int(table_count)]
             result.append(temp)
 
     #sort the result
@@ -646,4 +646,57 @@ def run(reload_check_button_status=None,log_dropdown_status=None, core_analysis 
     logger.info('End running dynamic_table_analysis.py.')
 
 if __name__ == "__main__":
-    run()
+    #define properties folder
+    property_directory=os.getcwd()+'\\properties\\'
+    parameter_file='parameters.txt'
+
+    property_util = property_utility()
+    parameters = property_util.parse_property_file(property_directory,parameter_file)
+
+    #define sql files
+    query_dm_defintion_sql = 'query_dm_definition.sql'
+
+    #define input files
+    dm_defintion_file = 'dm_definition.csv'
+
+    #define property files
+    mxDbsource_file=parameters['database']['mx_db_config_file']
+
+    #define output file
+    final_result_file = parameters['dynamic table']['output_file_name']
+
+    #define log file
+    log_file = parameters['dynamic table']['log_file_name']
+
+    #read in property file
+    config = ConfigParser.RawConfigParser()
+    config.read(property_directory + parameter_file)
+    reload_data = config.getboolean('general', 'reload_data')
+    raw_data_ouput = config.getboolean('general', 'raw_data_ouput')
+    analyze_template_file = parameters['analyze report']['analyze_template_file_name']
+
+
+    #define directories
+    input_directory=os.getcwd()+'\\'+config.get('general', 'input_directory')+'\\'
+    output_directory=os.getcwd()+'\\'+config.get('general', 'output_directory')+'\\'
+    sql_directory=os.getcwd()+'\\'+config.get('general', 'sql_directory')+'\\'
+    log_directory =os.getcwd()+'\\'+config.get('log', 'log_directory')+'\\'
+
+    # prepare connection string
+    db_util = db_utility()
+    connectionString = db_util.load_dbsourcefile(property_directory + mxDbsource_file)
+
+    db_type = db_util.db_type
+
+    # prepare dm defintion SQLs to be run
+    sqlfile = open(sql_directory + db_type + '\\' + query_dm_defintion_sql, 'r+')
+
+    sqlString = ''
+    for line in sqlfile:
+        sqlString = sqlString + line
+
+    # prepare sql paramaters, the paramaters are defined according to MX format @:paramater_name:N/D/C
+    sql_paramters = dict()
+
+    # dump file
+    db_util.dump_output(sqlString, None, connectionString, input_directory + dm_defintion_file)

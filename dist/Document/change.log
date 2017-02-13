@@ -1,0 +1,17 @@
+beta v1.1 (9/7/2015)
+1. All sheet's descriptions are reviewed.
+2. Results are now sorted according to the count if applicable.
+3. Added a column # as sequence number.
+4. Added a flag to enable the navigation and header section.
+5. Added a disclaimer for Sensitivity flag check sheet.
+6. Added a column with "fields different between dyn and dadtamart table" and sort by this field in sheet Fields_rep_vs_dyn.
+7. List the number of rows of a table in index checking sheets.
+8. Added Disclamtion UREX INTERNAL ONLY.
+9. Added a new sheet: Post filters analysis (Vincent)
+10. Added a best practices section for all analysis
+11. Added core analysis which consolidated key analysis selected from other analysis
+12. Updated the version to Beta v1.1
+13. Committed the v1.1 to perforce@//depot/integration-sg/Tools/DM_Analysis/
+
+beta v1.2 (13/10/2015)
+1. Add sybase support. 

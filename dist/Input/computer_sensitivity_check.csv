@@ -1,0 +1,124 @@
+G_PL02.3     /RPPL   | Murex
+FIFO                 | Murex
+CFD_P&L              | Murex
+MRCDT                | Murex
+G_PLAA.2   /TRNRP_CS | Murex
+C_PLCG1.1  /TRNRP_PL | Murex
+G_OPDL.1 /TRNRP_PL   | Murex
+CFD_TEST             | Murex
+G_RG.8               | Murex
+ZRISK2               | Murex
+EE_TEST              | Murex
+INDXNIVA             | Murex
+C_MRSV4e  /RP_CS     | Murex
+COPDET_DYN           | Murex
+CFD_TE1              | Murex
+DYN_FIXING           | Murex
+G_AUTR.3       /RPMK | Murex
+IR_TEST              | Murex
+C_MRSV.4      /RP_FX | Murex
+G_FX.4     /TRNRP_DT | Murex
+C_RG.02              | Murex
+DT                   | Murex
+G_TRTRN.2b /TRNRP_MK | Murex
+G_RG.2     /TRNRP_CS | Murex
+G_RG.7     /TRNRP_PL | Murex
+EQS_FFTb.0           | Murex
+G_AUTR.7      /RPMK  | Murex
+CFD_TE               | Murex
+DYN_EVT_STL          | Murex
+FIN_EQSBK_DYN        | Murex
+EQS_FFTb2            | Murex
+LOPBK2               | Murex
+PL/ BO_AUDIT report  | Murex
+G_FX.5     /TRNRP_DT | Murex
+ZRISK3               | Murex
+SI_GRID2             | Murex
+G_PL02.3     /RPPL   | User
+CFD_TEST2            | User
+PL_CRASHTEST 6M      | User
+FIFO                 | User
+CFD_P&L              | User
+PDMEQSIR             | User
+TEST_PL              | User
+MRCDT                | User
+CRDI_RISK_TP2        | User
+SF_FINREV_REPORT     | User
+PDMCFDREP            | User
+CFD_TRNMV            | User
+CFD_TEST_TST         | User
+CFD_TEST             | User
+EE_TEST              | User
+INDXNIVA             | User
+COPDET_DYN           | User
+CFD_TE1              | User
+IR_TEST              | User
+zzz_test_pl          | User
+EQUIT_MCCY           | User
+DY_TR_CS_SLB         | User
+FRHE_EQS_LateTrades  | User
+SFPOSEQPD            | User
+DY_TR_CS_LNBR        | User
+SF_DIVS_REPORT       | User
+PL_CRASHTEST VOL     | User
+DY_TR_CS_ESFEQS      | User
+EQS_FFTb.0           | User
+CFD_TE               | User
+FIN_EQSBK_DYN        | User
+EQS_FFTb2            | User
+SF_FIN_PL            | User
+LOPBK2               | User
+PL/ BO_AUDIT report  | User
+ZRISK3               | User
+PL_CRASHTEST 30D     | User
+PL_CRASHTEST         | User
+SI_GRID2             | User
+DY_TR_PL_ERSEQS      | User
+CRDI_RISK_TP         | User
+DY_TR_CS_EQU         | User
+TCK_TRNRP_XG         | Murex Additional
+TCK_TRNRP_S1FX       | Murex Additional
+TCK_TRNRP_S1DL       | Murex Additional
+TCK_TRNRP_RT         | Murex Additional
+Not canceled         | User additional
+Basket search        | User additional
+DYN_SCF              | User additional
+MUREX                | User additional
+Buy/Sell             | User additional
+EQUIT View           | User additional
+Intraday CFDs        | User additional
+Z TEST               | User additional
+EXDATE_MR_TEST2      | User additional
+DYN_OPT_FIX          | User additional
+MUREXBO              | User additional
+TRNRP_DSPRIM         | User additional
+EQS Legs             | User additional
+RealizedTest         | User additional
+NOT CANCELED 2       | User additional
+OPT_LIVE_C/D         | User additional
+COUNTERPARTY         | User additional
+DYN_EQS_FIXING       | User additional
+DYN_CF_EQUT_IRS      | User additional
+MUREXCS              | User additional
+EQS_MOP              | User additional
+CFD TEST MICKE       | User additional
+TradeEvent           | User additional
+CCY_test             | User additional
+LEQSBK_DYN           | User additional
+CFD_RECON_CD         | User additional
+Terese               | User additional
+EQS_MOP2             | User additional
+FRA SL POSITION      | User additional
+TradeFlowsCS         | User additional
+LB_FIX               | User additional
+CRD View             | User additional
+TEST_EQS             | User additional
+DYN_CFD_MV           | User additional
+TEST_TRNRP_PL        | User additional
+ZRISK3               | User additional
+TEST MA              | User additional
+Check Loan Notional  | User additional
+TEST                 | User additional
+TRNRP_TEST           | User additional
+EQS FIXINGS          | User additional
+MPCC                 | User additional

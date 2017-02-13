@@ -19,8 +19,8 @@ output_file_name = datamart_table_analysis.xls
 log_file_name = datamart_table_analysis.log
 
 [performance]
-start_date = 2015-05-10
-end_date = 2015-09-30
+start_date = 2010-05-10
+end_date = 2016-09-30
 time_alert_processing_script = 00:01:00
 output_file_name = performance_analysis.xls
 log_file_name = performance_analysis.log

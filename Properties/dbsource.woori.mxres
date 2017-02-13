@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbSource>
+  <MxAnchors>
+    <MxAnchor Code="DBSOURCE">
+      <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
+      <DbIsDistributed/>
+      <DbServerType>oracle</DbServerType>
+      <DbHostName>maple</DbHostName>
+      <DbServerPortNumber>1521</DbServerPortNumber>
+      <DbServerOrServiceName>MAPLE</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>WOORI_PROD_MX</DbDatabaseOrSchemaName>
+      <DbDataModificationServerOrServiceName/>
+      <DbCharacterSet/>
+      <DbMxMaxTextSize>1024000</DbMxMaxTextSize>
+      <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
+      <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
+      <DbMxClientAccess>NATIVE_OCI</DbMxClientAccess>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
+      <DbDefaultCredential>
+        <DbUser>WOORI_PROD_MX</DbUser>
+        <DbPassword>00b100810090003600070066009600e10081002000e600470016</DbPassword>
+        <ReportingUser>WOORI_PROD_REP</ReportingUser>
+        <ReportingPassword>00b100810090003600070066009600e10081002000e600b600c70096</ReportingPassword>
+      </DbDefaultCredential>
+      <DbDefaultPool>
+        <DbPoolMaxSize>50</DbPoolMaxSize>
+        <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
+        <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
+      </DbDefaultPool>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourceoracle.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+    </MxAnchor>
+  </MxAnchors>
+</DbSource>

@@ -188,7 +188,8 @@ class Datamart_analysis_tool(Frame):
         performance_analysis_check_button_status = IntVar()
         performance_analysis_check_button = Checkbutton(root, text="Performance analysis",variable=performance_analysis_check_button_status)
         check_buttons.append(performance_analysis_check_button)
-        check_buttons_status["performance"] = performance_analysis_check_button_status
+
+
         #performance_analysis_run_button = Button(master, text='Run', command=self.load_performance_analysis)
         performance_analysis_config_button = Button(root, text='Config',command=lambda: self.create_config_frame('performance'))
         view_output_buttons['performance'] = Button(root, text='View Output',command=lambda: self.view_result_frame('performance'),state='disabled')

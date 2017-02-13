@@ -1,0 +1,385 @@
+2015-01-14 14:08:30,164 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:08:30,164 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:08:30,170 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:08:30,177 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:08:30,184 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:08:30,198 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:08:30,203 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:08:30,226 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:04,651 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:04,654 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:04,661 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:04,671 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:04,680 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:04,694 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:04,700 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:04,716 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:21,223 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:21,226 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:21,233 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:21,243 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:21,250 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:21,263 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:21,272 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:21,288 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:39,907 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:39,910 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:39,915 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:39,927 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:39,936 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:39,950 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:39,959 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:39,976 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:09:59,801 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:09:59,805 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:59,812 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:09:59,818 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:09:59,822 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:09:59,825 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:59,832 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:59,835 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:09:59,842 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:09:59,846 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:59,854 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:09:59,857 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:09:59,861 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:09:59,872 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:03,733 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:10:03,753 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:10:03,818 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:10:03,828 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:10:03,845 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:10:03,851 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:10:03,868 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:10:03,880 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:10:03,894 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:03,901 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:03,917 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:10:03,931 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:10:03,950 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:10:03,960 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:10:03,979 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:10:03,984 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:10:07,200 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:10:07,204 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:10:07,216 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:10:07,220 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:10:07,223 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:10:07,227 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:07,237 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:07,240 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:10:07,247 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:10:07,250 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:07,260 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:07,263 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:10:07,269 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:10:07,279 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:08,302 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:10:08,331 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:10:08,394 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:10:08,401 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:10:08,417 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:10:08,424 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:10:08,440 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:10:08,447 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:10:08,463 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:08,470 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:08,486 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:10:08,505 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:10:08,529 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:10:08,543 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:10:08,562 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:10:08,569 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:10:12,994 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:10:12,997 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:10:13,010 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:10:13,013 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:10:16,700 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:10:16,704 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:10:16,720 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:10:16,726 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:10:16,746 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:10:16,753 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:10:16,766 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:10:16,776 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:10:16,829 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:10:16,834 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:10:16,904 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:10:17,061 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:10:17,198 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:10:18,390 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:10:22,650 - io_utility - INFO - Start to create worksheet Processing script performance
+2015-01-14 14:10:22,654 - io_utility - INFO - End creating worksheet Processing script performance
+2015-01-14 14:10:22,665 - io_utility - INFO - Start to create worksheet Processing script detailed
+2015-01-14 14:10:22,671 - io_utility - INFO - End creating worksheet Processing script detailed
+2015-01-14 14:10:23,720 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:10:23,726 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:10:23,749 - io_utility - INFO - Start to create worksheet H_Field_Check
+2015-01-14 14:10:23,753 - io_utility - INFO - End creating worksheet H_Field_Check
+2015-01-14 14:10:23,769 - io_utility - INFO - Start to create worksheet H_DB_Field_Check
+2015-01-14 14:10:23,786 - io_utility - INFO - End creating worksheet H_DB_Field_Check
+2015-01-14 14:10:23,798 - io_utility - INFO - Start to create worksheet Sensi_Flag_Check
+2015-01-14 14:10:23,805 - io_utility - INFO - End creating worksheet Sensi_Flag_Check
+2015-01-14 14:10:23,858 - io_utility - INFO - Start to create worksheet Build_Mode_Check
+2015-01-14 14:10:23,861 - io_utility - INFO - End creating worksheet Build_Mode_Check
+2015-01-14 14:10:23,928 - io_utility - INFO - Start to create worksheet Field_Reference_Summary
+2015-01-14 14:10:24,052 - io_utility - INFO - End creating worksheet Field_Reference_Summary
+2015-01-14 14:10:24,220 - io_utility - INFO - Start to create worksheet Field_Reference_Detail
+2015-01-14 14:10:25,443 - io_utility - INFO - End creating worksheet Field_Reference_Detail
+2015-01-14 14:10:26,786 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:10:26,790 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:10:26,798 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\Input\source.csv with max field 203.
+2015-01-14 14:10:26,803 - io_utility - INFO - Start to create worksheet Field_Check
+2015-01-14 14:10:26,806 - io_utility - INFO - End creating worksheet Field_Check
+2015-01-14 14:10:26,811 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:26,819 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:26,822 - io_utility - INFO - Start to create worksheet Field_Inconsistent
+2015-01-14 14:10:26,829 - io_utility - INFO - End creating worksheet Field_Inconsistent
+2015-01-14 14:10:26,834 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:26,842 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\Input\source.csv.
+2015-01-14 14:10:26,845 - io_utility - INFO - Start to create worksheet No_Index_Table
+2015-01-14 14:10:26,849 - io_utility - INFO - End creating worksheet No_Index_Table
+2015-01-14 14:10:26,861 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-01-14 14:10:27,887 - io_utility - INFO - Start to create worksheet Dataset_consistency
+2015-01-14 14:10:27,911 - io_utility - INFO - End creating worksheet Dataset_consistency
+2015-01-14 14:10:27,979 - io_utility - INFO - Start to create worksheet Object_referred_Summary
+2015-01-14 14:10:27,986 - io_utility - INFO - End creating worksheet Object_referred_Summary
+2015-01-14 14:10:28,005 - io_utility - INFO - Start to create worksheet DM_Table_Duplication
+2015-01-14 14:10:28,010 - io_utility - INFO - End creating worksheet DM_Table_Duplication
+2015-01-14 14:10:28,029 - io_utility - INFO - Start to create worksheet Feeder_Duplication
+2015-01-14 14:10:28,040 - io_utility - INFO - End creating worksheet Feeder_Duplication
+2015-01-14 14:10:28,059 - io_utility - INFO - Start to create worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:28,065 - io_utility - INFO - End creating worksheet Batch_Feeder_Duplication
+2015-01-14 14:10:28,085 - io_utility - INFO - Start to create worksheet Scanner_Engine
+2015-01-14 14:10:28,098 - io_utility - INFO - End creating worksheet Scanner_Engine
+2015-01-14 14:10:28,115 - io_utility - INFO - Start to create worksheet Feeder_number
+2015-01-14 14:10:28,132 - io_utility - INFO - End creating worksheet Feeder_number
+2015-01-14 14:10:28,151 - io_utility - INFO - Start to create worksheet Filter_conflict
+2015-01-14 14:10:28,161 - io_utility - INFO - End creating worksheet Filter_conflict
+2015-01-14 14:13:56,019 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-01-14 14:13:56,025 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 203.
+2015-01-14 14:13:56,035 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 203.
+2015-01-14 14:13:56,053 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:56,063 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:56,082 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:56,091 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-01-14 14:13:56,128 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2015-02-02 14:24:55,446 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2015-02-02 14:24:55,447 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 203.
+2015-02-02 14:24:55,454 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 203.
+2015-02-02 14:24:55,460 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:55,470 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:55,479 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:55,486 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2015-02-02 14:24:55,497 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 16:53:15,019 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:53:15,022 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:54:03,019 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:54:03,019 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:54:26,789 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:54:26,790 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:54:26,796 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:54:48,726 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:54:48,726 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:55:51,634 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:55:51,637 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:56:19,601 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:56:19,605 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 16:56:19,611 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 16:56:19,612 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:56:19,615 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:56:23,723 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:56:23,732 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 16:56:23,737 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 16:56:23,750 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:56:25,808 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 16:56:25,813 - db_utility - INFO - Execute sql in batch
+2016-01-06 16:56:26,499 - db_utility - INFO - End write file.
+2016-01-06 16:56:26,502 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 16:56:26,506 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 16:58:56,187 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 16:58:56,211 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 16:58:56,217 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 16:58:56,217 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 16:58:56,220 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:03:56,033 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:03:56,043 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:03:56,049 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:03:56,051 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:03:56,055 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:03:59,187 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:03:59,196 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:03:59,198 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:03:59,203 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:04:01,344 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:04:01,346 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:04:02,029 - db_utility - INFO - End write file.
+2016-01-06 17:04:02,038 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:04:02,055 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:07:41,256 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:07:41,260 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:07:41,266 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:07:41,270 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:07:43,404 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:07:43,413 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:07:44,108 - db_utility - INFO - End write file.
+2016-01-06 17:07:44,111 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:07:44,111 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:07:46,204 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-06 17:07:46,207 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:07:47,724 - db_utility - INFO - End write file.
+2016-01-06 17:07:47,730 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:07:47,737 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:07:47,740 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:07:47,749 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:07:47,756 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:07:47,769 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:07:47,770 - datamart_table_analysis - INFO - Start to run create_content_page for 3 sheets.
+2016-01-06 17:07:47,770 - datamart_table_analysis - INFO - End running create_content_page for 3 sheets.
+2016-01-06 17:07:47,772 - io_utility - INFO - Start to create worksheet Content
+2016-01-06 17:07:47,775 - io_utility - INFO - End creating worksheet Content
+2016-01-06 17:07:47,786 - io_utility - INFO - Start to create worksheet Fields_Check
+2016-01-06 17:07:47,786 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:07:47,786 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:07:47,788 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:07:47,790 - io_utility - INFO - End creating worksheet Fields_Check
+2016-01-06 17:07:47,799 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:07:47,799 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:07:47,801 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:07:47,802 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:07:47,805 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:07:47,815 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2016-01-06 17:07:47,815 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:07:47,816 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:07:47,816 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:07:47,828 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2016-01-06 17:07:47,838 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 17:08:26,273 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:08:26,276 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:08:26,279 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:08:26,280 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:26,283 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:26,292 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:26,309 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:26,309 - datamart_table_analysis - INFO - Start to run create_content_page for 3 sheets.
+2016-01-06 17:08:26,312 - datamart_table_analysis - INFO - End running create_content_page for 3 sheets.
+2016-01-06 17:08:26,312 - io_utility - INFO - Start to create worksheet Content
+2016-01-06 17:08:26,315 - io_utility - INFO - End creating worksheet Content
+2016-01-06 17:08:26,326 - io_utility - INFO - Start to create worksheet Fields_Check
+2016-01-06 17:08:26,328 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:26,328 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:26,328 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:26,332 - io_utility - INFO - End creating worksheet Fields_Check
+2016-01-06 17:08:26,344 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:08:26,345 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:26,345 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:26,346 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:26,349 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:08:26,362 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2016-01-06 17:08:26,362 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:26,364 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:26,365 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:26,375 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2016-01-06 17:08:26,381 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 17:08:30,986 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:08:30,990 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:08:30,993 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-06 17:08:30,996 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:33,023 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv
+2016-01-06 17:08:33,026 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:08:33,707 - db_utility - INFO - End write file.
+2016-01-06 17:08:33,717 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsourcerep.mxres
+2016-01-06 17:08:33,720 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv.
+2016-01-06 17:08:35,839 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\dist\Input\dm_size.csv
+2016-01-06 17:08:35,842 - db_utility - INFO - Execute sql in batch
+2016-01-06 17:08:36,516 - db_utility - INFO - End write file.
+2016-01-06 17:08:36,517 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:08:36,520 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:08:36,522 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:36,525 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:36,530 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:36,536 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:08:36,536 - datamart_table_analysis - INFO - Start to run create_content_page for 3 sheets.
+2016-01-06 17:08:36,538 - datamart_table_analysis - INFO - End running create_content_page for 3 sheets.
+2016-01-06 17:08:36,539 - io_utility - INFO - Start to create worksheet Content
+2016-01-06 17:08:36,540 - io_utility - INFO - End creating worksheet Content
+2016-01-06 17:08:36,549 - io_utility - INFO - Start to create worksheet Fields_Check
+2016-01-06 17:08:36,551 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:36,552 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:36,553 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:36,555 - io_utility - INFO - End creating worksheet Fields_Check
+2016-01-06 17:08:36,565 - io_utility - INFO - Start to create worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:08:36,566 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:36,569 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:36,571 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:36,575 - io_utility - INFO - End creating worksheet #_Fields_REP_Vs_Dyn
+2016-01-06 17:08:36,591 - io_utility - INFO - Start to create worksheet No_Indexed_Tables
+2016-01-06 17:08:36,592 - io_utility - INFO - Start to add a sequence col to the content 
+2016-01-06 17:08:36,594 - io_utility - INFO - Finish to add a sequence col to the content 
+2016-01-06 17:08:36,595 - io_utility - INFO - Start to add review to the content
+2016-01-06 17:08:36,605 - io_utility - INFO - End creating worksheet No_Indexed_Tables
+2016-01-06 17:08:36,614 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-06 17:29:46,325 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:29:46,325 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:29:51,732 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:51,734 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:51,750 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:29:51,755 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:32,994 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:31:32,996 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:31:38,397 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:38,424 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:38,431 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:31:38,477 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:00,013 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-06 17:33:00,025 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-06 17:33:05,400 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:33:05,411 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-06 17:33:05,414 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:05,489 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:05,497 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:05,637 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-06 17:33:05,638 - datamart_table_analysis - INFO - Start to run create_content_page for 3 sheets.
+2016-01-06 17:33:05,638 - datamart_table_analysis - INFO - End running create_content_page for 3 sheets.
+2016-01-06 17:33:05,700 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-13 14:13:34,279 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 14:13:34,279 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 14:13:34,282 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\dist\properties\dbsource.mxres
+2016-01-13 14:13:34,286 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:57,759 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:30:57,760 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-13 17:30:57,789 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-13 17:30:57,792 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:57,825 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:57,835 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:57,874 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:30:57,875 - datamart_table_analysis - INFO - Start to run create_content_page for 3 sheets.
+2016-01-13 17:30:57,878 - datamart_table_analysis - INFO - End running create_content_page for 3 sheets.
+2016-01-13 17:30:57,996 - datamart_table_analysis - INFO - End running datamart_table_analysis.py.
+2016-01-13 17:32:06,785 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:32:06,786 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:32:51,483 - datamart_table_analysis - INFO - Start to run check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-13 17:32:51,505 - datamart_table_analysis - INFO - End running check_total_datamart_table_field_number on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv with max field 199.
+2016-01-13 17:32:51,506 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:51,529 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:32:51,542 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:34:34,743 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:34:34,744 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:34:34,773 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:34:34,776 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,357 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:37:24,358 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,388 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,390 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:24,424 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:36,828 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:37:36,831 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:36,871 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:36,872 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:37:36,915 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:38:44,512 - datamart_table_analysis - INFO - Start to run datamart_table_analysis.py.
+2016-01-13 17:38:44,513 - datamart_table_analysis - INFO - Start to execute SQL to load data from DB
+2016-01-13 17:39:29,009 - datamart_table_analysis - INFO - Start to run check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:39:29,042 - datamart_table_analysis - INFO - End running check_inconsistent_datamart_table_field on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:39:29,056 - datamart_table_analysis - INFO - Start to run check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.
+2016-01-13 17:39:29,088 - datamart_table_analysis - INFO - End running check_index on file D:\Dropbox\Project\DM_Analysis\dist\Input\source.csv.

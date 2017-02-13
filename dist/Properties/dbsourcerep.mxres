@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><DbSource>
+  <MxAnchors>
+    <MxAnchor Code="DBSOURCE">
+      <DbPath>public.mxres.common.dbconfig.dbsource.mxres</DbPath>
+      <DbIsDistributed/>
+      <DbServerType>sybase</DbServerType>
+      <DbHostName>mx296zn</DbHostName>
+      <DbServerPortNumber>4100</DbServerPortNumber>
+      <DbServerOrServiceName>MX296ZN</DbServerOrServiceName>
+      <DbDatabaseOrSchemaName>SEB_CONV2_DM</DbDatabaseOrSchemaName>
+      <DbDataModificationServerOrServiceName/>
+      <DbCharacterSet/>
+      <DbMxMaxTextSize>2048000</DbMxMaxTextSize>
+      <DbMxNetworkPacketSize>4096</DbMxNetworkPacketSize>
+      <DbMxTCPNoDelay>Y</DbMxTCPNoDelay>
+      <DbMxFetchNbBufferMin>100</DbMxFetchNbBufferMin>
+      <DbMxFetchNbBufferMax>500</DbMxFetchNbBufferMax>
+      <DbMxClientAccess>NATIVE_CTLIB</DbMxClientAccess>
+      <DbJDBCDriver MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriver" MxAnchorType="Replace"/>
+      <DbJDBCDriverClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCDriverClass" MxAnchorType="Replace"/>
+      <DbJDBCXADataSourceClass MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCXADataSourceClass" MxAnchorType="Replace"/>
+      <DbJDBCNetworkPacketSize>2048</DbJDBCNetworkPacketSize>
+      <DbDefaultCredential>
+        <DbUser>INSTAL</DbUser>
+        <DbPassword>0050009100510056008700570057</DbPassword>
+      </DbDefaultCredential>
+      <DbDefaultPool>
+        <DbPoolMaxSize>250</DbPoolMaxSize>
+        <DbJDBCPoolConnectionTimeOut>240000</DbJDBCPoolConnectionTimeOut>
+        <DbMxPoolConnectionTimeOut>240000</DbMxPoolConnectionTimeOut>
+      </DbDefaultPool>
+      <MxInclude MxAnchor="murex.mxres.common.dbconfig.dbsourcesybase.mxres#DbJDBCProperties" MxAnchorType="Include"/>
+    </MxAnchor>
+  </MxAnchors>
+</DbSource>

@@ -1,0 +1,3372 @@
+2015-10-12 11:57:48,323 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 11:57:48,323 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 11:57:48,323 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 11:57:48,361 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UIDINSTAL;PWD=INSTALL
+2015-10-12 11:57:58,608 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 11:57:58,608 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 11:57:58,608 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 11:57:58,615 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UIDINSTAL;PWD=INSTALL
+2015-10-12 11:58:06,526 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 11:58:06,526 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 11:58:06,528 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 11:58:06,533 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UIDINSTAL;PWD=INSTALL
+2015-10-12 11:58:45,457 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 11:58:45,457 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 11:58:45,459 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 11:58:45,463 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:47:43,815 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:47:43,819 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:47:43,819 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:47:43,857 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:49:06,927 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:49:06,936 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:49:06,937 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:49:06,941 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:49:15,509 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:49:15,510 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:49:15,512 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:49:15,529 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:50:16,260 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:50:16,262 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:50:16,262 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:50:16,267 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:50:16,267 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 14:50:16,269 - __main__ - DEBUG - Start to prepare SQL to be executed.
+2015-10-12 14:50:16,269 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:50:16,269 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 14:50:16,270 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 14:50:16,270 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 14:50:16,418 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= to_date('2012-09-10','YYYY-MM-DD') AND
+			M_DATE_SYS<= to_date('2012-09-15','YYYY-MM-DD')
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:52:41,717 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:52:41,717 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:52:41,719 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:52:41,723 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:52:41,724 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 14:52:41,724 - __main__ - DEBUG - Start to prepare SQL to be executed.
+2015-10-12 14:52:41,726 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:52:41,726 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 14:52:41,737 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 14:52:41,739 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 14:52:41,799 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= to_date('2012-09-10','YYYY-MM-DD') AND
+			M_DATE_SYS<= to_date('2012-09-15','YYYY-MM-DD')
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:53:35,598 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:53:35,598 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:53:35,599 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:53:35,605 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:53:35,605 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 14:53:35,605 - __main__ - DEBUG - Start to prepare SQL to be executed.
+2015-10-12 14:53:35,607 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:53:35,607 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 14:53:35,607 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 14:53:35,608 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 14:53:35,648 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= to_date('2012-09-10','YYYY-MM-DD') AND
+			M_DATE_SYS<= to_date('2012-09-15','YYYY-MM-DD')
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:53:52,877 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:53:52,878 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:53:52,878 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:53:52,891 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:53:52,891 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 14:53:52,892 - __main__ - DEBUG - Start to prepare SQL to be executed.
+2015-10-12 14:53:52,894 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:53:52,894 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 14:53:52,895 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 14:53:52,897 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 14:53:52,930 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= to_date('2012-09-10','YYYY-MM-DD') AND
+			M_DATE_SYS<= to_date('2012-09-15','YYYY-MM-DD')
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:54:12,914 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 14:54:12,914 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 14:54:12,914 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 14:54:12,920 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 14:54:12,920 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 14:54:12,921 - __main__ - DEBUG - Start to prepare SQL to be executed.
+2015-10-12 14:54:12,921 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 14:54:12,921 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 14:54:12,923 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 14:54:12,923 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 14:54:12,960 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= to_date('2012-09-10','YYYY-MM-DD') AND
+			M_DATE_SYS<= to_date('2012-09-15','YYYY-MM-DD')
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:01:04,480 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:01:04,480 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:01:04,480 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:01:04,486 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:01:04,487 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:01:04,487 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:01:04,489 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:01:04,489 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:01:04,489 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:01:04,490 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:01:04,533 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' 
+			M_DATE_SYS>= convert(DATE,'2012-09-10',120) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',120)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:17:39,154 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:17:39,155 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:17:39,155 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:17:39,161 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:17:39,161 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:17:39,163 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:17:39,163 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:17:39,164 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:17:39,164 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:17:39,167 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:17:39,206 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:17:41,086 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:17:41,088 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:17:41,151 - __main__ - INFO - End write file.
+2015-10-12 15:17:41,151 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:17:41,153 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:17:41,153 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:17:41,153 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:17:41,154 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:17:41,154 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:17:41,174 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:17:43,098 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:17:43,099 - __main__ - INFO - End execute SQL.
+2015-10-12 15:18:23,635 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:18:23,637 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:18:23,637 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:18:23,642 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:18:23,642 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:18:23,644 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:18:23,644 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:18:23,644 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:18:23,644 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:18:23,645 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:18:23,680 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:18:25,684 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:18:25,688 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:18:25,694 - __main__ - INFO - End write file.
+2015-10-12 15:18:25,696 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:18:25,697 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:18:25,697 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:18:25,698 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:18:25,700 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:18:25,700 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:18:25,730 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:18:27,743 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:18:27,744 - __main__ - INFO - End execute SQL.
+2015-10-12 15:19:22,167 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:19:22,167 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:19:22,168 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:19:22,177 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:19:22,177 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:19:22,178 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:22,178 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:22,180 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:22,180 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:22,180 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:22,210 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:24,125 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:19:24,125 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:24,128 - __main__ - INFO - End write file.
+2015-10-12 15:19:24,128 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:19:24,130 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:24,130 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:24,130 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:24,131 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:24,131 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:24,141 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:26,065 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:26,065 - __main__ - INFO - End execute SQL.
+2015-10-12 15:19:27,296 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:19:27,298 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:19:27,298 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:19:27,305 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:19:27,305 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:19:27,305 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:27,305 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:27,306 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:27,308 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:27,308 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:27,344 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:29,194 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:19:29,197 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:29,201 - __main__ - INFO - End write file.
+2015-10-12 15:19:29,203 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:19:29,203 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:29,204 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:29,207 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:29,207 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:29,210 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:29,230 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:31,091 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:31,094 - __main__ - INFO - End execute SQL.
+2015-10-12 15:19:47,042 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:19:47,042 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:19:47,043 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:19:47,049 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:19:47,049 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:19:47,049 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:47,051 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:47,051 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:47,052 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:47,052 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:47,082 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:48,986 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:19:48,987 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:48,993 - __main__ - INFO - End write file.
+2015-10-12 15:19:48,993 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:19:48,993 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:19:48,994 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:48,996 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2012-09-10.
+2015-10-12 15:19:48,996 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2012-09-15.
+2015-10-12 15:19:48,996 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:19:49,017 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2012-09-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2012-09-15',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:19:50,960 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:19:50,964 - __main__ - INFO - End execute SQL.
+2015-10-12 15:21:05,601 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:21:05,601 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:21:05,601 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:21:05,605 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:21:05,607 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:21:05,607 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:21:05,607 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:21:05,608 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2015-05-10.
+2015-10-12 15:21:05,608 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2015-09-30.
+2015-10-12 15:21:05,608 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:21:05,640 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2015-05-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2015-09-30',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:21:07,609 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-12 15:21:07,617 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:21:07,622 - __main__ - INFO - End write file.
+2015-10-12 15:21:07,628 - __main__ - INFO - Start to execute sybase SQL.
+2015-10-12 15:21:07,630 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:21:07,630 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:21:07,630 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2015-05-10.
+2015-10-12 15:21:07,630 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2015-09-30.
+2015-10-12 15:21:07,631 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:21:07,647 - __main__ - DEBUG - SQL to execute: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2015-05-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2015-09-30',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:21:09,756 - __main__ - INFO - Execute sql in batch
+2015-10-12 15:21:09,760 - __main__ - INFO - End execute SQL.
+2015-10-12 15:48:59,328 - __main__ - DEBUG - Initialize db_utility class
+2015-10-12 15:48:59,329 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-12 15:48:59,329 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-12 15:48:59,336 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2015-10-12 15:48:59,338 - __main__ - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\aaa.csv.
+2015-10-12 15:48:59,338 - __main__ - DEBUG - Start to prepare sybase SQL to be executed.
+2015-10-12 15:48:59,338 - __main__ - DEBUG - SQL to prepare 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= @START_DATE:D AND
+			M_DATE_SYS<= @END_DATE:D
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:48:59,338 - __main__ - DEBUG - Start to mapping sql_paramter START_DATE with value 2015-05-10.
+2015-10-12 15:48:59,338 - __main__ - DEBUG - Start to mapping sql_paramter END_DATE with value 2015-09-30.
+2015-10-12 15:48:59,339 - __main__ - DEBUG - End SQL prepartion.
+2015-10-12 15:48:59,380 - __main__ - DEBUG - SQL for file dump: 
+ SELECT
+	M_DATE_SYS,' | ',
+	M_DATE_CMP,' | ',
+	M_SCRPT_NAME,' | ',
+	T2.M_OBJECT_NAME,' | ',
+	T2.M_STEP,' | ',
+	M_USER,' | ',
+	M_GROUP,' | ',
+	M_DESK,' | ',
+	M_TIME_CPU,' | ',
+	M_TIME_SYB,' | ',
+	M_TIME_ELAP,' | ',
+    M_UNIT_NAME as OBJECT_TYPE
+FROM
+	(	SELECT
+			substring(M_COMMENT, CHARINDEX ('step',M_COMMENT)+5, CHARINDEX ('/',M_COMMENT)- 
+			CHARINDEX ('step', M_COMMENT) - 5) AS M_STEP,
+			M_USER,
+			M_GROUP,
+			M_DESK,
+			M_SCRPT_NAME,
+			M_DATE_SYS,
+			M_DATE_CMP,
+			M_TIME_CPU,
+			M_TIME_SYB,
+			M_TIME_ELAP,
+            M_UNIT_NAME
+		FROM
+			TRN_EODA_DBF 
+		WHERE
+			M_UNIT_NAME IN ('REP_BATCHES_EXT',
+			'REP_BATCHES_FEED') AND
+			M_START_END='END' AND
+			M_COMMENT LIKE '%step%' AND
+			M_DATE_SYS>= convert(DATE,'2015-05-10',111) AND
+			M_DATE_SYS<= convert(DATE,'2015-09-30',111)
+
+			) T1,
+	(	SELECT
+			T1.M_NAME ,
+			T2.M_ORDER+1    AS M_STEP,
+			T2.M_PARAM_LAB2 AS M_OBJECT_NAME 
+		FROM
+			PROCESS#PS_SCRPT_DBF T1,
+			PROCESS#PS_ITEM_DBF T2 
+		WHERE
+			T1.M_REF=T2.M_REF) T2 
+WHERE
+	T1.M_SCRPT_NAME=T2.M_NAME AND
+	convert(numeric(10,0), T1.M_STEP)=T2.M_STEP
+2015-10-12 15:49:01,505 - __main__ - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\aaa.csv
+2015-10-13 16:53:58,460 - __main__ - DEBUG - Initialize db_utility class
+2015-10-13 16:53:58,464 - __main__ - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2015-10-13 16:53:58,466 - __main__ - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2015-10-13 16:53:58,470 - __main__ - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=mx3375vm;Port=4100;DATABASE=HSBC_BSM_PARIS;UID=INSTAL;PWD=INSTALL
+2016-03-16 14:47:50,812 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 14:47:50,813 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 14:47:50,819 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 14:47:50,829 - db_utility - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2016-03-16 14:47:50,842 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 14:47:50,844 - db_utility - DEBUG - Start to prepare sybase SQL to be executed.
+2016-03-16 14:47:50,845 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 14:47:51,026 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 14:47:51,377 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 14:47:51,378 - db_utility - INFO - Execute sql in batch
+2016-03-16 14:47:52,250 - db_utility - INFO - End write file.
+2016-03-16 14:49:37,025 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 14:49:37,026 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 14:49:37,026 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 14:49:37,033 - db_utility - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=kaya;Port=7000;DATABASE=DBS_GOLD_MX;UID=INSTAL;PWD=INSTALL
+2016-03-16 14:49:37,033 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 14:49:37,035 - db_utility - DEBUG - Start to prepare sybase SQL to be executed.
+2016-03-16 14:49:37,035 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 14:49:37,075 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 14:49:37,361 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 14:49:37,364 - db_utility - INFO - Execute sql in batch
+2016-03-16 14:49:38,243 - db_utility - INFO - End write file.
+2016-03-16 14:51:19,539 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 14:51:19,539 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 14:51:19,540 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 14:51:19,548 - db_utility - DEBUG - connectionString parsed is : INT_REP_PG_MX/INT_REP_PG_MX@BALSAM:1521/balsam
+2016-03-16 14:51:19,558 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 14:51:19,559 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 14:51:19,559 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 14:52:18,766 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 14:52:18,766 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 14:52:18,767 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 14:52:18,772 - db_utility - DEBUG - connectionString parsed is : IBT_UAT_MX/IBT_UAT_MX@mx1070vm:1521/mx1070vm
+2016-03-16 14:52:18,773 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 14:52:18,773 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 14:52:18,773 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:08:32,990 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:08:32,992 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:08:32,992 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:08:32,999 - db_utility - DEBUG - connectionString parsed is : UOB_4A_COMMON_CCRS_MX/UOB_4A_COMMON_CCRS_MX@hp399srv:1521/HP399
+2016-03-16 15:08:33,000 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 15:08:33,000 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 15:08:33,000 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:08:35,601 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:08:36,134 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 15:08:36,137 - db_utility - INFO - Execute sql in batch
+2016-03-16 15:08:38,059 - db_utility - INFO - End write file.
+2016-03-16 15:17:05,549 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:17:05,549 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:17:05,549 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:17:30,683 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:17:30,683 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:17:30,684 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:20:18,380 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:20:18,380 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:20:18,381 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:20:44,059 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:20:44,059 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:20:44,059 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:20:44,068 - db_utility - DEBUG - connectionString parsed is : DRIVER={Adaptive Server Enterprise};SERVER=MX2679VM;Port=4100;DATABASE=HSBCXFOS_07FEV15_FXCLOSING;UID=INSTAL;PWD=INSTALL
+2016-03-16 15:20:44,069 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 15:20:44,069 - db_utility - DEBUG - Start to prepare sybase SQL to be executed.
+2016-03-16 15:20:44,069 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 15:20:57,138 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+ case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+case when	isnull(M_CLASS_TYPE,1) = 1 then 'SQL'			
+when	M_CLASS_TYPE = 	0	 then 	 M_CLASS 
+when	M_CLASS_TYPE = 	1	 then 	'Accounting'
+when	M_CLASS_TYPE = 	2	 then 	'Copy Creation'
+when	M_CLASS_TYPE = 	6	 then 	'Accounting (Reporting)'
+when	M_CLASS_TYPE = 	3	 then 	'External'
+when	M_CLASS_TYPE = 	4	 then 	'Payments'
+when	M_CLASS_TYPE = 	5	 then 	'Definition report'
+when	M_CLASS_TYPE = 	7	 then 	'Cash balances'
+when	M_CLASS_TYPE = 	8	 then 	'Simulation'
+when	M_CLASS_TYPE = 	9	 then 	'PL VAR'
+when	M_CLASS_TYPE = 	11	 then 	'Data Dictionary (Market Data Loader)'
+when	M_CLASS_TYPE = 	16	 then 	'Deliverable Cash'
+when	M_CLASS_TYPE = 	17	 then 	'Deliverable nostro cash'
+when	M_CLASS_TYPE = 	19	 then 	'Trade version audit'
+when	M_CLASS_TYPE = 	20	 then 	'Navigation templates'
+when	M_CLASS_TYPE = 	31	 then 	'Liquidation Positions'
+when	M_CLASS_TYPE = 	32	 then 	'Classification tree'
+when	M_CLASS_TYPE = 	46	 then 	'Corporate actions static data'
+when	M_CLASS_TYPE = 	47	 then 	'Hedge'
+when	M_CLASS_TYPE = 	50	 then 	'MLC'
+when	M_CLASS_TYPE = 	21	 then 	 'Collateral'
+when	M_CLASS_TYPE = 	41	 then 	 'MRA'
+else	convert(varchar(20), M_CLASS_TYPE)	end as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE*=T4.M_CREATION and T3.M_DYN_TABLE_DIR_TYPE*=T4.M_TYPE
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+
+
+2016-03-16 15:21:06,539 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 15:21:06,540 - db_utility - INFO - Execute sql in batch
+2016-03-16 15:21:07,700 - db_utility - INFO - End write file.
+2016-03-16 15:24:42,589 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:24:42,589 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:24:42,591 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:24:42,596 - db_utility - DEBUG - connectionString parsed is : TAISHIN_PROD_MX/TAISHIN_PROD_MX@oats:1521/OATS
+2016-03-16 15:24:42,598 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 15:24:42,598 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 15:24:42,598 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:24:42,714 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:24:43,132 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 15:24:43,135 - db_utility - INFO - Execute sql in batch
+2016-03-16 15:24:43,365 - db_utility - INFO - End write file.
+2016-03-16 15:56:22,062 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 15:56:22,062 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 15:56:22,062 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 15:56:22,072 - db_utility - DEBUG - connectionString parsed is : VIETIN_PROD_MX/VIETIN_PROD_MX@beans:1521/BEANS
+2016-03-16 15:56:22,072 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 15:56:22,072 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 15:56:22,073 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:56:22,171 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 15:56:23,141 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 15:56:23,142 - db_utility - INFO - Execute sql in batch
+2016-03-16 15:56:23,296 - db_utility - INFO - End write file.
+2016-03-16 18:55:34,749 - db_utility - DEBUG - Initialize db_utility class
+2016-03-16 18:55:34,749 - db_utility - DEBUG - Parse dbsource file D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres for connection string. 
+2016-03-16 18:55:34,750 - db_utility - INFO - Using passed in dbsource file: D:\Dropbox\Project\DM_Analysis\properties\dbsource.mxres
+2016-03-16 18:55:34,757 - db_utility - DEBUG - connectionString parsed is : WOORI_PROD_MX/WOORI_PROD_MX@maple:1521/MAPLE
+2016-03-16 18:55:34,759 - db_utility - INFO - Start to write result to file D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv.
+2016-03-16 18:55:34,760 - db_utility - DEBUG - Start to prepare oracle SQL to be executed.
+2016-03-16 18:55:34,760 - db_utility - DEBUG - SQL to prepare 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 18:55:40,072 - db_utility - DEBUG - SQL for file dump: 
+ select T1.M_LABEL AS TABLE_FIELD, ' | ',
+T1.M_MAX_LENGTH AS LENGTH, ' | ',
+T1.M_DECIMAL AS DEC, ' | ',
+CASE WHEN T1.M_TYPE = 78 THEN 'Numeric'
+WHEN T1.M_TYPE = 84 THEN 'Timestamp'
+WHEN T1.M_TYPE = 68 THEN 'Date'
+WHEN T1.M_TYPE = 71 THEN 'Numeric'
+WHEN T1.M_TYPE = 67 THEN 'Char'
+WHEN T1.M_TYPE = 73 THEN 'Numeric'
+WHEN T1.M_TYPE = 65 THEN 'American' end as FIELD_TYPE, ' | ',
+T2.M_LABEL AS DM_TABLE_NAME, ' | ',
+T3.M_DYN_TABLE AS DYN_TABLE_NAME, ' | ',
+CASE WHEN T3.M_DYN_TABLE_DIR_TYPE=0 then 'Murex'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=1 then 'Murex Additional'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=2 then 'User'
+ WHEN T3.M_DYN_TABLE_DIR_TYPE=3 then 'User Additional' end AS DYN_TABLE_CATEGORY, ' | ',
+T4.DYN_TYPE
+from RPO_DMSETUP_COLUMN_DBF T1, RPO_DMSETUP_TABLE_DBF T2, RPO_DMSETUP_DYN_TABLE_DBF T3,
+(select 0 as M_TYPE ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF1#TRN_DYND_DBF 
+union  
+select 2 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF2#TRN_DYND_DBF 
+union  
+select 1 as M_TYPE  ,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF3#TRN_DYND_DBF 
+union 
+select 3 AS M_TYPE,  M_CREATION,
+decode(M_CLASS_TYPE,NULL,'SQL',0, M_CLASS ,1,'Accounting',2,'Copy Creation',6,'Accounting (Reporting)',3,'External',4,'Payments',5,'Definition report',6,'Accounting report',7,'Cash balances',8,'Simulation',9,'PL VAR',11,'Data Dictionary (Market Data Loader)',16,'Deliverable Cash',17,'Deliverable nostro cash',19,'Trade version audit',20,'Navigation templates', 31,'Liquidation Positions',32,'Classification tree',46,'Corporate actions static data',47,'Hedge',50,'MLC', 21, 'Collateral', 41, 'MRA', nvl(to_char(M_CLASS_TYPE), ' ')) as DYN_TYPE
+from DYNDBF4#TRN_DYND_DBF) T4
+WHERE T2.M_REFERENCE=T1.M_RPO_DMSETUP_TABLE_REF and T2.M_REFERENCE=T3.M_REFERENCE and T3.M_DYN_TABLE=T4.M_CREATION(+) and T3.M_DYN_TABLE_DIR_TYPE=T4.M_TYPE(+)
+and T1.M_LABEL NOT IN ('MX_REF_JOB','IDENTITY','REF_DATA','TIMESTAMP')
+2016-03-16 18:55:51,540 - db_utility - INFO - Open dump file: D:\Dropbox\Project\DM_Analysis\Input\dm_definition.csv
+2016-03-16 18:55:51,543 - db_utility - INFO - Execute sql in batch
+2016-03-16 18:55:52,940 - db_utility - INFO - End write file.
